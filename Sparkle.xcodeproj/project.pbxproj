@@ -16,6 +16,27 @@
 		346AF81625A4F53B004117C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346AF81425A4F53B004117C0 /* LaunchScreen.storyboard */; };
 		346AF82125A4F53B004117C0 /* SparkleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF82025A4F53B004117C0 /* SparkleTests.swift */; };
 		346AF82C25A4F53B004117C0 /* SparkleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF82B25A4F53B004117C0 /* SparkleUITests.swift */; };
+		346AF83D25A4FD94004117C0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF83C25A4FD94004117C0 /* HomeView.swift */; };
+		346AF83E25A4FD94004117C0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF83C25A4FD94004117C0 /* HomeView.swift */; };
+		346AF83F25A4FD94004117C0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF83C25A4FD94004117C0 /* HomeView.swift */; };
+		346AF84425A50252004117C0 /* CalenderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF84325A50252004117C0 /* CalenderUIView.swift */; };
+		346AF84525A50252004117C0 /* CalenderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF84325A50252004117C0 /* CalenderUIView.swift */; };
+		346AF84625A50252004117C0 /* CalenderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF84325A50252004117C0 /* CalenderUIView.swift */; };
+		346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF84A25A50E45004117C0 /* ProfileUIView.swift */; };
+		346AF84C25A50E45004117C0 /* ProfileUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF84A25A50E45004117C0 /* ProfileUIView.swift */; };
+		346AF84D25A50E45004117C0 /* ProfileUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF84A25A50E45004117C0 /* ProfileUIView.swift */; };
+		346AF85225A50F48004117C0 /* WorkerListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85125A50F48004117C0 /* WorkerListUIView.swift */; };
+		346AF85325A50F48004117C0 /* WorkerListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85125A50F48004117C0 /* WorkerListUIView.swift */; };
+		346AF85425A50F48004117C0 /* WorkerListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85125A50F48004117C0 /* WorkerListUIView.swift */; };
+		346AF85925A52648004117C0 /* FloatingMenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85825A52648004117C0 /* FloatingMenuUIView.swift */; };
+		346AF85A25A52648004117C0 /* FloatingMenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85825A52648004117C0 /* FloatingMenuUIView.swift */; };
+		346AF85B25A52648004117C0 /* FloatingMenuUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85825A52648004117C0 /* FloatingMenuUIView.swift */; };
+		346AF86025A53BF5004117C0 /* SelectServiceUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */; };
+		346AF86125A53BF5004117C0 /* SelectServiceUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */; };
+		346AF86225A53BF5004117C0 /* SelectServiceUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */; };
+		346AF86725A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */; };
+		346AF86825A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */; };
+		346AF86925A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +72,13 @@
 		346AF82725A4F53B004117C0 /* SparkleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		346AF82B25A4F53B004117C0 /* SparkleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUITests.swift; sourceTree = "<group>"; };
 		346AF82D25A4F53B004117C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		346AF83C25A4FD94004117C0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		346AF84325A50252004117C0 /* CalenderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderUIView.swift; sourceTree = "<group>"; };
+		346AF84A25A50E45004117C0 /* ProfileUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUIView.swift; sourceTree = "<group>"; };
+		346AF85125A50F48004117C0 /* WorkerListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerListUIView.swift; sourceTree = "<group>"; };
+		346AF85825A52648004117C0 /* FloatingMenuUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenuUIView.swift; sourceTree = "<group>"; };
+		346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectServiceUIView.swift; sourceTree = "<group>"; };
+		346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalTimeFormUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +132,13 @@
 				346AF80625A4F53A004117C0 /* AppDelegate.swift */,
 				346AF80825A4F53A004117C0 /* SceneDelegate.swift */,
 				346AF80A25A4F53A004117C0 /* ContentView.swift */,
+				346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */,
+				346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */,
+				346AF85125A50F48004117C0 /* WorkerListUIView.swift */,
+				346AF84A25A50E45004117C0 /* ProfileUIView.swift */,
+				346AF84325A50252004117C0 /* CalenderUIView.swift */,
+				346AF85825A52648004117C0 /* FloatingMenuUIView.swift */,
+				346AF83C25A4FD94004117C0 /* HomeView.swift */,
 				346AF80F25A4F53B004117C0 /* Assets.xcassets */,
 				346AF81425A4F53B004117C0 /* LaunchScreen.storyboard */,
 				346AF81725A4F53B004117C0 /* Info.plist */,
@@ -269,10 +304,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346AF85225A50F48004117C0 /* WorkerListUIView.swift in Sources */,
+				346AF86725A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */,
+				346AF85925A52648004117C0 /* FloatingMenuUIView.swift in Sources */,
 				346AF80725A4F53A004117C0 /* AppDelegate.swift in Sources */,
 				346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */,
+				346AF84425A50252004117C0 /* CalenderUIView.swift in Sources */,
 				346AF80E25A4F53A004117C0 /* Sparkle.xcdatamodeld in Sources */,
+				346AF86025A53BF5004117C0 /* SelectServiceUIView.swift in Sources */,
+				346AF83D25A4FD94004117C0 /* HomeView.swift in Sources */,
 				346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */,
+				346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346AF84C25A50E45004117C0 /* ProfileUIView.swift in Sources */,
+				346AF86125A53BF5004117C0 /* SelectServiceUIView.swift in Sources */,
+				346AF85A25A52648004117C0 /* FloatingMenuUIView.swift in Sources */,
+				346AF86825A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */,
 				346AF82125A4F53B004117C0 /* SparkleTests.swift in Sources */,
+				346AF85325A50F48004117C0 /* WorkerListUIView.swift in Sources */,
+				346AF83E25A4FD94004117C0 /* HomeView.swift in Sources */,
+				346AF84525A50252004117C0 /* CalenderUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +337,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346AF84D25A50E45004117C0 /* ProfileUIView.swift in Sources */,
+				346AF86225A53BF5004117C0 /* SelectServiceUIView.swift in Sources */,
+				346AF85B25A52648004117C0 /* FloatingMenuUIView.swift in Sources */,
+				346AF86925A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */,
 				346AF82C25A4F53B004117C0 /* SparkleUITests.swift in Sources */,
+				346AF85425A50F48004117C0 /* WorkerListUIView.swift in Sources */,
+				346AF83F25A4FD94004117C0 /* HomeView.swift in Sources */,
+				346AF84625A50252004117C0 /* CalenderUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
