@@ -2,17 +2,17 @@
 
 ## Protocol Design 
 
-![Home screenshot](/doc/home.png)
+![Home screenshot](/doc/home.png){ width=25% }
 
-![calender screenshot](/doc/calender.png)
+![calender screenshot](/doc/calender.png){ width=25% }
 
-![profile screenshot](/doc/profile.png)
+![profile screenshot](/doc/profile.png){ width=25% }
 
-![worker list screenshot](/doc/workerlist.png)
+![worker list screenshot](/doc/workerlist.png){ width=25% }
 
-![Select Service  screenshot](/doc/select_service.png)
+![Select Service  screenshot](/doc/select_service.png){ width=25% }
 
-![Target Location Form screenshot](/doc/addresform.png)
+![Target Location Form screenshot](/doc/addresform.png){ width=25% }
 
-![Arrival form screenshot](/doc/arrivalform.png)
+![Arrival form screenshot](/doc/arrivalform.png){ width=25% }
 
