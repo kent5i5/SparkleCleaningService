@@ -2,7 +2,7 @@
 
 ## Protocol Design 
 
-![Home screenshot](/doc/home.png | width=300 )
+<img src="Home screenshot](/doc/home.png" width="300" >
 
 ![calender screenshot](/doc/calender.png){ width=25% }
 
