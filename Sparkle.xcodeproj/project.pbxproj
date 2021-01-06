@@ -37,6 +37,7 @@
 		346AF86725A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */; };
 		346AF86825A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */; };
 		346AF86925A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */; };
+		346AF88F25A54CA0004117C0 /* doc in Resources */ = {isa = PBXBuildFile; fileRef = 346AF88E25A54CA0004117C0 /* doc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		346AF85825A52648004117C0 /* FloatingMenuUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenuUIView.swift; sourceTree = "<group>"; };
 		346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectServiceUIView.swift; sourceTree = "<group>"; };
 		346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalTimeFormUIView.swift; sourceTree = "<group>"; };
+		346AF88225A54B6D004117C0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		346AF88E25A54CA0004117C0 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 		346AF7FA25A4F539004117C0 = {
 			isa = PBXGroup;
 			children = (
+				346AF88E25A54CA0004117C0 /* doc */,
+				346AF88225A54B6D004117C0 /* README.md */,
 				346AF80525A4F539004117C0 /* Sparkle */,
 				346AF81F25A4F53B004117C0 /* SparkleTests */,
 				346AF82A25A4F53B004117C0 /* SparkleUITests */,
@@ -278,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				346AF81625A4F53B004117C0 /* LaunchScreen.storyboard in Resources */,
+				346AF88F25A54CA0004117C0 /* doc in Resources */,
 				346AF81325A4F53B004117C0 /* Preview Assets.xcassets in Resources */,
 				346AF81025A4F53B004117C0 /* Assets.xcassets in Resources */,
 			);

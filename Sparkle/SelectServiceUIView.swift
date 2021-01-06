@@ -13,9 +13,6 @@ struct SelectServiceUIView: View {
     func changeView(){
         showSelectService = showSelectService + 1
         
-        if showSelectService == 4{
-            showSelectService = 0
-        }
     }
     
     var body: some View {
@@ -29,35 +26,10 @@ struct SelectServiceUIView: View {
             }
             
             if (showSelectService == 3){
-                VStack {
-                    Text("Where do you want cleaner go")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .bold()
-                        .foregroundColor(.green)
-                    Text("clear all")
-                        .font(.body)
-                        .fontWeight(.light)
-                        .frame(width: 300, alignment: .trailing)
-                        .foregroundColor(.green)
-                    
-                    TextField("Street", text: .constant(""))
-                        .frame(height: 40, alignment: .center)
-                        .cornerRadius(10)
-                        .border(Color.green)
-                        .padding(10)
-                    
-                    TextField("Apt/Unit", text: .constant(""))
-                        .frame(height: 40, alignment: .center)
-                        .cornerRadius(10)
-                        .border(Color.green)
-                        .padding(10)
-                    TextField("Zip Code", text: .constant(""))
-                        .frame(height: 40, alignment: .center)
-                        .cornerRadius(10)
-                        .border(Color.green)
-                        .padding(10)
-                    
-                }
+                LocationFormUIView()
+            }
+            if (showSelectService == 4){
+                Text("Done")
             }
             
             
@@ -140,5 +112,39 @@ struct SelectServiceSubView: View {
             
             
         }.frame(alignment: .leading).ignoresSafeArea()
+    }
+}
+
+struct LocationFormUIView: View {
+    var body: some View {
+        VStack {
+            Text("Where do you want cleaner go")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .bold()
+                .foregroundColor(.green)
+            Text("clear all")
+                .font(.body)
+                .fontWeight(.light)
+                .frame(width: 300, alignment: .trailing)
+                .foregroundColor(.green)
+            
+            TextField("Street", text: .constant(""))
+                .frame(height: 40, alignment: .center)
+                .cornerRadius(10)
+                .border(Color.green)
+                .padding(10)
+            
+            TextField("Apt/Unit", text: .constant(""))
+                .frame(height: 40, alignment: .center)
+                .cornerRadius(10)
+                .border(Color.green)
+                .padding(10)
+            TextField("Zip Code", text: .constant(""))
+                .frame(height: 40, alignment: .center)
+                .cornerRadius(10)
+                .border(Color.green)
+                .padding(10)
+            
+        }
     }
 }
