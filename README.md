@@ -2,7 +2,7 @@
 
 ## Protocol Design 
 
-<img src="Home screenshot](/doc/home.png" width="300" >
+<img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/home.png" width="300" >
 
 ![calender screenshot](/doc/calender.png){ width=25% }
 
