@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>383851109231-tapiecbimumn9af4n6e5oj0hdf06cfhr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.383851109231-tapiecbimumn9af4n6e5oj0hdf06cfhr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyClRzIh2EyqY9tnhSnaY76G8jlYzwlm1UU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>383851109231</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>yinkin.Sparkle</string>
+	<key>PROJECT_ID</key>
+	<string>yinkinelderservice</string>
+	<key>STORAGE_BUCKET</key>
+	<string>yinkinelderservice.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:383851109231:ios:0543306fba3bf82fc4a69a</string>
+	<key>DATABASE_URL</key>
+	<string>https://yinkinelderservice.firebaseio.com</string>
+</dict>
+</plist>
