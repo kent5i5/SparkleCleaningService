@@ -12,23 +12,16 @@
         <scene sceneID="v2I-UO-qAW">
             <objects>
                 <viewController storyboardIdentifier="FirebaseSignInViewController" id="Ylu-Rc-CHn" customClass="FirebaseSignInViewController" customModule="Sparkle" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3Fa-9B-w06">
+                    <view key="view" contentMode="scaleToFill" id="3Fa-9B-w06" customClass="≈">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzI-0v-akc">
-                                <rect key="frame" x="191" y="399" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="g2I-XP-nmm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNc-RZ-feP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-361" y="-13"/>
+            <point key="canvasLocation" x="-362.31884057971018" y="-13.392857142857142"/>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,7 @@ import SwiftUI
 import Firebase
 import GoogleSignIn
 
+
 class FirebaseSignInViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -19,6 +20,8 @@ class FirebaseSignInViewController: UIViewController {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
+
+        
     }
     
 
