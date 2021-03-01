@@ -12,11 +12,32 @@
         <scene sceneID="v2I-UO-qAW">
             <objects>
                 <viewController storyboardIdentifier="FirebaseSignInViewController" id="Ylu-Rc-CHn" customClass="FirebaseSignInViewController" customModule="Sparkle" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3Fa-9B-w06" customClass="≈">
+                    <view key="view" contentMode="scaleToFill" id="6n6-5E-cRw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="g2I-XP-nmm"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6X-8R-sKe" customClass="GIDSignInButton">
+                                <rect key="frame" x="1" y="74" width="412" height="57"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1Z-r8-Dne" customClass="GIDSignInButton">
+                                <rect key="frame" x="10" y="195" width="394" height="56"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="e5k-ky-9E5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="4" id="5tY-jx-kxz"/>
+                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="10" id="JG4-qY-ol1"/>
+                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="10" id="aLM-3h-B9i"/>
+                            <constraint firstItem="g6X-8R-sKe" firstAttribute="top" secondItem="e5k-ky-9E5" secondAttribute="top" constant="10" id="c8q-IH-OqQ"/>
+                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="g6X-8R-sKe" secondAttribute="trailing" constant="1" id="eyR-Nf-yZw"/>
+                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="4" id="fFH-Mm-r95"/>
+                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="10" id="kpd-QU-ByN"/>
+                            <constraint firstItem="g6X-8R-sKe" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="1" id="mBS-ei-42y"/>
+                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="top" secondItem="g6X-8R-sKe" secondAttribute="bottom" constant="40" id="wtj-eO-pqN"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNc-RZ-feP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

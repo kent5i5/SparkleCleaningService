@@ -10,6 +10,7 @@ target 'Sparkle' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod 'FirebaseFirestoreSwift'
+  pod 'FBSDKLoginKit'
 
   target 'SparkleTests' do
     inherit! :search_paths
