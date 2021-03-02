@@ -35,10 +35,14 @@ struct HomeView: View {
                         .padding()
                         .border(Color.green)
                     
+                    
+                    
                     NavigationLink(
-                        destination: FirebaseSignInViewControllerRepresentation(),
+                        destination:
+                            LoginView(),
                         label: {
                             Text("Sign In")
+                               
                         }).padding(.bottom)
                     
      
@@ -83,6 +87,7 @@ struct HomeView: View {
                 }.padding(0)
                 
             }
+            
         }
     }
 }

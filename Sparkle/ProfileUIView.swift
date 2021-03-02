@@ -47,7 +47,21 @@ struct ProfileUIView: View {
                         Text("Support")
                     }
                 }
-                //.navigationBarTitle("Settings")
+                .navigationBarTitle("Settings")
+                    .navigationBarItems(leading:
+                            Button(action: {
+                                print("SF Symbol button pressed...")
+                            }) {
+                                Image(systemName: "calendar.circle").imageScale(.large)
+                            },
+                        trailing:
+                            Button(action: {
+                                print("Edit button pressed...")
+                            }) {
+                                Text("Edit")
+                            }
+                    )
+
                 
             
             

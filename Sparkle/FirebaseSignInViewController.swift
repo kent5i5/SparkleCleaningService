@@ -16,6 +16,9 @@ private var isMFAEnabled = false
 
 class FirebaseSignInViewController: UIViewController {
     
+    @IBOutlet weak var fbview: UIView!
+    @IBOutlet weak var googleButton: GIDSignInButton!
+    
     var handle: AuthStateDidChangeListenerHandle?
     
     /** @var microsoftProvider
@@ -47,7 +50,23 @@ class FirebaseSignInViewController: UIViewController {
         
         
         let loginButton = FBLoginButton()
-        loginButton.center = view.center
+//        let v = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+//        v.backgroundColor = .red
+        loginButton.backgroundColor = .red
+        loginButton.frame =  CGRect(x: 10, y: 10, width: 394, height:40)
+        //fbview.addSubview(loginButton)
+//        loginButton.addConstraint(
+//            NSLayoutConstraint(item: v,
+//                               attribute: .leading,
+//                               relatedBy: .equal,
+//                               toItem: googleButton,
+//                               attribute: .leading,
+//                               multiplier: 1, constant: 0
+//                               )
+//        )
+        loginButton.center = fbview.center
+        
+        loginButton.permissions = ["public_profile", "email"]
         view.addSubview(loginButton)
 
         if let token = AccessToken.current,

@@ -16,12 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6X-8R-sKe" customClass="GIDSignInButton">
-                                <rect key="frame" x="1" y="74" width="412" height="57"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1Z-r8-Dne" customClass="GIDSignInButton">
+                                <rect key="frame" x="10" y="87" width="394" height="56"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1Z-r8-Dne" customClass="GIDSignInButton">
-                                <rect key="frame" x="10" y="195" width="394" height="56"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="fbview" translatesAutoresizingMaskIntoConstraints="NO" id="vBz-gv-uLe">
+                                <rect key="frame" x="20" y="175" width="374" height="53"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -31,14 +31,18 @@
                             <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="4" id="5tY-jx-kxz"/>
                             <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="10" id="JG4-qY-ol1"/>
                             <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="10" id="aLM-3h-B9i"/>
-                            <constraint firstItem="g6X-8R-sKe" firstAttribute="top" secondItem="e5k-ky-9E5" secondAttribute="top" constant="10" id="c8q-IH-OqQ"/>
-                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="g6X-8R-sKe" secondAttribute="trailing" constant="1" id="eyR-Nf-yZw"/>
                             <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="4" id="fFH-Mm-r95"/>
                             <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="10" id="kpd-QU-ByN"/>
-                            <constraint firstItem="g6X-8R-sKe" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="1" id="mBS-ei-42y"/>
-                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="top" secondItem="g6X-8R-sKe" secondAttribute="bottom" constant="40" id="wtj-eO-pqN"/>
+                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="vBz-gv-uLe" secondAttribute="trailing" constant="20" id="nGC-jU-nwx"/>
+                            <constraint firstItem="vBz-gv-uLe" firstAttribute="top" secondItem="C1Z-r8-Dne" secondAttribute="bottom" constant="8" symbolic="YES" id="q8R-53-Um4"/>
+                            <constraint firstItem="vBz-gv-uLe" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="20" id="x2D-kR-QC5"/>
+                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="top" secondItem="e5k-ky-9E5" secondAttribute="top" constant="43" id="xiL-Xv-ATt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fbview" destination="vBz-gv-uLe" id="Yao-7I-Wmt"/>
+                        <outlet property="googleButton" destination="C1Z-r8-Dne" id="FaI-AC-fr5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNc-RZ-feP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
