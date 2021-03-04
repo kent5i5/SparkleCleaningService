@@ -80,7 +80,10 @@ struct LoginView: View {
                     FirebaseSignInViewControllerRepresentation()
                 }
             }
+            
+            //Spacer()
         }.navigationTitle("Title")
+        
         
     }
 }

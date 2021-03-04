@@ -12,27 +12,38 @@ struct SelectServiceUIView: View {
     
     func changeView(){
         showSelectService = showSelectService + 1
-        
+
+    }
+    
+    func resetView(){
+        showSelectService = 1
     }
     
     var body: some View {
         ScrollView {
             
             if (showSelectService == 1){
-                SelectServiceSubView()
+                SelectServiceSubView(currentStep: $showSelectService)
             }
             if (showSelectService == 2){
-                ArrivalTimeFormUIView()
+                ArrivalTimeFormUIView(currentStep: $showSelectService)
             }
             
             if (showSelectService == 3){
-                LocationFormUIView()
+                LocationFormUIView(currentStep: $showSelectService)
             }
             if (showSelectService == 4){
-                Text("Done")
+                Button(action: {resetView()}){
+                    Text("DONE")
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                .border(Color.green)
+                .foregroundColor(.green)
+                .clipped()
+                .padding(10)
+                
             }
             
-            
+            if(showSelectService < 4){
                  Button(action: {changeView()}){
                      Text("NEXT")
                  }.frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -40,6 +51,7 @@ struct SelectServiceUIView: View {
                  .foregroundColor(.green)
                  .clipped()
                  .padding(10)
+            }
         }
     }
 }
@@ -51,6 +63,17 @@ struct SelectServiceUIView_Previews: PreviewProvider {
 }
 
 struct SelectServiceSubView: View {
+    @Binding var currentStep: Int
+    
+    func resetView(){
+        currentStep = 1
+
+    }
+    
+    init(currentStep: Binding<Int>){
+        self._currentStep = currentStep
+    }
+    
     var body: some View {
         VStack {
             Text("Which room do you want to be cleaned")
@@ -60,51 +83,54 @@ struct SelectServiceSubView: View {
                 .foregroundColor(.green)
                 .padding(0.0)
             
-            Text("clear all")
-                .font(.body)
-                .fontWeight(.light)
-                .frame(width: 300, alignment: .trailing)
-                .foregroundColor(.green)
+            Button(action: {resetView()}){
+                Text("clear all")
+                    .font(.body)
+                    .fontWeight(.light)
+                    .frame(width: 300, alignment: .trailing)
+                    .foregroundColor(.green)
+            }
+                
             
             HStack {
-                Image(systemName: "homekit")
+                Image(systemName: "arrow.clockwise.icloud.fill")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "homekit")
+                Image(systemName: "arrow.clockwise.icloud")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "homekit")
+                Image(systemName: "checkmark.icloud.fill")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
             }.foregroundColor(.green)
             
             HStack {
-                Image(systemName: "homekit")
+                Image(systemName: "icloud.and.arrow.down.fill")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "homekit")
+                Image(systemName: "icloud.circle")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "homekit")
+                Image(systemName: "icloud.fill")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
             }.foregroundColor(.green)
             HStack {
-                Image(systemName: "homekit")
+                Image(systemName: "key.icloud.fill")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "homekit")
+                Image(systemName: "link.icloud")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "homekit")
+                Image(systemName: "link.icloud.fill")
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
@@ -116,17 +142,32 @@ struct SelectServiceSubView: View {
 }
 
 struct LocationFormUIView: View {
+    @Binding var currentStep: Int
+    
+    func resetView(){
+        currentStep = 1
+
+    }
+    
+    init(currentStep: Binding<Int>){
+        self._currentStep = currentStep
+    }
+    
     var body: some View {
+        
         VStack {
             Text("Where do you want cleaner go")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .bold()
                 .foregroundColor(.green)
-            Text("clear all")
-                .font(.body)
-                .fontWeight(.light)
-                .frame(width: 300, alignment: .trailing)
-                .foregroundColor(.green)
+            
+            Button(action: {resetView()}){
+                Text("clear all")
+                    .font(.body)
+                    .fontWeight(.light)
+                    .frame(width: 300, alignment: .trailing)
+                    .foregroundColor(.green)
+            }
             
             TextField("Street", text: .constant(""))
                 .frame(height: 40, alignment: .center)

@@ -44,7 +44,7 @@ struct CalenderUIView: View {
                     }
                     
                     
-            }
+            }.navigationBarHidden(true)
         }
        
     }

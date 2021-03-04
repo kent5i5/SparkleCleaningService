@@ -19,10 +19,10 @@ struct HomeView: View {
                         .resizable()
                         .frame( height: 280, alignment: .center)
                         .background(Color.green)
-                        .padding(0)
+                        
                         
 
-                    Text("Hello, Marry!")
+                    Text("Welcome!")
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .leading)
@@ -44,49 +44,13 @@ struct HomeView: View {
                             Text("Sign In")
                                
                         }).padding(.bottom)
-                    
-     
-                    
-                    VStack {
-                        HStack {
-                            Image(systemName: "applescript")
-                                .resizable()
-                                .padding(10)
-                                .frame(width: 100, height: 100, alignment: .topLeading)
-                                
-                            
-                            Image(systemName: "homekit")
-                                .resizable()
-                                .padding(10)
-                                .frame(width: 100, height: 100, alignment: .topLeading)
-                            
-                            Image(systemName: "homekit")
-                                .resizable()
-                                .padding(10)
-                                .frame(width: 100, height: 100, alignment: .topLeading)
-                        }
-                      
-                    }
-                    
-                    HStack {
-                        Image(systemName: "homekit")
-                            .resizable()
-                            .padding(10)
-                            .frame(width: 100, height: 100, alignment: .topLeading)
-                        Image(systemName: "homekit")
-                            .resizable()
-                            .padding(10)
-                            .frame(width: 100, height: 100, alignment: .topLeading)
-                        Image(systemName: "homekit")
-                            .resizable()
-                            .padding(10)
-                            .frame(width: 100, height: 100, alignment: .topLeading)
-                    }
-                   
-                    
-                }.padding(0)
                 
-            }
+                    ServiceSelctionsUIView()
+                    
+                }.edgesIgnoringSafeArea(.top)
+                
+                
+            }.edgesIgnoringSafeArea(.top)
             
         }
     }

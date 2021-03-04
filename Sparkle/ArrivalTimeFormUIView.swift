@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct ArrivalTimeFormUIView: View {
+    @Binding var currentStep: Int
+    
+    func resetView(){
+        currentStep = 1
+
+    }
+    
+    init(currentStep: Binding<Int>){
+        self._currentStep = currentStep
+    }
     var body: some View {
         ScrollView {
             VStack {
@@ -15,11 +25,13 @@ struct ArrivalTimeFormUIView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .bold()
                     .foregroundColor(.green)
-                Text("clear all")
-                    .font(.body)
-                    .fontWeight(.light)
-                    .frame(width: 300, alignment: .trailing)
-                    .foregroundColor(.green)
+                Button(action: {resetView()}){
+                    Text("clear all")
+                        .font(.body)
+                        .fontWeight(.light)
+                        .frame(width: 300, alignment: .trailing)
+                        .foregroundColor(.green)
+                }
                 
                 TextField("Search", text: .constant(""))
                     .frame(height: 40, alignment: .center)
@@ -40,8 +52,8 @@ struct ArrivalTimeFormUIView: View {
     }
 }
 
-struct ArrivalTimeFormUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArrivalTimeFormUIView()
-    }
-}
+//struct ArrivalTimeFormUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ArrivalTimeFormUIView()
+//    }
+//}

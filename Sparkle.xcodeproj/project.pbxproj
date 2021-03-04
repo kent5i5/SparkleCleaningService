@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34119A3A25F0AE2700A98D62 /* ServiceSelctionsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34119A3925F0AE2700A98D62 /* ServiceSelctionsUIView.swift */; };
 		346AF80725A4F53A004117C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF80625A4F53A004117C0 /* AppDelegate.swift */; };
 		346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF80825A4F53A004117C0 /* SceneDelegate.swift */; };
 		346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF80A25A4F53A004117C0 /* ContentView.swift */; };
@@ -68,6 +69,7 @@
 		15F0D1C9EAD7113D43CAFAC2 /* Pods-Sparkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sparkle.debug.xcconfig"; path = "Target Support Files/Pods-Sparkle/Pods-Sparkle.debug.xcconfig"; sourceTree = "<group>"; };
 		1884E0302FA1ADBA7534EC31 /* Pods-Sparkle-SparkleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sparkle-SparkleUITests.debug.xcconfig"; path = "Target Support Files/Pods-Sparkle-SparkleUITests/Pods-Sparkle-SparkleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		30C51F4DD89484E10BBC370B /* Pods_Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34119A3925F0AE2700A98D62 /* ServiceSelctionsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSelctionsUIView.swift; sourceTree = "<group>"; };
 		346AF80325A4F539004117C0 /* Sparkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		346AF80625A4F53A004117C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		346AF80825A4F53A004117C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				346AF84325A50252004117C0 /* CalenderUIView.swift */,
 				346AF85825A52648004117C0 /* FloatingMenuUIView.swift */,
 				346AF83C25A4FD94004117C0 /* HomeView.swift */,
+				34119A3925F0AE2700A98D62 /* ServiceSelctionsUIView.swift */,
 				346AF80F25A4F53B004117C0 /* Assets.xcassets */,
 				346AF81425A4F53B004117C0 /* LaunchScreen.storyboard */,
 				346AF81725A4F53B004117C0 /* Info.plist */,
@@ -519,6 +522,7 @@
 				346AF83D25A4FD94004117C0 /* HomeView.swift in Sources */,
 				3477C54C25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift in Sources */,
 				34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */,
+				34119A3A25F0AE2700A98D62 /* ServiceSelctionsUIView.swift in Sources */,
 				346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */,
 				346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */,
 			);
