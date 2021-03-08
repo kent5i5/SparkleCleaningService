@@ -45,7 +45,7 @@ struct CalenderUIView: View {
                     
                     
             }.navigationBarHidden(true)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
        
     }
         

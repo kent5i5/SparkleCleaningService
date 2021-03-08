@@ -58,7 +58,7 @@ struct ContentView: View {
             }.edgesIgnoringSafeArea(.top)
             .accentColor(.green)
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
 
          
     }

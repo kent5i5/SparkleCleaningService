@@ -73,7 +73,7 @@ struct ProfileUIView: View {
                     }
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
             
        
     }
