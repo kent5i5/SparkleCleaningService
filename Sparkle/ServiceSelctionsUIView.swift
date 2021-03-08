@@ -9,41 +9,49 @@ import SwiftUI
 
 struct ServiceSelctionsUIView: View {
     var body: some View {
-        VStack {
-            HStack {
-                Image(systemName: "applescript")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
+            VStack {
+                HStack {
+                    NavigationLink(
+                        destination:
+                            SelectServiceUIView(),
+                        label: {
+                            VStack {
+                                Image(systemName: "applescript")
+                                    .resizable()
+                                    .padding(10)
+                                    .frame(width: 100, height: 100, alignment: .topLeading)
+                                    Text("DONE")
+                            }
+  
+                        }).foregroundColor(.green)
+     
+                    Image(systemName: "arkit")
+                        .resizable()
+                        .padding(10)
+                        .frame(width: 100, height: 100, alignment: .topLeading)
                     
+                    Image(systemName: "bonjour")
+                        .resizable()
+                        .padding(10)
+                        .frame(width: 100, height: 100, alignment: .topLeading)
+                }
                 
-                Image(systemName: "arkit")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                
-                Image(systemName: "bonjour")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
+                HStack {
+                    Image(systemName: "swift")
+                        .resizable()
+                        .padding(10)
+                        .frame(width: 100, height: 100, alignment: .topLeading)
+                    Image(systemName: "safari")
+                        .resizable()
+                        .padding(10)
+                        .frame(width: 100, height: 100, alignment: .topLeading)
+                    Image(systemName: "macpro.gen1")
+                        .resizable()
+                        .padding(10)
+                        .frame(width: 100, height: 100, alignment: .topLeading)
+                }
+              
             }
-            
-            HStack {
-                Image(systemName: "swift")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "safari")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "macpro.gen1")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-            }
-          
-        }
     }
 }
 

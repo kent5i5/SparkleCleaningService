@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SelectServiceUIView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var showSelectService = 1
     
     func changeView(){
@@ -20,39 +21,55 @@ struct SelectServiceUIView: View {
     }
     
     var body: some View {
-        ScrollView {
-            
-            if (showSelectService == 1){
-                SelectServiceSubView(currentStep: $showSelectService)
-            }
-            if (showSelectService == 2){
-                ArrivalTimeFormUIView(currentStep: $showSelectService)
-            }
-            
-            if (showSelectService == 3){
-                LocationFormUIView(currentStep: $showSelectService)
-            }
-            if (showSelectService == 4){
-                Button(action: {resetView()}){
-                    Text("DONE")
-                }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                .border(Color.green)
-                .foregroundColor(.green)
-                .clipped()
-                .padding(10)
+        NavigationView {
+            ScrollView {
                 
+                if (showSelectService == 1){
+                    SelectServiceSubView(currentStep: $showSelectService)
+                }
+                if (showSelectService == 2){
+                    ArrivalTimeFormUIView(currentStep: $showSelectService)
+                }
+                
+                if (showSelectService == 3){
+                    LocationFormUIView(currentStep: $showSelectService)
+                }
+                if (showSelectService == 4){
+                    GoHomeButton(currentStep: $showSelectService)
+//                                    .navigationBarItems(leading:
+//                                        Button(action: {
+//                                            self.presentationMode.wrappedValue.dismiss()
+//                                        }) {
+//                                            HStack {
+//                                                Image(systemName: "arrow.up.circle")
+//                                                    .foregroundColor(.black)
+//                                                Text("DONE")
+//                                                    .foregroundColor(.black)
+//                                            }
+//                                        }, trailing:
+//                                        HStack {
+//                                            Button("Favorites") {
+//                                                print("Favorites tapped!")
+//                                            }
+//
+//                                            Button("Specials") {
+//                                                print("Specials tapped!")
+//                                            }
+//                                        })
+                    
+                }
+                
+                if(showSelectService < 4){
+                     Button(action: {changeView()}){
+                         Text("NEXT")
+                     }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                     .border(Color.green)
+                     .foregroundColor(.green)
+                     .clipped()
+                     .padding(10)
+                }
             }
-            
-            if(showSelectService < 4){
-                 Button(action: {changeView()}){
-                     Text("NEXT")
-                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                 .border(Color.green)
-                 .foregroundColor(.green)
-                 .clipped()
-                 .padding(10)
-            }
-        }
+        }.navigationBarHidden(true)
     }
 }
 
@@ -188,4 +205,37 @@ struct LocationFormUIView: View {
             
         }
     }
+}
+
+struct GoHomeButton: View {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var currentStep: Int
+    
+
+    func resetView(){
+        currentStep = 1
+
+    }
+    var body: some View {
+
+            VStack {
+                NavigationLink(
+                    destination:
+                        HomeView(),
+                    label: {
+                        Text("DONE")
+
+                    }).transition(.move(edge: .bottom))
+                
+                Button(action: {resetView()}){
+                    Text("reset")
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                .border(Color.green)
+                .foregroundColor(.green)
+                .clipped()
+                .padding(10)
+            }
+        }
+
+
 }
