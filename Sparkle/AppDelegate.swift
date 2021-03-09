@@ -13,7 +13,8 @@ import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
-
+    static var orientationLock =
+    UIInterfaceOrientationMask.portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,6 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         return true
         
         
+    }
+
+
+    func application(_ application: UIApplication,
+    supportedInterfaceOrientationsFor window:
+    UIWindow?) -> UIInterfaceOrientationMask {
+    return AppDelegate.orientationLock
     }
 
     // MARK: UISceneSession Lifecycle

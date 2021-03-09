@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var isPresented = false
     @State var password: String = ""
     
     var body: some View {
@@ -42,10 +43,24 @@ struct HomeView: View {
                             LoginView(),
                         label: {
                             Text("Sign In")
+
+                        }).padding(.bottom)
+
+                    ServiceSelctionsUIView()
+                    
+                    NavigationLink(
+                        destination:
+                            videoView(),
+                        label: {
+                            Text("Video")
                                
                         }).padding(.bottom)
-                
-                    ServiceSelctionsUIView()
+                    
+                 
+                    Button("Present!") {
+                               isPresented.toggle()
+                           }
+                           .fullScreenCover(isPresented: $isPresented, content: videoView.init)
                     
                 }.edgesIgnoringSafeArea(.top)
                 
@@ -53,6 +68,7 @@ struct HomeView: View {
             }.edgesIgnoringSafeArea(.top)
             
         }.navigationViewStyle(StackNavigationViewStyle())
+    
     }
 }
 

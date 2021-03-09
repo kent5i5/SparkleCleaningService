@@ -9,14 +9,16 @@ import SwiftUI
 
 
 struct LoginView: View {
+
     @State private var isPresented = false
     
     @State private var Email = ""
     @State private var Password = ""
     var body: some View {
-        
-        
+
         VStack {
+
+            
             Image("sparkle")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -81,8 +83,11 @@ struct LoginView: View {
                 }
             }
             
+
             //Spacer()
-        }.navigationTitle("Title")
+        }
+        //.navigationTitle("Title")
+        .navigationBarHidden(false)
         
         
     }
