@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileUIView: View {
+    @EnvironmentObject var settings: SettingsObject
     @State var username = ""
     
     var body: some View {
@@ -22,30 +23,55 @@ struct ProfileUIView: View {
 //                    }
                     
                     
-                    NavigationLink(destination: CalenderUIView()) {
-                        Text("account")
-                    }
+                    NavigationLink(destination: AccountView(),
+                            label: {
+                                Text("account")
+                                   
+                            }).padding(.bottom)
+                        
                 
-                    NavigationLink(destination: CalenderUIView()) {
-                        Text("Change password")
-                    }
-                    NavigationLink(destination: CalenderUIView()) {
-                        Text("Payment")
-                    }
+                    NavigationLink(destination: ChangePasswordView(),
+                            label: {
+                                Text("Change password")
+                                   
+                            }).padding(.bottom)
+            
+                    NavigationLink(destination: PaymentView(),
+                            label: {
+                                Text("Payment")
+                                   
+                            }).padding(.bottom)
+                        
                     
-                    NavigationLink(destination: CalenderUIView()) {
-                        Text("Location")
-                    }
-                    NavigationLink(destination: CalenderUIView()) {
-                        Text("Promo")
-                    }
-                    NavigationLink(destination: CalenderUIView()) {
-                        Text("Notification")
-                    }
+                    NavigationLink(destination: LocationOptionView(),
+                            label: {
+                                Text("Location")
+                                   
+                            }).padding(.bottom)
+                        
+                    NavigationLink(destination: PromoView(),
+                            label: {
+                                Text("Promo")
+                                   
+                            }).padding(.bottom)
+
+                    NavigationLink(destination: NotificationOptionView(),
+                            label: {
+                                Text("Notification")
+
+                            }).padding(.bottom)
+                        
+//                        Section(header: Text("Notifications settings")) {
+//                                            Toggle(isOn: $settings.isNotificationEnabled) {
+//                                                Text("Notification:")
+//                                            }
+//                                        }
+// 
                     
-                    NavigationLink(destination: CalenderUIView()) {
+                    NavigationLink(destination: SupportView(),label: {
                         Text("Support")
-                    }
+                           
+                    }).padding(.bottom)
                 }
                 .navigationBarTitle("Settings")
                     .navigationBarItems(leading:

@@ -42,6 +42,14 @@
 		346AF88F25A54CA0004117C0 /* doc in Resources */ = {isa = PBXBuildFile; fileRef = 346AF88E25A54CA0004117C0 /* doc */; };
 		3477C54C25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */; };
 		3477C55425E2FD6C00B0F2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477C55325E2FD6C00B0F2E2 /* Main.storyboard */; };
+		34988F8F25F8822600125E01 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988F8E25F8822600125E01 /* AccountView.swift */; };
+		34988F9725F8826100125E01 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988F9625F8826100125E01 /* ChangePasswordView.swift */; };
+		34988F9C25F8827A00125E01 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988F9B25F8827A00125E01 /* PaymentView.swift */; };
+		34988FA125F8829B00125E01 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FA025F8829B00125E01 /* SupportView.swift */; };
+		34988FA625F882C200125E01 /* LocationOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FA525F882C200125E01 /* LocationOptionView.swift */; };
+		34988FAB25F882D600125E01 /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FAA25F882D600125E01 /* PromoView.swift */; };
+		34988FB225F88B6C00125E01 /* SettingsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FB125F88B6C00125E01 /* SettingsObject.swift */; };
+		34988FB825F891B200125E01 /* NotificationOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FB725F891B100125E01 /* NotificationOptionView.swift */; };
 		34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A81C3B25EDFB96006BEB40 /* LoginView.swift */; };
 		34AE775B25E2EE97009F64F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */; };
 		8E1BD135863F9F86CA34CECD /* Pods_Sparkle_SparkleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60233BCCF9079513DBF3081B /* Pods_Sparkle_SparkleUITests.framework */; };
@@ -98,6 +106,14 @@
 		346AF88E25A54CA0004117C0 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 		3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInViewController.swift; sourceTree = "<group>"; };
 		3477C55325E2FD6C00B0F2E2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		34988F8E25F8822600125E01 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		34988F9625F8826100125E01 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		34988F9B25F8827A00125E01 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		34988FA025F8829B00125E01 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
+		34988FA525F882C200125E01 /* LocationOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationOptionView.swift; sourceTree = "<group>"; };
+		34988FAA25F882D600125E01 /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
+		34988FB125F88B6C00125E01 /* SettingsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsObject.swift; sourceTree = "<group>"; };
+		34988FB725F891B100125E01 /* NotificationOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionView.swift; sourceTree = "<group>"; };
 		34A81C3B25EDFB96006BEB40 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E09A43EA356D88B249AB3F8 /* Pods-SparkleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkleTests.debug.xcconfig"; path = "Target Support Files/Pods-SparkleTests/Pods-SparkleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +192,8 @@
 		346AF80525A4F539004117C0 /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
+				34988FB025F88B3800125E01 /* model */,
+				34988F8D25F8820400125E01 /* profileViews */,
 				34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */,
 				3477C55325E2FD6C00B0F2E2 /* Main.storyboard */,
 				346AF80625A4F53A004117C0 /* AppDelegate.swift */,
@@ -225,6 +243,28 @@
 				346AF82D25A4F53B004117C0 /* Info.plist */,
 			);
 			path = SparkleUITests;
+			sourceTree = "<group>";
+		};
+		34988F8D25F8820400125E01 /* profileViews */ = {
+			isa = PBXGroup;
+			children = (
+				34988F8E25F8822600125E01 /* AccountView.swift */,
+				34988F9625F8826100125E01 /* ChangePasswordView.swift */,
+				34988F9B25F8827A00125E01 /* PaymentView.swift */,
+				34988FA025F8829B00125E01 /* SupportView.swift */,
+				34988FA525F882C200125E01 /* LocationOptionView.swift */,
+				34988FAA25F882D600125E01 /* PromoView.swift */,
+				34988FB725F891B100125E01 /* NotificationOptionView.swift */,
+			);
+			path = profileViews;
+			sourceTree = "<group>";
+		};
+		34988FB025F88B3800125E01 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				34988FB125F88B6C00125E01 /* SettingsObject.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		BBB834FC2ACD5A8868C809E7 /* Frameworks */ = {
@@ -514,20 +554,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34988FAB25F882D600125E01 /* PromoView.swift in Sources */,
 				346AF85225A50F48004117C0 /* WorkerListUIView.swift in Sources */,
+				34988F9C25F8827A00125E01 /* PaymentView.swift in Sources */,
 				346AF86725A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */,
 				346AF85925A52648004117C0 /* FloatingMenuUIView.swift in Sources */,
+				34988F9725F8826100125E01 /* ChangePasswordView.swift in Sources */,
 				346AF80725A4F53A004117C0 /* AppDelegate.swift in Sources */,
+				34988F8F25F8822600125E01 /* AccountView.swift in Sources */,
 				346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */,
 				346AF84425A50252004117C0 /* CalenderUIView.swift in Sources */,
+				34988FA125F8829B00125E01 /* SupportView.swift in Sources */,
 				346AF80E25A4F53A004117C0 /* Sparkle.xcdatamodeld in Sources */,
 				346AF86025A53BF5004117C0 /* SelectServiceUIView.swift in Sources */,
+				34988FA625F882C200125E01 /* LocationOptionView.swift in Sources */,
 				346AF83D25A4FD94004117C0 /* HomeView.swift in Sources */,
+				34988FB225F88B6C00125E01 /* SettingsObject.swift in Sources */,
 				3477C54C25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift in Sources */,
 				3451A70325F72B2900D79E8F /* videoView.swift in Sources */,
 				34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */,
 				34119A3A25F0AE2700A98D62 /* ServiceSelctionsUIView.swift in Sources */,
 				346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */,
+				34988FB825F891B200125E01 /* NotificationOptionView.swift in Sources */,
 				346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ import AVKit
 
 struct videoView: View {
     @Environment(\.presentationMode) var presentationMode
-    private let player = AVPlayer(url:  URL(string: "")!)
+    private let player = AVPlayer(url:  URL(string: "https://a.com")!)
     
 
     var body: some View {
