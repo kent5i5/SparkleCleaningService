@@ -52,6 +52,7 @@
 		34988FB825F891B200125E01 /* NotificationOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FB725F891B100125E01 /* NotificationOptionView.swift */; };
 		34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A81C3B25EDFB96006BEB40 /* LoginView.swift */; };
 		34AE775B25E2EE97009F64F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */; };
+		34EFABC025F9EE4500DAD70D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EFABBF25F9EE4500DAD70D /* User.swift */; };
 		8E1BD135863F9F86CA34CECD /* Pods_Sparkle_SparkleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60233BCCF9079513DBF3081B /* Pods_Sparkle_SparkleUITests.framework */; };
 		B3E7E5A06E65626F11EDAF75 /* Pods_Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C51F4DD89484E10BBC370B /* Pods_Sparkle.framework */; };
 		F0B67E862C7D0EB99973B2D4 /* Pods_SparkleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83DC558FBA36C9BD7CC60BC /* Pods_SparkleTests.framework */; };
@@ -116,6 +117,7 @@
 		34988FB725F891B100125E01 /* NotificationOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionView.swift; sourceTree = "<group>"; };
 		34A81C3B25EDFB96006BEB40 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		34EFABBF25F9EE4500DAD70D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3E09A43EA356D88B249AB3F8 /* Pods-SparkleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkleTests.debug.xcconfig"; path = "Target Support Files/Pods-SparkleTests/Pods-SparkleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		533302F51D9A07FBE39923B6 /* Pods-SparkleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkleTests.release.xcconfig"; path = "Target Support Files/Pods-SparkleTests/Pods-SparkleTests.release.xcconfig"; sourceTree = "<group>"; };
 		60233BCCF9079513DBF3081B /* Pods_Sparkle_SparkleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sparkle_SparkleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				34988FB125F88B6C00125E01 /* SettingsObject.swift */,
+				34EFABBF25F9EE4500DAD70D /* User.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				3451A70325F72B2900D79E8F /* videoView.swift in Sources */,
 				34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */,
 				34119A3A25F0AE2700A98D62 /* ServiceSelctionsUIView.swift in Sources */,
+				34EFABC025F9EE4500DAD70D /* User.swift in Sources */,
 				346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */,
 				34988FB825F891B200125E01 /* NotificationOptionView.swift in Sources */,
 				346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */,

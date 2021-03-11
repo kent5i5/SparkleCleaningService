@@ -9,11 +9,18 @@ import SwiftUI
 
 
 struct LoginView: View {
-
+    @EnvironmentObject var user: User
     @State private var isPresented = false
     
-    @State private var Email = ""
-    @State private var Password = ""
+    @State private var email = ""
+    @State private var password = ""
+    
+    func registerUser() {
+      if email.isEmpty == false {
+        user.profile = Profile(nameArg: $email, passwordArg: $password)
+        user.isRegistered = true
+      }
+    }
     var body: some View {
 
         VStack {
@@ -29,7 +36,7 @@ struct LoginView: View {
                 
 
             VStack {
-                TextField("Email/Phone", text: $Email)
+                TextField("Email/Phone", text: $email)
                     .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .padding(EdgeInsets(top:8, leading: 16,
                                         bottom:8, trailing:0 ))
@@ -42,8 +49,11 @@ struct LoginView: View {
                 
                 Spacer()
                     .frame(height: 100)
+                
+                SecureField.init("Password", text: $password)
+                   // .textFieldStyle(RoundedBorderTextFieldStyle)
                     
-                TextField("Password", text: $Password)
+                TextField("Password", text: $password)
                     .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
                     .padding(EdgeInsets(top:8, leading: 16,
