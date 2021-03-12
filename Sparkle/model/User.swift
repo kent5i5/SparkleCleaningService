@@ -24,24 +24,27 @@ struct Profile{
     }
 }
 
-final internal class User {
+final internal class User  {
     @Published var isRegistered: Bool  = false
-    let willChange  = PassthroughSubject<User, Never>()
+    @Published var name: String
+    @Published var password: String
+    //let willChange  = PassthroughSubject<User, Never>()
     
-    var profile: Profile = Profile(){
-        willSet {
-            willChange.send(self)
-        }
-    }
+//    var profile: Profile = Profile(){
+//        willSet {
+//            willChange.send(self)
+//        }
+//    }
     
-    init(name: String, password: String){
-        self.profile.name = name
-        self.profile.password = password
+    internal init(name: String, password: String){
+//        self.profile.name = name
+//        self.profile.password = password
+        self.name =
     }
     
     init() {
-        self.profile.name = ""
-        self.profile.password = ""
+//        self.profile.name = ""
+//        self.profile.password = ""
     }
 }
 

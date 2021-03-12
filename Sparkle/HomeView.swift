@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var appData: User
     @State private var isPresented = false
     @State var password: String = ""
     
@@ -40,7 +41,7 @@ struct HomeView: View {
                     
                     NavigationLink(
                         destination:
-                            LoginView(),
+                            LoginView(appData: appData),
                         label: {
                             Text("Sign In")
 
@@ -74,7 +75,8 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        let user = User()
+        HomeView(appData: user)
             .previewDevice("iPhone 11")
     }
 }

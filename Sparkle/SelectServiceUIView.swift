@@ -219,13 +219,13 @@ struct GoHomeButton: View {
     var body: some View {
 
             VStack {
-                NavigationLink(
-                    destination:
-                        HomeView(),
-                    label: {
-                        Text("DONE")
-
-                    }).transition(.move(edge: .bottom))
+//                NavigationLink(
+//                    destination:
+//                        HomeView(),
+//                    label: {
+//                        Text("DONE")
+//
+//                    }).transition(.move(edge: .bottom))
                 
                 Button(action: {resetView()}){
                     Text("reset")

@@ -9,15 +9,22 @@ import SwiftUI
 
 
 struct LoginView: View {
-    @EnvironmentObject var user: User
+    //@EnvironmentObject var user: User
+    @ObservedObject var appData: User
+    
     @State private var isPresented = false
     
     @State private var email = ""
     @State private var password = ""
     
+//    init(){
+//        email = appData.name
+//        password = appData.password
+//    }
+    
     func registerUser() {
       if email.isEmpty == false {
-        user.profile = Profile(nameArg: $email, passwordArg: $password)
+        //user.profile = Profile(nameArg: $email, passwordArg: $password)
         user.isRegistered = true
       }
     }
@@ -51,9 +58,6 @@ struct LoginView: View {
                     .frame(height: 100)
                 
                 SecureField.init("Password", text: $password)
-                   // .textFieldStyle(RoundedBorderTextFieldStyle)
-                    
-                TextField("Password", text: $password)
                     .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
                     .padding(EdgeInsets(top:8, leading: 16,
@@ -64,6 +68,7 @@ struct LoginView: View {
                                 .foregroundColor(.green))
                    
                     .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+              
                 
                 HStack {
                     Text("Forget your password?")
@@ -76,6 +81,16 @@ struct LoginView: View {
                             .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                     }
                 }
+                
+                Button(action:  {
+                    self.appData.name = email
+                    self.appData.password = password
+                }){
+                    Text("Save")
+                        .font(.footnote)
+                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                }
+                
             }.padding()
                 
             
@@ -103,8 +118,14 @@ struct LoginView: View {
     }
 }
 
+//let serviceSession = serviceStore()
+
+let user = User()
+#if DEBUG
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(appData: user)
+            //.environmentObject()
     }
 }
+#endif

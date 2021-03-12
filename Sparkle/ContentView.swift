@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var appData: User
     
-    init() {
+    init(appData: User) {
             UITabBar.appearance().backgroundColor = UIColor(Color(red: 10/255, green: 255/255, blue: 10/255))
         //UINavigationBar.appearance().backgroundColor = .green
+        self.appData = User()
         
     }
     var body: some View {
@@ -32,7 +34,7 @@ struct ContentView: View {
             TabView {
 
                 
-                HomeView().tabItem {
+                HomeView(appData: appData).tabItem {
                     Image(systemName:"homekit")
                         .resizable()
 
@@ -66,7 +68,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let user = User()
+        ContentView(appData: user)
             .previewDevice("iPhone 11")
             
     }
