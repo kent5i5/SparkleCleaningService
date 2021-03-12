@@ -37,14 +37,14 @@ final internal class User  {
 //    }
     
     internal init(name: String, password: String){
-//        self.profile.name = name
-//        self.profile.password = password
-        self.name =
+
+        self.name = name
+        self.password = password
     }
     
     init() {
-//        self.profile.name = ""
-//        self.profile.password = ""
+        self.name = ""
+        self.password = ""
     }
 }
 
