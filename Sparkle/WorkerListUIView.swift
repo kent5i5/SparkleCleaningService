@@ -58,7 +58,7 @@ struct WorkerListUIView: View {
                                 .frame(width: 200, height: 50, alignment: .leading)
                                 .foregroundColor(.green)
                             
-                            Text("jfeoajf e;afl;ajfo;aj;oefja; jef;j foaejf ajel;jfa;ej;lafje;lfaje;ljal;fje;je;")
+                            Text("more")
                                 .frame(width: 200, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(.green)
                                 

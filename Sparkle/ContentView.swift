@@ -24,8 +24,8 @@ struct ContentView: View {
                             .toolbar { // <2>
                                 ToolbarItem(placement: .principal) { // <3>
                                     VStack {
-//                                        Text("Title").font(.headline)
-//                                        Text("Subtitle").font(.subheadline)
+                                        Text("Title").font(.headline)
+                                        Text("Subtitle").font(.subheadline)
                                     }
                                 }
                         }

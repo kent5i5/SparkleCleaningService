@@ -13,7 +13,13 @@ struct AccountView: View {
             VStack {
                 Text("Account")
                 Image(systemName: "arrow")
-
+                
+                Text("Username")
+                Text("Address")
+                Text("Country")
+                Text("City")
+                
+                
             }
         }
     }
