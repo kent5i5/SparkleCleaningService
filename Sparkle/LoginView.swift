@@ -10,12 +10,13 @@ import Firebase
 
 
 struct LoginView: View {
-//    @EnvironmentObject var fbuser: User
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var modelData: User
     @ObservedObject var appData: User
     
     
     @State private var isPresented = false
-    
+    @State private var showingAlert = false
     @State private var email = ""
     @State private var password = ""
     
@@ -41,8 +42,10 @@ struct LoginView: View {
             multiFactorString += " "
           }
             
-         appData.setName(name: email!)
-          // ...
+          appData.setName(name: email!)
+          modelData.setName(name: email!)
+            
+          
         }
     }
     
@@ -54,12 +57,19 @@ struct LoginView: View {
           print ("Error signing out: %@", signOutError)
         }
         appData.name = ""
+        modelData.name = ""
     }
     
     func loginExistingUserWithEmail(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
           //guard let strongSelf = self else { return }
           // ...
+            if let error = error {
+                print("login fail")
+                   
+                self.showingAlert = true
+                            
+            }
         }
         
         getUserInfo()
@@ -131,11 +141,16 @@ struct LoginView: View {
                     //self.appData.name = email
                     //self.appData.password = password
                     loginExistingUserWithEmail(email: email, password: password)
-                    
+//                    if(appData.name.isEmpty){
+//                        print("please enter name")
+//                    }
+                    self.presentationMode.wrappedValue.dismiss()
                 }){
                     Text("Log In")
                         .font(.footnote)
                         .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                }.alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Authenticate Error"), message: Text("Incorrect username and password"), dismissButton: .default(Text("Got it!")))
                 }
                 
             }.padding()
@@ -157,22 +172,6 @@ struct LoginView: View {
                         }
                 }
             }
-            
-            if (appData.name.isEmpty) {
-                
-            }else{
-                Text("Welcome: " + appData.name)
-                Button(action:  {
-                   signOut()
-                }) {
-            
-                    HStack {
-                        Text("Sign Out")
-                    
-                    }
-                }
-            }
-            
 
             //Spacer()
         }.onAppear(){getUserInfo()}

@@ -83,7 +83,12 @@ class FirebaseSignInViewController: UIViewController {
         super.viewWillAppear(animated)
             // [START auth_listener]
             handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+                if let user = user {
+                    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
                     
+                    self.dismiss(animated: true)
+                }
+                
             }
             // [END auth_listener]
 
@@ -94,7 +99,7 @@ class FirebaseSignInViewController: UIViewController {
             // Uncomment to sign in with Game Center
             // self.authenticateGameCenterLocalPlayer()
       }
-    
+
 
     
 
@@ -111,7 +116,6 @@ class FirebaseSignInViewController: UIViewController {
 }
 
 struct FirebaseSignInViewControllerRepresentation: UIViewControllerRepresentable{
-    
     
 //    func makeCoordinator() -> () {
 //        Coordinator(self)

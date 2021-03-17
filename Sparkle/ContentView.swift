@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var modelData: User
     @ObservedObject var appData: User
     
     init(appData: User) {
             UITabBar.appearance().backgroundColor = UIColor(Color(red: 10/255, green: 255/255, blue: 10/255))
         //UINavigationBar.appearance().backgroundColor = .green
         self.appData = User()
-        
     }
     var body: some View {
         NavigationView {
@@ -40,6 +40,7 @@ struct ContentView: View {
 
                 }.ignoresSafeArea()
                 .navigationBarHidden(true)
+                .environmentObject(modelData)
                 
                 CalenderUIView().tabItem {
                     Image(systemName: "plus.message.fill")
@@ -71,6 +72,6 @@ struct ContentView_Previews: PreviewProvider {
         let user = User()
         ContentView(appData: user)
             .previewDevice("iPhone 11")
-            
+            .environmentObject(User())
     }
 }

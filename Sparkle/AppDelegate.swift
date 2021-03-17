@@ -17,12 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     UIInterfaceOrientationMask.portrait
     
     var appData: User!
+    var modelData: User!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
         appData = User()
+        
+        modelData = User()
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self

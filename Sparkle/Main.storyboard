@@ -31,6 +31,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0j-Nw-8iT">
+                                <rect key="frame" x="189" y="526" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="close"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e5k-ky-9E5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNc-RZ-feP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-362.31884057971018" y="-13.392857142857142"/>
+            <point key="canvasLocation" x="-648" y="35"/>
         </scene>
     </scenes>
     <resources>

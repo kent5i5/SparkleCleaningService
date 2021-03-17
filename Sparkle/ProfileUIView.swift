@@ -23,7 +23,7 @@ struct ProfileUIView: View {
 //                    }
                     
                     
-                    NavigationLink(destination: AccountView(),
+                    NavigationLink(destination: AccountView().environmentObject(User()),
                             label: {
                                 Text("account")
                                    
