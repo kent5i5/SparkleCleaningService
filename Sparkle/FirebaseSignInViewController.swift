@@ -68,6 +68,8 @@ class FirebaseSignInViewController: UIViewController {
         
         loginButton.permissions = ["public_profile", "email"]
         view.addSubview(loginButton)
+        
+        //if login diplay the close button for the user to go back
 
         if let token = AccessToken.current,
                !token.isExpired {
@@ -81,7 +83,7 @@ class FirebaseSignInViewController: UIViewController {
         super.viewWillAppear(animated)
             // [START auth_listener]
             handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-
+                    
             }
             // [END auth_listener]
 
@@ -111,12 +113,30 @@ class FirebaseSignInViewController: UIViewController {
 struct FirebaseSignInViewControllerRepresentation: UIViewControllerRepresentable{
     
     
+//    func makeCoordinator() -> () {
+//        Coordinator(self)
+//    }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<FirebaseSignInViewControllerRepresentation>) -> FirebaseSignInViewController{
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirebaseSignInViewController") as! FirebaseSignInViewController
+//
+//        fireViewC = context.coordinator
+//
+//        return fireViewC
     }
     
     func updateUIViewController(_ uiViewController: FirebaseSignInViewController, context: UIViewControllerRepresentableContext<FirebaseSignInViewControllerRepresentation>) {
         
     }
+    
 }
+
+//class Coordinator: NSObject {
+//        var parent: FirebaseSignInViewController
+//        var controllers = [UIViewController]()
+//
+//        init(_ pageViewController: FirebaseSignInViewController) {
+//            parent = pageViewController
+//
+//        }
+//}

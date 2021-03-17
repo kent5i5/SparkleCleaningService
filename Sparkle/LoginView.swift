@@ -6,30 +6,75 @@
 //
 
 import SwiftUI
+import Firebase
 
 
 struct LoginView: View {
-    //@EnvironmentObject var user: User
+//    @EnvironmentObject var fbuser: User
     @ObservedObject var appData: User
+    
     
     @State private var isPresented = false
     
     @State private var email = ""
     @State private var password = ""
     
-//    init(){
-//        email = appData.name
-//        password = appData.password
+//    init(appData: User){
+//      email = appData.name
+//      password = appData.password
+
 //    }
     
-    func registerUser() {
+
+    func getUserInfo() {
+        let user = Auth.auth().currentUser
+        if let user = user {
+          // The user's ID, unique to the Firebase project.
+          // Do NOT use this value to authenticate with your backend server,
+          // if you have one. Use getTokenWithCompletion:completion: instead.
+          let uid = user.uid
+          let email = user.email
+          let photoURL = user.photoURL
+          var multiFactorString = "MultiFactor: "
+          for info in user.multiFactor.enrolledFactors {
+            multiFactorString += info.displayName ?? "[DispayName]"
+            multiFactorString += " "
+          }
+            
+         appData.setName(name: email!)
+          // ...
+        }
+    }
+    
+    func signOut(){
+        let auth = Auth.auth()
+        do {
+            try auth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+        appData.name = ""
+    }
+    
+    func loginExistingUserWithEmail(email: String, password: String){
+        Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
+          //guard let strongSelf = self else { return }
+          // ...
+        }
+        
+        getUserInfo()
+    }
+    
+    func registerUser(email: String, password: String) {
+      
       if email.isEmpty == false {
         //user.profile = Profile(nameArg: $email, passwordArg: $password)
+        var result = Auth.auth().createUser(withEmail: email, password: password) { authResult, error in}
         user.isRegistered = true
       }
     }
-    var body: some View {
 
+    var body: some View {
         VStack {
 
             
@@ -83,10 +128,12 @@ struct LoginView: View {
                 }
                 
                 Button(action:  {
-                    self.appData.name = email
-                    self.appData.password = password
+                    //self.appData.name = email
+                    //self.appData.password = password
+                    loginExistingUserWithEmail(email: email, password: password)
+                    
                 }){
-                    Text("Save")
+                    Text("Log In")
                         .font(.footnote)
                         .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                 }
@@ -105,16 +152,33 @@ struct LoginView: View {
                     Text("Google / Facebook")
                 }.sheet(isPresented: $isPresented){
                     FirebaseSignInViewControllerRepresentation()
+                        .onDisappear(){
+                            getUserInfo()
+                        }
+                }
+            }
+            
+            if (appData.name.isEmpty) {
+                
+            }else{
+                Text("Welcome: " + appData.name)
+                Button(action:  {
+                   signOut()
+                }) {
+            
+                    HStack {
+                        Text("Sign Out")
+                    
+                    }
                 }
             }
             
 
             //Spacer()
-        }
+        }.onAppear(){getUserInfo()}
         //.navigationTitle("Title")
         .navigationBarHidden(false)
-        
-        
+
     }
 }
 

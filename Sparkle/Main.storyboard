@@ -24,6 +24,13 @@
                                 <rect key="frame" x="20" y="175" width="374" height="53"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Choose a payment method above" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z5L-jx-c1w">
+                                <rect key="frame" x="93" y="358" width="229" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e5k-ky-9E5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -31,10 +38,13 @@
                             <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="4" id="5tY-jx-kxz"/>
                             <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="10" id="JG4-qY-ol1"/>
                             <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="10" id="aLM-3h-B9i"/>
+                            <constraint firstItem="Z5L-jx-c1w" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="93" id="ctH-05-84N"/>
                             <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="4" id="fFH-Mm-r95"/>
                             <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="10" id="kpd-QU-ByN"/>
+                            <constraint firstItem="Z5L-jx-c1w" firstAttribute="top" secondItem="vBz-gv-uLe" secondAttribute="bottom" constant="184" id="mtj-zg-pS9"/>
                             <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="vBz-gv-uLe" secondAttribute="trailing" constant="20" id="nGC-jU-nwx"/>
                             <constraint firstItem="vBz-gv-uLe" firstAttribute="top" secondItem="C1Z-r8-Dne" secondAttribute="bottom" constant="8" symbolic="YES" id="q8R-53-Um4"/>
+                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="Z5L-jx-c1w" secondAttribute="trailing" constant="92" id="qfB-4V-WbY"/>
                             <constraint firstItem="vBz-gv-uLe" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="20" id="x2D-kR-QC5"/>
                             <constraint firstItem="C1Z-r8-Dne" firstAttribute="top" secondItem="e5k-ky-9E5" secondAttribute="top" constant="43" id="xiL-Xv-ATt"/>
                         </constraints>
@@ -50,6 +60,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

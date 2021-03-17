@@ -69,7 +69,7 @@ struct SelectServiceUIView: View {
                      .padding(10)
                 }
             }
-        }.navigationBarHidden(true)
+        }.navigationBarHidden(false)
     }
 }
 
@@ -221,7 +221,7 @@ struct GoHomeButton: View {
             VStack {
 //                NavigationLink(
 //                    destination:
-//                        HomeView(),
+//                        ContentView(),
 //                    label: {
 //                        Text("DONE")
 //

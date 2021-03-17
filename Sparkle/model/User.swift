@@ -46,6 +46,10 @@ final internal class User  {
         self.name = ""
         self.password = ""
     }
+    
+    func setName(name: String){
+        self.name = name
+    }
 }
 
 extension User: ObservableObject {
