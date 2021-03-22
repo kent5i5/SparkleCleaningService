@@ -37,17 +37,8 @@ struct AccountView: View {
         }
     }
     var body: some View {
-        ZStack {
+        NavigationView {
             VStack {
-                Button(action: {
-                    showEdit = true
-                }){
-                    Text("Edit")
-                }.sheet(isPresented: $showEdit, content: {
-                    EditProfile(showModal: $showEdit, name: $name, address: $address, country: $country, city: $city
-                    )
-                })
-                Spacer()
                 
                 Text("Account")
                
@@ -55,7 +46,18 @@ struct AccountView: View {
                 
                 
             }.onAppear(){getUserInfo()}
-        }
+        }.navigationBarItems(trailing: Button(action: {
+            showEdit = true
+        }){
+            Text("Edit")
+            
+        }.sheet(isPresented: $showEdit, content: {
+            EditProfile(showModal: $showEdit, name: $name, address: $address, country: $country, city: $city
+            ).animation(.easeIn)
+            .transition(.asymmetric(insertion: .opacity, removal: .scale))
+          
+        }))
+
     }
 }
 
@@ -77,10 +79,17 @@ struct displayProfile: View {
             Image(systemName: "arrow")
             Divider()
             List {
-                Text("Username: " + name)
-                Text("Address: " + address )
-                Text("Country: " + country)
-                Text("City: " + city)
+                
+                
+                infomationRow(rowName: "Username: ", data: name )
+                infomationRow(rowName: "Address: ", data: address )
+                infomationRow(rowName: "Country: ", data:country )
+                infomationRow(rowName: "City: ", data: city )
+//
+//
+//                Text("Address: " + address )
+//                Text("Country: " + country)
+//                Text("City: " + city)
                 
             }
             
@@ -97,23 +106,49 @@ struct EditProfile: View {
     @Binding var city: String
     
     var body: some View {
-        TextField("Username: " , text: $name)
-        TextField("Address", text: $address)
-        TextField("Country",  text: $country)
-        TextField("City", text: $city)
+        VStack {
+            
+            TextField("Username: " , text: $name)
         
-        Button(action: {
-            //modelData.name = name
-            self.showModal = false
-        }){
-           Text("Done Change")
+            TextField("Address", text: $address)
+            TextField("Country",  text: $country)
+            TextField("City", text: $city)
+        
+            Button(action: {
+                //modelData.name = name
+                self.showModal = false
+            }){
+               Text("Done Change")
+            }
+            
+            Button(action: {
+                //modelData.name = name
+                self.showModal = false
+            }){
+               Text("Cancel")
+            }
         }
+    }
+}
+
+struct infomationRow: View {
+    var rowName: String
+    var data: String
+    
+    var body: some View {
+        HStack {
+        Text("Username: " ).bold()
+            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+            .background(Color.white)
+
         
-        Button(action: {
-            //modelData.name = name
-            self.showModal = false
-        }){
-           Text("Cancel")
+        Text(data)
+            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+            .padding(EdgeInsets(top:8, leading: 16,
+                                bottom:8, trailing:0 ))
+            .background(Color.white)
+//            .overlay(RoundedRectangle(cornerRadius: 30)
+//                        .stroke(lineWidth: 2))
         }
     }
 }

@@ -70,6 +70,7 @@ struct HomeView: View {
                             destination:
                                 LoginView(appData: appData).environmentObject(User()).onDisappear() {
                                    print("back from login view")
+                                    getUserInfo()
                                 },
                             label: {
                                 Text("Sign In")

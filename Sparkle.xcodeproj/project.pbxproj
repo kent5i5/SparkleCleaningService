@@ -55,6 +55,8 @@
 		34AE775B25E2EE97009F64F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */; };
 		34D93A592608666300201EC3 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D93A582608666300201EC3 /* IconView.swift */; };
 		34EFABC025F9EE4500DAD70D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EFABBF25F9EE4500DAD70D /* User.swift */; };
+		34FAF37C2609470800F125F9 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF37B2609470800F125F9 /* BottomSheetView.swift */; };
+		34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF38426094ED700F125F9 /* FavoriteButton.swift */; };
 		8E1BD135863F9F86CA34CECD /* Pods_Sparkle_SparkleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60233BCCF9079513DBF3081B /* Pods_Sparkle_SparkleUITests.framework */; };
 		B3E7E5A06E65626F11EDAF75 /* Pods_Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C51F4DD89484E10BBC370B /* Pods_Sparkle.framework */; };
 		F0B67E862C7D0EB99973B2D4 /* Pods_SparkleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83DC558FBA36C9BD7CC60BC /* Pods_SparkleTests.framework */; };
@@ -122,6 +124,8 @@
 		34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34D93A582608666300201EC3 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		34EFABBF25F9EE4500DAD70D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		34FAF37B2609470800F125F9 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		34FAF38426094ED700F125F9 /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		3E09A43EA356D88B249AB3F8 /* Pods-SparkleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkleTests.debug.xcconfig"; path = "Target Support Files/Pods-SparkleTests/Pods-SparkleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		533302F51D9A07FBE39923B6 /* Pods-SparkleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkleTests.release.xcconfig"; path = "Target Support Files/Pods-SparkleTests/Pods-SparkleTests.release.xcconfig"; sourceTree = "<group>"; };
 		60233BCCF9079513DBF3081B /* Pods_Sparkle_SparkleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sparkle_SparkleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +202,7 @@
 		346AF80525A4F539004117C0 /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
+				34FAF38326094ECB00F125F9 /* helper */,
 				34988FB025F88B3800125E01 /* model */,
 				34988F8D25F8820400125E01 /* profileViews */,
 				34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */,
@@ -263,6 +268,7 @@
 				34988FA525F882C200125E01 /* LocationOptionView.swift */,
 				34988FAA25F882D600125E01 /* PromoView.swift */,
 				34988FB725F891B100125E01 /* NotificationOptionView.swift */,
+				34FAF37B2609470800F125F9 /* BottomSheetView.swift */,
 			);
 			path = profileViews;
 			sourceTree = "<group>";
@@ -274,6 +280,14 @@
 				34EFABBF25F9EE4500DAD70D /* User.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		34FAF38326094ECB00F125F9 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				34FAF38426094ED700F125F9 /* FavoriteButton.swift */,
+			);
+			path = helper;
 			sourceTree = "<group>";
 		};
 		BBB834FC2ACD5A8868C809E7 /* Frameworks */ = {
@@ -574,6 +588,8 @@
 				34988F8F25F8822600125E01 /* AccountView.swift in Sources */,
 				346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */,
 				346AF84425A50252004117C0 /* CalenderUIView.swift in Sources */,
+				34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */,
+				34FAF37C2609470800F125F9 /* BottomSheetView.swift in Sources */,
 				34988FA125F8829B00125E01 /* SupportView.swift in Sources */,
 				346AF80E25A4F53A004117C0 /* Sparkle.xcdatamodeld in Sources */,
 				346AF86025A53BF5004117C0 /* SelectServiceUIView.swift in Sources */,
