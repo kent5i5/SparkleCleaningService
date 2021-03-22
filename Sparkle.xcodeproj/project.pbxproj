@@ -57,6 +57,7 @@
 		34EFABC025F9EE4500DAD70D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EFABBF25F9EE4500DAD70D /* User.swift */; };
 		34FAF37C2609470800F125F9 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF37B2609470800F125F9 /* BottomSheetView.swift */; };
 		34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF38426094ED700F125F9 /* FavoriteButton.swift */; };
+		34FAF38A2609530A00F125F9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF3892609530A00F125F9 /* Service.swift */; };
 		8E1BD135863F9F86CA34CECD /* Pods_Sparkle_SparkleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60233BCCF9079513DBF3081B /* Pods_Sparkle_SparkleUITests.framework */; };
 		B3E7E5A06E65626F11EDAF75 /* Pods_Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C51F4DD89484E10BBC370B /* Pods_Sparkle.framework */; };
 		F0B67E862C7D0EB99973B2D4 /* Pods_SparkleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83DC558FBA36C9BD7CC60BC /* Pods_SparkleTests.framework */; };
@@ -126,6 +127,7 @@
 		34EFABBF25F9EE4500DAD70D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		34FAF37B2609470800F125F9 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		34FAF38426094ED700F125F9 /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		34FAF3892609530A00F125F9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		3E09A43EA356D88B249AB3F8 /* Pods-SparkleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkleTests.debug.xcconfig"; path = "Target Support Files/Pods-SparkleTests/Pods-SparkleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		533302F51D9A07FBE39923B6 /* Pods-SparkleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkleTests.release.xcconfig"; path = "Target Support Files/Pods-SparkleTests/Pods-SparkleTests.release.xcconfig"; sourceTree = "<group>"; };
 		60233BCCF9079513DBF3081B /* Pods_Sparkle_SparkleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sparkle_SparkleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,7 +212,6 @@
 				34D93A582608666300201EC3 /* IconView.swift */,
 				346AF80625A4F53A004117C0 /* AppDelegate.swift */,
 				3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */,
-				3463BE4B260180530071675F /* fbhandler.swift */,
 				346AF80825A4F53A004117C0 /* SceneDelegate.swift */,
 				346AF80A25A4F53A004117C0 /* ContentView.swift */,
 				346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */,
@@ -278,6 +279,7 @@
 			children = (
 				34988FB125F88B6C00125E01 /* SettingsObject.swift */,
 				34EFABBF25F9EE4500DAD70D /* User.swift */,
+				34FAF3892609530A00F125F9 /* Service.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				34FAF38426094ED700F125F9 /* FavoriteButton.swift */,
+				3463BE4B260180530071675F /* fbhandler.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */,
 				346AF84425A50252004117C0 /* CalenderUIView.swift in Sources */,
 				34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */,
+				34FAF38A2609530A00F125F9 /* Service.swift in Sources */,
 				34FAF37C2609470800F125F9 /* BottomSheetView.swift in Sources */,
 				34988FA125F8829B00125E01 /* SupportView.swift in Sources */,
 				346AF80E25A4F53A004117C0 /* Sparkle.xcdatamodeld in Sources */,

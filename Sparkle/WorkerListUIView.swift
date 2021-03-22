@@ -10,6 +10,9 @@ import AVKit
 
 
 struct WorkerListUIView: View {
+    @State var showFavortie: Bool = true
+    @State var showPast: Bool = false
+    
     var body: some View {
         
         ScrollView {
@@ -20,22 +23,23 @@ struct WorkerListUIView: View {
                             .bold()
                             .foregroundColor(.green)
                         HStack {
-                            HStack {
+                            Button(action: {showFavortie.toggle()}) {
                                 Text("Favorite")
                                     .frame(width: 120, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                Image(systemName: "homekit")
+                                Image(systemName: "star").foregroundColor(showFavortie ? Color.yellow : Color.black)
                                     
-                            }.background(Color.green)
+                            }.border(showFavortie ? Color.green : Color.black)
+                            .foregroundColor(showFavortie ? .green : .black)
                            
                           
-                            HStack {
+                            Button(action: {showPast.toggle()}) {
                                 Text("Past")
                                     .frame(width: 120, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     .padding(2)
-                                    
+                                    .foregroundColor(showPast ? Color.blue : Color.black)
                                 Image(systemName: "homekit")
-                            }.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(.green)
+                            }.border(showPast ? Color.blue : Color.black)
+                            .foregroundColor(showPast ? Color.blue : Color.black)
                             
                         }
                     }
@@ -71,7 +75,25 @@ struct WorkerListUIView: View {
                             .foregroundColor(.green)
                         
                     }.padding()
+            
+        
                 
+                if showFavortie {
+                    //show favorite jobs
+                   
+                        Text("FAVORITE")
+                        Text("JOB1")
+                        Text("JOB2")
+
+                
+                }
+                if showPast {
+                    // show past jobs
+                    Text("HISTORY")
+                    Text("JOB1")
+                    Text("JOB2")
+
+                }
                
             }.padding(0)
             
