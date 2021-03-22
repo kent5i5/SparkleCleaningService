@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ServiceSelctionsUIView: View {
+    @State var isSelect = false
+//    @State var iconName = ""
     var body: some View {
             VStack {
                 HStack {
+                   
                     NavigationLink(
                         destination:
                             SelectServiceUIView(),
@@ -20,10 +23,10 @@ struct ServiceSelctionsUIView: View {
                                     .resizable()
                                     .padding(10)
                                     .frame(width: 100, height: 100, alignment: .topLeading)
-                                    Text("DONE")
-                            }
-  
-                        }).foregroundColor(.green)
+
+                                    Text("service 1")
+                            }})
+                   
      
                     Image(systemName: "arkit")
                         .resizable()

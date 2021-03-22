@@ -124,7 +124,7 @@ struct HomeView: View {
             }.edgesIgnoringSafeArea(.top)
             
         }.navigationViewStyle(StackNavigationViewStyle())
-    
+        .navigationBarHidden(true)
     }
 }
 

@@ -1,0 +1,50 @@
+//
+//  IconView.swift
+//  Sparkle
+//
+//  Created by ying kit ng on 3/21/21.
+//
+
+import SwiftUI
+
+struct IconView: View {
+    let iconName: String
+    let isSelected: Bool
+    
+    
+//    init(){
+//        self.isSelected = false
+//        self.iconName = ""
+//    }
+    
+    var body: some View {
+    
+                VStack {
+                    Image(systemName: iconName)
+                        .resizable()
+                        .padding(10)
+                        .frame(width: 100, height: 100, alignment: .topLeading)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(isSelected  ? .green : .white)
+                            
+                        )
+
+                        Text("service 1")
+                }.overlay(
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(lineWidth: 2)
+                        .foregroundColor(isSelected  ? .green : .white)
+                    
+                )
+
+    }
+}
+
+struct IconView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        IconView( iconName: "applescript",isSelected: true)
+    }
+}

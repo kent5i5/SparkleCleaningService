@@ -36,16 +36,17 @@ struct SelectServiceUIView: View {
                 }
                 if (showSelectService == 4){
                     GoHomeButton(currentStep: $showSelectService)
-//                                    .navigationBarItems(leading:
-//                                        Button(action: {
-//                                            self.presentationMode.wrappedValue.dismiss()
-//                                        }) {
-//                                            HStack {
-//                                                Image(systemName: "arrow.up.circle")
-//                                                    .foregroundColor(.black)
-//                                                Text("DONE")
-//                                                    .foregroundColor(.black)
-//                                            }
+                                    .navigationBarItems(leading:
+                                        Button(action: {
+                                            self.presentationMode.wrappedValue.dismiss()
+                                        }) {
+                                            HStack {
+                                                Image(systemName: "arrow.up.circle")
+                                                    .foregroundColor(.green)
+                                                Text("DONE")
+                                                    .foregroundColor(.green)
+                                            }
+                                        })
 //                                        }, trailing:
 //                                        HStack {
 //                                            Button("Favorites") {
@@ -67,9 +68,20 @@ struct SelectServiceUIView: View {
                      .foregroundColor(.green)
                      .clipped()
                      .padding(10)
+                     .navigationBarTitle("", displayMode: .inline)
+                     .navigationBarItems(leading:
+                                 Button(action: {
+                                     self.presentationMode.wrappedValue.dismiss()
+                                 }) {
+                                     HStack {
+                                         Image(systemName: "arrow.left.circle")
+                                         Text("Go Back")
+                                     }
+                             })
                 }
             }
-        }.navigationBarHidden(false)
+        }.navigationBarHidden(true)
+        
     }
 }
 
@@ -79,8 +91,24 @@ struct SelectServiceUIView_Previews: PreviewProvider {
     }
 }
 
+struct Icon: Identifiable {
+  let id = UUID()
+  let name: String
+  let isSelected: Bool
+
+}
+let iconItem: [Icon] = [ Icon(name: "arrow.clockwise.icloud.fill", isSelected: true),
+                         Icon(name: "arrow.clockwise.icloud", isSelected:false),
+                         Icon(name: "checkmark.icloud.fill", isSelected:false),
+                         Icon(name: "icloud.and.arrow.down.fill", isSelected:false),
+                         Icon(name: "link.icloud.fil", isSelected:false),
+                         Icon(name: "key.icloud.fill", isSelected:false)
+]
+
 struct SelectServiceSubView: View {
     @Binding var currentStep: Int
+    
+  
     
     func resetView(){
         currentStep = 1
@@ -107,6 +135,15 @@ struct SelectServiceSubView: View {
                     .frame(width: 300, alignment: .trailing)
                     .foregroundColor(.green)
             }
+            
+            List{
+                ForEach(iconItem) { icon in
+                       //   if (self.isMissCall && contact.missCall) || !self.isMissCall {
+                    IconView(iconName: icon.name, isSelected: icon.isSelected)
+                    //}
+                }
+            }
+            IconView(iconName: "arrow.clockwise.icloud.fill", isSelected: true)
                 
             
             HStack {
@@ -114,6 +151,8 @@ struct SelectServiceSubView: View {
                     .resizable()
                     .padding(10)
                     .frame(width: 100, height: 100, alignment: .topLeading)
+                    
+
                 Image(systemName: "arrow.clockwise.icloud")
                     .resizable()
                     .padding(10)
@@ -124,34 +163,34 @@ struct SelectServiceSubView: View {
                     .frame(width: 100, height: 100, alignment: .topLeading)
             }.foregroundColor(.green)
             
-            HStack {
-                Image(systemName: "icloud.and.arrow.down.fill")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "icloud.circle")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "icloud.fill")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-            }.foregroundColor(.green)
-            HStack {
-                Image(systemName: "key.icloud.fill")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "link.icloud")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "link.icloud.fill")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-            }.foregroundColor(.green)
+//            HStack {
+//                Image(systemName: "icloud.and.arrow.down.fill")
+//                    .resizable()
+//                    .padding(10)
+//                    .frame(width: 100, height: 100, alignment: .topLeading)
+//                Image(systemName: "icloud.circle")
+//                    .resizable()
+//                    .padding(10)
+//                    .frame(width: 100, height: 100, alignment: .topLeading)
+//                Image(systemName: "icloud.fill")
+//                    .resizable()
+//                    .padding(10)
+//                    .frame(width: 100, height: 100, alignment: .topLeading)
+//            }.foregroundColor(.green)
+//            HStack {
+//                Image(systemName: "key.icloud.fill")
+//                    .resizable()
+//                    .padding(10)
+//                    .frame(width: 100, height: 100, alignment: .topLeading)
+//                Image(systemName: "link.icloud")
+//                    .resizable()
+//                    .padding(10)
+//                    .frame(width: 100, height: 100, alignment: .topLeading)
+//                Image(systemName: "link.icloud.fill")
+//                    .resizable()
+//                    .padding(10)
+//                    .frame(width: 100, height: 100, alignment: .topLeading)
+//            }.foregroundColor(.green)
             
             
         }.frame(alignment: .leading).ignoresSafeArea()
@@ -219,13 +258,6 @@ struct GoHomeButton: View {
     var body: some View {
 
             VStack {
-//                NavigationLink(
-//                    destination:
-//                        ContentView(),
-//                    label: {
-//                        Text("DONE")
-//
-//                    }).transition(.move(edge: .bottom))
                 
                 Button(action: {resetView()}){
                     Text("reset")
