@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileUIView: View {
-    @EnvironmentObject var settings: SettingsObject
+    //@EnvironmentObject var settings: SettingsObject
     @State var username = ""
     
     var body: some View {
@@ -23,7 +23,7 @@ struct ProfileUIView: View {
 //                    }
                     
                     
-                    NavigationLink(destination: AccountView().environmentObject(User()),
+                    NavigationLink(destination: AccountView(),
                             label: {
                                 Text("account")
                                    

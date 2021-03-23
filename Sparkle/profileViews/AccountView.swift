@@ -31,8 +31,8 @@ struct AccountView: View {
             multiFactorString += " "
           }
 
-          modelData.setName(name: email!)
-            
+          //modelData.setName(name: email!)
+            self.name = email!
           
         }
     }
@@ -45,7 +45,9 @@ struct AccountView: View {
                 displayProfile(name: $name, address: $address, country: $country, city: $city).environmentObject(User())
                 
                 
-            }.onAppear(){getUserInfo()}
+            }.onAppear(){print("renew user data")
+                getUserInfo()
+            }
         }.navigationBarItems(trailing: Button(action: {
             showEdit = true
         }){
