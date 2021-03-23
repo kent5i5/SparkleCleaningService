@@ -36,6 +36,10 @@ final internal class User  {
 //        }
 //    }
     
+    /// Initializes a new `User` with a specified name.
+    ///  - Parameters:
+    ///     - name Name of the user 
+    ///     - password password  of the user
     internal init(name: String, password: String){
 
         self.name = name
