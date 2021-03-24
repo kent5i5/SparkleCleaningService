@@ -60,7 +60,7 @@ struct LoginView: View {
         modelData.name = ""
     }
     
-    func loginExistingUserWithEmail(email: String, password: String){
+    func loginExistingUserWithEmail(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
           //guard let strongSelf = self else { return }
           // ...
@@ -69,10 +69,13 @@ struct LoginView: View {
                    
                 self.showingAlert = true
                             
+            } else {
+                getUserInfo()
+                self.presentationMode.wrappedValue.dismiss()
             }
         }
         
-        getUserInfo()
+       
     }
     
     func registerUser(email: String, password: String) {
@@ -139,13 +142,11 @@ struct LoginView: View {
                     }
                     
                     Button(action:  {
-                        //self.appData.name = email
-                        //self.appData.password = password
                         loginExistingUserWithEmail(email: email, password: password)
     //                    if(appData.name.isEmpty){
     //                        print("please enter name")
     //                    }
-                        self.presentationMode.wrappedValue.dismiss()
+
                     }){
                         Text("Log In")
                             .font(.footnote)

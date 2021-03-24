@@ -43,6 +43,8 @@
 		346AF88F25A54CA0004117C0 /* doc in Resources */ = {isa = PBXBuildFile; fileRef = 346AF88E25A54CA0004117C0 /* doc */; };
 		3477C54C25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */; };
 		3477C55425E2FD6C00B0F2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477C55325E2FD6C00B0F2E2 /* Main.storyboard */; };
+		3496987B260BDB1700D90A14 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3496987A260BDB1700D90A14 /* FavoriteView.swift */; };
+		34969881260BE87D00D90A14 /* PastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34969880260BE87D00D90A14 /* PastView.swift */; };
 		34988F8F25F8822600125E01 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988F8E25F8822600125E01 /* AccountView.swift */; };
 		34988F9725F8826100125E01 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988F9625F8826100125E01 /* ChangePasswordView.swift */; };
 		34988F9C25F8827A00125E01 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988F9B25F8827A00125E01 /* PaymentView.swift */; };
@@ -113,6 +115,8 @@
 		346AF88E25A54CA0004117C0 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
 		3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInViewController.swift; sourceTree = "<group>"; };
 		3477C55325E2FD6C00B0F2E2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3496987A260BDB1700D90A14 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		34969880260BE87D00D90A14 /* PastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastView.swift; sourceTree = "<group>"; };
 		34988F8E25F8822600125E01 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		34988F9625F8826100125E01 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		34988F9B25F8827A00125E01 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */,
 				346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */,
 				346AF85125A50F48004117C0 /* WorkerListUIView.swift */,
+				34969880260BE87D00D90A14 /* PastView.swift */,
+				3496987A260BDB1700D90A14 /* FavoriteView.swift */,
 				346AF84A25A50E45004117C0 /* ProfileUIView.swift */,
 				346AF84325A50252004117C0 /* CalenderUIView.swift */,
 				346AF85825A52648004117C0 /* FloatingMenuUIView.swift */,
@@ -608,6 +614,8 @@
 				34EFABC025F9EE4500DAD70D /* User.swift in Sources */,
 				346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */,
 				34988FB825F891B200125E01 /* NotificationOptionView.swift in Sources */,
+				34969881260BE87D00D90A14 /* PastView.swift in Sources */,
+				3496987B260BDB1700D90A14 /* FavoriteView.swift in Sources */,
 				346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

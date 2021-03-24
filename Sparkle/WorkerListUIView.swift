@@ -8,6 +8,10 @@
 import SwiftUI
 import AVKit
 
+let favorites: [Favorite] = [ Favorite(name: "job1", duration: 5.0),
+                             Favorite(name: "job2", duration: 5.0),
+                             Favorite(name: "job3", duration: 5.0)
+]
 
 struct WorkerListUIView: View {
     @State var showFavortie: Bool = true
@@ -79,19 +83,22 @@ struct WorkerListUIView: View {
         
                 
                 if showFavortie {
-                    //show favorite jobs
-                   
-                        Text("FAVORITE")
-                        Text("JOB1")
-                        Text("JOB2")
+                    
+                    VStack {
+                        ForEach(0..<favorites.count) { index in
+                            FavoriteView(favorite: favorites[index])
+                        }
 
-                
+                    }
+                    
+
+
                 }
                 if showPast {
                     // show past jobs
-                    Text("HISTORY")
-                    Text("JOB1")
-                    Text("JOB2")
+                    ForEach(0..<favorites.count) { index in
+                        PastView(favorite: favorites[index])
+                    }
 
                 }
                

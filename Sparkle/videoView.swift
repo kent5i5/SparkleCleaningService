@@ -18,14 +18,15 @@ struct videoView: View {
         //Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
 
         VStack {
-            Button("Dismiss Modal") {
-                       presentationMode.wrappedValue.dismiss()
-            }.foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-        
+       
             // display removte source
             if #available(iOS 14.0, *) {
                 VideoPlayer(player: player){
                     VStack {
+//                        Button("Dismiss Modal") {
+//                                   presentationMode.wrappedValue.dismiss()
+//                        }.foregroundColor(.green)
+                    
                            Text("Watermark")
                                .font(.caption)
                                .foregroundColor(.white)

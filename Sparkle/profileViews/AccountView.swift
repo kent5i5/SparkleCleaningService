@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct AccountView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: User
     @State private var showEdit = false
     @State private var name = ""
@@ -37,28 +38,39 @@ struct AccountView: View {
         }
     }
     var body: some View {
-        NavigationView {
+  
             VStack {
                 
                 Text("Account")
                
-                displayProfile(name: $name, address: $address, country: $country, city: $city).environmentObject(User())
+                if !modelData.name.isEmpty {
+                    displayProfile(name: $name, address: $address, country: $country, city: $city).environmentObject(User())
+                } else {
+                    Spacer()
+                    Button("BACK") {
+                               presentationMode.wrappedValue.dismiss()
+                    }.foregroundColor(.green)
                 
+                    
+                }
+                Spacer()
                 
             }.onAppear(){print("renew user data")
                 getUserInfo()
-            }
-        }.navigationBarItems(trailing: Button(action: {
-            showEdit = true
-        }){
-            Text("Edit")
+            }.navigationBarItems(trailing: Button(action: {
+                withAnimation{
+                    showEdit = true
+                }
             
-        }.sheet(isPresented: $showEdit, content: {
-            EditProfile(showModal: $showEdit, name: $name, address: $address, country: $country, city: $city
-            ).animation(.easeIn)
-            .transition(.asymmetric(insertion: .opacity, removal: .scale))
-          
-        }))
+            }){
+                Text("Edit")
+                
+            }.sheet(isPresented: $showEdit, content: {
+                EditProfile(showModal: $showEdit, name: $name, address: $address, country: $country, city: $city
+                ).animation(.easeIn)
+                .transition(.asymmetric(insertion: .opacity, removal: .scale))
+              
+            }))
 
     }
 }
@@ -138,10 +150,11 @@ struct infomationRow: View {
     var data: String
     
     var body: some View {
-        HStack {
-        Text("Username: " ).bold()
+        Section {
+        Text( rowName + ": " ).bold()
             .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
             .background(Color.white)
+            .foregroundColor(.green)
 
         
         Text(data)
@@ -149,6 +162,7 @@ struct infomationRow: View {
             .padding(EdgeInsets(top:8, leading: 16,
                                 bottom:8, trailing:0 ))
             .background(Color.white)
+            
 //            .overlay(RoundedRectangle(cornerRadius: 30)
 //                        .stroke(lineWidth: 2))
         }

@@ -104,19 +104,12 @@ struct HomeView: View {
 
                     ServiceSelctionsUIView()
                     
-                    NavigationLink(
-                        destination:
-                            videoView(),
-                        label: {
-                            Text("Video")
-                               
-                        }).padding(.bottom)
-                    
                  
                     Button("Present!") {
                                isPresented.toggle()
                            }
                            .fullScreenCover(isPresented: $isPresented, content: videoView.init)
+                            .rotationEffect(.degrees(0))
                     
                 }.edgesIgnoringSafeArea(.top)
                 .onAppear(){getUserInfo() }
