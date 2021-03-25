@@ -5,30 +5,32 @@
 //  Created by ying kit ng on 3/22/21.
 //
 
-import Foundation
 
-struct Service{
-    var name: String
+struct Service: Identifiable {
+    var id = UUID()
     
-    /// Initializes a new `Profile` with a specified name.
-    ///  - Parameters:
-    ///     - name Name of the user profile.
-    init(nameArg name: String) {
-      self.name = name
-    }
+    let name: String
+    let data: Date
+    let address: String
+    let country: String
+    let city: String
+
 }
 
-
-final class ServiceObervableObject   {
-    @Published var name: String
-    
-   // var service = Service(nameArg: self.name)
-
-    init() {
-        self.name = ""
-
-    }
-}
-extension ServiceObervableObject: ObservableObject {
-       
-}
+//
+//final class ServiceObervableObject  {
+//    @Published var serivces: Service = []
+//    
+//   // var service = Service(nameArg: self.name)
+//
+//    func newService(name: String , data: Date, address: String, country: String, city: String) -> Service{
+////        var newService  = Service()
+////        return newService
+//    }
+//    func remove(at index: Int){
+//        
+//    }
+//}
+//extension ServiceObervableObject: ObservableObject {
+//       
+//}

@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Firebase
-
+import AuthenticationServices
 
 struct LoginView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -140,7 +140,8 @@ struct LoginView: View {
                                 .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                         }
                     }
-                    
+
+
                     Button(action:  {
                         loginExistingUserWithEmail(email: email, password: password)
     //                    if(appData.name.isEmpty){
@@ -149,8 +150,14 @@ struct LoginView: View {
 
                     }){
                         Text("Log In")
+                            .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                             .font(.footnote)
+                            .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
+                            .overlay(RoundedRectangle(cornerRadius: 15)
+                                        .stroke(lineWidth: 0.5)
+                                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
                             .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                           
                     }.alert(isPresented: $showingAlert) {
                         Alert(title: Text("Authenticate Error"), message: Text("Incorrect username and password"), dismissButton: .default(Text("Got it!")))
                     }
@@ -158,7 +165,18 @@ struct LoginView: View {
                 }.padding()
                     
                 
-         
+                
+                      
+                  if modelData.name.isEmpty {
+                      SignInWithAppleButton(
+                          onRequest: { request in
+                             print("apple sign in")
+                          },
+                          onCompletion: { result in
+                              print("after sign in with apple id")
+                          }
+                      ).signInWithAppleButtonStyle(.white)
+                  }
 
                 
                 Button(action:  {
@@ -166,9 +184,10 @@ struct LoginView: View {
                 }) {
             
                     HStack {
-                        Text("Google / Facebook")
+                        Text("Google / Facebook").foregroundColor(Color(red: 0, green: 0, blue: 0))
                     }.sheet(isPresented: $isPresented){
                         FirebaseSignInViewControllerRepresentation()
+                            .frame(width: 400, height: 600, alignment: .center)
                             .onDisappear(){
                                 getUserInfo()
                             }

@@ -19,6 +19,8 @@ class FirebaseSignInViewController: UIViewController {
     @IBOutlet weak var fbview: UIView!
     @IBOutlet weak var googleButton: GIDSignInButton!
     
+    @IBOutlet var myView: UIView!
+    
     var handle: AuthStateDidChangeListenerHandle?
     
     /** @var microsoftProvider
@@ -75,7 +77,8 @@ class FirebaseSignInViewController: UIViewController {
                !token.isExpired {
                // User is logged in, do work such as go to next view controller.
         }
-
+        
+        self.myView.backgroundColor = UIColor.white
         
     }
     
@@ -114,6 +117,7 @@ class FirebaseSignInViewController: UIViewController {
     */
 
 }
+
 
 struct FirebaseSignInViewControllerRepresentation: UIViewControllerRepresentable{
     

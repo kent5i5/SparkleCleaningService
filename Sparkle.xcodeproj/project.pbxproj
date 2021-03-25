@@ -56,6 +56,7 @@
 		34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A81C3B25EDFB96006BEB40 /* LoginView.swift */; };
 		34AE775B25E2EE97009F64F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */; };
 		34D93A592608666300201EC3 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D93A582608666300201EC3 /* IconView.swift */; };
+		34E550F6260C4A5900BFB49C /* ServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E550F5260C4A5900BFB49C /* ServiceRepository.swift */; };
 		34EFABC025F9EE4500DAD70D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EFABBF25F9EE4500DAD70D /* User.swift */; };
 		34FAF37C2609470800F125F9 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF37B2609470800F125F9 /* BottomSheetView.swift */; };
 		34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF38426094ED700F125F9 /* FavoriteButton.swift */; };
@@ -128,6 +129,8 @@
 		34A81C3B25EDFB96006BEB40 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34D93A582608666300201EC3 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		34E550F1260C2FEF00BFB49C /* Sparkle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sparkle.entitlements; sourceTree = "<group>"; };
+		34E550F5260C4A5900BFB49C /* ServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRepository.swift; sourceTree = "<group>"; };
 		34EFABBF25F9EE4500DAD70D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		34FAF37B2609470800F125F9 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		34FAF38426094ED700F125F9 /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
@@ -208,6 +211,7 @@
 		346AF80525A4F539004117C0 /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
+				34E550F1260C2FEF00BFB49C /* Sparkle.entitlements */,
 				34FAF38326094ECB00F125F9 /* helper */,
 				34988FB025F88B3800125E01 /* model */,
 				34988F8D25F8820400125E01 /* profileViews */,
@@ -286,6 +290,7 @@
 				34988FB125F88B6C00125E01 /* SettingsObject.swift */,
 				34EFABBF25F9EE4500DAD70D /* User.swift */,
 				34FAF3892609530A00F125F9 /* Service.swift */,
+				34E550F5260C4A5900BFB49C /* ServiceRepository.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				34988FAB25F882D600125E01 /* PromoView.swift in Sources */,
 				346AF85225A50F48004117C0 /* WorkerListUIView.swift in Sources */,
 				34988F9C25F8827A00125E01 /* PaymentView.swift in Sources */,
+				34E550F6260C4A5900BFB49C /* ServiceRepository.swift in Sources */,
 				34D93A592608666300201EC3 /* IconView.swift in Sources */,
 				346AF86725A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */,
 				346AF85925A52648004117C0 /* FloatingMenuUIView.swift in Sources */,
@@ -799,6 +805,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Sparkle/Sparkle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Sparkle/Preview Content\"";
 				DEVELOPMENT_TEAM = 236Z8WKQJB;
@@ -821,6 +828,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Sparkle/Sparkle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Sparkle/Preview Content\"";
 				DEVELOPMENT_TEAM = 236Z8WKQJB;

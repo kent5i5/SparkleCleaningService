@@ -17,51 +17,43 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1Z-r8-Dne" customClass="GIDSignInButton">
-                                <rect key="frame" x="10" y="87" width="394" height="56"/>
+                                <rect key="frame" x="10" y="87" width="404" height="56"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="fbview" translatesAutoresizingMaskIntoConstraints="NO" id="vBz-gv-uLe">
-                                <rect key="frame" x="20" y="175" width="374" height="53"/>
+                                <rect key="frame" x="10" y="175" width="394" height="53"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Choose a payment method above" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z5L-jx-c1w">
-                                <rect key="frame" x="93" y="358" width="229" height="44"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Choose a payment method above" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z5L-jx-c1w">
+                                <rect key="frame" x="88" y="259" width="229" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0j-Nw-8iT">
-                                <rect key="frame" x="189" y="526" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="close"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e5k-ky-9E5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="4" id="5tY-jx-kxz"/>
-                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="10" id="JG4-qY-ol1"/>
-                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="10" id="aLM-3h-B9i"/>
-                            <constraint firstItem="Z5L-jx-c1w" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="93" id="ctH-05-84N"/>
-                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="4" id="fFH-Mm-r95"/>
-                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="C1Z-r8-Dne" secondAttribute="trailing" constant="10" id="kpd-QU-ByN"/>
-                            <constraint firstItem="Z5L-jx-c1w" firstAttribute="top" secondItem="vBz-gv-uLe" secondAttribute="bottom" constant="184" id="mtj-zg-pS9"/>
-                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="vBz-gv-uLe" secondAttribute="trailing" constant="20" id="nGC-jU-nwx"/>
-                            <constraint firstItem="vBz-gv-uLe" firstAttribute="top" secondItem="C1Z-r8-Dne" secondAttribute="bottom" constant="8" symbolic="YES" id="q8R-53-Um4"/>
-                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="Z5L-jx-c1w" secondAttribute="trailing" constant="92" id="qfB-4V-WbY"/>
-                            <constraint firstItem="vBz-gv-uLe" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="20" id="x2D-kR-QC5"/>
-                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="top" secondItem="e5k-ky-9E5" secondAttribute="top" constant="43" id="xiL-Xv-ATt"/>
+                            <constraint firstItem="vBz-gv-uLe" firstAttribute="top" secondItem="C1Z-r8-Dne" secondAttribute="bottom" constant="30" id="9e3-xF-jcy"/>
+                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="trailing" secondItem="e5k-ky-9E5" secondAttribute="trailing" id="AWX-ES-k2o"/>
+                            <constraint firstItem="vBz-gv-uLe" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="10" id="Cuf-wh-48A"/>
+                            <constraint firstItem="e5k-ky-9E5" firstAttribute="trailing" secondItem="vBz-gv-uLe" secondAttribute="trailing" constant="10" id="HQ9-Je-VIg"/>
+                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="10" id="jD4-Zw-n1q"/>
+                            <constraint firstItem="vBz-gv-uLe" firstAttribute="leading" secondItem="e5k-ky-9E5" secondAttribute="leading" constant="10" id="lHh-d9-VjG"/>
+                            <constraint firstItem="C1Z-r8-Dne" firstAttribute="top" secondItem="e5k-ky-9E5" secondAttribute="top" constant="40" id="q0T-f0-hgR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fbview" destination="vBz-gv-uLe" id="Yao-7I-Wmt"/>
                         <outlet property="googleButton" destination="C1Z-r8-Dne" id="FaI-AC-fr5"/>
+                        <outlet property="myView" destination="6n6-5E-cRw" id="xWi-Kq-6Sh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNc-RZ-feP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-648" y="35"/>
+            <point key="canvasLocation" x="-649.27536231884062" y="34.821428571428569"/>
         </scene>
     </scenes>
     <resources>

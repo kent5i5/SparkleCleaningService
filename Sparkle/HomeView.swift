@@ -50,7 +50,7 @@ struct HomeView: View {
     
     var body: some View {
         
-        NavigationView {
+//        NavigationView {
             ScrollView {
                 VStack {
                     
@@ -117,8 +117,8 @@ struct HomeView: View {
                 
             }.edgesIgnoringSafeArea(.top)
             
-        }.navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarHidden(true)
+//        }.navigationViewStyle(StackNavigationViewStyle())
+//        .navigationBarHidden(true)
     }
 }
 

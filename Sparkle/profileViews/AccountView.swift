@@ -46,8 +46,8 @@ struct AccountView: View {
                 if !modelData.name.isEmpty {
                     displayProfile(name: $name, address: $address, country: $country, city: $city).environmentObject(User())
                 } else {
-                    Spacer()
-                    Button("BACK") {
+                    LoginView(appData: User()).environmentObject(User())
+                    Button("DONE") {
                                presentationMode.wrappedValue.dismiss()
                     }.foregroundColor(.green)
                 
@@ -99,16 +99,10 @@ struct displayProfile: View {
                 infomationRow(rowName: "Address: ", data: address )
                 infomationRow(rowName: "Country: ", data:country )
                 infomationRow(rowName: "City: ", data: city )
-//
-//
-//                Text("Address: " + address )
-//                Text("Country: " + country)
-//                Text("City: " + city)
-                
+
             }
-            
-            Spacer()
-        }
+    }
+
     
 }
 
@@ -120,27 +114,30 @@ struct EditProfile: View {
     @Binding var city: String
     
     var body: some View {
-        VStack {
+        ZStack {
+            VStack {
+                
+                TextField("Username: " , text: $name)
             
-            TextField("Username: " , text: $name)
-        
-            TextField("Address", text: $address)
-            TextField("Country",  text: $country)
-            TextField("City", text: $city)
-        
-            Button(action: {
-                //modelData.name = name
-                self.showModal = false
-            }){
-               Text("Done Change")
-            }
+                TextField("Address", text: $address)
+                TextField("Country",  text: $country)
+                TextField("City", text: $city)
             
-            Button(action: {
-                //modelData.name = name
-                self.showModal = false
-            }){
-               Text("Cancel")
-            }
+                Button(action: {
+                    //modelData.name = name
+                    self.showModal = false
+                }){
+                   Text("DONE")
+                }
+                
+                Button(action: {
+                    //modelData.name = name
+                    self.showModal = false
+                }){
+                   Text("CANCEL")
+                }
+                Spacer()
+            }.padding()
         }
     }
 }
@@ -150,21 +147,27 @@ struct infomationRow: View {
     var data: String
     
     var body: some View {
-        Section {
-        Text( rowName + ": " ).bold()
-            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-            .background(Color.white)
-            .foregroundColor(.green)
-
         
-        Text(data)
-            .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-            .padding(EdgeInsets(top:8, leading: 16,
-                                bottom:8, trailing:0 ))
-            .background(Color.white)
+        ZStack {
+            VStack{
+            Text( rowName + ": " ).bold()
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                .background(Color.white)
+                .padding(EdgeInsets(top:8, leading: 8,
+                                    bottom:8, trailing:0 ))
+                .foregroundColor(.green)
+
             
-//            .overlay(RoundedRectangle(cornerRadius: 30)
-//                        .stroke(lineWidth: 2))
+            Text(data)
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                .padding(EdgeInsets(top:8, leading: 16,
+                                    bottom:8, trailing:0 ))
+                
+                
+    //            .overlay(RoundedRectangle(cornerRadius: 30)
+    //                        .stroke(lineWidth: 2))
+  
+            }
         }
     }
 }
