@@ -23,25 +23,25 @@ class Fbhandler {
           guard let strongSelf = self else { return }
           // ...
         }
+        
    
     }
     
-    func registerWithEmail(email: String, password: String ) {
+    func registerWithEmail(email: String, password: String ) -> String{
+        var result = ""
         // [START create_user]
-         var result = Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-        // [START_EXCLUDE]
-//                    strongSelf.hideSpinner {
-//        guard let user = authResult?.user, error == nil else {
-//                        strongSelf.showMessagePrompt(error!.localizedDescription)
-//         return ""
-//                      }
-//        print("\(user.email!) created")
-//                      strongSelf.navigationController?.popViewController(animated: true)
-//                    }
-        // [END_EXCLUDE]
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            
+            if let error = error {
+                print("login fail:" + error.localizedDescription )
+                return result =  error.localizedDescription + "..." 
+                            
+            } else {
+                return result = ""
+            }
          }
         // [END create_user]
-        
+        return result
 
     }
     
@@ -50,7 +50,7 @@ class Fbhandler {
         self.modelData.uid = ""
         self.modelData.name = ""
         self.modelData.password = ""
-        self.modelData.addresss = ""
+        self.modelData.address = ""
         self.modelData.country = ""
         self.modelData.city = ""
         let auth = Auth.auth()
@@ -103,7 +103,7 @@ class Fbhandler {
                 //print("Document data: \(dataDescription)")
                 let dataDescription = document.data()
                                
-                self.modelData.addresss = dataDescription?["address"] as! String
+                self.modelData.address = dataDescription?["address"] as! String
                 self.modelData.country = dataDescription?["country"] as! String
                 self.modelData.city = dataDescription?["city"] as! String
   
@@ -117,9 +117,9 @@ class Fbhandler {
     
     func storeUserData(){
         let citiesRef = db.collection("users")
-        let result = citiesRef.document(modelData.uid).setData([
+        citiesRef.document(modelData.uid).setData([
             "name": modelData.name,
-            "address": modelData.addresss,
+            "address": modelData.address,
             "country": modelData.country,
             "city": modelData.city
             //"state": "CA",
@@ -131,7 +131,7 @@ class Fbhandler {
     
     func storeUserData(uid: String, name: String, country: String, address: String, city: String){
         let citiesRef = db.collection("users")
-        let result = citiesRef.document(uid).setData([
+        citiesRef.document(uid).setData([
             "name": name,
             "address": address,
             "country": country,

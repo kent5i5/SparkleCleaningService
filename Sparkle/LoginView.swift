@@ -67,11 +67,21 @@ struct LoginView: View {
     }
     
     func registerUser(email: String, password: String) {
-      
+     
       if email.isEmpty == false {
         //user.profile = Profile(nameArg: $email, passwordArg: $password)
-        var result = Auth.auth().createUser(withEmail: email, password: password) { authResult, error in}
-        user.isRegistered = true
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("login fail")
+                   
+                self.showingAlert = true
+                            
+            } else {
+                user.isRegistered = true
+            }
+            
+        }
+       
       }
     }
 
@@ -149,9 +159,14 @@ struct LoginView: View {
                                         .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
                             .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                            
+                      
                     }.alert(isPresented: $showingAlert) {
                         Alert(title: Text("Authenticate Error"), message: Text("Incorrect username and password"), dismissButton: .default(Text("Got it!")))
                     }
+                    
+                    NavigationLink(destination: RegisterView().environmentObject(modelData),
+                                   label: {
+                                    Text("Or Register").foregroundColor(.green)})
                     
                 }.padding()
                     
