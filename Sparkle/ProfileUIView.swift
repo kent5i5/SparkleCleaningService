@@ -9,8 +9,14 @@ import SwiftUI
 
 struct ProfileUIView: View {
     //@EnvironmentObject var settings: SettingsObject
+    @EnvironmentObject var modelData: User
     @State var username = ""
-    
+    func getUserInfo() {
+        if modelData.name.isEmpty{
+            let fbhandler = Fbhandler(modelData: modelData)
+            fbhandler.getUserInfo()
+        }
+    }
     var body: some View {
         
         NavigationView {
@@ -23,7 +29,7 @@ struct ProfileUIView: View {
 //                    }
                     
                     
-                    NavigationLink(destination: AccountView(),
+                    NavigationLink(destination: AccountView().environmentObject(modelData),
                             label: {
                                 Text("account")
                                    
@@ -98,7 +104,7 @@ struct ProfileUIView: View {
                         Text("2.2.1")
                     }
                 }
-            }
+            }.onAppear(){getUserInfo()}
         }.navigationViewStyle(StackNavigationViewStyle())
             
        

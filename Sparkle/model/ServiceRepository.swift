@@ -13,6 +13,25 @@ class ServiceRepository: ObservableObject{
     
     init(){
         loadAllService()
+        listentToServiceData()
+    }
+    
+    func listentToServiceData(){
+        db.collection("services").addSnapshotListener { (snap, err) in
+                   if err != nil {
+                       print((err?.localizedDescription)!)
+                       return
+                   } else {
+                       print("no errors")
+                       for i in snap!.documentChanges {
+                           let id = i.document.documentID
+                           let name = i.document.get("name") as! String
+
+                          // self.data.append(Service(id: "", name: "", date: Date(), address: "", country: "", city: ""))
+                       }
+                      // print(self.data)
+                   }
+               }
     }
     
     func newService(name: String , date: Date, address: String, country: String, city: String){
@@ -36,7 +55,7 @@ class ServiceRepository: ObservableObject{
                       let country = data["country"] as? String, let city = data["city"] as? String else {
                     return nil
                 }
-                return Service(name: name, date: date, address: address, country: country, city: city)
+                return Service(id: document.documentID ,name: name, date: date, address: address, country: country, city: city)
             }
             
             

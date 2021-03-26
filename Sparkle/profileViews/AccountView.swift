@@ -12,39 +12,30 @@ struct AccountView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: User
     @State private var showEdit = false
+    @State private var uid = ""
     @State private var name = ""
     @State private var address = ""
     @State private var country = ""
     @State private var city = ""
     
-    func getUserInfo() {
-        let user = Auth.auth().currentUser
-        if let user = user {
-          // The user's ID, unique to the Firebase project.
-          // Do NOT use this value to authenticate with your backend server,
-          // if you have one. Use getTokenWithCompletion:completion: instead.
-          let uid = user.uid
-          let email = user.email
-          let photoURL = user.photoURL
-          var multiFactorString = "MultiFactor: "
-          for info in user.multiFactor.enrolledFactors {
-            multiFactorString += info.displayName ?? "[DispayName]"
-            multiFactorString += " "
-          }
+    private func delayText() {
+            // Delay of 7.5 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+               // hasTimeElapsed = true
+                let fbhandler = Fbhandler(modelData: modelData)
+                fbhandler.getUserInfo()
+            }
+   }
 
-          //modelData.setName(name: email!)
-            self.name = email!
-          
-        }
-    }
     var body: some View {
   
             VStack {
                 
                 Text("Account")
                
-                if !modelData.name.isEmpty {
-                    displayProfile(name: $name, address: $address, country: $country, city: $city).environmentObject(User())
+                if !modelData.name.isEmpty{
+                    displayProfile(name: $name, address: $address, country: $country, city: $city).environmentObject(modelData)
+     
                 } else {
                     LoginView(appData: User()).environmentObject(User())
                     Button("DONE") {
@@ -56,7 +47,7 @@ struct AccountView: View {
                 Spacer()
                 
             }.onAppear(){print("renew user data")
-                getUserInfo()
+                
             }.navigationBarItems(trailing: Button(action: {
                 withAnimation{
                     showEdit = true
@@ -66,11 +57,12 @@ struct AccountView: View {
                 Text("Edit")
                 
             }.sheet(isPresented: $showEdit, content: {
-                EditProfile(showModal: $showEdit, name: $name, address: $address, country: $country, city: $city
+                EditProfile(showModal: $showEdit, uid: $uid, name: $name, address: $address, country: $country, city: $city
                 ).animation(.easeIn)
                 .transition(.asymmetric(insertion: .opacity, removal: .scale))
-              
-            }))
+                .environmentObject(modelData)
+   
+            }).onDisappear(){})
 
     }
 }
@@ -95,10 +87,10 @@ struct displayProfile: View {
             List {
                 
                 
-                infomationRow(rowName: "Username: ", data: name )
-                infomationRow(rowName: "Address: ", data: address )
-                infomationRow(rowName: "Country: ", data:country )
-                infomationRow(rowName: "City: ", data: city )
+                infomationRow(rowName: "Username: ", data: modelData.name  )
+                infomationRow(rowName: "Address: ", data: modelData.addresss )
+                infomationRow(rowName: "Country: ", data: modelData.country )
+                infomationRow(rowName: "City: ", data: modelData.city )
 
             }
     }
@@ -107,24 +99,33 @@ struct displayProfile: View {
 }
 
 struct EditProfile: View {
+    @EnvironmentObject var modelData: User
     @Binding var showModal: Bool
-    @Binding  var name: String
+    @Binding var uid: String
+    @Binding var name: String
     @Binding var address: String
     @Binding var country: String
     @Binding var city: String
+    
+    private func updateUser(){
+        let fbhandler = Fbhandler(modelData: modelData)
+        fbhandler.storeUserData()
+
+    }
     
     var body: some View {
         ZStack {
             VStack {
                 
-                TextField("Username: " , text: $name)
+               // TextField("Username: " , text: $name)
             
-                TextField("Address", text: $address)
-                TextField("Country",  text: $country)
-                TextField("City", text: $city)
+                TextField("Address", text: $modelData.addresss)
+                TextField("Country",  text: $modelData.country)
+                TextField("City", text: $modelData.city)
             
                 Button(action: {
                     //modelData.name = name
+                    updateUser()
                     self.showModal = false
                 }){
                    Text("DONE")
@@ -138,6 +139,9 @@ struct EditProfile: View {
                 }
                 Spacer()
             }.padding()
+            .onAppear(){
+                
+            }
         }
     }
 }

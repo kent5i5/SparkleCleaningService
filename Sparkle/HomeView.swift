@@ -15,26 +15,10 @@ struct HomeView: View {
     @State var password: String = ""
     
     func getUserInfo(){
-    
-        let user = Auth.auth().currentUser
-        if let user = user {
-          // The user's ID, unique to the Firebase project.
-          // Do NOT use this value to authenticate with your backend server,
-          // if you have one. Use getTokenWithCompletion:completion: instead.
-          let uid = user.uid
-          let email = user.email
-          let photoURL = user.photoURL
-          var multiFactorString = "MultiFactor: "
-          for info in user.multiFactor.enrolledFactors {
-            multiFactorString += info.displayName ?? "[DispayName]"
-            multiFactorString += " "
-          }
-            
-          appData.setName(name: email!)
-          modelData.setName(name: email!)
-            
-          
-        }
+
+        let fbhandler = Fbhandler(modelData: modelData)
+        fbhandler.getUserInfo()
+          //appData.setName(name: email!)
     }
     
     func signOut(){
@@ -44,7 +28,7 @@ struct HomeView: View {
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
-        appData.name = ""
+        //appData.name = ""
         modelData.name = ""
     }
     
@@ -69,7 +53,7 @@ struct HomeView: View {
                         NavigationLink(
                             destination:
                                 LoginView(appData: appData).environmentObject(User()).onDisappear() {
-                                   print("back from login view")
+                                   //print("back from login view")
                                     getUserInfo()
                                 },
                             label: {

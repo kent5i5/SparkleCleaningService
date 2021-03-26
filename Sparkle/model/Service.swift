@@ -4,13 +4,13 @@
 //
 //  Created by ying kit ng on 3/22/21.
 //
-
+import SwiftUI
 
 struct Service: Identifiable {
-    var id = UUID()
-    
+    //let id = UUID()
+    let id: String 
     let name: String
-    let data: Date
+    let date: Date
     let address: String
     let country: String
     let city: String

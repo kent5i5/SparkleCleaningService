@@ -28,36 +28,24 @@ struct LoginView: View {
     
 
     func getUserInfo() {
-        let user = Auth.auth().currentUser
-        if let user = user {
-          // The user's ID, unique to the Firebase project.
-          // Do NOT use this value to authenticate with your backend server,
-          // if you have one. Use getTokenWithCompletion:completion: instead.
-          let uid = user.uid
-          let email = user.email
-          let photoURL = user.photoURL
-          var multiFactorString = "MultiFactor: "
-          for info in user.multiFactor.enrolledFactors {
-            multiFactorString += info.displayName ?? "[DispayName]"
-            multiFactorString += " "
-          }
-            
-          appData.setName(name: email!)
-          modelData.setName(name: email!)
-            
-          
+        if modelData.name.isEmpty{
+            let fbhandler = Fbhandler(modelData: modelData)
+            fbhandler.getUserInfo()
         }
     }
     
     func signOut(){
-        let auth = Auth.auth()
-        do {
-            try auth.signOut()
-        } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
-        }
+//        let auth = Auth.auth()
+//        do {
+//            try auth.signOut()
+//        } catch let signOutError as NSError {
+//          print ("Error signing out: %@", signOutError)
+//        }
+        
         appData.name = ""
-        modelData.name = ""
+        //modelData.name = ""
+        let fbhandler = Fbhandler(modelData: modelData)
+        fbhandler.signOut()
     }
     
     func loginExistingUserWithEmail(email: String, password: String) {
@@ -89,6 +77,9 @@ struct LoginView: View {
 
     var body: some View {
         ScrollView {
+            
+            if !modelData.name.isEmpty{ Text("Welcome! " + modelData.name)}
+            else {
             VStack {
 
                 
@@ -199,7 +190,7 @@ struct LoginView: View {
             //.navigationTitle("Title")
             .navigationBarHidden(false)
         }
-
+        }
     }
 }
 

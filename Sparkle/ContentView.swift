@@ -15,6 +15,7 @@ struct ContentView: View {
             UITabBar.appearance().backgroundColor = UIColor(Color(red: 10/255, green: 255/255, blue: 10/255))
         //UINavigationBar.appearance().backgroundColor = .green
         self.appData = User()
+        
     }
     var body: some View {
         NavigationView {
@@ -53,6 +54,7 @@ struct ContentView: View {
                 ProfileUIView().tabItem {
                     Image(systemName: "xserve")
                 }.navigationBarHidden(true)
+                .environmentObject(modelData)
                 
                 WorkerListUIView().tabItem {
                     Image(systemName: "pencil.tip")
@@ -60,6 +62,10 @@ struct ContentView: View {
                 
             }.edgesIgnoringSafeArea(.top)
             .accentColor(.green)
+            }.onAppear(){
+                // retrieve user data from firestore
+                let fbhandler = Fbhandler(modelData: modelData)
+                fbhandler.getUserInfo()
             }
         }.navigationViewStyle(StackNavigationViewStyle())
 

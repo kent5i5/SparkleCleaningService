@@ -16,6 +16,14 @@ let favorites: [Favorite] = [ Favorite(name: "job1", duration: 5.0),
 struct WorkerListUIView: View {
     @State var showFavortie: Bool = true
     @State var showPast: Bool = false
+    @State var showProfile: Bool = false
+    
+    func getUserInfo() {
+        
+            let fbhandler = Fbhandler(modelData: User())
+            fbhandler.getUserInfo()
+        
+    }
     
     var body: some View {
         
@@ -55,6 +63,10 @@ struct WorkerListUIView: View {
                                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                                 .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(.green)
+                                .onTapGesture {
+                                    showProfile.toggle()
+                                }.sheet(isPresented: $showProfile){
+                                    AccountView()}
                             
                             Image(systemName: "homekit")
                                 .resizable()
@@ -103,7 +115,7 @@ struct WorkerListUIView: View {
                 }
                
             }.padding(0)
-            
+            .onAppear(){getUserInfo()}
         }
     }
 }
