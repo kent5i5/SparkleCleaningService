@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArrivalTimeFormUIView: View {
+    @EnvironmentObject var serviceData: ServiceRepository
     @Binding var currentStep: Int
     
     func resetView(){
@@ -15,11 +16,10 @@ struct ArrivalTimeFormUIView: View {
 
     }
     
-    init(currentStep: Binding<Int>){
+    init(currentStep: Binding<Int> ){
         self._currentStep = currentStep
     }
     var body: some View {
-        ScrollView {
             VStack {
                 Text("Requested Arrival Time of the Cleaner")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -33,20 +33,26 @@ struct ArrivalTimeFormUIView: View {
                         .foregroundColor(.green)
                 }
                 
-                TextField("Search", text: .constant(""))
-                    .frame(height: 40, alignment: .center)
-                    .cornerRadius(10)
-                    .border(Color.green)
-                    .padding(10)
+                DatePicker("Please enter start time", selection: $serviceData.startDate)
                 
-                TextField("Search", text: .constant(""))
-                    .frame(height: 40, alignment: .center)
-                    .cornerRadius(10)
-                    .border(Color.green)
-                    .padding(10)
+                DatePicker("Please enter end time", selection: $serviceData.endDate)
+                
+                Spacer()
+                
+//                TextField("Search", text: .constant(""))
+//                    .frame(height: 40, alignment: .center)
+//                    .cornerRadius(10)
+//                    .border(Color.green)
+//                    .padding(10)
+//
+//                TextField("Search", text: .constant(""))
+//                    .frame(height: 40, alignment: .center)
+//                    .cornerRadius(10)
+//                    .border(Color.green)
+//                    .padding(10)
                 
             }
-        }
+
         
         
     }

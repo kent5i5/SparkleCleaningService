@@ -10,7 +10,6 @@ struct Service: Identifiable {
     //let id = UUID()
     let id: String 
     let name: String
-    let date: Date
     let address: String
     let country: String
     let city: String
@@ -18,6 +17,8 @@ struct Service: Identifiable {
     let apt: String
     let zipcode :String
     let type: [String]
+    let startdate: Date
+    let enddate: Date
 
 }
 

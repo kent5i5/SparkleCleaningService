@@ -25,10 +25,13 @@ struct WorkerListUIView: View {
         
             let fbhandler = Fbhandler(modelData: User())
             fbhandler.getUserInfo()
-
-        serviceData.getServicelists(uid: modelData.uid)
         
-        print(serviceData.serivces)
+        // if user is logged in, retrieve their services history
+        if !modelData.uid.isEmpty{
+            serviceData.getServicelists(uid: modelData.uid)
+           // print(serviceData.serivces)
+        }
+        
         
     }
     

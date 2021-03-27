@@ -25,15 +25,15 @@ struct SelectServiceUIView: View {
     @State private var wakeUp = Date()
     
     //@State var services = ServiceRepository()
-    @State var iconItem: [Icon] = [ Icon(name: "arrow.clockwise.icloud.fill",type: "type1", isSelected: true),
-                                    Icon(name: "arrow.clockwise.icloud", type: "type2", isSelected:false),
-                                    Icon(name: "checkmark.icloud.fill",type: "type3",  isSelected:false),
-                                   Icon(name: "icloud.and.arrow.down.fill",type: "type4", isSelected:false),
-                                       Icon(name: "link.icloud.fil",type: "type5",  isSelected:false),
-                                       Icon(name: "key.icloud.fill",type: "typey6",  isSelected:false),
-                                   Icon(name: "icloud.and.arrow.down.fill",type: "type7", isSelected:false),
-                                       Icon(name: "arrow.clockwise.icloud",type: "type8", isSelected:false),
-                                       Icon(name: "checkmark.icloud.fill",type: "type9",  isSelected:false)]
+    @State var iconItem: [Icon] = [ Icon(name: "arrow.clockwise.icloud.fill",type: "clean room", isSelected: true),
+                                    Icon(name: "arrow.clockwise.icloud", type: "child care", isSelected:false),
+                                    Icon(name: "checkmark.icloud.fill",type: "cooking",  isSelected:false),
+                                   Icon(name: "icloud.and.arrow.down.fill",type: "teaching", isSelected:false),
+                                       Icon(name: "link.icloud.fill",type: "watch",  isSelected:false),
+                                       Icon(name: "key.icloud.fill",type: "singing",  isSelected:false),
+                                   Icon(name: "icloud.and.arrow.down.fill",type: "talk", isSelected:false),
+                                       Icon(name: "arrow.clockwise.icloud",type: "shopping", isSelected:false),
+                                       Icon(name: "checkmark.icloud.fill",type: "reading",  isSelected:false)]
     @State var street: String = ""
     @State var aptunit: String = ""
     @State var zipcode: String = ""
@@ -55,7 +55,8 @@ struct SelectServiceUIView: View {
                     SelectServiceSubView(currentStep: $showSelectService, iconItem: $iconItem)
                 }
                 if (showSelectService == 2){
-                    ArrivalTimeFormUIView(currentStep: $showSelectService, wakeUp: $wakeUp)
+                    ArrivalTimeFormUIView(currentStep: $showSelectService)
+                        .environmentObject(serviceData)
                 }
                 
                 if (showSelectService == 3){
@@ -73,7 +74,7 @@ struct SelectServiceUIView: View {
                                             HStack {
                                                 Image(systemName: "arrow.up.circle")
                                                     .foregroundColor(.green)
-                                                Text("DONE")
+                                                Text("CANCEL")
                                                     .foregroundColor(.green)
                                             }
                                         })
@@ -84,7 +85,8 @@ struct SelectServiceUIView: View {
                 if(showSelectService < 4){
                      Button(action: {changeView()}){
                          Text("NEXT")
-                     }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                     }
+                     //.frame(maxWidth: .infinity, maxHeight: .infinity)
                      .border(Color.green)
                      .foregroundColor(.green)
                      .clipped()
@@ -96,7 +98,7 @@ struct SelectServiceUIView: View {
                                  }) {
                                      HStack {
                                          Image(systemName: "arrow.left.circle")
-                                         Text("Go Back")
+                                         Text("CANCEL")
                                      }
                              })
                 }
@@ -238,18 +240,17 @@ struct GoHomeButton: View {
     @Binding var aptunit: String
     @Binding var zipcode: String
 
+    @State var typeArray: [String] = []
     func addService(){
         if !modelData.uid.isEmpty {
             //let serviceHandler = ServiceRepository()
-            var typeArray: [String] = []
+           // var typeArray: [String] = []
             iconItem.forEach{ icon in
                 if icon.isSelected == true{
-                    typeArray.append(icon.type)
+                    self.typeArray.append(icon.type)
                 }
-          
-                
             }
-            var path = serviceData.newService(name: "service any", date: Date() , address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray)
+            var path = serviceData.newService(name: "service any",  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray )
             let fbhandler = Fbhandler(modelData: modelData)
             fbhandler.storeService(sid: path )
         
@@ -259,18 +260,41 @@ struct GoHomeButton: View {
     func resetView(){
         print(street + aptunit + zipcode)
         currentStep = 1
-
+        iconItem.forEach{ icon in
+            if icon.isSelected == true {}
+        }
+        street = ""
+        aptunit = ""
+        zipcode = ""
+        serviceData.startDate = Date()
+        serviceData.endDate = Date()
     }
     var body: some View {
 
             VStack {
+                Text("Service")
+                Divider()
+                Text(" - types " + typeArray.description).onAppear(){
+                    iconItem.forEach{ icon in
+                        if icon.isSelected == true{
+                            self.typeArray.append(icon.type)
+                        }
+                } }
+                Text(" - Street " + street)
+                Text(" - Apt/Unit " + aptunit)
+                Text(" - Zip Code " + zipcode)
+                Text(" - Start Date " + serviceData.startDate.description)
+                Text(" - Start Date " + serviceData.endDate.description)
+                
                 Button(action: {addService()}){
-                    Text("finish and add")
+                    Text(" Add the Services")
+                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .border(Color.green)
                 .foregroundColor(.green)
-                .clipped()
+                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 .padding(10)
+                
                 Button(action: {resetView()}){
                     Text("reset")
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)

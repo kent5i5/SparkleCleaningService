@@ -19,6 +19,9 @@ struct PastView: View {
     
     var body: some View {
         VStack {
+            if serviceData.serivces.isEmpty{
+                Text("No Job History, Please Log in" )
+            } else {
             ForEach(serviceData.serivces){ service in
                 
                 HStack {
@@ -29,11 +32,10 @@ struct PastView: View {
                 HStack {
                     Text("Title: "  ).frame( alignment: .leading).font(.body).foregroundColor(.green)
                     Text( service.name).font(.body)
-                    Divider()
-                  
+
                    
                 }
-                
+                Divider()
                 VStack {
                     ForEach(0..<service.type.count){ at in
                         Text("Type: "  ).frame( alignment: .leading).font(.body).foregroundColor(.green)
@@ -43,11 +45,11 @@ struct PastView: View {
                 Divider().border(Color.green, width: 2).foregroundColor(.green)
                 Spacer()
             }
-            
+            }
            
 
         }.padding()
-        .border(Color.green)
+        //.border(Color.green)
     }
 }
 

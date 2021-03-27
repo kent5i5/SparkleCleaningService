@@ -34,15 +34,16 @@ struct HomeView: View {
     
     var body: some View {
         
-//        NavigationView {
-            ScrollView {
-                VStack {
+        VStack {
+            
+               
                     
                     Image(systemName: "")
                         .resizable()
                         .frame( height: 280, alignment: .center)
                         .background(Color.green)
-                        
+                ScrollView {
+                    VStack {
                     if (modelData.name.isEmpty) {
                         Text("Welcome!")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -101,7 +102,8 @@ struct HomeView: View {
                 
             }.edgesIgnoringSafeArea(.top)
             
-//        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        //.navigationViewStyle(StackNavigationViewStyle())
 //        .navigationBarHidden(true)
     }
 }

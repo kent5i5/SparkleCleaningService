@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CalenderUIView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @EnvironmentObject var serviceDate: ServiceRepository
     @State var selectedDate = Date()
     
     @State var showMenuItem1 = false
@@ -28,11 +30,16 @@ struct CalenderUIView: View {
         NavigationView {
             VStack {
                     
-                    DatePicker("When is your birthday?", selection: $selectedDate, displayedComponents: .date)
-                     .datePickerStyle(GraphicalDatePickerStyle())
+                DatePicker("When is the starting date?", selection: $serviceDate.startDate, displayedComponents:  [.date, .hourAndMinute])
+                      .datePickerStyle(GraphicalDatePickerStyle())
                      .background(Color.green)
-                     .foregroundColor(.white)
-        
+                        .accentColor(colorScheme == .dark ? Color.secondary : Color.primary)
+                     //.foregroundColor(.white)
+                    
+                
+                Text(serviceDate.startDate.description ).frame(width: .infinity, height: 20, alignment: .bottomLeading)
+                    .font(.caption)
+                
                     ZStack(alignment: .bottomTrailing) {
                         Rectangle()
                                       .foregroundColor(.clear)

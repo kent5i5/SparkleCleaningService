@@ -9,9 +9,10 @@ import SwiftUI
 
 struct SupportView: View {
     @State private var selectedStrength = "Mild"
+    @State private var inputText = ""
     @State private var agreedToTerms = false
     @State private var isRequestSend = false
-    let options = ["probelm1", "problem2", "problem3"]
+    let options = ["Technical", "Authentication", "Service problem"]
     var body: some View {
        // Text("Technical support")
             
@@ -25,7 +26,7 @@ struct SupportView: View {
                 }
                 
                 Section {
-                    TextField("500 word maximum ", text: .constant(""))
+                    TextField("500 word maximum ", text: $inputText)
                         .cornerRadius(10)
                         .padding()
                         .border(Color.green)
