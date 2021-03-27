@@ -14,6 +14,10 @@ struct Service: Identifiable {
     let address: String
     let country: String
     let city: String
+    let street: String
+    let apt: String
+    let zipcode :String
+    let type: [String]
 
 }
 

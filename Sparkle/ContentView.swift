@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var modelData: User
     @ObservedObject var appData: User
+    @EnvironmentObject var serviceData: ServiceRepository
     
     init(appData: User) {
             UITabBar.appearance().backgroundColor = UIColor(Color(red: 10/255, green: 255/255, blue: 10/255))
@@ -59,6 +60,8 @@ struct ContentView: View {
                 WorkerListUIView().tabItem {
                     Image(systemName: "pencil.tip")
                 }.navigationBarHidden(true)
+                .environmentObject(modelData)
+                .environmentObject(serviceData)
                 
             }.edgesIgnoringSafeArea(.top)
             .accentColor(.green)

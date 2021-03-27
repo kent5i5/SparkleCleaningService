@@ -88,7 +88,7 @@ struct displayProfile: View {
                 
                 
                 infomationRow(rowName: "Username: ", data: modelData.name  )
-                infomationRow(rowName: "Address: ", data: modelData.addresss )
+                infomationRow(rowName: "Address: ", data: modelData.address )
                 infomationRow(rowName: "Country: ", data: modelData.country )
                 infomationRow(rowName: "City: ", data: modelData.city )
 
@@ -119,7 +119,7 @@ struct EditProfile: View {
                 
                // TextField("Username: " , text: $name)
             
-                TextField("Address", text: $modelData.addresss)
+                TextField("Address", text: $modelData.address)
                 TextField("Country",  text: $modelData.country)
                 TextField("City", text: $modelData.city)
             

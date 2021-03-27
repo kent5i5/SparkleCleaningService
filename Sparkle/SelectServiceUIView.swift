@@ -6,10 +6,37 @@
 //
 
 import SwiftUI
+import Firebase
+
+
+struct Icon: Identifiable {
+  let id = UUID()
+  let name: String
+    let type: String
+    var isSelected: Bool
+
+}
 
 struct SelectServiceUIView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var modelData: User
+    @EnvironmentObject var serviceData: ServiceRepository
     @State var showSelectService = 1
+    @State private var wakeUp = Date()
+    
+    //@State var services = ServiceRepository()
+    @State var iconItem: [Icon] = [ Icon(name: "arrow.clockwise.icloud.fill",type: "type1", isSelected: true),
+                                    Icon(name: "arrow.clockwise.icloud", type: "type2", isSelected:false),
+                                    Icon(name: "checkmark.icloud.fill",type: "type3",  isSelected:false),
+                                   Icon(name: "icloud.and.arrow.down.fill",type: "type4", isSelected:false),
+                                       Icon(name: "link.icloud.fil",type: "type5",  isSelected:false),
+                                       Icon(name: "key.icloud.fill",type: "typey6",  isSelected:false),
+                                   Icon(name: "icloud.and.arrow.down.fill",type: "type7", isSelected:false),
+                                       Icon(name: "arrow.clockwise.icloud",type: "type8", isSelected:false),
+                                       Icon(name: "checkmark.icloud.fill",type: "type9",  isSelected:false)]
+    @State var street: String = ""
+    @State var aptunit: String = ""
+    @State var zipcode: String = ""
     
     func changeView(){
         showSelectService = showSelectService + 1
@@ -25,17 +52,20 @@ struct SelectServiceUIView: View {
             ScrollView {
                 
                 if (showSelectService == 1){
-                    SelectServiceSubView(currentStep: $showSelectService)
+                    SelectServiceSubView(currentStep: $showSelectService, iconItem: $iconItem)
                 }
                 if (showSelectService == 2){
-                    ArrivalTimeFormUIView(currentStep: $showSelectService)
+                    ArrivalTimeFormUIView(currentStep: $showSelectService, wakeUp: $wakeUp)
                 }
                 
                 if (showSelectService == 3){
-                    LocationFormUIView(currentStep: $showSelectService)
+                    LocationFormUIView(currentStep: $showSelectService, street: $street, aptunit: $aptunit, zipcode: $zipcode)
+                        .environmentObject(modelData)
                 }
                 if (showSelectService == 4){
-                    GoHomeButton(currentStep: $showSelectService)
+                    GoHomeButton(currentStep: $showSelectService, iconItem: $iconItem,  street: $street, aptunit: $aptunit, zipcode: $zipcode)
+                        .environmentObject(modelData)
+                        .environmentObject(serviceData)
                                     .navigationBarItems(leading:
                                         Button(action: {
                                             self.presentationMode.wrappedValue.dismiss()
@@ -47,16 +77,7 @@ struct SelectServiceUIView: View {
                                                     .foregroundColor(.green)
                                             }
                                         })
-//                                        }, trailing:
-//                                        HStack {
-//                                            Button("Favorites") {
-//                                                print("Favorites tapped!")
-//                                            }
-//
-//                                            Button("Specials") {
-//                                                print("Specials tapped!")
-//                                            }
-//                                        })
+//                                        }, trailing:)
                     
                 }
                 
@@ -91,23 +112,9 @@ struct SelectServiceUIView_Previews: PreviewProvider {
     }
 }
 
-struct Icon: Identifiable {
-  let id = UUID()
-  let name: String
-  let isSelected: Bool
-
-}
-let iconItem: [Icon] = [ Icon(name: "arrow.clockwise.icloud.fill", isSelected: true),
-                         Icon(name: "arrow.clockwise.icloud", isSelected:false),
-                         Icon(name: "checkmark.icloud.fill", isSelected:false),
-                         Icon(name: "icloud.and.arrow.down.fill", isSelected:false),
-                         Icon(name: "link.icloud.fil", isSelected:false),
-                         Icon(name: "key.icloud.fill", isSelected:false)
-]
-
 struct SelectServiceSubView: View {
     @Binding var currentStep: Int
-    
+    @Binding var iconItem: [Icon]
   
     
     func resetView(){
@@ -115,8 +122,9 @@ struct SelectServiceSubView: View {
 
     }
     
-    init(currentStep: Binding<Int>){
+    init(currentStep: Binding<Int>, iconItem: Binding<[Icon]>){
         self._currentStep = currentStep
+        self._iconItem = iconItem
     }
     
     var body: some View {
@@ -136,78 +144,52 @@ struct SelectServiceSubView: View {
                     .foregroundColor(.green)
             }
             
-            List{
-                ForEach(iconItem) { icon in
-                       //   if (self.isMissCall && contact.missCall) || !self.isMissCall {
-                    IconView(iconName: icon.name, isSelected: icon.isSelected)
-                    //}
-                }
-            }
-            IconView(iconName: "arrow.clockwise.icloud.fill", isSelected: true)
-                
             
             HStack {
-                Image(systemName: "arrow.clockwise.icloud.fill")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                    
+                ForEach(0..<3) { index in
+                        
+                    CheckView(iconItem: $iconItem, numItem: index)
 
-                Image(systemName: "arrow.clockwise.icloud")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-                Image(systemName: "checkmark.icloud.fill")
-                    .resizable()
-                    .padding(10)
-                    .frame(width: 100, height: 100, alignment: .topLeading)
-            }.foregroundColor(.green)
+                }
+            }
+            HStack {
+                ForEach(3..<6) { index in
+                    
+                    CheckView(iconItem: $iconItem , numItem: index)
+
+                }
+            }
+            HStack {
+                ForEach(6..<9) {  index in
+
+                    CheckView(iconItem: $iconItem, numItem: index )
+
+                }
+            }
             
-//            HStack {
-//                Image(systemName: "icloud.and.arrow.down.fill")
-//                    .resizable()
-//                    .padding(10)
-//                    .frame(width: 100, height: 100, alignment: .topLeading)
-//                Image(systemName: "icloud.circle")
-//                    .resizable()
-//                    .padding(10)
-//                    .frame(width: 100, height: 100, alignment: .topLeading)
-//                Image(systemName: "icloud.fill")
-//                    .resizable()
-//                    .padding(10)
-//                    .frame(width: 100, height: 100, alignment: .topLeading)
-//            }.foregroundColor(.green)
-//            HStack {
-//                Image(systemName: "key.icloud.fill")
-//                    .resizable()
-//                    .padding(10)
-//                    .frame(width: 100, height: 100, alignment: .topLeading)
-//                Image(systemName: "link.icloud")
-//                    .resizable()
-//                    .padding(10)
-//                    .frame(width: 100, height: 100, alignment: .topLeading)
-//                Image(systemName: "link.icloud.fill")
-//                    .resizable()
-//                    .padding(10)
-//                    .frame(width: 100, height: 100, alignment: .topLeading)
-//            }.foregroundColor(.green)
-            
-            
+    
         }.frame(alignment: .leading).ignoresSafeArea()
     }
 }
 
 struct LocationFormUIView: View {
+    
+    @EnvironmentObject var modelData: User
+    @EnvironmentObject var serviceData: ServiceRepository
+    
     @Binding var currentStep: Int
+    @Binding var street: String
+    @Binding var aptunit: String
+    @Binding var zipcode: String
     
     func resetView(){
         currentStep = 1
 
     }
     
-    init(currentStep: Binding<Int>){
-        self._currentStep = currentStep
-    }
+//    init(currentStep: Binding<Int>){
+//        self._currentStep = currentStep
+//    }
     
     var body: some View {
         
@@ -225,18 +207,18 @@ struct LocationFormUIView: View {
                     .foregroundColor(.green)
             }
             
-            TextField("Street", text: .constant(""))
+            TextField("Street: ", text: $street)
                 .frame(height: 40, alignment: .center)
                 .cornerRadius(10)
                 .border(Color.green)
                 .padding(10)
             
-            TextField("Apt/Unit", text: .constant(""))
+            TextField("Apt/Unit: ", text: $aptunit)
                 .frame(height: 40, alignment: .center)
                 .cornerRadius(10)
                 .border(Color.green)
                 .padding(10)
-            TextField("Zip Code", text: .constant(""))
+            TextField("Zip Code: ", text: $zipcode)
                 .frame(height: 40, alignment: .center)
                 .cornerRadius(10)
                 .border(Color.green)
@@ -248,17 +230,47 @@ struct LocationFormUIView: View {
 
 struct GoHomeButton: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var modelData: User
+    @EnvironmentObject var serviceData: ServiceRepository
     @Binding var currentStep: Int
-    
+    @Binding var iconItem: [Icon]
+    @Binding var street: String
+    @Binding var aptunit: String
+    @Binding var zipcode: String
 
+    func addService(){
+        if !modelData.uid.isEmpty {
+            //let serviceHandler = ServiceRepository()
+            var typeArray: [String] = []
+            iconItem.forEach{ icon in
+                if icon.isSelected == true{
+                    typeArray.append(icon.type)
+                }
+          
+                
+            }
+            var path = serviceData.newService(name: "service any", date: Date() , address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray)
+            let fbhandler = Fbhandler(modelData: modelData)
+            fbhandler.storeService(sid: path )
+        
+        }
+      
+    }
     func resetView(){
+        print(street + aptunit + zipcode)
         currentStep = 1
 
     }
     var body: some View {
 
             VStack {
-                
+                Button(action: {addService()}){
+                    Text("finish and add")
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                .border(Color.green)
+                .foregroundColor(.green)
+                .clipped()
+                .padding(10)
                 Button(action: {resetView()}){
                     Text("reset")
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)

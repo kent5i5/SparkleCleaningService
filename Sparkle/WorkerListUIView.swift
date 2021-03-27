@@ -14,14 +14,21 @@ let favorites: [Favorite] = [ Favorite(name: "job1", duration: 5.0),
 ]
 
 struct WorkerListUIView: View {
+    @EnvironmentObject var modelData: User
+    @EnvironmentObject var serviceData: ServiceRepository
     @State var showFavortie: Bool = true
     @State var showPast: Bool = false
     @State var showProfile: Bool = false
     
+    @State var servicelist: [Service] = []
     func getUserInfo() {
         
             let fbhandler = Fbhandler(modelData: User())
             fbhandler.getUserInfo()
+
+        serviceData.getServicelists(uid: modelData.uid)
+        
+        print(serviceData.serivces)
         
     }
     
@@ -108,9 +115,11 @@ struct WorkerListUIView: View {
                 }
                 if showPast {
                     // show past jobs
-                    ForEach(0..<favorites.count) { index in
-                        PastView(favorite: favorites[index])
-                    }
+                    //ForEach(0..<favorites.count) { index in
+                        PastView()
+                            .environmentObject(modelData)
+                            .environmentObject(serviceData)
+                   // }
 
                 }
                

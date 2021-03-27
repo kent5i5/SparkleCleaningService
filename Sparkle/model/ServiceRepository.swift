@@ -8,12 +8,27 @@
 import Firebase
 
 class ServiceRepository: ObservableObject{
-    @Published var serivces: [Service] = []
+    @Published var serivces: [Service]
     private let db = Firestore.firestore()
     
     init(){
-        loadAllService()
-        listentToServiceData()
+        //loadAllService()
+        //listentToServiceData()
+        self.serivces = []
+    }
+    
+    func createService(){
+        let citiesRef = db.collection("cities")
+
+        citiesRef.document("SF").setData([
+            "name": "San Francisco",
+            "address": "adb",
+            "state": "CA",
+            "country": "USA",
+            "city": "SF",
+            "startime": Date(),
+            "endtime": Date()
+            ])
     }
     
     func listentToServiceData(){
@@ -34,9 +49,69 @@ class ServiceRepository: ObservableObject{
                }
     }
     
-    func newService(name: String , date: Date, address: String, country: String, city: String){
-        db.collection("Service").addDocument(
-            data: ["name" : name, "date": date, "address": address, "country": country, "city": city])
+    func newService(name: String , date: Date, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>) -> String{
+        var path = db.collection("services").addDocument(
+            data: ["name" : name, "date": date, "address": address, "country": country, "city": city, "street": street, "apt": apt, "zipcode": zipcode , "type": type] )
+        print("finsih addding service in :")
+        return path.documentID.description
+    }
+    
+    func loadServiceInfoByIds(serviceid: [String] ){
+        let ref = db.collection("services")
+        var servicelist: [Service] = []
+        serviceid.forEach{ id in
+            
+            ref.document(id).getDocument{ (document, error) in
+                
+                if let document = document, document.exists {
+                    let name = document["name"] as! String
+                    let type = document["type"] as! [String]
+                   // print(type)
+                    servicelist.append(Service(id: id, name: name, date: Date(), address: "", country: "", city: "", street: "", apt: "", zipcode: "", type:  type))
+                    //print(servicelist)
+                }
+                self.serivces = servicelist
+                
+            }
+            
+        }
+        
+    }
+    
+    func getServicelists(uid: String){
+        var servicesid: [String] = []
+        var serviceslist: [Service] = []
+        let serviceRef = db.collection("servicelist").document(uid)
+        serviceRef.getDocument{ [self](document , err) in
+            if let document = document, document.exists {
+//                var dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                        print("Document data: \(dataDescription)")
+                
+                let keys = document.data().map{ at in
+                    return at.keys
+                    
+                }
+
+                keys?.forEach(){ key in
+                    //print(document[key] as! String )
+                   
+                    servicesid.append(document[key] as! String)
+                    
+                }
+                 
+                //servicesid.remove(at: 0)  //remove "" key
+                    
+                let serviceRepo = ServiceRepository()
+                if !servicesid.isEmpty{
+                    
+                    loadServiceInfoByIds(serviceid: servicesid )
+                   
+                }
+                
+            }
+
+        }
+
     }
     
     private func loadAllService(){
@@ -52,10 +127,10 @@ class ServiceRepository: ObservableObject{
             self.serivces = documents.compactMap{ document in
                 let data = document.data()
                 guard let name = data["name"] as? String, let date = data["date"] as? Date, let address = data["address"] as? String,
-                      let country = data["country"] as? String, let city = data["city"] as? String else {
+                      let country = data["country"] as? String, let city = data["city"] as? String, let type = data["type"] as? [String] else {
                     return nil
                 }
-                return Service(id: document.documentID ,name: name, date: date, address: address, country: country, city: city)
+                return Service(id: document.documentID ,name: name, date: date, address: address, country: country, city: city, street: "", apt: "", zipcode: "", type: type)
             }
             
             

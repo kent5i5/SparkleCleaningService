@@ -86,7 +86,7 @@ struct HomeView: View {
                         .border(Color.green)
                     
 
-                    ServiceSelctionsUIView()
+                    ServiceSelctionsUIView().environmentObject(modelData)
                     
                  
                     Button("Present!") {

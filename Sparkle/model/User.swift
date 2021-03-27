@@ -31,9 +31,11 @@ final internal class User  {
     @Published var isRegistered: Bool  = false
     @Published var name: String
     @Published var password: String
-    @Published var addresss: String
+    @Published var address: String
     @Published var country: String
     @Published var city: String
+    
+    @Published var services:[Service]
     //let willChange  = PassthroughSubject<User, Never>()
     
 //    var profile: Profile = Profile(){
@@ -46,13 +48,14 @@ final internal class User  {
     ///  - Parameters:
     ///     - name Name of the user 
     ///     - password password  of the user
-    internal init(uid: String, name: String, password: String, addresss: String, country: String, city: String){
+    internal init(uid: String, name: String, password: String, address: String, country: String, city: String, date: Date){
         self.uid = uid
         self.name = name
         self.password = password
-        self.addresss = addresss
+        self.address = address
         self.country = country
         self.city = city
+        services = []
     }
     
     
@@ -60,14 +63,23 @@ final internal class User  {
         self.uid = ""
         self.name = ""
         self.password = ""
-        self.addresss = ""
+        self.address = ""
         self.country = ""
         self.city = ""
+        
+        services = []
     }
     
     
     func setName(name: String){
         self.name = name
+    }
+    
+    func addService(type: String){
+        let sid = UUID()
+        let id = "services/" + sid.description
+        let date = Date()
+        //services.append(Service(id: id, name: self.name, date: date, address: address, country: country, city: city, type: type))
     }
 
 }

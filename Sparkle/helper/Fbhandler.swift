@@ -142,6 +142,17 @@ class Fbhandler {
             ])
         
     }
+    
+    func storeService( sid: String){
+        //let serviceRef = db.collection("service/" + sid);
+        //let serviceRef = db.collection("users/" + modelData.uid + "/serviceRef")
+        let serviceRef = db.collection("servicelist")
+        let index = "s" + Int.random(in: 0..<1000000).description
+        serviceRef.document(modelData.uid).setData([index :sid], merge: true)
+    }
+    
+
+    
     func removeDocument(layer1: String, layer2: String){
         db.collection(layer1).document(layer2).delete() { err in
             if let err = err {
