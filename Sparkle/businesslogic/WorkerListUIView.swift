@@ -45,7 +45,9 @@ struct WorkerListUIView: View {
                             .bold()
                             .foregroundColor(.green)
                         HStack {
-                            Button(action: {showFavortie.toggle()}) {
+                            Button(action: {showFavortie.toggle()
+                                showPast.toggle()
+                            }) {
                                 Text("Favorite")
                                     .frame(width: 120, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 Image(systemName: "star").foregroundColor(showFavortie ? Color.yellow : Color.black)
@@ -54,14 +56,18 @@ struct WorkerListUIView: View {
                             .foregroundColor(showFavortie ? .green : .black)
                            
                           
-                            Button(action: {showPast.toggle()}) {
+                            Button(action: {
+                                    showPast.toggle()
+                                    showFavortie.toggle()
+                                
+                            }) {
                                 Text("Past")
                                     .frame(width: 120, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     .padding(2)
                                     .foregroundColor(showPast ? Color.blue : Color.black)
-                                Image(systemName: "homekit")
+                                Image(systemName: "plus")
                             }.border(showPast ? Color.blue : Color.black)
-                            .foregroundColor(showPast ? Color.blue : Color.black)
+                            .foregroundColor(showPast ? Color.green : Color.black)
                             
                         }
                     }
@@ -77,28 +83,30 @@ struct WorkerListUIView: View {
                                     showProfile.toggle()
                                 }.sheet(isPresented: $showProfile){
                                     AccountView()}
-                            
-                            Image(systemName: "homekit")
-                                .resizable()
-                                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(.green)
+                                
+                        
+                                Text("Profile")
+                                    //.frame(width: 200, height: 50, alignment: .bottom)
+                                    .foregroundColor(.green)
+//                            Image(systemName: "homekit")
+//                                .resizable()
+//                                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                                .foregroundColor(.green)
                         }
                         VStack {
-                            Text("Profile")
-                                .frame(width: 200, height: 50, alignment: .leading)
-                                .foregroundColor(.green)
                             
-                            Text("more")
+                            
+                            Text("filter")
                                 .frame(width: 200, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(.green)
                                 
                         }
                        
-                        Image(systemName: "icloud.and.arrow.up")
-                            .resizable()
-                            .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .padding(.bottom)
-                            .foregroundColor(.green)
+//                        Image(systemName: "icloud.and.arrow.up")
+//                            .resizable()
+//                            .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                            .padding(.bottom)
+//                            .foregroundColor(.green)
                         
                     }.padding()
             
@@ -107,6 +115,7 @@ struct WorkerListUIView: View {
                 if showFavortie {
                     
                     VStack {
+                        Text("Favorite Jobs").font(.headline)
                         ForEach(0..<favorites.count) { index in
                             FavoriteView(favorite: favorites[index])
                         }
@@ -119,6 +128,7 @@ struct WorkerListUIView: View {
                 if showPast {
                     // show past jobs
                     //ForEach(0..<favorites.count) { index in
+                    Text("History").font(.headline)
                         PastView()
                             .environmentObject(modelData)
                             .environmentObject(serviceData)

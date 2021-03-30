@@ -20,7 +20,7 @@ struct IconView: View {
     var body: some View {
     
                 VStack {
-                    Image(systemName: iconName)
+                    Image(systemName: "plus")
                         .resizable()
                         .padding(10)
                         .frame(width: 100, height: 100, alignment: .topLeading)
@@ -29,15 +29,15 @@ struct IconView: View {
                                 .stroke(lineWidth: 2)
                                 .foregroundColor(isSelected  ? .green : .white)
                             
+                        ).overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(isSelected  ? .green : .black)
+                            
                         )
 
-                        Text("service 1")
-                }.overlay(
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke(lineWidth: 2)
-                        .foregroundColor(isSelected  ? .green : .white)
-                    
-                )
+                        Text(iconName)
+                }
 
     }
 }

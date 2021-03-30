@@ -84,6 +84,50 @@ struct LoginView: View {
        
       }
     }
+    
+    /*
+     Apple sigin functions
+     */
+//   @AppStorage("storeName")
+//
+//    private var storeName: String = ""{
+//        didSet{
+//            email = storeName
+//        }
+//    }
+//    @AppStorage("storedEmail")
+//    private var storedEmail: String = ""{
+//        didSet {
+//            email = storedEmail
+//        }
+//    }
+    
+    private func onRequest(_ request: ASAuthorizationAppleIDRequest) {
+        print("apple sign in")
+        request.requestedScopes = [.fullName, .email]
+        //modelData.name =
+    }
+    
+    private func onCompletion(_ result: Result<ASAuthorization, Error>) {
+        print("after sign in with apple id")
+        switch result {
+            case .success(let authResults):
+            guard let credential = authResults.credential as? ASPasswordCredential else { return }
+//            storeName = credential.fullName.givenName
+//            storedEmail = credential.email
+//            userID = credential.user
+            
+        case .failure(let error):
+            print("Authorization failed: " + error.localizedDescription)
+            
+        }
+    }
+//    private func onAppear(){
+//        print("onAppear")
+//        
+//    }
+
+    
 
     var body: some View {
         ScrollView {
@@ -174,13 +218,7 @@ struct LoginView: View {
                 
                       
                   if modelData.name.isEmpty {
-                      SignInWithAppleButton(
-                          onRequest: { request in
-                             print("apple sign in")
-                          },
-                          onCompletion: { result in
-                              print("after sign in with apple id")
-                          }
+                    SignInWithAppleButton(.signIn, onRequest: onRequest ,onCompletion: onCompletion
                       ).signInWithAppleButtonStyle(.white)
                   }
 

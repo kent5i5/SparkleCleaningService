@@ -97,8 +97,8 @@ struct SelectServiceUIView: View {
                                      self.presentationMode.wrappedValue.dismiss()
                                  }) {
                                      HStack {
-                                         Image(systemName: "arrow.left.circle")
-                                         Text("CANCEL")
+                                         Image(systemName: "arrow.left.circle").foregroundColor(.green)
+                                         Text("CANCEL").foregroundColor(.green)
                                      }
                              })
                 }
@@ -245,12 +245,8 @@ struct GoHomeButton: View {
         if !modelData.uid.isEmpty {
             //let serviceHandler = ServiceRepository()
            // var typeArray: [String] = []
-            iconItem.forEach{ icon in
-                if icon.isSelected == true{
-                    self.typeArray.append(icon.type)
-                }
-            }
-            var path = serviceData.newService(name: "service any",  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray )
+        
+            var path = serviceData.newService(name: "service",  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray )
             let fbhandler = Fbhandler(modelData: modelData)
             fbhandler.storeService(sid: path )
         
@@ -275,6 +271,8 @@ struct GoHomeButton: View {
                 Text("Service")
                 Divider()
                 Text(" - types " + typeArray.description).onAppear(){
+                    
+                    // Fill the type array with the selected 
                     iconItem.forEach{ icon in
                         if icon.isSelected == true{
                             self.typeArray.append(icon.type)
@@ -283,25 +281,30 @@ struct GoHomeButton: View {
                 Text(" - Street " + street)
                 Text(" - Apt/Unit " + aptunit)
                 Text(" - Zip Code " + zipcode)
-                Text(" - Start Date " + serviceData.startDate.description)
-                Text(" - Start Date " + serviceData.endDate.description)
+                Text(" - Start Date \(serviceData.startDate) " )
+                Text(" - Start Date \( serviceData.endDate)")
                 
                 Button(action: {addService()}){
-                    Text(" Add the Services")
-                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                .border(Color.green)
+                    Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(2)
+                        .clipShape(Circle())
+                    Text(" Add the Services").font(.caption)
+        
+                }
                 .foregroundColor(.green)
-                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                .padding(10)
+  
+          
                 
                 Button(action: {resetView()}){
                     Text("reset")
-                }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                .border(Color.green)
-                .foregroundColor(.green)
-                .clipped()
-                .padding(10)
+                }
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .border(Color.green)
+//                .foregroundColor(.green)
+//                .clipped()
+//                .padding(10)
             }
         }
 

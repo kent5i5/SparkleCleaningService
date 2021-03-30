@@ -11,45 +11,57 @@ import Firebase
 struct PastView: View {
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: ServiceRepository
-   // var favorite: Favorite
+    static let taskDateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter }()
     
 //    init(favorite: Favorite){
 //        self.favorite = favorite
 //    }
     
     var body: some View {
+       
         VStack {
+           
             if serviceData.serivces.isEmpty{
                 Text("No Job History, Please Log in" )
             } else {
             ForEach(serviceData.serivces){ service in
                 
-                HStack {
-                    Text("JobID: " ).frame( alignment: .leading).font(.title3).foregroundColor(.green)
-                    Text(service.id).frame( alignment: .leading).font(.caption)
-                }
-                Divider()
-                HStack {
-                    Text("Title: "  ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-                    Text( service.name).font(.body)
+                NavigationLink(destination: JobDetailsView(service: service) ){
+                    VStack {
+                        
+                        HStack {
+                            Text("JobID: " ).frame( alignment: .leading).font(.title3).foregroundColor(.green)
+                            Text(service.id).frame( alignment: .leading).font(.caption).foregroundColor(.black)
+                           
+                        }
+                        Divider()
+                        HStack {
+//                            Text("Title: "  ).frame( alignment: .leading).font(.body).foregroundColor(.green)
+//                            Text( service.name).frame( alignment: .leading).font(.body).foregroundColor(.black)
+//                            Spacer()
+                            Text("Status: " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
+                            Text("DONE") .font(.subheadline)
 
+                        }
+                        Divider().border(Color.green, width: 2)
+                        .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.green)
+  
+                    }.padding()
                    
+        
                 }
-                Divider()
-                VStack {
-                    ForEach(0..<service.type.count){ at in
-                        Text("Type: "  ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-                        Text(String(service.type[at])).font(.body)
-                    }
-                }
-                Divider().border(Color.green, width: 2).foregroundColor(.green)
-                Spacer()
+
+               
             }
             }
            
 
         }.padding()
-        //.border(Color.green)
+
     }
 }
 

@@ -75,9 +75,16 @@ class ServiceRepository: ObservableObject{
                 
                 if let document = document, document.exists {
                     let name = document["name"] as! String
+                    let street = document["street"] as! String
+                    let apt = document["apt"] as! String
+                    let zipcode = document["zipcode"] as! String
+                    let start = document["startdate"] as! Timestamp
+                    let convertedStart = start.dateValue()
+                    let stop = document["enddate"] as! Timestamp
+                    let convertedStop = stop.dateValue()
                     let type = document["type"] as! [String]
                    // print(type)
-                    servicelist.append(Service(id: id, name: name, address: "", country: "", city: "", street: "", apt: "", zipcode: "", type:  type, startdate: Date(), enddate: Date()))
+                    servicelist.append(Service(id: id, name: name, address: "", country: "", city: "", street: street , apt: apt, zipcode: zipcode, type:  type, startdate: convertedStart, enddate: convertedStop))
                     //print(servicelist)
                 }
                 self.serivces = servicelist
