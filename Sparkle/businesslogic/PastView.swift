@@ -27,6 +27,7 @@ struct PastView: View {
             if serviceData.serivces.isEmpty{
                 Text("No Job History, Please Log in" )
             } else {
+                
             ForEach(serviceData.serivces){ service in
                 
                 NavigationLink(destination: JobDetailsView(service: service) ){
@@ -39,11 +40,15 @@ struct PastView: View {
                         }
                         Divider()
                         HStack {
-//                            Text("Title: "  ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-//                            Text( service.name).frame( alignment: .leading).font(.body).foregroundColor(.black)
-//                            Spacer()
+
                             Text("Status: " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
                             Text("DONE") .font(.subheadline)
+                            Divider()
+                            Text("From " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
+                            Text("\(service.startdate, formatter: Self.taskDateFormat)") .font(.caption)
+
+                            Text("to " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
+                            Text("\(service.enddate, formatter: Self.taskDateFormat)") .font(.caption)
 
                         }
                         Divider().border(Color.green, width: 2)
@@ -60,7 +65,7 @@ struct PastView: View {
             }
            
 
-        }.padding()
+        }
 
     }
 }

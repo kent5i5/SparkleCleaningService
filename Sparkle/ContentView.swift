@@ -21,18 +21,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-//                Text("")
-//                    .navigationBarTitleDisplayMode(.automatic)
-//                            .toolbar { // <2>
-//                                ToolbarItem(placement: .principal) { // <3>
-//                                    VStack {
-//                                        Text("Title").font(.headline)
-//                                        Text("Subtitle").font(.subheadline)
-//                                    }
-//                                }
-//                        }
-                    
-            
+
             TabView {
 
                 

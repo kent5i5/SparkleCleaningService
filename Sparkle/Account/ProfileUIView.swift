@@ -21,6 +21,7 @@ struct ProfileUIView: View {
         
         NavigationView {
             VStack {
+                
                 Image(systemName: "pencil.tip")
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 Form {
@@ -84,13 +85,13 @@ struct ProfileUIView: View {
                             Button(action: {
                                 print("SF Symbol button pressed...")
                             }) {
-                                Image(systemName: "calendar.circle").imageScale(.large)
+                                //Image(systemName: "calendar.circle").imageScale(.large)
                             },
                         trailing:
                             Button(action: {
                                 print("Edit button pressed...")
                             }) {
-                                Text("Edit")
+                              //  Text("Edit")
                             }
                     )
 

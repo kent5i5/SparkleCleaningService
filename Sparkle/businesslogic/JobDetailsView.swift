@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JobDetailsView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: User
      var service:Service
     static let taskDateFormat: DateFormatter = {
@@ -17,8 +18,31 @@ struct JobDetailsView: View {
     var body: some View {
        
         VStack {
-            Text("Job Details").font(.title).foregroundColor(.green)
+            Text("")
+                .navigationBarTitleDisplayMode(.automatic)
+                        .toolbar { // <2>
+                            ToolbarItem(placement: .principal) { // <3>
+                                VStack {
+                                    Text("Job Details").font(.title).foregroundColor(.green)
+                                    Divider().foregroundColor(.green)
+                                }
+                            }
+                            
+                    }
+                .navigationBarItems(leading:
+                                        Button(action: {
+                                            self.presentationMode.wrappedValue.dismiss()
+                                        }) {
+                                            HStack {
+                                                Image(systemName: "chevron.left").foregroundColor(.green)
+                                                //Text("CANCEL").foregroundColor(.green)
+                                            }
+                                    }).navigationBarBackButtonHidden(true)
+                
+       
+            
             VStack {
+                //Text("Job Details").font(.title).foregroundColor(.green)
                 HStack {
                     Text("JobID: " ).frame( alignment: .leading).font(.title3)
                         .foregroundColor(.green).padding()

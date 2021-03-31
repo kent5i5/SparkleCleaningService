@@ -31,7 +31,7 @@ struct AccountView: View {
   
             VStack {
                 
-                Text("Account")
+                Text("Account").font(.title).foregroundColor(.green)
                
                 if !modelData.name.isEmpty{
                     displayProfile(name: $name, address: $address, country: $country, city: $city).environmentObject(modelData)
@@ -87,10 +87,13 @@ struct displayProfile: View {
             List {
                 
                 
-                infomationRow(rowName: "Username: ", data: modelData.name  )
-                infomationRow(rowName: "Address: ", data: modelData.address )
-                infomationRow(rowName: "Country: ", data: modelData.country )
-                infomationRow(rowName: "City: ", data: modelData.city )
+                VStack {
+                    infomationRow(rowName: "Username: ", data: modelData.name  )
+                    infomationRow(rowName: "Address: ", data: modelData.address )
+                    infomationRow(rowName: "Country: ", data: modelData.country )
+                    infomationRow(rowName: "City: ", data: modelData.city )
+                }
+              
 
             }
     }
@@ -154,12 +157,15 @@ struct infomationRow: View {
         
         ZStack {
             VStack{
-            Text( rowName + ": " ).bold()
-                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-                .background(Color.white)
-                .padding(EdgeInsets(top:8, leading: 8,
-                                    bottom:8, trailing:0 ))
-                .foregroundColor(.green)
+                HStack {
+                    Text( rowName + ": " ).bold()
+                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                    .background(Color.white)
+                    .padding(EdgeInsets(top:8, leading: 8,
+                                        bottom:8, trailing:0 ))
+                        .foregroundColor(.green)
+                    Spacer()
+                }
 
             
             Text(data)
@@ -167,6 +173,7 @@ struct infomationRow: View {
                 .padding(EdgeInsets(top:8, leading: 16,
                                     bottom:8, trailing:0 ))
                 
+                Divider()
                 
     //            .overlay(RoundedRectangle(cornerRadius: 30)
     //                        .stroke(lineWidth: 2))

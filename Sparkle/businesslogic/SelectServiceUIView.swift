@@ -85,9 +85,7 @@ struct SelectServiceUIView: View {
                 if(showSelectService < 4){
                      Button(action: {changeView()}){
                          Text("NEXT")
-                     }
-                     //.frame(maxWidth: .infinity, maxHeight: .infinity)
-                     .border(Color.green)
+                     }//.frame(maxWidth: .infinity, maxHeight: .infinity)
                      .foregroundColor(.green)
                      .clipped()
                      .padding(10)
@@ -120,7 +118,10 @@ struct SelectServiceSubView: View {
   
     
     func resetView(){
-        currentStep = 1
+        for i in 0..<iconItem.count {
+            
+            iconItem[i].isSelected = false
+        }
 
     }
     
@@ -268,22 +269,46 @@ struct GoHomeButton: View {
     var body: some View {
 
             VStack {
-                Text("Service")
-                Divider()
-                Text(" - types " + typeArray.description).onAppear(){
-                    
-                    // Fill the type array with the selected 
+                Text("Service").onAppear(){// Fill the type array with the selected
                     iconItem.forEach{ icon in
                         if icon.isSelected == true{
                             self.typeArray.append(icon.type)
                         }
                 } }
-                Text(" - Street " + street)
-                Text(" - Apt/Unit " + aptunit)
-                Text(" - Zip Code " + zipcode)
-                Text(" - Start Date \(serviceData.startDate) " )
-                Text(" - Start Date \( serviceData.endDate)")
                 
+                Divider()
+                Text("Types:")
+               
+                VStack {
+                    HStack {
+                        Text(" - Street ").font(.caption)
+                        Text(street).font(.caption)
+                        Spacer()
+                    }
+                    Divider()
+                    HStack {
+                        Text(" - Apt/Unit " + aptunit).font(.caption)
+                        Spacer()
+                    }
+                    Divider()
+                    HStack {
+                        Text(" - Zip Code " + zipcode).font(.caption)
+                        Spacer()
+                    }
+                    Divider()
+                    HStack {
+                        Text(" - Start Date \(serviceData.startDate) " ).font(.caption)
+                        Spacer()
+                    }
+                    Divider()
+                    HStack {
+                        Text(" - Start Date \( serviceData.endDate)").font(.caption)
+                        Spacer()
+                    }
+                    Divider()
+                    
+                }
+               
                 Button(action: {addService()}){
                     Image(systemName: "plus")
                         .resizable()
@@ -292,17 +317,17 @@ struct GoHomeButton: View {
                         .clipShape(Circle())
                     Text(" Add the Services").font(.caption)
         
-                }
+                }.padding()
                 .foregroundColor(.green)
   
           
                 
                 Button(action: {resetView()}){
                     Text("reset")
-                }
+                }.padding()
 //                .frame(maxWidth: .infinity, maxHeight: .infinity)
 //                .border(Color.green)
-//                .foregroundColor(.green)
+                .foregroundColor(.green)
 //                .clipped()
 //                .padding(10)
             }

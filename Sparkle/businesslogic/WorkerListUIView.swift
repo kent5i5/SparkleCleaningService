@@ -37,13 +37,15 @@ struct WorkerListUIView: View {
     
     var body: some View {
         
-        ScrollView {
+      
             VStack {
                     VStack {
+                        
                         Text("My HouseKeeper")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             .bold()
                             .foregroundColor(.green)
+                        
                         HStack {
                             Button(action: {showFavortie.toggle()
                                 showPast.toggle()
@@ -111,31 +113,32 @@ struct WorkerListUIView: View {
                     }.padding()
             
         
-                
-                if showFavortie {
-                    
-                    VStack {
-                        Text("Favorite Jobs").font(.headline)
-                        ForEach(0..<favorites.count) { index in
-                            FavoriteView(favorite: favorites[index])
+            ScrollView {
+                VStack{
+                    if showFavortie {
+                        
+                        VStack {
+                            Text("Favorite Jobs").font(.headline)
+                            ForEach(0..<favorites.count) { index in
+                                FavoriteView(favorite: favorites[index])
+                            }
+
                         }
+                        
+
 
                     }
-                    
+                    if showPast {
+                        // show past jobs
+                        //ForEach(0..<favorites.count) { index in
+                        Text("History").font(.headline)
+                            PastView()
+                                .environmentObject(modelData)
+                                .environmentObject(serviceData)
+                       // }
 
-
+                    }
                 }
-                if showPast {
-                    // show past jobs
-                    //ForEach(0..<favorites.count) { index in
-                    Text("History").font(.headline)
-                        PastView()
-                            .environmentObject(modelData)
-                            .environmentObject(serviceData)
-                   // }
-
-                }
-               
             }.padding(0)
             .onAppear(){getUserInfo()}
         }

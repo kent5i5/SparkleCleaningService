@@ -14,7 +14,10 @@ struct RegisterView: View {
     @EnvironmentObject var modelData: User
     @State private var email = ""
     @State private var password = ""
-    
+    @State private var phone = ""
+    @State private var street = ""
+    @State private var zipcode = ""
+    @State private var Apt = ""
     @State private var result: String = ""
     
     func registerUser() {
@@ -39,7 +42,7 @@ struct RegisterView: View {
     
     var body: some View {
         VStack {
-            TextField("Email/Phone", text: $email)
+            TextField("Email", text: $email)
                 .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .padding(EdgeInsets(top:8, leading: 16,
                                     bottom:8, trailing:0 ))
@@ -62,6 +65,46 @@ struct RegisterView: View {
                             .stroke(lineWidth: 2)
                             .foregroundColor(.green))
                
+                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+            
+            TextField("Phone", text: $phone)
+                .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .padding(EdgeInsets(top:8, leading: 16,
+                                    bottom:8, trailing:0 ))
+                .background(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.green))
+                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+            
+            TextField("Street", text: $street)
+                .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .padding(EdgeInsets(top:8, leading: 16,
+                                    bottom:8, trailing:0 ))
+                .background(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.green))
+                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+            
+            TextField("Apt/Unit", text: $Apt)
+                .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .padding(EdgeInsets(top:8, leading: 16,
+                                    bottom:8, trailing:0 ))
+                .background(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.green))
+                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+            
+            TextField("Zip code", text: $zipcode)
+                .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .padding(EdgeInsets(top:8, leading: 16,
+                                    bottom:8, trailing:0 ))
+                .background(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.green))
                 .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
             
             Button(action:  {

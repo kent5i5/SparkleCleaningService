@@ -54,6 +54,7 @@
 		34988FAB25F882D600125E01 /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FAA25F882D600125E01 /* PromoView.swift */; };
 		34988FB225F88B6C00125E01 /* SettingsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FB125F88B6C00125E01 /* SettingsObject.swift */; };
 		34988FB825F891B200125E01 /* NotificationOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34988FB725F891B100125E01 /* NotificationOptionView.swift */; };
+		349E56222613AE0A0089245E /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E56212613AE0A0089245E /* GridView.swift */; };
 		34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A81C3B25EDFB96006BEB40 /* LoginView.swift */; };
 		34AE775B25E2EE97009F64F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */; };
 		34D93A592608666300201EC3 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D93A582608666300201EC3 /* IconView.swift */; };
@@ -130,6 +131,7 @@
 		34988FAA25F882D600125E01 /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
 		34988FB125F88B6C00125E01 /* SettingsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsObject.swift; sourceTree = "<group>"; };
 		34988FB725F891B100125E01 /* NotificationOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionView.swift; sourceTree = "<group>"; };
+		349E56212613AE0A0089245E /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		34A81C3B25EDFB96006BEB40 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34D93A582608666300201EC3 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				34D93A582608666300201EC3 /* IconView.swift */,
+				349E56212613AE0A0089245E /* GridView.swift */,
 				34FAF38426094ED700F125F9 /* FavoriteButton.swift */,
 				3463BE4B260180530071675F /* Fbhandler.swift */,
 				345DC3BF260E6E1700757A94 /* CheckView.swift */,
@@ -648,6 +651,7 @@
 				34988FB825F891B200125E01 /* NotificationOptionView.swift in Sources */,
 				34969881260BE87D00D90A14 /* PastView.swift in Sources */,
 				3496987B260BDB1700D90A14 /* FavoriteView.swift in Sources */,
+				349E56222613AE0A0089245E /* GridView.swift in Sources */,
 				346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

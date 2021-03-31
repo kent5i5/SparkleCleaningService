@@ -194,23 +194,35 @@ struct LoginView: View {
     //                    }
 
                     }){
+                        Image(systemName: "checkmark")
+                            .resizable()
+                            .frame(width: 16, height: 16, alignment: .center)
                         Text("Log In")
                             .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                             .font(.footnote)
                             .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
-                            .overlay(RoundedRectangle(cornerRadius: 15)
-                                        .stroke(lineWidth: 0.5)
-                                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
+                            
                             .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                            
                       
                     }.alert(isPresented: $showingAlert) {
                         Alert(title: Text("Authenticate Error"), message: Text("Incorrect username and password"), dismissButton: .default(Text("Got it!")))
-                    }
+                    }.padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
+                    .overlay(RoundedRectangle(cornerRadius: 15)
+                                .stroke(lineWidth: 0.5)
+                                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
+                    
                     
                     NavigationLink(destination: RegisterView().environmentObject(modelData),
                                    label: {
-                                    Text("Or Register").foregroundColor(.green)})
+                                    Text("Register")
+                                        .padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
+                                        .font(.footnote)
+                                        .overlay(RoundedRectangle(cornerRadius: 15)
+                                                .stroke(lineWidth: 0.5)
+                                                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
+                                        .foregroundColor(.green)})
+
                     
                 }.padding()
                     
