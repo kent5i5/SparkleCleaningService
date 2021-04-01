@@ -30,7 +30,6 @@ struct AccountView: View {
     var body: some View {
   
             VStack {
-                
                 Text("Account").font(.title).foregroundColor(.green)
                
                 if !modelData.name.isEmpty{
@@ -92,7 +91,7 @@ struct displayProfile: View {
                     infomationRow(rowName: "Address: ", data: modelData.address )
                     infomationRow(rowName: "Country: ", data: modelData.country )
                     infomationRow(rowName: "City: ", data: modelData.city )
-                }
+                }.custombackbtn()
               
 
             }
@@ -174,11 +173,14 @@ struct infomationRow: View {
                                     bottom:8, trailing:0 ))
                 
                 Divider()
-                
-    //            .overlay(RoundedRectangle(cornerRadius: 30)
-    //                        .stroke(lineWidth: 2))
-  
+
             }
         }
+    }
+}
+
+extension AccountView{
+    var  modifierView: some View{
+        Text("")
     }
 }

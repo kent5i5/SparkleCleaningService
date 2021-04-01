@@ -22,20 +22,23 @@ class ServiceRepository: ObservableObject{
         self.endDate = Date()
     }
 
-//
-//    func createService(){
-//        let citiesRef = db.collection("cities")
-//
-//        citiesRef.document("SF").setData([
-//            "name": "San Francisco",
-//            "address": "adb",
-//            "state": "CA",
-//            "country": "USA",
-//            "city": "SF",
-//            "startime": Date(),
-//            "endtime": Date()
-//            ])
-//    }
+    /// Create   a  `Service` document in firestore for non-member user
+    func createService(name: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>){
+        let citiesRef = db.collection("openservice")
+        let caseid = UUID()
+        citiesRef.document("\(caseid)").setData([
+            "name": "San Francisco",
+            "address": address,
+            "country": country,
+            "city": city,
+            "street": street,
+            "apt": apt,
+            "zipcode": zipcode ,
+            "type": type,
+            "startime": self.startDate,
+            "endtime": self.endDate
+            ])
+    }
     
     /// listen to the  a  `Service` document in firestore
     func listentToServiceData(){

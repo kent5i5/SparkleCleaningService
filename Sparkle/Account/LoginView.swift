@@ -12,6 +12,7 @@ import AuthenticationServices
 struct LoginView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: User
+    @EnvironmentObject var serviceData: User
     @ObservedObject var appData: User
     
     
@@ -19,6 +20,8 @@ struct LoginView: View {
     @State private var showingAlert = false
     @State private var email = ""
     @State private var password = ""
+    @State private var isLogin = false
+
     
 //    init(appData: User){
 //      email = appData.name
@@ -59,10 +62,10 @@ struct LoginView: View {
                             
             } else {
                 getUserInfo()
-                self.presentationMode.wrappedValue.dismiss()
+               // self.presentationMode.wrappedValue.dismiss()
             }
         }
-        
+        isLogin = true
        
     }
     
@@ -132,7 +135,23 @@ struct LoginView: View {
     var body: some View {
         ScrollView {
             
-            if !modelData.name.isEmpty{ Text("Welcome! " + modelData.name)}
+            if !modelData.name.isEmpty{
+                
+                VStack {
+                    Text("Welcome! " + modelData.name)
+           
+                    NavigationLink(
+                        destination: ContentView(appData: appData).environmentObject(modelData).environmentObject(serviceData),
+                        isActive: $isLogin,
+                        label: {
+                            HStack {
+                                Image("chervon.right")
+                                Text("Stating using our service")
+                                    .custombackbtn()
+                            }
+                    })
+                }
+            }
             else {
             VStack {
 
@@ -141,9 +160,16 @@ struct LoginView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .navigationBarItems(leading:
+                                Button(action: {
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }) {
+                                    HStack {
+                                        Image(systemName: "arrow.left.circle").foregroundColor(.green)
+                                        Text("CANCEL").foregroundColor(.green)
+                                    }
+                            }).navigationBarBackButtonHidden(true)
                 
-                Text("Sparkle")
-                    .padding()
                     
 
                 VStack {
@@ -252,8 +278,7 @@ struct LoginView: View {
 
                 //Spacer()
             }.onAppear(){getUserInfo()}
-            //.navigationTitle("Title")
-            .navigationBarHidden(false)
+           
         }
         }
     }

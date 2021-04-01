@@ -19,7 +19,7 @@ struct ContentView: View {
         
     }
     var body: some View {
-        NavigationView {
+       // NavigationView {
             VStack {
 
             TabView {
@@ -58,11 +58,13 @@ struct ContentView: View {
                 // retrieve user data from firestore
                 let fbhandler = Fbhandler(modelData: modelData)
                 fbhandler.getUserInfo()
-            }
-        }.navigationViewStyle(StackNavigationViewStyle())
+            }.navigationBarBackButtonHidden(true)
+            
+        }//.navigationViewStyle(StackNavigationViewStyle())
+        
 
          
-    }
+    //}
 }
 
 struct ContentView_Previews: PreviewProvider {

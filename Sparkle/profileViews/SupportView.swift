@@ -48,7 +48,7 @@ struct SupportView: View {
                     successView(isSend: $isRequestSend)
                 }
                 
-            }
+            }.custombackbtn()
     }
 }
 

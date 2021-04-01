@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PromoView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State private var isPromo = false
     @State private var selectedPromoIndex = 0
     let options = ["once", "twice", "three times"]
@@ -33,13 +34,14 @@ struct PromoView: View {
                    
                 }
             }
+     
 //            .overlay(
 //                RoundedRectangle(cornerRadius: 15)
 //                    .stroke(lineWidth: 2)
 //                    .foregroundColor(isPromo  ? .green : .white)
 //                
 //            )
-        }
+        }.custombackbtn()
         
         
     }
@@ -50,3 +52,5 @@ struct PromoView_Previews: PreviewProvider {
         PromoView()
     }
 }
+
+

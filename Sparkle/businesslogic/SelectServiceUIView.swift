@@ -251,6 +251,9 @@ struct GoHomeButton: View {
             let fbhandler = Fbhandler(modelData: modelData)
             fbhandler.storeService(sid: path )
         
+        } else {
+            serviceData.createService(name: "service", address: "", country: "", city: "", street: street, apt: "apt", zipcode: zipcode, type: typeArray)
+            resetView()
         }
       
     }
@@ -277,7 +280,7 @@ struct GoHomeButton: View {
                 } }
                 
                 Divider()
-                Text("Types:")
+               // Text("Types:")
                
                 VStack {
                     HStack {

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		34119A3A25F0AE2700A98D62 /* ServiceSelctionsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34119A3925F0AE2700A98D62 /* ServiceSelctionsUIView.swift */; };
+		3444A34026151E8B009A4BCD /* StartingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3444A33F26151E8B009A4BCD /* StartingView.swift */; };
+		3444A34626152265009A4BCD /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3444A34526152265009A4BCD /* Network.swift */; };
+		3444A35026153E05009A4BCD /* CustomTopbarBackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3444A34F26153E05009A4BCD /* CustomTopbarBackButtonModifier.swift */; };
 		3451A70325F72B2900D79E8F /* videoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451A70225F72B2900D79E8F /* videoView.swift */; };
 		345DC3BB260E5C8600757A94 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DC3BA260E5C8600757A94 /* RegisterView.swift */; };
 		345DC3C0260E6E1700757A94 /* CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DC3BF260E6E1700757A94 /* CheckView.swift */; };
@@ -90,6 +93,9 @@
 		1884E0302FA1ADBA7534EC31 /* Pods-Sparkle-SparkleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sparkle-SparkleUITests.debug.xcconfig"; path = "Target Support Files/Pods-Sparkle-SparkleUITests/Pods-Sparkle-SparkleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		30C51F4DD89484E10BBC370B /* Pods_Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34119A3925F0AE2700A98D62 /* ServiceSelctionsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSelctionsUIView.swift; sourceTree = "<group>"; };
+		3444A33F26151E8B009A4BCD /* StartingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingView.swift; sourceTree = "<group>"; };
+		3444A34526152265009A4BCD /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		3444A34F26153E05009A4BCD /* CustomTopbarBackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopbarBackButtonModifier.swift; sourceTree = "<group>"; };
 		3451A70225F72B2900D79E8F /* videoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videoView.swift; sourceTree = "<group>"; };
 		345DC3BA260E5C8600757A94 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		345DC3BF260E6E1700757A94 /* CheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckView.swift; sourceTree = "<group>"; };
@@ -177,6 +183,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3444A344261520FA009A4BCD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3444A34526152265009A4BCD /* Network.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		34626A889E8E6B57071673F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,10 +267,12 @@
 				346AF80625A4F53A004117C0 /* AppDelegate.swift */,
 				3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */,
 				346AF80825A4F53A004117C0 /* SceneDelegate.swift */,
+				3444A33F26151E8B009A4BCD /* StartingView.swift */,
 				346AF80A25A4F53A004117C0 /* ContentView.swift */,
 				3462C60F260FD04B0007A532 /* businesslogic */,
 				3462C608260FCFE10007A532 /* Account */,
 				346AF83C25A4FD94004117C0 /* HomeView.swift */,
+				3444A344261520FA009A4BCD /* Networking */,
 				346AF80F25A4F53B004117C0 /* Assets.xcassets */,
 				346AF81425A4F53B004117C0 /* LaunchScreen.storyboard */,
 				346AF81725A4F53B004117C0 /* Info.plist */,
@@ -326,6 +342,7 @@
 				34FAF38426094ED700F125F9 /* FavoriteButton.swift */,
 				3463BE4B260180530071675F /* Fbhandler.swift */,
 				345DC3BF260E6E1700757A94 /* CheckView.swift */,
+				3444A34F26153E05009A4BCD /* CustomTopbarBackButtonModifier.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -617,7 +634,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3444A34026151E8B009A4BCD /* StartingView.swift in Sources */,
 				345DC3BB260E5C8600757A94 /* RegisterView.swift in Sources */,
+				3444A35026153E05009A4BCD /* CustomTopbarBackButtonModifier.swift in Sources */,
 				34988FAB25F882D600125E01 /* PromoView.swift in Sources */,
 				346AF85225A50F48004117C0 /* WorkerListUIView.swift in Sources */,
 				34988F9C25F8827A00125E01 /* PaymentView.swift in Sources */,
@@ -628,6 +647,7 @@
 				34988F9725F8826100125E01 /* ChangePasswordView.swift in Sources */,
 				346AF80725A4F53A004117C0 /* AppDelegate.swift in Sources */,
 				34988F8F25F8822600125E01 /* AccountView.swift in Sources */,
+				3444A34626152265009A4BCD /* Network.swift in Sources */,
 				346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */,
 				346AF84425A50252004117C0 /* CalenderUIView.swift in Sources */,
 				34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */,

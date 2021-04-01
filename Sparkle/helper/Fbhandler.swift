@@ -22,9 +22,11 @@ class Fbhandler {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
           // ...
+            
+            
         }
         
-   
+        self.modelData.isRegistered = true
     }
     
     func registerWithEmail(email: String, password: String ) -> String{

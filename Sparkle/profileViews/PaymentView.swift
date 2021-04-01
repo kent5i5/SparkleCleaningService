@@ -20,7 +20,7 @@ struct PaymentView: View {
             }
             Text("Your favorite payment method: \(paymentMethods[selectedPaymentIndex])")
            Spacer()
-        }
+        }.custombackbtn()
                 
        
     }
