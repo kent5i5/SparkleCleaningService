@@ -15,7 +15,10 @@ struct StartingView: View {
     var body: some View {
          NavigationView {
             VStack {
-                Text("Sparkle").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                Image("sparkle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 HStack {
                     Image(systemName: "chevron-right")
                 NavigationLink(

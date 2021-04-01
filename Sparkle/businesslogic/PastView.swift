@@ -34,21 +34,20 @@ struct PastView: View {
                     VStack {
                         
                         HStack {
-                            Text("JobID: " ).frame( alignment: .leading).font(.title3).foregroundColor(.green)
-                            Text(service.id).frame( alignment: .leading).font(.caption).foregroundColor(.black)
-                           
+                            Text("From " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
+                            Text("\(service.startdate, formatter: Self.taskDateFormat)").font(.caption).foregroundColor(.black)
+
+                            Text("to " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
+                            Text("\(service.enddate, formatter: Self.taskDateFormat)") .font(.caption).foregroundColor(.black)
+
                         }
                         Divider()
                         HStack {
-
-                            Text("Status: " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-                            Text("DONE") .font(.subheadline)
+                            Text("JobID: " ).frame( alignment: .leading).font(.title3).foregroundColor(.green)
+                            Text(service.id).frame( alignment: .leading).font(.caption).foregroundColor(.black)
                             Divider()
-                            Text("From " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-                            Text("\(service.startdate, formatter: Self.taskDateFormat)") .font(.caption)
-
-                            Text("to " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-                            Text("\(service.enddate, formatter: Self.taskDateFormat)") .font(.caption)
+                            Text("Status: " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
+                            Text("DONE").font(.subheadline).foregroundColor(.black)
 
                         }
                         Divider().border(Color.green, width: 2)
