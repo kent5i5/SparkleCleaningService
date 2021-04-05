@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct StartingView: View {
+    @Environment(\.managedObjectContext) var context
     @EnvironmentObject var modelData: User
     @ObservedObject var appData: User
     @EnvironmentObject var serviceData: ServiceRepository
     
+
     var body: some View {
+        
          NavigationView {
             VStack {
                 Image("sparkle")
@@ -20,21 +24,22 @@ struct StartingView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 HStack {
-                    Image(systemName: "chevron-right")
-                NavigationLink(
-                    destination: SelectServiceUIView().environmentObject(modelData).environmentObject(serviceData), label: {
-                        
-                            Text("Open an application for elder services")
-                                .padding()
-                                .foregroundColor(.green)
-    
-                                .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 0.1)
+                   
+                    NavigationLink(
+                        destination: SelectServiceUIView().environmentObject(modelData).environmentObject(serviceData), label: {
                             
-                       
-                })
+                                Text("Open an application for elder services")
+                                    .padding()
+                                    .foregroundColor(.green)
+        
+                                    .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 0.1)
+                                
+                           
+                    })
                 }
                 NavigationLink(
-                    destination: LoginView(appData: appData).environmentObject(modelData).environmentObject(serviceData),label: {
+                    destination: LoginView(appData: appData).environment(\.managedObjectContext, context)
+                        .environmentObject(modelData).environmentObject(serviceData),label: {
                         Text("Or Login in with membership")
                             .padding()
                             .foregroundColor(.green)

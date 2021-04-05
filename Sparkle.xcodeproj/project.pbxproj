@@ -61,6 +61,7 @@
 		34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A81C3B25EDFB96006BEB40 /* LoginView.swift */; };
 		34AE775B25E2EE97009F64F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */; };
 		34D93A592608666300201EC3 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D93A582608666300201EC3 /* IconView.swift */; };
+		34DA3184261A4D55004BD4CD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA3183261A4D55004BD4CD /* CoreDataStack.swift */; };
 		34E550F6260C4A5900BFB49C /* ServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E550F5260C4A5900BFB49C /* ServiceRepository.swift */; };
 		34EFABC025F9EE4500DAD70D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EFABBF25F9EE4500DAD70D /* User.swift */; };
 		34FAF37C2609470800F125F9 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF37B2609470800F125F9 /* BottomSheetView.swift */; };
@@ -141,6 +142,7 @@
 		34A81C3B25EDFB96006BEB40 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		34AE775A25E2EE97009F64F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34D93A582608666300201EC3 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		34DA3183261A4D55004BD4CD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		34E550F1260C2FEF00BFB49C /* Sparkle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sparkle.entitlements; sourceTree = "<group>"; };
 		34E550F5260C4A5900BFB49C /* ServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRepository.swift; sourceTree = "<group>"; };
 		34EFABBF25F9EE4500DAD70D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				346AF80625A4F53A004117C0 /* AppDelegate.swift */,
 				3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */,
 				346AF80825A4F53A004117C0 /* SceneDelegate.swift */,
+				34DA3183261A4D55004BD4CD /* CoreDataStack.swift */,
 				3444A33F26151E8B009A4BCD /* StartingView.swift */,
 				346AF80A25A4F53A004117C0 /* ContentView.swift */,
 				3462C60F260FD04B0007A532 /* businesslogic */,
@@ -649,6 +652,7 @@
 				34988F8F25F8822600125E01 /* AccountView.swift in Sources */,
 				3444A34626152265009A4BCD /* Network.swift in Sources */,
 				346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */,
+				34DA3184261A4D55004BD4CD /* CoreDataStack.swift in Sources */,
 				346AF84425A50252004117C0 /* CalenderUIView.swift in Sources */,
 				34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */,
 				34FAF38A2609530A00F125F9 /* Service.swift in Sources */,

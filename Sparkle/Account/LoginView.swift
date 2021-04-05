@@ -10,6 +10,7 @@ import Firebase
 import AuthenticationServices
 
 struct LoginView: View {
+    @Environment(\.managedObjectContext) var context
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: User
@@ -29,6 +30,9 @@ struct LoginView: View {
 
 //    }
     
+    private func storePersistConext(){
+        //let newJob = Job(context: self.context)
+    }
 
     func getUserInfo() {
         if modelData.name.isEmpty{

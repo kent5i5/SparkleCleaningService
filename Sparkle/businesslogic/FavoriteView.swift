@@ -15,6 +15,39 @@ struct Favorite : Identifiable {
 }
 
 struct FavoriteView: View {
+    @State var jobs: [Job] = []
+
+    // 1
+    @FetchRequest(
+      // 2
+      entity: Job.entity(),
+      // 3
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \Job.name, ascending: true)
+      ]
+    // 4
+    ) var joblist: FetchedResults<Job>
+    
+//    func saveContext() {
+//      do {
+//        try context.save()
+//      } catch {
+//        print("Error saving managed object context: \(error)")
+//      }
+//    }
+//    func addJob(name: String, city: String, country: String) {
+//
+//      let newJob = Job(context: context)
+//
+//
+//      newJob.name = name
+//      newJob.city = city
+//      newJob.country = country
+//
+//
+//      saveContext()
+//    }
+    
     var favorite: Favorite
     static let taskDateFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -50,6 +83,18 @@ struct FavoriteView: View {
             Divider().border(Color.green, width: 2)
             .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.green)
+            
+//            Button(action:{
+//                addJob(name: "testjob",city: "SF",country: "US")
+//            }){
+//                Text("addjob")
+//                
+//            }
+            
+            ForEach(joblist){ job in
+                Text(verbatim: job.name ?? "")
+
+            }
         }.padding()
        
     }
