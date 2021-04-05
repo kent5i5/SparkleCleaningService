@@ -19,7 +19,7 @@ struct PromoView: View {
       entity: Settings.entity(),
 
       sortDescriptors: [
-        NSSortDescriptor(keyPath: \Settings.notification, ascending: true)
+        NSSortDescriptor(keyPath: \Settings.promo, ascending: true)
       ]
 
     ) var settings: FetchedResults<Settings>

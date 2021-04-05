@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct SupportView: View {
+    @Environment(\.managedObjectContext) var context
     @State private var selectedStrength = "Mild"
     @State private var inputText = ""
     @State private var agreedToTerms = false
     @State private var isRequestSend = false
     let options = ["Technical", "Authentication", "Service problem"]
+    
+    @FetchRequest(
+
+      entity: Settings.entity(),
+
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \Settings.promo, ascending: true)
+      ]
+
+    ) var settings: FetchedResults<Settings>
+    
+    private func updateSupportSetting(){
+
+        do {
+           // self.context.delete(settings[0])
+            settings[0].agreeToTerm = agreedToTerms
+          try context.save()
+        } catch {
+          print("Error saving managed object context: \(error)")
+        }
+        
+      
+    }
+    
     var body: some View {
        // Text("Technical support")
             
@@ -34,6 +59,13 @@ struct SupportView: View {
                 
                 Section {
                     Toggle("Agree to terms and conditions", isOn: $agreedToTerms)
+                        .onAppear(){
+                            print(settings.count)
+                            agreedToTerms = settings[0].agreeToTerm
+                        }
+                        .onChange(of: agreedToTerms) { _agreedToTerms in
+                            updateSupportSetting() }
+                    
                 }.foregroundColor(.green)
 
                 Section {

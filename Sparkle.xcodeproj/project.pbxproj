@@ -321,7 +321,6 @@
 				34988FA525F882C200125E01 /* LocationOptionView.swift */,
 				34988FAA25F882D600125E01 /* PromoView.swift */,
 				34988FB725F891B100125E01 /* NotificationOptionView.swift */,
-				34FAF37B2609470800F125F9 /* BottomSheetView.swift */,
 			);
 			path = profileViews;
 			sourceTree = "<group>";
@@ -340,6 +339,7 @@
 		34FAF38326094ECB00F125F9 /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				34FAF37B2609470800F125F9 /* BottomSheetView.swift */,
 				34D93A582608666300201EC3 /* IconView.swift */,
 				349E56212613AE0A0089245E /* GridView.swift */,
 				34FAF38426094ED700F125F9 /* FavoriteButton.swift */,
