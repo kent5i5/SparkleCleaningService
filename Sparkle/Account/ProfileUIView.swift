@@ -37,7 +37,7 @@ struct ProfileUIView: View {
                             }).padding(.bottom)
                         
                 
-                    NavigationLink(destination: ChangePasswordView(),
+                    NavigationLink(destination: ChangePasswordView().environmentObject(modelData),
                             label: {
                                 Text("Change password")
                                    

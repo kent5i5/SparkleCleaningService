@@ -111,7 +111,7 @@ class Fbhandler {
   
                 
             } else {
-                print("Document does not exist")
+                print("User info does not exist")
             }
         }
         

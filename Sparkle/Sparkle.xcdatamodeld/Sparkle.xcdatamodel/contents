@@ -5,6 +5,8 @@
         <attribute name="attribute" optional="YES" attributeType="String"/>
         <attribute name="city" optional="YES" attributeType="String"/>
         <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="job" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Job" inverseName="creator" inverseEntity="Job"/>
     </entity>
     <entity name="Job" representedClassName="Job" syncable="YES" codeGenerationType="class">
@@ -27,8 +29,8 @@
         <attribute name="promo" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <elements>
+        <element name="Creator" positionX="-453.6328125" positionY="-48.03515625" width="128" height="148"/>
         <element name="Job" positionX="-156.23828125" positionY="-16.35546875" width="128" height="193"/>
-        <element name="Creator" positionX="-453.6328125" positionY="-48.03515625" width="128" height="118"/>
         <element name="Settings" positionX="-341.34765625" positionY="99.46484375" width="128" height="118"/>
     </elements>
 </model>
