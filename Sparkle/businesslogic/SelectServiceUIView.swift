@@ -84,7 +84,12 @@ struct SelectServiceUIView: View {
                 
                 if(showSelectService < 4){
                      Button(action: {changeView()}){
-                         Text("NEXT")
+                        Image("chevron-top")
+                        Text("NEXT")
+                            .foregroundColor(.white)
+                                .padding()
+                                .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                                .cornerRadius(8)
                      }//.frame(maxWidth: .infinity, maxHeight: .infinity)
                      .foregroundColor(.green)
                      .clipped()
@@ -97,6 +102,8 @@ struct SelectServiceUIView: View {
                                      HStack {
                                          Image(systemName: "arrow.left.circle").foregroundColor(.green)
                                          Text("CANCEL").foregroundColor(.green)
+                                            .cornerRadius(8)
+                                            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                                      }
                              })
                 }
@@ -132,6 +139,7 @@ struct SelectServiceSubView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             Text("Which room do you want to be cleaned")
                 .font(.title)
                 .fontWeight(.bold)
@@ -197,6 +205,7 @@ struct LocationFormUIView: View {
     var body: some View {
         
         VStack {
+            Spacer()
             Text("Where do you want cleaner go")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .bold()
@@ -272,6 +281,7 @@ struct GoHomeButton: View {
     var body: some View {
 
             VStack {
+                Spacer()
                 Text("Service").onAppear(){// Fill the type array with the selected
                     iconItem.forEach{ icon in
                         if icon.isSelected == true{
@@ -326,10 +336,11 @@ struct GoHomeButton: View {
           
                 
                 Button(action: {resetView()}){
-                    Text("reset")
+                    Text("reset").foregroundColor(.white)
+                        .padding()
+                        .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                        .cornerRadius(8)
                 }.padding()
-//                .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                .border(Color.green)
                 .foregroundColor(.green)
 //                .clipped()
 //                .padding(10)

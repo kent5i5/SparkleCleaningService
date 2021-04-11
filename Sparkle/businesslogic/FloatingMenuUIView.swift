@@ -43,7 +43,7 @@ struct FloatingMenuUIView: View {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 80, height: 80)
-                    .foregroundColor(Color(red: 0/255, green: 255/255, blue: 10/255))
+                    .foregroundColor(Color(red: 0.1, green: 0.8, blue: 0.5))
                     .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
            // }
         }
@@ -56,7 +56,7 @@ struct MenuItem: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(Color(red: 153/255, green: 102/255, blue: 255/255))
+                .foregroundColor(Color(red: 0.1, green: 0.8, blue: 0.5))
                 .frame(width: 55, height: 55)
             Image(icon)
                 .imageScale(.large)
