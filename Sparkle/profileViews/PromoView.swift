@@ -44,7 +44,9 @@ struct PromoView: View {
                     .foregroundColor(isPromo  ? .green : .gray)
                     .onAppear(){
                         print(settings.count)
-                        isPromo = settings[0].promo
+                        if !settings.isEmpty{
+                            isPromo = settings[0].promo
+                        }
                     }
                     .onChange(of: isPromo) { _isPromo in
                         updatePromoSetting() }

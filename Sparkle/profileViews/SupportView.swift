@@ -61,7 +61,11 @@ struct SupportView: View {
                     Toggle("Agree to terms and conditions", isOn: $agreedToTerms)
                         .onAppear(){
                             print(settings.count)
-                            agreedToTerms = settings[0].agreeToTerm
+                            if !settings.isEmpty{
+                                agreedToTerms = settings[0].agreeToTerm
+                            }
+                                
+                            
                         }
                         .onChange(of: agreedToTerms) { _agreedToTerms in
                             updateSupportSetting() }

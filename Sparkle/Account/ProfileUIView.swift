@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ProfileUIView: View {
     //@EnvironmentObject var settings: SettingsObject
+    @Environment(\.managedObjectContext) var context
     @EnvironmentObject var modelData: User
     @State var username = ""
+    
+    @FetchRequest(entity: Settings.entity(), sortDescriptors: []) var settings: FetchedResults<Settings>
+    
     func getUserInfo() {
         if modelData.name.isEmpty{
             let fbhandler = Fbhandler(modelData: modelData)
@@ -105,7 +109,18 @@ struct ProfileUIView: View {
                         Text("2.2.1")
                     }
                 }
-            }.onAppear(){getUserInfo()}
+            }.onAppear(){
+                getUserInfo()
+                if settings.isEmpty{
+                    let newSetting  = Settings(context: self.context)
+                    newSetting.payment = "Paypal"
+                    newSetting.location = true
+                    newSetting.promo = true
+                    newSetting.notification = true
+                }
+               
+                
+            }
         }.navigationViewStyle(StackNavigationViewStyle())
             
        

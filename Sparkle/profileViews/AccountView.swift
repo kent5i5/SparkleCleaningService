@@ -18,6 +18,16 @@ struct AccountView: View {
     @State private var country = ""
     @State private var city = ""
     
+//    @FetchRequest(
+//
+//      entity: Creator.entity(),
+//
+//      sortDescriptors: [
+//        NSSortDescriptor(keyPath: \Creator.name, ascending: true)
+//      ]
+//
+//    ) var creators: FetchedResults<Creator>
+    
     private func delayText() {
             // Delay of 7.5 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -40,13 +50,14 @@ struct AccountView: View {
                     Button("DONE") {
                                presentationMode.wrappedValue.dismiss()
                     }.foregroundColor(.green)
-                
+                    
                     
                 }
                 Spacer()
                 
-            }.onAppear(){print("renew user data")
-                
+            }.onAppear(){
+                print("renew user data")
+            
             }.navigationBarItems(trailing: Button(action: {
                 withAnimation{
                     showEdit = true

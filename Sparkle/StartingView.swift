@@ -28,7 +28,8 @@ struct StartingView: View {
                     NavigationLink(
                         destination: SelectServiceUIView().environmentObject(modelData).environmentObject(serviceData), label: {
                             
-                                Text("Open an application for elder services")
+                            Text("Order a services").font(.custom("Times New Roman", size: 25))
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                     .padding()
                                     .foregroundColor(.green)
         
@@ -40,7 +41,7 @@ struct StartingView: View {
                 NavigationLink(
                     destination: LoginView(appData: appData).environment(\.managedObjectContext, context)
                         .environmentObject(modelData).environmentObject(serviceData),label: {
-                        Text("Or Login in with membership")
+                        Text("Sign in").font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .padding()
                             .foregroundColor(.green)
                     })

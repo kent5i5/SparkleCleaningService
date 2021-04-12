@@ -66,7 +66,9 @@ struct LocationOptionView: View {
                     .foregroundColor(trackingLocation  ? .green : .gray)
                     .onAppear(){
                         print(settings.count)
-                        trackingLocation = settings[0].location
+                        if !settings.isEmpty{
+                            trackingLocation = settings[0].location
+                        }
                     }
                     .onChange(of: trackingLocation) { _isOn in
                         updateLocationSetting() }

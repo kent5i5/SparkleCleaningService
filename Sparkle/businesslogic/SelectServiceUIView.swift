@@ -72,10 +72,10 @@ struct SelectServiceUIView: View {
                                             self.presentationMode.wrappedValue.dismiss()
                                         }) {
                                             HStack {
-                                                Image(systemName: "arrow.up.circle")
+                                                //Image(systemName: "arrow.up.circle")
+                                                Image(systemName: "trash")
                                                     .foregroundColor(.green)
-                                                Text("CANCEL")
-                                                    .foregroundColor(.green)
+                                                //Text("CANCEL").foregroundColor(.green)
                                             }
                                         })
 //                                        }, trailing:)
@@ -84,7 +84,7 @@ struct SelectServiceUIView: View {
                 
                 if(showSelectService < 4){
                      Button(action: {changeView()}){
-                        Image("chevron-top")
+                        //Image("chevron-top")
                         Text("NEXT")
                             .foregroundColor(.white)
                                 .padding()
@@ -100,10 +100,10 @@ struct SelectServiceUIView: View {
                                      self.presentationMode.wrappedValue.dismiss()
                                  }) {
                                      HStack {
-                                         Image(systemName: "arrow.left.circle").foregroundColor(.green)
-                                         Text("CANCEL").foregroundColor(.green)
-                                            .cornerRadius(8)
-                                            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                                         Image(systemName: "trash").foregroundColor(.green)
+//                                         Text("CANCEL").foregroundColor(.green)
+//                                            .cornerRadius(8)
+//                                            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                                      }
                              })
                 }

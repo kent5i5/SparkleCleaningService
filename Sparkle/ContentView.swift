@@ -28,7 +28,7 @@ struct ContentView: View {
                 HomeView(appData: appData).tabItem {
                     Image(systemName:"homekit")
                         .resizable()
-
+                    Text("home").font(.caption2)
                 }.ignoresSafeArea()
                 .navigationBarHidden(true)
                 .environmentObject(modelData)
@@ -37,17 +37,20 @@ struct ContentView: View {
                     Image(systemName: "plus.message.fill")
                         .resizable()
                         .background(Color.green)
+                    Text("Services").font(.caption2)
                 }.edgesIgnoringSafeArea(.top)
                 .navigationBarHidden(true)
                 
                 
                 ProfileUIView().tabItem {
                     Image(systemName: "xserve")
+                    Text("Settings").font(.caption2)
                 }.navigationBarHidden(true)
                 .environmentObject(modelData)
                 
                 WorkerListUIView().tabItem {
                     Image(systemName: "pencil.tip")
+                    Text("Profile").font(.caption2)
                 }.navigationBarHidden(true)
                 .environmentObject(modelData)
                 .environmentObject(serviceData)

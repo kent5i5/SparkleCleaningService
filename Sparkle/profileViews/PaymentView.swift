@@ -25,7 +25,6 @@ struct PaymentView: View {
     private func updatePaymentSetting(selected: Int){
 
         do {
-           // self.context.delete(settings[0])
             settings[0].payment = self.paymentMethods[selected]
           try context.save()
         } catch {
@@ -46,12 +45,14 @@ struct PaymentView: View {
                 .onAppear(){
                     print(settings.count)
                     //selectedPaymentIndex = settings[0].agreeToTerm
-                    switch settings[0].payment{
-                    case "Paypal": selectedPaymentIndex = 0
-                    case "Apple Pay": selectedPaymentIndex = 1
-                    case "Google Pay": selectedPaymentIndex = 2
-                    case "VISA": selectedPaymentIndex = 3
-                    default: selectedPaymentIndex = 0
+                    if !settings.isEmpty{
+                        switch settings[0].payment{
+                        case "Paypal": selectedPaymentIndex = 0
+                        case "Apple Pay": selectedPaymentIndex = 1
+                        case "Google Pay": selectedPaymentIndex = 2
+                        case "VISA": selectedPaymentIndex = 3
+                        default: selectedPaymentIndex = 0
+                        }
                     }
                 }
                 .onChange(of: selectedPaymentIndex) { _Index in
