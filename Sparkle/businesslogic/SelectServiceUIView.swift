@@ -92,8 +92,6 @@ struct SelectServiceUIView: View {
                                 .cornerRadius(8)
                      }//.frame(maxWidth: .infinity, maxHeight: .infinity)
                      .foregroundColor(.green)
-                     .clipped()
-                     .padding(10)
                      .navigationBarTitle("", displayMode: .inline)
                      .navigationBarItems(leading:
                                  Button(action: {
@@ -220,21 +218,39 @@ struct LocationFormUIView: View {
             }
             
             TextField("Street: ", text: $street)
-                .frame(height: 40, alignment: .center)
-                .cornerRadius(10)
-                .border(Color.green)
-                .padding(10)
+                .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                .padding(EdgeInsets(top:8, leading: 16,
+                                    bottom:8, trailing:0 ))
+                .background(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.green))
+               
+                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
             
             TextField("Apt/Unit: ", text: $aptunit)
-                .frame(height: 40, alignment: .center)
-                .cornerRadius(10)
-                .border(Color.green)
-                .padding(10)
+                .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                .padding(EdgeInsets(top:8, leading: 16,
+                                    bottom:8, trailing:0 ))
+                .background(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.green))
+               
+                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
             TextField("Zip Code: ", text: $zipcode)
-                .frame(height: 40, alignment: .center)
-                .cornerRadius(10)
-                .border(Color.green)
-                .padding(10)
+                .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                .padding(EdgeInsets(top:8, leading: 16,
+                                    bottom:8, trailing:0 ))
+                .background(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.green))
+               
+                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
             
         }
     }
@@ -329,8 +345,15 @@ struct GoHomeButton: View {
                         .cornerRadius(2)
                         .clipShape(Circle())
                     Text(" Add the Services").font(.caption)
+                        .cornerRadius(8)
         
-                }.padding()
+                }.padding(EdgeInsets(top:8, leading: 16,
+                                     bottom:8, trailing:16 )).cornerRadius(8)
+                //.border(Color.green.opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                .overlay(RoundedRectangle(cornerRadius: 30)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor(.green))
                 .foregroundColor(.green)
   
           

@@ -224,14 +224,13 @@ struct LoginView: View {
     //                    }
 
                     }){
-                        Image(systemName: "checkmark")
-                            .resizable()
-                            .frame(width: 16, height: 16, alignment: .center)
+//                        Image(systemName: "checkmark")
+//                            .resizable()
+//                            .frame(width: 16, height: 16, alignment: .center)
                         Text("Log In")
                             .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
                             .font(.footnote)
                             .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
-                            
                             .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                            
                       
@@ -251,7 +250,7 @@ struct LoginView: View {
                                         .overlay(RoundedRectangle(cornerRadius: 15)
                                                 .stroke(lineWidth: 0.5)
                                                 .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
-                                        .foregroundColor(.green)})
+                                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))})
 
                     
                 }.padding()

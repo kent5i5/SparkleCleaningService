@@ -33,10 +33,13 @@ struct ArrivalTimeFormUIView: View {
                         .foregroundColor(.green)
                 }
                 
-                DatePicker("Please enter start time", selection: $serviceData.startDate)
+                DatePicker("Please enter start time", selection: $serviceData.startDate,
+                           displayedComponents:  [.date, .hourAndMinute])
+                    .datePickerStyle( WheelDatePickerStyle())
+                   
                 
                 DatePicker("Please enter end time", selection: $serviceData.endDate)
-                
+                    .datePickerStyle( WheelDatePickerStyle())
                 Spacer()
                 
 //                TextField("Search", text: .constant(""))

@@ -13,6 +13,7 @@ struct HomeView: View {
     @ObservedObject var appData: User
     @State private var isPresented = false
     @State var password: String = ""
+    @State var tag:Int? = nil
     
     func getUserInfo(){
 
@@ -67,6 +68,13 @@ struct HomeView: View {
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
                             .foregroundColor(.green)
+                        
+                    
+//                        NavigationLink(destination: StartingView(appData:appData)
+//                                        .environment(\.managedObjectContext, context)
+//                                        .environmentObject(modelData)
+//                                        .environmentObject(serviceData),
+//                                       tag: 1, selection: $tag) {}
                         Button(action:  {
                            signOut()
                         }) {

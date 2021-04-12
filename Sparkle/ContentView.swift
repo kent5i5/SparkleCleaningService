@@ -13,9 +13,12 @@ struct ContentView: View {
     @EnvironmentObject var serviceData: ServiceRepository
     
     init(appData: User) {
-            UITabBar.appearance().backgroundColor = UIColor(Color(red: 10/255, green: 255/255, blue: 10/255))
+        //UINavigationBar.setAnimationsEnabled(false)
+        //UINavigationBar.animate(withDuration: 0.1, animations:{ })
+        UITabBar.appearance().backgroundColor = UIColor(Color(red: 10/255, green: 255/255, blue: 10/255))
         //UINavigationBar.appearance().backgroundColor = .green
         self.appData = User()
+        
         
     }
     var body: some View {
