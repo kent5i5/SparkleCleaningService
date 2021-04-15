@@ -27,19 +27,29 @@ struct CalenderUIView: View {
         })
     }
     var body: some View {
-        NavigationView {
+        ScrollView {
             VStack {
+                HStack {
+                    Text("Cleaing Schedule ").frame( alignment: .leading).font(.title).foregroundColor(.green)
+                    Spacer()
+                }.padding(EdgeInsets(top:8, leading: 16,
+                                     bottom:60, trailing:0 ))
+               
                     
-                DatePicker("When is the starting date?", selection: $serviceDate.startDate, displayedComponents:  [.date, .hourAndMinute])
+                DatePicker("When is the starting date?", selection: $serviceDate.startDate,in: Date()..., displayedComponents:  [.date, .hourAndMinute])
                       .datePickerStyle(GraphicalDatePickerStyle())
                      .background(Color.green)
                         .accentColor(colorScheme == .dark ? Color.secondary : Color.primary)
-                     //.foregroundColor(.white)
                     
                 
-                Text(serviceDate.startDate.description ).frame(width: .infinity, height: 20, alignment: .bottomLeading)
+                Text("\(serviceDate.startDate)").frame( height: 20, alignment: .bottomLeading)
                     .font(.caption)
                 
+                Spacer()
+                
+                EventView()
+                
+                Spacer()
                     ZStack(alignment: .bottomTrailing) {
                         Rectangle()
                                       .foregroundColor(.clear)
@@ -49,10 +59,11 @@ struct CalenderUIView: View {
                                 .padding()
                         }
                     }
+                
                     
                     
-            }.navigationBarHidden(true)
-        }.navigationViewStyle(StackNavigationViewStyle())
+            }//.navigationBarHidden(true)
+        }//.navigationViewStyle(StackNavigationViewStyle())
        
     }
         

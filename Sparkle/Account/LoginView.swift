@@ -174,7 +174,8 @@ struct LoginView: View {
                                     }
                             }).navigationBarBackButtonHidden(true)
                 
-                    
+                Spacer()
+                    .frame(height: 60)
 
                 VStack {
                     TextField("Email/Phone", text: $email)
@@ -189,7 +190,7 @@ struct LoginView: View {
                     
                     
                     Spacer()
-                        .frame(height: 100)
+                        .frame(height: 50)
                     
                     SecureField.init("Password", text: $password)
                         .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -215,7 +216,8 @@ struct LoginView: View {
                                 .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                         }
                     }
-
+                    Spacer()
+                        .frame(height: 60)
 
                     Button(action:  {
                         loginExistingUserWithEmail(email: email, password: password)
@@ -224,33 +226,34 @@ struct LoginView: View {
     //                    }
 
                     }){
-//                        Image(systemName: "checkmark")
-//                            .resizable()
-//                            .frame(width: 16, height: 16, alignment: .center)
+
                         Text("Log In")
-                            .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
-                            .font(.footnote)
+                            .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
-                            .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                            .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
+                            .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                            .cornerRadius(25)
+                            .foregroundColor(.white)
+                             .opacity( 0.8)
                            
                       
                     }.alert(isPresented: $showingAlert) {
                         Alert(title: Text("Authenticate Error"), message: Text("Incorrect username and password"), dismissButton: .default(Text("Got it!")))
-                    }.padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
-                    .overlay(RoundedRectangle(cornerRadius: 15)
-                                .stroke(lineWidth: 0.5)
-                                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
+                    }
                     
                     
-                    NavigationLink(destination: RegisterView().environmentObject(modelData),
-                                   label: {
-                                    Text("Register")
-                                        .padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
-                                        .font(.footnote)
-                                        .overlay(RoundedRectangle(cornerRadius: 15)
-                                                .stroke(lineWidth: 0.5)
-                                                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
-                                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))})
+                    
+                    
+//                    NavigationLink(destination: RegisterView().environmentObject(modelData),
+//                                   label: {
+//                                    Text("Register")
+//                                        .padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
+//                                        .font(.footnote)
+//                                        .overlay(RoundedRectangle(cornerRadius: 15)
+//                                                .stroke(lineWidth: 0.5)
+//                                                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
+//                                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))})
 
                     
                 }.padding()

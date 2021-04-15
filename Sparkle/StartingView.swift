@@ -36,45 +36,78 @@ struct StartingView: View {
                                     destination: ContentView(appData: appData).environmentObject(modelData)
                                         .environmentObject(serviceData),
                                     tag: "A", selection: $selection).animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/).transition(.scale)
-                    
+                    Spacer()
                     Button(action:{
                         withAnimation(.spring()){
                             selection = "A"
                         }
                         
                     }){
-                        Text("Continue").font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                            .padding().foregroundColor(.green)
-                    }
+                        Text("Continue")
+                            .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
+                            .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
+                            .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                            .cornerRadius(25)
+                            .foregroundColor(.white)
+                    }.offset(y: 40)
                 }
                 
                 
                     
                 VStack {
-                    HStack {
-                       
+                   
+                    VStack {
+                        Spacer()
+                        NavigationLink(
+                            destination: RegisterView().environmentObject(modelData),
+                                //LoginView(appData: appData).environment(\.managedObjectContext, context)
+                                //.environmentObject(modelData).environmentObject(serviceData),
+                            label: {
+//                                Text("Sign Up").font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+//                                    .padding()
+//                                    .foregroundColor(.green)
+                                
+                                Text("Sign Up")
+                                    .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
+                                    .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
+                                    .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                                    .cornerRadius(25)
+                                    .foregroundColor(.white)
+                            })
+                        HStack{
+                            Text("Already have an account? ").font(.custom("Times New Roman", size: 12))
+                                .foregroundColor(.green)
+                            NavigationLink(
+                                destination: LoginView(appData: appData).environment(\.managedObjectContext, context)
+                                    .environmentObject(modelData).environmentObject(serviceData),
+                                label: {
+                                    Text("Log in").font(.custom("Times New Roman", size: 12))
+                                       .foregroundColor(.green)
+                                })
+                        }.padding(.bottom, 100)
+                        
                         NavigationLink(
                             destination: SelectServiceUIView().environmentObject(modelData).environmentObject(serviceData), label: {
                                 
-                                Text("Order a services").font(.custom("Times New Roman", size: 25))
-                                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                        .padding()
-                                        .foregroundColor(.green)
-            
-                                       //.shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 0.1)
-                                    
-                               
-                        })
+                                Text("Clean Now").font(.custom("Times New Roman", size: 25))
+                                    .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
+                                    .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
+                                    .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                                    .cornerRadius(25)
+                                    .foregroundColor(.white)})
+                        Spacer()
+                       
+                      
                     }
+                   
                     
-                    NavigationLink(
-                        destination: LoginView(appData: appData).environment(\.managedObjectContext, context)
-                            .environmentObject(modelData).environmentObject(serviceData),
-                        label: {
-                            Text("Sign in").font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                .padding()
-                                .foregroundColor(.green)
-                        })
+               
                     
                 }.opacity((Auth.auth().currentUser == nil) ? 0.8 : 0)
       

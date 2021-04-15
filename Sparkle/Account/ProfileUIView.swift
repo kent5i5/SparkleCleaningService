@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ProfileUIView: View {
     //@EnvironmentObject var settings: SettingsObject
@@ -20,6 +21,17 @@ struct ProfileUIView: View {
             let fbhandler = Fbhandler(modelData: modelData)
             fbhandler.getUserInfo()
         }
+    }
+    
+    func signOut(){
+        let auth = Auth.auth()
+        do {
+            try auth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+        //appData.name = ""
+        modelData.name = ""
     }
     var body: some View {
         
@@ -87,28 +99,31 @@ struct ProfileUIView: View {
                 .navigationBarTitle("Settings")
                     .navigationBarItems(leading:
                             Button(action: {
-                                print("SF Symbol button pressed...")
+                               // print("SF Symbol button pressed...")
                             }) {
                                 //Image(systemName: "calendar.circle").imageScale(.large)
                             },
                         trailing:
-                            Button(action: {
-                                print("Edit button pressed...")
+                            Button(action:  {
+                               signOut()
                             }) {
-                              //  Text("Edit")
+                                HStack {
+                                    Text("Sign Out")
+                                
+                                }
                             }
                     )
 
                 
             
             
-                Section(header: Text("ABOUT")) {
-                    HStack {
-                        Text("Version")
-                        Spacer()
-                        Text("2.2.1")
-                    }
-                }
+//                Section(header: Text("ABOUT")) {
+//                    HStack {
+//                        Text("Version")
+//                        Spacer()
+//                        Text("2.2.1")
+//                    }
+//                }
             }.onAppear(){
                 getUserInfo()
                 if settings.isEmpty{

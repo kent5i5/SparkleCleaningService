@@ -14,7 +14,7 @@ struct CheckView: View {
    var body: some View {
        Button(action: toggle){
         VStack {
-            Image(systemName: iconItem[numItem].name)
+            Image( iconItem[numItem].name)
                 .resizable()
                 .padding(10)
                 .frame(width: 100, height: 100, alignment: .topLeading)

@@ -44,6 +44,9 @@
 		346AF86825A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */; };
 		346AF86925A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */; };
 		346AF88F25A54CA0004117C0 /* doc in Resources */ = {isa = PBXBuildFile; fileRef = 346AF88E25A54CA0004117C0 /* doc */; };
+		346B71BA2627538900740FA4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346B71B92627538900740FA4 /* EventView.swift */; };
+		346B71BF2627595800740FA4 /* WorkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346B71BE2627595800740FA4 /* WorkerView.swift */; };
+		346B71C426275A7400740FA4 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346B71C326275A7400740FA4 /* CircleImageView.swift */; };
 		3477C54C25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */; };
 		3477C55425E2FD6C00B0F2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477C55325E2FD6C00B0F2E2 /* Main.storyboard */; };
 		34810C7C2612D0C300D7BC9C /* JobDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34810C7B2612D0C300D7BC9C /* JobDetailsView.swift */; };
@@ -125,6 +128,9 @@
 		346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalTimeFormUIView.swift; sourceTree = "<group>"; };
 		346AF88225A54B6D004117C0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		346AF88E25A54CA0004117C0 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
+		346B71B92627538900740FA4 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		346B71BE2627595800740FA4 /* WorkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerView.swift; sourceTree = "<group>"; };
+		346B71C326275A7400740FA4 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInViewController.swift; sourceTree = "<group>"; };
 		3477C55325E2FD6C00B0F2E2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		34810C7B2612D0C300D7BC9C /* JobDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsView.swift; sourceTree = "<group>"; };
@@ -229,6 +235,8 @@
 				346AF85125A50F48004117C0 /* WorkerListUIView.swift */,
 				3496987A260BDB1700D90A14 /* FavoriteView.swift */,
 				346AF85825A52648004117C0 /* FloatingMenuUIView.swift */,
+				346B71B92627538900740FA4 /* EventView.swift */,
+				346B71BE2627595800740FA4 /* WorkerView.swift */,
 			);
 			path = businesslogic;
 			sourceTree = "<group>";
@@ -346,6 +354,7 @@
 				3463BE4B260180530071675F /* Fbhandler.swift */,
 				345DC3BF260E6E1700757A94 /* CheckView.swift */,
 				3444A34F26153E05009A4BCD /* CustomTopbarBackButtonModifier.swift */,
+				346B71C326275A7400740FA4 /* CircleImageView.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -648,6 +657,7 @@
 				346AF86725A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */,
 				346AF85925A52648004117C0 /* FloatingMenuUIView.swift in Sources */,
 				34988F9725F8826100125E01 /* ChangePasswordView.swift in Sources */,
+				346B71C426275A7400740FA4 /* CircleImageView.swift in Sources */,
 				346AF80725A4F53A004117C0 /* AppDelegate.swift in Sources */,
 				34988F8F25F8822600125E01 /* AccountView.swift in Sources */,
 				3444A34626152265009A4BCD /* Network.swift in Sources */,
@@ -657,11 +667,13 @@
 				34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */,
 				34FAF38A2609530A00F125F9 /* Service.swift in Sources */,
 				34FAF37C2609470800F125F9 /* BottomSheetView.swift in Sources */,
+				346B71BF2627595800740FA4 /* WorkerView.swift in Sources */,
 				34988FA125F8829B00125E01 /* SupportView.swift in Sources */,
 				345DC3C0260E6E1700757A94 /* CheckView.swift in Sources */,
 				346AF80E25A4F53A004117C0 /* Sparkle.xcdatamodeld in Sources */,
 				346AF86025A53BF5004117C0 /* SelectServiceUIView.swift in Sources */,
 				34988FA625F882C200125E01 /* LocationOptionView.swift in Sources */,
+				346B71BA2627538900740FA4 /* EventView.swift in Sources */,
 				346AF83D25A4FD94004117C0 /* HomeView.swift in Sources */,
 				34988FB225F88B6C00125E01 /* SettingsObject.swift in Sources */,
 				3463BE4C260180530071675F /* Fbhandler.swift in Sources */,

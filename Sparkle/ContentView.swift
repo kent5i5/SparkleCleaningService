@@ -12,6 +12,8 @@ struct ContentView: View {
     @ObservedObject var appData: User
     @EnvironmentObject var serviceData: ServiceRepository
     
+    @State var selection: Int = 0
+    
     init(appData: User) {
         //UINavigationBar.setAnimationsEnabled(false)
         //UINavigationBar.animate(withDuration: 0.1, animations:{ })
@@ -25,38 +27,40 @@ struct ContentView: View {
        // NavigationView {
             VStack {
 
-            TabView {
+            TabView(selection: $selection) {
 
                 
                 HomeView(appData: appData).tabItem {
-                    Image(systemName:"homekit")
-                        .resizable()
-                    Text("home").font(.caption2)
-                }.ignoresSafeArea()
+                    
+                    selection == 0 ? Image("Home-selected").resizable() : Image("home").resizable()
+                    //Text("home").font(.caption2)
+                }.tag(0)//.ignoresSafeArea()
                 .navigationBarHidden(true)
                 .environmentObject(modelData)
                 
                 CalenderUIView().tabItem {
-                    Image(systemName: "plus.message.fill")
-                        .resizable()
-                        .background(Color.green)
-                    Text("Services").font(.caption2)
-                }.edgesIgnoringSafeArea(.top)
+                   
+                    selection == 1 ? Image( "calendar-1").resizable() : Image("calendar").resizable()
+                                        
+                   // Text("Services").font(.caption2)
+                }.tag(1)//.edgesIgnoringSafeArea(.top)
                 .navigationBarHidden(true)
                 
-                
-                ProfileUIView().tabItem {
-                    Image(systemName: "xserve")
-                    Text("Settings").font(.caption2)
-                }.navigationBarHidden(true)
-                .environmentObject(modelData)
-                
                 WorkerListUIView().tabItem {
-                    Image(systemName: "pencil.tip")
-                    Text("Profile").font(.caption2)
-                }.navigationBarHidden(true)
+                    selection == 2 ? Image("my-cleaner-selected").resizable() : Image("my-cleaner").resizable()
+                    //Text("Profile").font(.caption2)
+                }.tag(2).navigationBarHidden(true)
                 .environmentObject(modelData)
                 .environmentObject(serviceData)
+                
+                ProfileUIView().tabItem {
+                   
+                    selection == 3 ? Image("my-profile-selected").resizable() : Image("my-profile").resizable()
+                    //Text("Settings").font(.caption2)
+                }.tag(3).navigationBarHidden(true)
+                .environmentObject(modelData)
+                
+               
                 
             }.edgesIgnoringSafeArea(.top)
             .accentColor(.green)

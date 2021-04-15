@@ -19,41 +19,41 @@ struct ServiceSelctionsUIView: View {
                             SelectServiceUIView(),
                         label: {
                             VStack {
-                                Image(systemName: "applescript")
+                                Image("clothing")
                                     .resizable()
                                     .padding(10)
                                     .frame(width: 100, height: 100, alignment: .topLeading)
 
-                                    Text("service 1")
+                                   // Text("service 1")
                             }})
                    
      
-                    Image(systemName: "arkit")
+                    Image("flooring")
                         .resizable()
                         .padding(10)
                         .frame(width: 100, height: 100, alignment: .topLeading)
                     
-                    Image(systemName: "bonjour")
+                    Image("refrigerator")
                         .resizable()
                         .padding(10)
                         .frame(width: 100, height: 100, alignment: .topLeading)
                 }
                 
                 HStack {
-                    Image(systemName: "swift")
+                    Image("storage")
                         .resizable()
                         .padding(10)
                         .frame(width: 100, height: 100, alignment: .topLeading)
-                    Image(systemName: "safari")
+                    Image("washingmachine")
                         .resizable()
                         .padding(10)
                         .frame(width: 100, height: 100, alignment: .topLeading)
-                    Image(systemName: "macpro.gen1")
+                    Image("waxing")
                         .resizable()
                         .padding(10)
                         .frame(width: 100, height: 100, alignment: .topLeading)
                 }
-              
+              Text("Total time: 4")
             }
     }
 }
