@@ -21,6 +21,8 @@ struct WorkerListUIView: View {
     @State var showProfile: Bool = false
     
     @State var servicelist: [Service] = []
+    
+    let theme = Theme()
     func getUserInfo() {
         
             let fbhandler = Fbhandler(modelData: User())
@@ -58,7 +60,7 @@ struct WorkerListUIView: View {
                                 Image(systemName: "star").foregroundColor(showFavortie ? Color.yellow : Color.black)
                                     
                             }.border(showFavortie ? Color.green : Color.black)
-                            .background(showFavortie ? Color.gray : Color.white)
+                            .background(showFavortie ? theme.darkGreen : Color.white)
                             .foregroundColor(showFavortie ? .white : .gray)
                             
                            
@@ -73,7 +75,7 @@ struct WorkerListUIView: View {
                                     
                                 Image(systemName: "arrow-up")
                             }.border(showPast ? Color.green : Color.black)
-                            .background(showPast ? Color.gray : Color.white)
+                            .background(showPast ? theme.darkGreen : Color.white)
                             .foregroundColor(showPast ? .white : .gray)
                             
                         }

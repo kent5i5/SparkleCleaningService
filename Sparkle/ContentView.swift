@@ -17,7 +17,8 @@ struct ContentView: View {
     init(appData: User) {
         //UINavigationBar.setAnimationsEnabled(false)
         //UINavigationBar.animate(withDuration: 0.1, animations:{ })
-        UITabBar.appearance().backgroundColor = UIColor(Color(red: 10/255, green: 255/255, blue: 10/255))
+        UITabBar.appearance().backgroundColor = UIColor(Color(red: 36/255, green: 106/255, blue: 93/255, opacity: 1) )
+        UITabBar.appearance().barTintColor = UIColor(Theme.init().darkGreen)
         //UINavigationBar.appearance().backgroundColor = .green
         self.appData = User()
         
@@ -63,7 +64,7 @@ struct ContentView: View {
                
                 
             }.edgesIgnoringSafeArea(.top)
-            .accentColor(.green)
+            .accentColor(Theme.init().darkGreen)
             }.onAppear(){
                 // retrieve user data from firestore
                 let fbhandler = Fbhandler(modelData: modelData)

@@ -43,7 +43,7 @@ struct FloatingMenuUIView: View {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 80, height: 80)
-                    .foregroundColor(Color(red: 0.1, green: 0.8, blue: 0.5))
+                    .foregroundColor(Theme.init().darkGreen)
                     .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
            // }
         }

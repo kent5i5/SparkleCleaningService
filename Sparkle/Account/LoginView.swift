@@ -23,7 +23,7 @@ struct LoginView: View {
     @State private var password = ""
     @State private var isLogin = false
 
-    
+    let theme = Theme()
 //    init(appData: User){
 //      email = appData.name
 //      password = appData.password
@@ -169,9 +169,9 @@ struct LoginView: View {
                                     self.presentationMode.wrappedValue.dismiss()
                                 }) {
                                     HStack {
-                                        Image(systemName: "arrow.left.circle").foregroundColor(.green)
-                                        Text("CANCEL").foregroundColor(.green)
-                                    }
+                                        Image(systemName: "arrow.left.circle")
+                                        Text("CANCEL")
+                                    }.foregroundColor(theme.darkGreen)
                             }).navigationBarBackButtonHidden(true)
                 
                 Spacer()
@@ -186,7 +186,7 @@ struct LoginView: View {
                         .overlay(RoundedRectangle(cornerRadius: 30)
                                     .stroke(lineWidth: 2)
                                     .foregroundColor(.green))
-                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                        .foregroundColor(theme.darkGreen)
                     
                     
                     Spacer()
@@ -202,7 +202,7 @@ struct LoginView: View {
                                     .stroke(lineWidth: 2)
                                     .foregroundColor(.green))
                        
-                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                        .foregroundColor(theme.darkGreen)
                   
                     
                     HStack {
@@ -213,7 +213,7 @@ struct LoginView: View {
                         }){
                             Text("Reset Password")
                                 .font(.footnote)
-                                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                                .foregroundColor(theme.darkGreen)
                         }
                     }
                     Spacer()
@@ -232,10 +232,10 @@ struct LoginView: View {
                             .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
                             .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                            .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                            .background(theme.darkGreen)
                             .cornerRadius(25)
                             .foregroundColor(.white)
-                             .opacity( 0.8)
+                            .opacity( 1.0)
                            
                       
                     }.alert(isPresented: $showingAlert) {

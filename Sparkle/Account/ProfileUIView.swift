@@ -38,8 +38,10 @@ struct ProfileUIView: View {
         NavigationView {
             VStack {
                 
-                Image(systemName: "pencil.tip")
-                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                CircleImageView(iconName: "client-a").frame(width: 140, height: 140).padding(.bottom, 60)
+                
+//                Image(systemName: "pencil.tip")
+//                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 Form {
 //                    Section(header: Text("PROFILE")) {
 //                        TextField("Username", text: $username)
@@ -96,7 +98,7 @@ struct ProfileUIView: View {
                            
                     }).padding(.bottom)
                 }
-                .navigationBarTitle("Settings")
+                .navigationBarTitle("")
                     .navigationBarItems(leading:
                             Button(action: {
                                // print("SF Symbol button pressed...")
@@ -137,7 +139,7 @@ struct ProfileUIView: View {
                 
             }
         }.navigationViewStyle(StackNavigationViewStyle())
-            
+        .foregroundColor(Theme.init().darkGreen)
        
     }
 }

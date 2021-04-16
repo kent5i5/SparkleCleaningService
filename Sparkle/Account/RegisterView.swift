@@ -50,10 +50,10 @@ struct RegisterView: View {
                 .overlay(RoundedRectangle(cornerRadius: 30)
                             .stroke(lineWidth: 2)
                             .foregroundColor(.green))
-                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
-            
-            Spacer()
-                .frame(height: 100)
+                .custombackbtn()
+                //.foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                
+    
             
             SecureField.init("Password", text: $password)
                 .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -65,7 +65,7 @@ struct RegisterView: View {
                             .stroke(lineWidth: 2)
                             .foregroundColor(.green))
                
-                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+              
             
             TextField("Phone", text: $phone)
                 .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -75,7 +75,7 @@ struct RegisterView: View {
                 .overlay(RoundedRectangle(cornerRadius: 30)
                             .stroke(lineWidth: 2)
                             .foregroundColor(.green))
-                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+        
             
             TextField("Street", text: $street)
                 .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -85,7 +85,7 @@ struct RegisterView: View {
                 .overlay(RoundedRectangle(cornerRadius: 30)
                             .stroke(lineWidth: 2)
                             .foregroundColor(.green))
-                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+  
             
             TextField("Apt/Unit", text: $Apt)
                 .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -95,7 +95,7 @@ struct RegisterView: View {
                 .overlay(RoundedRectangle(cornerRadius: 30)
                             .stroke(lineWidth: 2)
                             .foregroundColor(.green))
-                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+    
             
             TextField("Zip code", text: $zipcode)
                 .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -105,26 +105,27 @@ struct RegisterView: View {
                 .overlay(RoundedRectangle(cornerRadius: 30)
                             .stroke(lineWidth: 2)
                             .foregroundColor(.green))
-                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+ 
+            Text("").padding(.bottom, 30)
             
             Button(action:  {
                 registerUser()
             }){
                 Text("Register")
-                    .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
-                    .font(.footnote)
+                    .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
-                    .overlay(RoundedRectangle(cornerRadius: 15)
-                                .stroke(lineWidth: 0.5)
-                                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
-                    .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+                    .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
+                    .background(Theme.init().darkGreen)
+                    .cornerRadius(25)
+                    .foregroundColor(.white)
+                    .opacity( 1.0)
                    
             }.alert(isPresented: $showingAlert) {
                 Alert(title: Text("Authenticate Error"), message: Text( self.result ), dismissButton: .default(Text("Got it!")))
             }
             
-        }
-        
+        }.foregroundColor(Theme.init().darkGreen)
         
      
     }

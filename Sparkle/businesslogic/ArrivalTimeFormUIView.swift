@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArrivalTimeFormUIView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     @EnvironmentObject var serviceData: ServiceRepository
     @Binding var currentStep: Int
     
@@ -49,7 +50,7 @@ struct ArrivalTimeFormUIView: View {
                         Button(action: {nextView()}){
                             Image(systemName: "chevron.right").frame(width: 10).foregroundColor(.white)
                         }.offset(x: -20, y: 0)
-                    }.background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                    }.background(Theme.init().darkGreen)
                     .frame(width: geometry.size.width, alignment: .top)
                 }
             }
@@ -58,19 +59,23 @@ struct ArrivalTimeFormUIView: View {
                 Text("Requested Arrival Time of the Cleaner")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .bold()
-                    .foregroundColor(.green)
                 Button(action: {resetView()}){
                     Text("clear all")
                         .font(.body)
                         .fontWeight(.light)
                         .frame(width: 300, alignment: .trailing)
-                        .foregroundColor(.green)
                 }.padding()
                 
-                DatePicker("Begin:", selection: $serviceData.startDate, in: Date()...,
+                DatePicker("Start Time:", selection: $serviceData.startDate, in: Date()...,
                            displayedComponents:  [.date, .hourAndMinute])
-                    .datePickerStyle(GraphicalDatePickerStyle() )
-                   
+                    .datePickerStyle(CompactDatePickerStyle())
+                    .frame(height: 50)
+                    .accentColor(colorScheme == .light ? Theme.init().lightGreen : Theme.init().yellow)
+                    .foregroundColor(Theme.init().darkGreen)
+//                    .datePickerStyle(GraphicalDatePickerStyle() )
+//                    .background(Theme.init().darkGreen)
+//                    .foregroundColor(.white)
+//                    .accentColor(colorScheme == .light ? Theme.init().lightGreen : Theme.init().yellow)
                 
                // DatePicker("End:", selection: $serviceData.endDate,in: Date()...)
                     //.datePickerStyle( WheelDatePickerStyle())
@@ -89,7 +94,7 @@ struct ArrivalTimeFormUIView: View {
 //                    .padding(10)
 
                 
-            }
+            }.foregroundColor(Theme.init().darkGreen)
 
         
         

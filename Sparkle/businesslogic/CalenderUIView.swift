@@ -7,6 +7,43 @@
 
 import SwiftUI
 
+private struct ScrollOffsetPreferenceKey: PreferenceKey {
+    static var defaultValue: CGPoint = .zero
+    
+    static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {}
+}
+struct ScrollView1<Content: View>: View {
+    let axes: Axis.Set
+    let showsIndicators: Bool
+    let offsetChanged: (CGPoint) -> Void
+    let content: Content
+
+    init(
+        axes: Axis.Set = .vertical,
+        showsIndicators: Bool = true,
+        offsetChanged: @escaping (CGPoint) -> Void = { _ in },
+        @ViewBuilder content: () -> Content
+    ) {
+        self.axes = axes
+        self.showsIndicators = showsIndicators
+        self.offsetChanged = offsetChanged
+        self.content = content()
+    }
+    var body: some View {
+            SwiftUI.ScrollView(axes, showsIndicators: showsIndicators) {
+                GeometryReader { geometry in
+                    Color.clear.preference(
+                        key: ScrollOffsetPreferenceKey.self,
+                        value: geometry.frame(in: .named("scrollView")).origin
+                    )
+                }.frame(width: 0, height: 0)
+                content
+            }
+            .coordinateSpace(name: "scrollView")
+            .onPreferenceChange(ScrollOffsetPreferenceKey.self, perform: offsetChanged)
+        }
+}
+
 struct CalenderUIView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @EnvironmentObject var serviceDate: ServiceRepository
@@ -27,43 +64,72 @@ struct CalenderUIView: View {
         })
     }
     var body: some View {
-        ScrollView {
+       
+        VStack {
             VStack {
                 HStack {
-                    Text("Cleaing Schedule ").frame( alignment: .leading).font(.title).foregroundColor(.green)
-                    Spacer()
-                }.padding(EdgeInsets(top:8, leading: 16,
+                        Text("Cleaing Schedule ").frame( alignment: .leading).font(.title)
+                        Spacer()
+                    }.padding(EdgeInsets(top:8, leading: 16,
                                      bottom:60, trailing:0 ))
+            
                
                     
                 DatePicker("When is the starting date?", selection: $serviceDate.startDate,in: Date()..., displayedComponents:  [.date, .hourAndMinute])
                       .datePickerStyle(GraphicalDatePickerStyle())
-                     .background(Color.green)
-                        .accentColor(colorScheme == .dark ? Color.secondary : Color.primary)
+                    .background(Theme.init().darkGreen)
+                    .accentColor(colorScheme == .dark ? Theme.init().lightGreen : Theme.init().yellow)
+                    .foregroundColor(.white)
+                        //.accentColor(colorScheme == .dark ? Color.secondary : Color.primary)
                     
                 
-                Text("\(serviceDate.startDate)").frame( height: 20, alignment: .bottomLeading)
-                    .font(.caption)
+               // Text("\(serviceDate.startDate)").frame( height: 20, alignment: .bottomLeading).font(.caption)
                 
                 Spacer()
-                
-                EventView()
-                
-                Spacer()
-                    ZStack(alignment: .bottomTrailing) {
-                        Rectangle()
-                                      .foregroundColor(.clear)
-                                      .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        NavigationLink(destination: SelectServiceUIView()) {
-                            FloatingMenuUIView(showMenuItem1: false, showMenuItem2: false, showMenuItem3: false)
-                                .padding()
+            }
+            GeometryReader { geo in
+                ZStack(alignment: .bottomTrailing) {
+                    ScrollView1(
+                                axes: [.horizontal, .vertical],
+                                showsIndicators: false,
+                                offsetChanged: { print($0)
+                                   // print(geo.size.height)
+                                }
+                            ){
+                        ScrollViewReader { proxy in
+                           
+                                LazyVStack{
+                                    
+                                                ForEach(0..<6) { index in
+                                                    
+                                                    EventView().id(index)
+                                                        .shadow(radius: 8)
+                                                    Spacer()
+                        
+                                                }
+                                }
+                                //Spacer().frame(height:100)
+                         
+                            
+                        }.onTapGesture {
+                            print(geo)
                         }
+                        
+                        //EventView().opacity(0.6)
+                      
+                        //Spacer().frame(height:100)
+                    }//.navigationBarHidden(true)
+                   
+                   
+                    Rectangle().foregroundColor(.clear).frame(maxWidth: .infinity, maxHeight: .infinity)
+                    NavigationLink(destination: SelectServiceUIView()) {
+                        FloatingMenuUIView(showMenuItem1: false, showMenuItem2: false, showMenuItem3: false)
+                            .padding()
                     }
-                
-                    
-                    
-            }//.navigationBarHidden(true)
+                }
+            }
         }//.navigationViewStyle(StackNavigationViewStyle())
+        .foregroundColor(Theme.init().darkGreen)
        
     }
         

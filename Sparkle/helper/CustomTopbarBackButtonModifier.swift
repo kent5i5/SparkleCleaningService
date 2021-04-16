@@ -20,7 +20,7 @@ struct CustomTopbarBackButtonModifier: ViewModifier {
                                     }) {
                                         HStack {
                                             Image(systemName: "arrow.left.circle").foregroundColor(.green)
-                                            Text("").foregroundColor(.green)
+                                            Text("").foregroundColor(Color( red: 36/255, green: 106/255, blue: 93/255, opacity: 1))
                                         }
                                 }).navigationBarBackButtonHidden(true)
   }

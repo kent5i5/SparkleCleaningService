@@ -14,19 +14,16 @@ struct ServiceSelctionsUIView: View {
             VStack {
                 HStack {
                    
-                    NavigationLink(
-                        destination:
-                            SelectServiceUIView(),
-                        label: {
-                            VStack {
-                                Image("clothing")
-                                    .resizable()
-                                    .padding(10)
-                                    .frame(width: 100, height: 100, alignment: .topLeading)
+//                    NavigationLink(
+//                        destination:
+//                            SelectServiceUIView(),
+//                        label: {
+//                            VStack {}})
+                    Image("clothing")
+                        .resizable()
+                        .padding(10)
+                        .frame(width: 100, height: 100, alignment: .topLeading)
 
-                                   // Text("service 1")
-                            }})
-                   
      
                     Image("flooring")
                         .resizable()
@@ -53,7 +50,7 @@ struct ServiceSelctionsUIView: View {
                         .padding(10)
                         .frame(width: 100, height: 100, alignment: .topLeading)
                 }
-              Text("Total time: 4")
+              
             }
     }
 }

@@ -15,6 +15,7 @@
 		345DC3BB260E5C8600757A94 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DC3BA260E5C8600757A94 /* RegisterView.swift */; };
 		345DC3C0260E6E1700757A94 /* CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DC3BF260E6E1700757A94 /* CheckView.swift */; };
 		3463BE4C260180530071675F /* Fbhandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463BE4B260180530071675F /* Fbhandler.swift */; };
+		3467FC24262917D8002B625B /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3467FC23262917D8002B625B /* ReviewView.swift */; };
 		346AF80725A4F53A004117C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF80625A4F53A004117C0 /* AppDelegate.swift */; };
 		346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF80825A4F53A004117C0 /* SceneDelegate.swift */; };
 		346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF80A25A4F53A004117C0 /* ContentView.swift */; };
@@ -104,6 +105,7 @@
 		345DC3BA260E5C8600757A94 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		345DC3BF260E6E1700757A94 /* CheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckView.swift; sourceTree = "<group>"; };
 		3463BE4B260180530071675F /* Fbhandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fbhandler.swift; sourceTree = "<group>"; };
+		3467FC23262917D8002B625B /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		346AF80325A4F539004117C0 /* Sparkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		346AF80625A4F53A004117C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		346AF80825A4F53A004117C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				346AF85825A52648004117C0 /* FloatingMenuUIView.swift */,
 				346B71B92627538900740FA4 /* EventView.swift */,
 				346B71BE2627595800740FA4 /* WorkerView.swift */,
+				3467FC23262917D8002B625B /* ReviewView.swift */,
 			);
 			path = businesslogic;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				34988F9C25F8827A00125E01 /* PaymentView.swift in Sources */,
 				34E550F6260C4A5900BFB49C /* ServiceRepository.swift in Sources */,
 				34D93A592608666300201EC3 /* IconView.swift in Sources */,
+				3467FC24262917D8002B625B /* ReviewView.swift in Sources */,
 				346AF86725A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */,
 				346AF85925A52648004117C0 /* FloatingMenuUIView.swift in Sources */,
 				34988F9725F8826100125E01 /* ChangePasswordView.swift in Sources */,

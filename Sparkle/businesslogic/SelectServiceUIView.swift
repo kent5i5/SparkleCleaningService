@@ -42,6 +42,7 @@ struct SelectServiceUIView: View {
     @State var aptunit: String = ""
     @State var zipcode: String = ""
     
+    
     func changeView(){
         showSelectService = showSelectService + 1
 
@@ -167,7 +168,6 @@ struct SelectServiceSubView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .frame( height: 100, alignment: .leading)
-                    .foregroundColor(.green)
                     .padding(EdgeInsets(top:0, leading: 16,
                                         bottom:60, trailing:0 ))
                
@@ -176,7 +176,6 @@ struct SelectServiceSubView: View {
                         .font(.body)
                         .fontWeight(.light)
                         .frame(width: 300, alignment: .trailing)
-                        .foregroundColor(.green)
                 }.padding()
                 
                 
@@ -219,7 +218,7 @@ struct SelectServiceSubView: View {
                             Button(action: {nextView()}){
                                 Image(systemName: "chevron.right").frame(width: 10).foregroundColor(.white)
                             }.offset(x: -20, y: 0)
-                        } .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                        } .background(Theme.init().darkGreen)
                         .frame(width: geometry.size.width, alignment: .top)
                     }
                 }
@@ -227,6 +226,7 @@ struct SelectServiceSubView: View {
                 Text("Total time: 4").padding()
               
             }.frame(alignment: .leading).ignoresSafeArea()
+            .foregroundColor(Theme.init().darkGreen)
         }
       
     }
@@ -282,16 +282,17 @@ struct LocationFormUIView: View {
                         Button(action: {nextView()}){
                             Image(systemName: "chevron.right").frame(width: 10).foregroundColor(.white)
                         }.offset(x: -20, y: 0)
-                    }.background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                    }.background(Theme.init().darkGreen)
                     .frame(width: geometry.size.width, alignment: .top)
                 }
+        }
         }
         VStack {
             
             Text("Where do you want cleaner go")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .bold()
-                .foregroundColor(.green)
+
                 .padding(EdgeInsets(top:8, leading: 16,
                                      bottom:60, trailing:0 ))
             
@@ -300,12 +301,11 @@ struct LocationFormUIView: View {
                     .font(.body)
                     .fontWeight(.light)
                     .frame(width: 300, alignment: .trailing)
-                    .foregroundColor(.green)
             }.padding()
             
             Group {
                 HStack{
-                    Text("Street").bold()
+                    Text("Street").bold().offset(x:60)
                     Spacer()
                 }
                 
@@ -317,12 +317,12 @@ struct LocationFormUIView: View {
                     .background(Color.white)
                     .overlay(RoundedRectangle(cornerRadius: 30)
                                 .stroke(lineWidth: 2)
-                                .foregroundColor(.green))
+                                .foregroundColor(Theme.init().darkGreen))
                    
-                    .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+  
                 
                 HStack{
-                    Text("Apt / Unit").bold()
+                    Text("Apt / Unit").bold().offset(x:60)
                     Spacer()
                 }
                 TextField("Apt/Unit: ", text: $aptunit)
@@ -333,13 +333,13 @@ struct LocationFormUIView: View {
                     .background(Color.white)
                     .overlay(RoundedRectangle(cornerRadius: 30)
                                 .stroke(lineWidth: 2)
-                                .foregroundColor(.green))
+                                .foregroundColor(Theme.init().darkGreen))
                    
-                    .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+
                 
                 
                 HStack{
-                    Text("Zip Code").bold()
+                    Text("Zip Code").bold().offset(x:60)
                     Spacer()
                 }
                 
@@ -351,9 +351,9 @@ struct LocationFormUIView: View {
                     .background(Color.white)
                     .overlay(RoundedRectangle(cornerRadius: 30)
                                 .stroke(lineWidth: 2)
-                                .foregroundColor(.green))
+                                .foregroundColor(Theme.init().darkGreen))
                    
-                    .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
+
                 
             }
            
@@ -361,9 +361,9 @@ struct LocationFormUIView: View {
             
             
  
-            }
+        }.foregroundColor(Theme.init().darkGreen)
 
-        }
+        
     }
 }
 
@@ -396,7 +396,7 @@ struct SearchView: View {
                                                            .cornerRadius(8)
                                                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
                             Spacer()
-                       }.background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                       }.background(Theme.init().darkGreen)
                        .frame(width: geometry.size.width, alignment: .top)
                    }
            }
@@ -407,7 +407,6 @@ struct SearchView: View {
             Text("Where do you want cleaner go")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .bold()
-                .foregroundColor(.green)
                 .padding(EdgeInsets(top:8, leading: 16,
                                      bottom:60, trailing:0 ))
             
@@ -418,13 +417,12 @@ struct SearchView: View {
                     Spacer()
                 }
             
-                TextField(" ", text: $additioalInformation)
-                    .frame(width: 300, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                TextField("notes ", text: $additioalInformation)
+                    .frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
                     .padding(EdgeInsets(top:8, leading: 16,
                                         bottom:16, trailing:0 ))
                     .border(Color.black)
-                    .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                 
                 Picker(selection: $currentStep, label: Text(""), content: {
                     Text("none")
@@ -434,9 +432,10 @@ struct SearchView: View {
            
             Spacer()
 
-        }
+        }.foregroundColor(Theme.init().darkGreen)
     }
 }
+
 
 struct SelectCleanerView: View {
     
@@ -445,7 +444,10 @@ struct SelectCleanerView: View {
     
     @Binding var currentStep: Int
     
-    @State var cleanPicture: [String] = [ "cleaner-a" , "cleaner-b" , "" ]
+    
+    @State var cleanerList: [Worker] = [ Worker(name: "Kugna",picture: "cleaner-a" ,isSelected: false),
+                                          Worker(name: "Yoyo" , picture: "cleaner-b" , isSelected: false),
+                                          Worker(name: "" , picture: "cleaner-b",  isSelected: false) ]
     
     func previousView(){
         currentStep = currentStep - 1
@@ -482,7 +484,7 @@ struct SelectCleanerView: View {
                         Button(action: {nextView()}){
                             Image(systemName: "chevron.right").frame(width: 10).foregroundColor(.white)
                         }.offset(x: -20, y: 0)
-                    }.background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                    }.background(Theme.init().darkGreen)
                     .frame(width: geometry.size.width, alignment: .top)
                 }
             }
@@ -492,7 +494,6 @@ struct SelectCleanerView: View {
                 Text("Select a cleaner")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .bold()
-                    .foregroundColor(.green)
                     .padding(EdgeInsets(top:8, leading: 16,
                                          bottom:60, trailing:0 ))
                 
@@ -503,8 +504,8 @@ struct SelectCleanerView: View {
                         Spacer()
                     }
                 
-                    WorkerView(userPicture: $cleanPicture[0])
-                    WorkerView(userPicture: $cleanPicture[1])
+                    WorkerView(userName: cleanerList[0].name, userPicture: cleanerList[0].picture, isSelected: $cleanerList[0].isSelected)
+                    WorkerView(userName: cleanerList[1].name , userPicture: cleanerList[1].picture, isSelected: $cleanerList[1].isSelected)
                     
                     
                 }
@@ -518,7 +519,7 @@ struct SelectCleanerView: View {
            
             }
      
-        }
+        }.foregroundColor(Theme.init().darkGreen)
     }
 }
 
@@ -529,7 +530,7 @@ struct AcceptCleanerView: View {
     
     @Binding var currentStep: Int
     
-    @State var cleanPicture: [String] = [ "cleaner-a" , "cleaner-b" ]
+    @State var cleanerList: [Worker] = [ Worker(name: "yoyo",picture: "cleaner-a", isSelected: false)]
     
     func previousView(){
         currentStep = currentStep - 1
@@ -584,7 +585,7 @@ struct AcceptCleanerView: View {
     //                            .rotationEffect(.degrees(0))
     //                            .padding(.bottom)
                         
-                        WorkerView(userPicture: $cleanPicture[0])
+                        WorkerView(userName: cleanerList[0].name, userPicture: cleanerList[0].picture, isSelected: $cleanerList[0].isSelected)
                     }
                    
                     Spacer()
@@ -606,7 +607,7 @@ struct AcceptCleanerView: View {
                                 Button(action: {nextView()}){
                                     Image(systemName: "chevron.right").frame(width: 10).foregroundColor(.white)
                                 }.offset(x: -20, y: 0)
-                            }.background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                            }.background(Theme.init().darkGreen)
                             .frame(width: geometry.size.width, alignment: .top)
                         }
                     }
@@ -615,7 +616,7 @@ struct AcceptCleanerView: View {
                 }
                 if (modelData.uid.isEmpty) {
                     Text("Your cleaner has been selected")
-                    WorkerView(userPicture: $cleanPicture[0])
+                    WorkerView(userName: cleanerList[0].name, userPicture: cleanerList[0].picture, isSelected: $cleanerList[0].isSelected)
                     Text("").toolbar {
                         ToolbarItem(placement: .bottomBar) {
                             HStack{
@@ -632,7 +633,7 @@ struct AcceptCleanerView: View {
                                                      }.frame(maxWidth: .infinity, maxHeight: .infinity)
                                 
                           
-                            }.background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                            }.background(Theme.init().darkGreen)
                             .frame(width: geometry.size.width, alignment: .top)
                         }
                     }
@@ -640,7 +641,7 @@ struct AcceptCleanerView: View {
                 }
                 
          
-            }
+            }.foregroundColor(Theme.init().darkGreen)
         }
         
 
@@ -714,7 +715,7 @@ struct GoHomeButton: View {
                                              }.frame(maxWidth: .infinity, maxHeight: .infinity)
                         
                        
-                    }.background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                    }.background(Theme.init().darkGreen)
                     .frame(width: geometry.size.width, alignment: .top)
                 }
             }
@@ -783,7 +784,7 @@ struct GoHomeButton: View {
                 
               
                 
-            }
+            }.foregroundColor(Theme.init().darkGreen)
         }
 
 

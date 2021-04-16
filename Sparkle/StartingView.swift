@@ -9,6 +9,16 @@ import SwiftUI
 import CoreData
 import Firebase
 
+struct Theme {
+ 
+  let darkGreen  = Color( red: 36/255, green: 106/255, blue: 93/255, opacity: 1)
+  let lightGreen = Color( red: 130/255, green: 176/255, blue: 40/255, opacity: 1)
+     
+    let yellow = Color( red: 236/255, green: 193/255, blue: 89/255, opacity: 1)
+
+}
+
+
 struct StartingView: View {
     @Environment(\.managedObjectContext) var context
     @EnvironmentObject var modelData: User
@@ -16,6 +26,9 @@ struct StartingView: View {
     @EnvironmentObject var serviceData: ServiceRepository
     @State var selection:String? = nil
     @State var showAnimation = false
+    
+    let theme = Theme()
+    
     var body: some View {
         
          NavigationView() {
@@ -48,7 +61,7 @@ struct StartingView: View {
                             .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
                             .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                            .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                            .background(theme.darkGreen)
                             .cornerRadius(25)
                             .foregroundColor(.white)
                     }.offset(y: 40)
@@ -71,10 +84,10 @@ struct StartingView: View {
                                 
                                 Text("Sign Up")
                                     .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
+                                    //.shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
                                     .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                                    .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                                    .background(theme.darkGreen)
                                     .cornerRadius(25)
                                     .foregroundColor(.white)
                             })
@@ -95,10 +108,10 @@ struct StartingView: View {
                                 
                                 Text("Clean Now").font(.custom("Times New Roman", size: 25))
                                     .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
+                                    //.shadow(color: Color.green, radius: 3, x: 1, y: 2)
                                     .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                                    .background(Color.init(red: 0.1, green: 0.8, blue: 0.5))
+                                    .background(theme.lightGreen)
                                     .cornerRadius(25)
                                     .foregroundColor(.white)})
                         Spacer()
@@ -109,7 +122,7 @@ struct StartingView: View {
                     
                
                     
-                }.opacity((Auth.auth().currentUser == nil) ? 0.8 : 0)
+                }.opacity((Auth.auth().currentUser == nil) ? 1 : 0)
       
    
             }

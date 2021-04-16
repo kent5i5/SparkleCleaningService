@@ -71,35 +71,50 @@ struct FavoriteView: View {
                 
                 HStack {
                     VStack {
-                        Text("Cleaner: ").frame( alignment: .leading).font(.title3).foregroundColor(.green)
-                        Image( "user")
+                        //Text("Cleaner: ").frame( alignment: .leading).font(.title3).foregroundColor(.green)
+                        Image( "cleaner-a")
                             .resizable()
                             .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .mask(Circle())
                             .overlay( Circle().stroke(lineWidth: 2).foregroundColor(.black))
                             .foregroundColor(.green)
-                       
-                        Text(favorite.id.uuidString).frame( width: 60, alignment: .leading).font(.caption)
+                        Text("Book").frame(width: 60, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .background(Theme.init().darkGreen, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                       // Text(favorite.id.uuidString).frame( width: 60, alignment: .leading).font(.caption)
                     }.padding()
                    
                    // Divider()
                     VStack {
-                        Text("Title: " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-                        Text( favorite.name).font(.body)
-                       // Divider()
-                        Text("startime: " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-                        Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
+                        HStack {
+                            Text("Title: " ).frame( alignment: .leading).font(.body)
+                            Text( favorite.name).font(.body)
+                        }
                         
-                        Text("endtime: " ).frame( alignment: .leading).font(.body).foregroundColor(.green)
-                        Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
+                        Text("Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat")
+                       // Divider()
+//                        VStack {
+//                            Text("startime: " ).frame( alignment: .leading).font(.body)
+//                            Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
+//                        }
+//
+//
+//                        VStack {
+//                            Text("endtime: " ).frame( alignment: .leading).font(.body)
+//                            Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
+//                        }
+                       
 
                     }.padding()
                     Spacer()
                     VStack {
-                        Image("share-icon").rotationEffect(.degrees(180.0)).padding()
+                        Image("share-icon").padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                            //.rotationEffect(.degrees(180.0)).padding()
                         Spacer()
 
                     }.frame(alignment: .trailing)
+                   
                     
         
                 }
@@ -122,8 +137,7 @@ struct FavoriteView: View {
 //            }
             
             Divider()
-        }
-        .background(Color.gray.opacity(0.5), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }//.background(Color.gray.opacity(0.5), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
        
     }
 }

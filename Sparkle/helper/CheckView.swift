@@ -19,14 +19,15 @@ struct CheckView: View {
                 .padding(10)
                 .frame(width: 100, height: 100, alignment: .topLeading)
                 .foregroundColor(iconItem[numItem].isSelected ? .green : .black)
-                .overlay(RoundedRectangle(cornerRadius: 15)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(iconItem[numItem].isSelected   ? .green : .white))
+                .overlay(iconItem[numItem].isSelected ? Image("selectworker").scaleEffect(CGSize(width: 1, height: 1)) : nil)
+//                .overlay(RoundedRectangle(cornerRadius: 15)
+//                            .stroke(lineWidth: 2)
+//                            .foregroundColor(iconItem[numItem].isSelected   ? Theme.init().darkGreen : .white))
             HStack{
                    Text(iconItem[numItem].type)
                    Image(systemName: iconItem[numItem].isSelected  ? "checkmark.square": "square")
                   
-            }.foregroundColor(iconItem[numItem].isSelected  ? .green : .black)
+            }.foregroundColor(iconItem[numItem].isSelected  ? Color(red: 36/255, green: 106/255, blue: 93/255, opacity: 1) : Color(red: 36/255, green: 106/255, blue: 93/255, opacity: 1))
         }
 
        }

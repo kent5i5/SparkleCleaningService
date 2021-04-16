@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CircleImageView: View {
     var iconName: String
+    //var isSelected: Bool
     var body: some View {
         Image( !iconName.isEmpty ?  iconName : "user")
             .resizable()
