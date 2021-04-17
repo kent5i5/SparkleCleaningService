@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArrivalTimeFormUIView: View {
+    @ObservedObject var navigate: serviceNavigator
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @EnvironmentObject var serviceData: ServiceRepository
     @Binding var currentStep: Int
@@ -27,19 +28,19 @@ struct ArrivalTimeFormUIView: View {
 
     }
     
-    init(currentStep: Binding<Int> ){
-        self._currentStep = currentStep
-    }
+//    init(currentStep: Binding<Int> ){
+//        self._currentStep = currentStep
+//    }
     var body: some View {
         GeometryReader { geometry in
             Text("").toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     HStack{
-                        Button(action: {previousView()}){
+                        Button(action: {navigate.previousView()}){
                             Image(systemName: "chevron.left").frame(width: 10).foregroundColor(.white)
                         }.offset(x: 20, y: 0)
                         Spacer()
-                        Button(action: {nextView()}){
+                        Button(action: {navigate.nextView(nextView: "LocationFormUIView")}){
                                                 //Image("chevron-top")
                                                 Text("NEXT")
                                                     .foregroundColor(.white)
@@ -47,7 +48,7 @@ struct ArrivalTimeFormUIView: View {
                                                         .cornerRadius(8)
                                              }.frame(maxWidth: .infinity, maxHeight: .infinity)
                         
-                        Button(action: {nextView()}){
+                        Button(action: {navigate.nextView(nextView: "LocationFormUIView")}){
                             Image(systemName: "chevron.right").frame(width: 10).foregroundColor(.white)
                         }.offset(x: -20, y: 0)
                     }.background(Theme.init().darkGreen)

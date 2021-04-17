@@ -52,6 +52,7 @@ struct CalenderUIView: View {
     @State var showMenuItem1 = false
     @State var showMenuItem2 = false
     @State var showMenuItem3 = false
+    @ObservedObject var navigate = serviceNavigator(currentView: "SelectServiceSubView", preView: "",firstView: "SelectServiceSubView")
     
     func showMenu(){
         showMenuItem3.toggle()
@@ -122,7 +123,7 @@ struct CalenderUIView: View {
                    
                    
                     Rectangle().foregroundColor(.clear).frame(maxWidth: .infinity, maxHeight: .infinity)
-                    NavigationLink(destination: SelectServiceUIView()) {
+                    NavigationLink(destination: SelectServiceUIView(navigate: navigate)) {
                         FloatingMenuUIView(showMenuItem1: false, showMenuItem2: false, showMenuItem3: false)
                             .padding()
                     }

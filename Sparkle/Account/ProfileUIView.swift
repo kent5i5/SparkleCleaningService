@@ -31,7 +31,7 @@ struct ProfileUIView: View {
           print ("Error signing out: %@", signOutError)
         }
         //appData.name = ""
-        modelData.name = ""
+        modelData.signout()
     }
     var body: some View {
         

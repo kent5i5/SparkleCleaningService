@@ -3,13 +3,19 @@ import SwiftUI
 
 struct CheckView: View {
     @Binding var iconItem: [Icon]
+    @Binding var totalhours:Int
     var numItem: Int
 //    @State var isChecked:Bool =  false
 //    var icon: String
 //   var title:String
    func toggle(){
-    //isChecked = !isChecked
-    iconItem[numItem].isSelected.toggle()
+        if iconItem[numItem].isSelected {
+            totalhours = totalhours - 1
+        } else {
+            totalhours = totalhours + 1
+        }
+        
+        iconItem[numItem].isSelected.toggle()
    }
    var body: some View {
        Button(action: toggle){

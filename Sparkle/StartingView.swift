@@ -26,8 +26,9 @@ struct StartingView: View {
     @EnvironmentObject var serviceData: ServiceRepository
     @State var selection:String? = nil
     @State var showAnimation = false
-    
+    @ObservedObject var navigate = serviceNavigator(currentView: "HowToContactView", preView: "", firstView: "HowToContactView")
     let theme = Theme()
+
     
     var body: some View {
         
@@ -104,7 +105,9 @@ struct StartingView: View {
                         }.padding(.bottom, 100)
                         
                         NavigationLink(
-                            destination: SelectServiceUIView().environmentObject(modelData).environmentObject(serviceData), label: {
+                            destination: SelectServiceUIView(navigate: navigate)
+                                .environmentObject(modelData)
+                                .environmentObject(serviceData), label: {
                                 
                                 Text("Clean Now").font(.custom("Times New Roman", size: 25))
                                     .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)

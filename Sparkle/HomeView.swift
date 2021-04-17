@@ -38,6 +38,7 @@ struct HomeView: View {
                                           Reviewer(userPicture: "client-b", userName: "Jimmy Morgan" , content: ""),
                                           Reviewer(userPicture: "client-c", userName:  "Karen Thomas" , content: "") ]
     
+    @ObservedObject var navigate = serviceNavigator(currentView: "SelectServiceSubView", preView: "", firstView: "SelectServiceSubView")
     let theme = Theme()
     func getUserInfo(){
 
@@ -175,7 +176,7 @@ struct HomeView: View {
                             .overlay(RoundedRectangle(cornerRadius: 30)
                                         .stroke(lineWidth: 2))
                         Text("").frame(height:30)
-                        NavigationLink(destination: SelectServiceUIView()) {
+                        NavigationLink(destination: SelectServiceUIView(navigate: navigate)) {
                             Text("Book A Cleaner")
                                 .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                 .shadow(color:  theme.darkGreen, radius: 3, x: 1, y: 2)
@@ -189,7 +190,7 @@ struct HomeView: View {
                         
                         Text("Tips to keep house clean >> ").font(.custom("Times New Roman", size: 18)).offset(x: -60)
                         
-                    ServiceSelctionsUIView().environmentObject(modelData)
+                        //ServiceSelctionsUIView(navigate: navigate).environmentObject(modelData)
                         
                     Spacer().padding(.bottom, 40)
                     

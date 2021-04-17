@@ -15,6 +15,15 @@
 		345DC3BB260E5C8600757A94 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DC3BA260E5C8600757A94 /* RegisterView.swift */; };
 		345DC3C0260E6E1700757A94 /* CheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DC3BF260E6E1700757A94 /* CheckView.swift */; };
 		3463BE4C260180530071675F /* Fbhandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3463BE4B260180530071675F /* Fbhandler.swift */; };
+		34660FAD262A150D009DE831 /* LocationFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FAC262A150D009DE831 /* LocationFormUIView.swift */; };
+		34660FB2262A15CD009DE831 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FB1262A15CD009DE831 /* SearchView.swift */; };
+		34660FB7262A160F009DE831 /* SelectCleanerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FB6262A160F009DE831 /* SelectCleanerView.swift */; };
+		34660FBC262A1634009DE831 /* AcceptCleanerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FBB262A1634009DE831 /* AcceptCleanerView.swift */; };
+		34660FC1262A1659009DE831 /* MemberConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FC0262A1659009DE831 /* MemberConfirmView.swift */; };
+		34660FD2262A3047009DE831 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FD1262A3047009DE831 /* PayView.swift */; };
+		34660FD7262A3940009DE831 /* ConfirmPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FD6262A3940009DE831 /* ConfirmPayView.swift */; };
+		34660FDC262A495C009DE831 /* HowToContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FDB262A495C009DE831 /* HowToContactView.swift */; };
+		34660FE1262A56E5009DE831 /* newCustomerConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34660FE0262A56E5009DE831 /* newCustomerConfirmView.swift */; };
 		3467FC24262917D8002B625B /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3467FC23262917D8002B625B /* ReviewView.swift */; };
 		346AF80725A4F53A004117C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF80625A4F53A004117C0 /* AppDelegate.swift */; };
 		346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF80825A4F53A004117C0 /* SceneDelegate.swift */; };
@@ -105,6 +114,15 @@
 		345DC3BA260E5C8600757A94 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		345DC3BF260E6E1700757A94 /* CheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckView.swift; sourceTree = "<group>"; };
 		3463BE4B260180530071675F /* Fbhandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fbhandler.swift; sourceTree = "<group>"; };
+		34660FAC262A150D009DE831 /* LocationFormUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormUIView.swift; sourceTree = "<group>"; };
+		34660FB1262A15CD009DE831 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		34660FB6262A160F009DE831 /* SelectCleanerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCleanerView.swift; sourceTree = "<group>"; };
+		34660FBB262A1634009DE831 /* AcceptCleanerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptCleanerView.swift; sourceTree = "<group>"; };
+		34660FC0262A1659009DE831 /* MemberConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberConfirmView.swift; sourceTree = "<group>"; };
+		34660FD1262A3047009DE831 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
+		34660FD6262A3940009DE831 /* ConfirmPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPayView.swift; sourceTree = "<group>"; };
+		34660FDB262A495C009DE831 /* HowToContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToContactView.swift; sourceTree = "<group>"; };
+		34660FE0262A56E5009DE831 /* newCustomerConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCustomerConfirmView.swift; sourceTree = "<group>"; };
 		3467FC23262917D8002B625B /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		346AF80325A4F539004117C0 /* Sparkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		346AF80625A4F53A004117C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -230,8 +248,7 @@
 				3451A70225F72B2900D79E8F /* videoView.swift */,
 				34119A3925F0AE2700A98D62 /* ServiceSelctionsUIView.swift */,
 				346AF84325A50252004117C0 /* CalenderUIView.swift */,
-				346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */,
-				346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */,
+				34660FC5262A1686009DE831 /* services */,
 				34969880260BE87D00D90A14 /* PastView.swift */,
 				34810C7B2612D0C300D7BC9C /* JobDetailsView.swift */,
 				346AF85125A50F48004117C0 /* WorkerListUIView.swift */,
@@ -242,6 +259,24 @@
 				3467FC23262917D8002B625B /* ReviewView.swift */,
 			);
 			path = businesslogic;
+			sourceTree = "<group>";
+		};
+		34660FC5262A1686009DE831 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				346AF86625A53E4B004117C0 /* ArrivalTimeFormUIView.swift */,
+				346AF85F25A53BF5004117C0 /* SelectServiceUIView.swift */,
+				34660FC0262A1659009DE831 /* MemberConfirmView.swift */,
+				34660FBB262A1634009DE831 /* AcceptCleanerView.swift */,
+				34660FE0262A56E5009DE831 /* newCustomerConfirmView.swift */,
+				34660FD1262A3047009DE831 /* PayView.swift */,
+				34660FD6262A3940009DE831 /* ConfirmPayView.swift */,
+				34660FAC262A150D009DE831 /* LocationFormUIView.swift */,
+				34660FB1262A15CD009DE831 /* SearchView.swift */,
+				34660FB6262A160F009DE831 /* SelectCleanerView.swift */,
+				34660FDB262A495C009DE831 /* HowToContactView.swift */,
+			);
+			path = services;
 			sourceTree = "<group>";
 		};
 		346AF7FA25A4F539004117C0 = {
@@ -650,12 +685,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3444A34026151E8B009A4BCD /* StartingView.swift in Sources */,
+				34660FDC262A495C009DE831 /* HowToContactView.swift in Sources */,
 				345DC3BB260E5C8600757A94 /* RegisterView.swift in Sources */,
 				3444A35026153E05009A4BCD /* CustomTopbarBackButtonModifier.swift in Sources */,
 				34988FAB25F882D600125E01 /* PromoView.swift in Sources */,
 				346AF85225A50F48004117C0 /* WorkerListUIView.swift in Sources */,
 				34988F9C25F8827A00125E01 /* PaymentView.swift in Sources */,
 				34E550F6260C4A5900BFB49C /* ServiceRepository.swift in Sources */,
+				34660FAD262A150D009DE831 /* LocationFormUIView.swift in Sources */,
 				34D93A592608666300201EC3 /* IconView.swift in Sources */,
 				3467FC24262917D8002B625B /* ReviewView.swift in Sources */,
 				346AF86725A53E4B004117C0 /* ArrivalTimeFormUIView.swift in Sources */,
@@ -680,11 +717,17 @@
 				346B71BA2627538900740FA4 /* EventView.swift in Sources */,
 				346AF83D25A4FD94004117C0 /* HomeView.swift in Sources */,
 				34988FB225F88B6C00125E01 /* SettingsObject.swift in Sources */,
+				34660FD7262A3940009DE831 /* ConfirmPayView.swift in Sources */,
+				34660FB7262A160F009DE831 /* SelectCleanerView.swift in Sources */,
+				34660FD2262A3047009DE831 /* PayView.swift in Sources */,
 				3463BE4C260180530071675F /* Fbhandler.swift in Sources */,
+				34660FE1262A56E5009DE831 /* newCustomerConfirmView.swift in Sources */,
 				3477C54C25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift in Sources */,
 				3451A70325F72B2900D79E8F /* videoView.swift in Sources */,
 				34A81C3C25EDFB96006BEB40 /* LoginView.swift in Sources */,
+				34660FB2262A15CD009DE831 /* SearchView.swift in Sources */,
 				34810C7C2612D0C300D7BC9C /* JobDetailsView.swift in Sources */,
+				34660FBC262A1634009DE831 /* AcceptCleanerView.swift in Sources */,
 				34119A3A25F0AE2700A98D62 /* ServiceSelctionsUIView.swift in Sources */,
 				34EFABC025F9EE4500DAD70D /* User.swift in Sources */,
 				346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */,
@@ -693,6 +736,7 @@
 				3496987B260BDB1700D90A14 /* FavoriteView.swift in Sources */,
 				349E56222613AE0A0089245E /* GridView.swift in Sources */,
 				346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */,
+				34660FC1262A1659009DE831 /* MemberConfirmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

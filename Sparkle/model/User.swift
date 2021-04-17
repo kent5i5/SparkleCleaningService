@@ -81,6 +81,17 @@ final internal class User  {
         let date = Date()
         //services.append(Service(id: id, name: self.name, date: date, address: address, country: country, city: city, type: type))
     }
+    
+    func signout(){
+        self.uid = ""
+        self.name = ""
+        self.password = ""
+        self.address = ""
+        self.country = ""
+        self.city = ""
+        
+        services = []
+    }
 
 }
 
