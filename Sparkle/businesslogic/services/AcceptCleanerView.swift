@@ -86,7 +86,14 @@ struct AcceptCleanerView: View {
                                     .padding(.bottom)
                             
                             Text("Rating: ").padding(.bottom, 30)
-                            
+                            HStack(spacing:0 ) {
+                                Image(systemName: "star").scaleEffect(0.6).opacity(0.6)
+                                Image(systemName: "star").scaleEffect(0.6).opacity(0.6)
+                                Image(systemName: "star").scaleEffect(0.6).opacity(0.6)
+                                Image(systemName: "star").scaleEffect(0.6).opacity(0.6)
+                                Image(systemName: "star").scaleEffect(0.8)
+                                
+                            }.foregroundColor(Theme.init().yellow)
                             HStack {
                                 Image("accept").padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)).onTapGesture {
                                     navigate.nextView(nextView: "MemberConfirmView")

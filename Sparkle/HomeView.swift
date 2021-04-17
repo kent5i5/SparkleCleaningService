@@ -25,6 +25,7 @@ struct Reviewer: Identifiable {
 
 }
 
+
 struct HomeView: View {
     @EnvironmentObject var modelData: User
     @ObservedObject var appData: User
@@ -60,10 +61,12 @@ struct HomeView: View {
     
     var body: some View {
         
-        VStack {
-            
-               
+        ScrollView {
+ 
+            VStack {
             GeometryReader { geometry in
+                
+                
                 VStack{
                     ZStack(alignment: .bottomTrailing) {
                         ScrollView(.horizontal, showsIndicators: true){
@@ -78,11 +81,11 @@ struct HomeView: View {
                                    
                             Image( "Mask Group 1")
                                 .resizable()
-                                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                                .frame(width: geometry.size.width, geometry.size.height, alignment: .center)
                                 .id(0)
                             Image( "Mask Group 2")
                                 .resizable()
-                                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                                .frame(width: geometry.size.width, geometry.size.height, alignment: .center)
                                 .id(1)
 //                            Image("andrea-piacquadio-3")
 //                                .resizable()
@@ -115,12 +118,13 @@ struct HomeView: View {
 //                            }
                         }.padding()
                     }
-                }.offset(y: 10)
+                }
                 
-            }
+
+            }.frame(height: 400)
         
                     
-                ScrollView {
+           
                     VStack() {
                     if (modelData.name.isEmpty) {
                         Text("Hey")
@@ -128,6 +132,7 @@ struct HomeView: View {
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
                             .foregroundColor(theme.darkGreen)
+                     
   
                         NavigationLink(
                             destination:
@@ -190,7 +195,7 @@ struct HomeView: View {
                         
                         Text("Tips to keep house clean >> ").font(.custom("Times New Roman", size: 18)).offset(x: -60)
                         
-                        //ServiceSelctionsUIView(navigate: navigate).environmentObject(modelData)
+                        ServiceSelctionsUIView().environmentObject(modelData)
                         
                     Spacer().padding(.bottom, 40)
                     
@@ -235,10 +240,14 @@ struct HomeView: View {
                     .padding(.bottom)
                 
                 
-            }//.edgesIgnoringSafeArea(.top)
+                }//.edgesIgnoringSafeArea(.top)
+            .simultaneousGesture(
+                //DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                TapGesture().onEnded({ _ in })
             
-        }.foregroundColor(theme.darkGreen)
-        .padding()
+            ) //end of VStack
+            
+        }.foregroundColor(theme.darkGreen)  // End of Scroll View
         //.navigationViewStyle(StackNavigationViewStyle())
 //        .navigationBarHidden(true)
     }

@@ -17,7 +17,7 @@ struct SearchView: View {
     @Binding var additioalInformation: String
     
     
-    @State private var selectedNone = ""
+    @State private var selectedNone = false
     @State var isSearching = false
     func startSearch(){
         self.isSearching = true
@@ -70,17 +70,30 @@ struct SearchView: View {
                         Spacer()
                     }
                 
-                    TextEditor( text: $additioalInformation)
-                         .frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(Color.blue, lineWidth: 1)
-                                    .foregroundColor(Theme.init().darkGreen)
-                            )
+                    VStack {
+                        TextEditor( text: $additioalInformation)
+                             .frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke(Theme.init().darkGreen, lineWidth: 1)
+                                        )
+                        
+                        HStack {
+                            Image(systemName: selectedNone ? "largecircle.fill.circle" : "circle").onTapGesture {
+                                selectedNone.toggle()
+                                if selectedNone{
+                                    additioalInformation = ""
+                                }
+                            }
+                            Text("NONE").bold()
+                            Spacer()
+                        }.frame(width: 300)
+                    }.padding()
                         //.shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-
-                    
-                }.pickerStyle(SegmentedPickerStyle())
+                        
+                   
+                   
+                }
               
                
                 Spacer()
