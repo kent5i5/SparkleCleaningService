@@ -15,18 +15,18 @@ struct Favorite : Identifiable {
 }
 
 struct FavoriteView: View {
-    @State var jobs: [Job] = []
-
-    // 1
-    @FetchRequest(
-      // 2
-      entity: Job.entity(),
-      // 3
-      sortDescriptors: [
-        NSSortDescriptor(keyPath: \Job.name, ascending: true)
-      ]
-    // 4
-    ) var joblist: FetchedResults<Job>
+//    @State var jobs: [Job] = []
+//
+//    // 1
+//    @FetchRequest(
+//      // 2
+//      entity: Job.entity(),
+//      // 3
+//      sortDescriptors: [
+//        NSSortDescriptor(keyPath: \Job.name, ascending: true)
+//      ]
+//    // 4
+//    ) var joblist: FetchedResults<Job>
     
 //    func saveContext() {
 //      do {
@@ -48,7 +48,8 @@ struct FavoriteView: View {
 //      saveContext()
 //    }
     
-    var favorite: Favorite
+    var favorite: Worker
+    
     static let taskDateFormat: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -72,78 +73,53 @@ struct FavoriteView: View {
                 HStack {
                     VStack {
                         //Text("Cleaner: ").frame( alignment: .leading).font(.title3).foregroundColor(.green)
-                        Image( "cleaner-a")
+                        Image( favorite.picture)
                             .resizable()
-                            .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 100, height: 100, alignment: .leading)
                             .mask(Circle())
-                            .overlay( Circle().stroke(lineWidth: 2).foregroundColor(.black))
-                            .foregroundColor(.green)
+                            .overlay(Circle().stroke(Theme.init().darkGreen, lineWidth: 5))
+                           // .offset(y: -40)
                         Text("Book").frame(width: 60, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .background(Theme.init().darkGreen, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .foregroundColor(.white)
                             .cornerRadius(8)
+                        
+                        Spacer()
                        // Text(favorite.id.uuidString).frame( width: 60, alignment: .leading).font(.caption)
-                    }.padding()
+                    }.padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                    
                    // Divider()
                     VStack {
                         HStack {
-                            Text("Title: " ).frame( alignment: .leading).font(.body)
-                            Text( favorite.name).font(.body)
+                            Text( favorite.name).font(.body).font(.custom("Times New Roman", size: 25)).bold()
+                            Spacer()
                         }
                         
                         Text("Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat")
-                       // Divider()
-//                        VStack {
-//                            Text("startime: " ).frame( alignment: .leading).font(.body)
-//                            Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
-//                        }
-//
-//
-//                        VStack {
-//                            Text("endtime: " ).frame( alignment: .leading).font(.body)
-//                            Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
-//                        }
-                       
 
                     }.padding()
                     Spacer()
                     VStack {
-                        Image("share-icon").padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                        Image("share-icon").padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)).offset(y: -60)
                             //.rotationEffect(.degrees(180.0)).padding()
                         Spacer()
 
-                    }.frame(alignment: .trailing)
+                    }.frame(alignment: .leading)
                    
                     
         
                 }
                
             }
-//           Divider().border(Color.green, width: 2)
-//            .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-//                .foregroundColor(.green)
-            
-//            Button(action:{
-//                addJob(name: "testjob",city: "SF",country: "US")
-//            }){
-//                Text("addjob")
-//                
-//            }
-
-//            ForEach(joblist){ job in
-//                Text(verbatim: job.name ?? "")
-//
-//            }
-            
+         
             Divider()
-        }//.background(Color.gray.opacity(0.5), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }.foregroundColor(Theme.init().darkGreen)
        
     }
 }
 
 struct FavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteView(favorite: Favorite(name: "", duration: 0.0))
+        FavoriteView(favorite: Worker(name: "", picture: "", isSelected: false))
     }
 }

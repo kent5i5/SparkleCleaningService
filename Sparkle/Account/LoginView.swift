@@ -180,39 +180,24 @@ struct LoginView: View {
                 VStack {
                     TextField("Email/Phone", text: $email)
                         .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .padding(EdgeInsets(top:8, leading: 16,
-                                            bottom:8, trailing:0 ))
-                        .background(Color.white)
-                        .overlay(RoundedRectangle(cornerRadius: 30)
-                                    .stroke(lineWidth: 2)
-                                    .foregroundColor(.green))
-                        .foregroundColor(theme.darkGreen)
+                        .sparkletextfield()
                     
                     
                     Spacer()
                         .frame(height: 50)
                     
                     SecureField.init("Password", text: $password)
-                        .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-                        .padding(EdgeInsets(top:8, leading: 16,
-                                            bottom:8, trailing:0 ))
-                        .background(Color.white)
-                        .overlay(RoundedRectangle(cornerRadius: 30)
-                                    .stroke(lineWidth: 2)
-                                    .foregroundColor(.green))
+                        .sparkletextfield()
                        
-                        .foregroundColor(theme.darkGreen)
                   
                     
                     HStack {
-                        Text("Forget your password?")
-                            .font(.footnote)
+                        Text("Forget your password?").font(.custom("Times New Roman", size: 13))
                         Button(action:  {
                             print("close")
                         }){
-                            Text("Reset Password")
-                                .font(.footnote)
+                            Text("Reset Password").font(.custom("Times New Roman", size: 13))
                                 .foregroundColor(theme.darkGreen)
                         }
                     }
@@ -227,15 +212,8 @@ struct LoginView: View {
 
                     }){
 
-                        Text("Log In")
-                            .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                            .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
-                            .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                            .background(theme.darkGreen)
-                            .cornerRadius(25)
-                            .foregroundColor(.white)
-                            .opacity( 1.0)
+                        Text("Log In").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .sparklefilledbutton()
                            
                       
                     }.alert(isPresented: $showingAlert) {
@@ -286,7 +264,7 @@ struct LoginView: View {
             }.onAppear(){getUserInfo()}
            
         }
-        }
+        }.foregroundColor(theme.darkGreen)
     }
 }
 

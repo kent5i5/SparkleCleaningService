@@ -84,15 +84,8 @@ struct LocationFormUIView: View {
                     Spacer()
                 }
                 
-                TextField("Street: ", text: $street)
-                    .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-                    .padding(EdgeInsets(top:8, leading: 16,
-                                        bottom:16, trailing:0 ))
-                    .background(Color.white)
-                    .overlay(RoundedRectangle(cornerRadius: 30)
-                                .stroke(lineWidth: 2)
-                                .foregroundColor(Theme.init().darkGreen))
+                TextField("Street: ", text: $street).shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                    .sparkletextfield()
                    
   
                 
@@ -100,15 +93,8 @@ struct LocationFormUIView: View {
                     Text("Apt / Unit").bold().offset(x:60)
                     Spacer()
                 }
-                TextField("Apt/Unit: ", text: $aptunit)
-                    .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-                    .padding(EdgeInsets(top:8, leading: 16,
-                                        bottom:16, trailing:0 ))
-                    .background(Color.white)
-                    .overlay(RoundedRectangle(cornerRadius: 30)
-                                .stroke(lineWidth: 2)
-                                .foregroundColor(Theme.init().darkGreen))
+                TextField("Apt/Unit: ", text: $aptunit).shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                    .sparkletextfield()
                    
 
                 
@@ -119,17 +105,7 @@ struct LocationFormUIView: View {
                 }
                 
                 TextField("Zip Code: ", text: $zipcode)
-                    .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-                    .padding(EdgeInsets(top:8, leading: 16,
-                                        bottom:16, trailing:0 ))
-                    .background(Color.white)
-                    .overlay(RoundedRectangle(cornerRadius: 30)
-                                .stroke(lineWidth: 2)
-                                .foregroundColor(Theme.init().darkGreen))
-                   
-
-                
+                    .sparkletextfield()
             }
            
             Spacer()

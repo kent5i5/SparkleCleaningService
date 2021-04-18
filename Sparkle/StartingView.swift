@@ -9,16 +9,6 @@ import SwiftUI
 import CoreData
 import Firebase
 
-struct Theme {
- 
-  let darkGreen  = Color( red: 36/255, green: 106/255, blue: 93/255, opacity: 1)
-  let lightGreen = Color( red: 130/255, green: 176/255, blue: 40/255, opacity: 1)
-     
-    let yellow = Color( red: 236/255, green: 193/255, blue: 89/255, opacity: 1)
-
-}
-
-
 struct StartingView: View {
     @Environment(\.managedObjectContext) var context
     @EnvironmentObject var modelData: User
@@ -57,14 +47,9 @@ struct StartingView: View {
                         }
                         
                     }){
-                        Text("Continue")
-                            .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                            .shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
-                            .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                            .background(theme.darkGreen)
-                            .cornerRadius(25)
-                            .foregroundColor(.white)
+                        Text("Continue").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .sparklefilledbutton()
+
                     }.offset(y: 40)
                 }
                 
@@ -79,28 +64,19 @@ struct StartingView: View {
                                 //LoginView(appData: appData).environment(\.managedObjectContext, context)
                                 //.environmentObject(modelData).environmentObject(serviceData),
                             label: {
-//                                Text("Sign Up").font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-//                                    .padding()
-//                                    .foregroundColor(.green)
                                 
-                                Text("Sign Up")
-                                    .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    //.shadow(color: Color.green.opacity(0.4), radius: 3, x: 1, y: 2)
-                                    .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                                    .background(theme.darkGreen)
-                                    .cornerRadius(25)
-                                    .foregroundColor(.white)
+                                Text("Sign Up").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .sparklefilledbutton()
                             })
                         HStack{
-                            Text("Already have an account? ").font(.custom("Times New Roman", size: 12))
-                                .foregroundColor(.green)
+                            Text("Already have an account? ").font(.custom("Times New Roman", size: 13))
+                                
                             NavigationLink(
                                 destination: LoginView(appData: appData).environment(\.managedObjectContext, context)
                                     .environmentObject(modelData).environmentObject(serviceData),
                                 label: {
-                                    Text("Log in").font(.custom("Times New Roman", size: 12))
-                                       .foregroundColor(.green)
+                                    Text("Log in").font(.custom("Times New Roman", size: 13))
+                                       
                                 })
                         }.padding(.bottom, 100)
                         
@@ -109,14 +85,10 @@ struct StartingView: View {
                                 .environmentObject(modelData)
                                 .environmentObject(serviceData), label: {
                                 
-                                Text("Clean Now").font(.custom("Times New Roman", size: 25))
-                                    .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    //.shadow(color: Color.green, radius: 3, x: 1, y: 2)
-                                    .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                                    .background(theme.lightGreen)
-                                    .cornerRadius(25)
-                                    .foregroundColor(.white)})
+                                Text("Clean Now").font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .sparklefilledlightbutton()
+                                    
+                                })
                         Spacer()
                        
                       
@@ -126,13 +98,15 @@ struct StartingView: View {
                
                     
                 }.opacity((Auth.auth().currentUser == nil) ? 1 : 0)
-      
+                .foregroundColor(theme.darkGreen)
    
             }
   
         }
     }
 }
+
+
 
 struct StartingView_Previews: PreviewProvider {
     static var previews: some View {

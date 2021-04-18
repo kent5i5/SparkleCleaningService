@@ -8,9 +8,9 @@
 import SwiftUI
 import AVKit
 
-let favorites: [Favorite] = [ Favorite(name: "job1", duration: 5.0),
-                             Favorite(name: "job2", duration: 5.0),
-                             Favorite(name: "job3", duration: 5.0)
+let favorites: [Worker] = [ Worker(name: "Ms. Maria W.",picture: "cleaner-a" ,isSelected: false),
+                            Worker(name: "Ms. Cheung" , picture: "cleaner-b" , isSelected: false),
+                           // Worker(name: "Cyn", duration: 5.0)
 ]
 
 struct WorkerListUIView: View {

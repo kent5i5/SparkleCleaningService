@@ -46,7 +46,7 @@ struct MemberConfirmView: View {
 
     }
     func resetView(){
-        print(street + aptunit + zipcode)
+        
         currentStep = 1
         iconItem.forEach{ icon in
             if icon.isSelected == true {}
@@ -55,6 +55,7 @@ struct MemberConfirmView: View {
         aptunit = ""
         zipcode = ""
         serviceData.startDate = Date()
+        print(street + aptunit + zipcode)
         serviceData.endDate = Date()
     }
     var body: some View {
@@ -74,8 +75,8 @@ struct MemberConfirmView: View {
                                                         .padding()
                                                         .cornerRadius(8)
                                              }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                        
-                       
+
+
                     }.background(Theme.init().darkGreen)
                     .frame(width: geometry.size.width, alignment: .top)
                 }
@@ -102,7 +103,9 @@ struct MemberConfirmView: View {
                         Text("").bold()
                         Spacer()
                     }
-                
+                Button(action: { resetView()}){
+                    Text("reset" )
+                }
                     Text("Ms. Maria W.").font(.title2).padding(3)
                 
 
@@ -136,13 +139,16 @@ struct MemberConfirmView: View {
                 }
                 Divider()
                 
-                Text("CONFIRMw").font(.custom("Times New Roman", size: 25))
+                Text("CONFIRM").font(.custom("Times New Roman", size: 25))
                     .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .frame(width: 260, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
                     .background(Theme.init().lightGreen)
                     .cornerRadius(25)
                     .foregroundColor(.white)
+                    .onTapGesture {
+                        addService()
+                    }
 //                Button(action: {addService()}){
 //                    Image(systemName: "plus")
 //                        .resizable()

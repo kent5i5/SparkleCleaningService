@@ -38,8 +38,10 @@ struct ProfileUIView: View {
         NavigationView {
             VStack {
                 
-                CircleImageView(iconName: "client-a").frame(width: 140, height: 140).padding(.bottom, 60)
-                
+                CircleImageView(iconName: "client-a").frame(width: 140, height: 140)
+                    .overlay(Circle().stroke(Theme.init().darkGreen, lineWidth: 5))
+                    .padding(.bottom, 60)
+                    
 //                Image(systemName: "pencil.tip")
 //                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 Form {

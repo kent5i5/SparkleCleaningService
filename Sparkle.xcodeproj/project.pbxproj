@@ -59,6 +59,13 @@
 		346B71C426275A7400740FA4 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346B71C326275A7400740FA4 /* CircleImageView.swift */; };
 		3477C54C25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */; };
 		3477C55425E2FD6C00B0F2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3477C55325E2FD6C00B0F2E2 /* Main.storyboard */; };
+		347E2E3C262CA08300A0FB08 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E2E3B262CA08300A0FB08 /* Theme.swift */; };
+		347E2E41262CA4CE00A0FB08 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E2E40262CA4CE00A0FB08 /* Worker.swift */; };
+		347E2E46262CA4DE00A0FB08 /* Reviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E2E45262CA4DE00A0FB08 /* Reviewer.swift */; };
+		347E2E4B262CA55100A0FB08 /* serviceNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E2E4A262CA55100A0FB08 /* serviceNavigator.swift */; };
+		347E2E53262CA9A500A0FB08 /* FilledButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E2E52262CA9A500A0FB08 /* FilledButtonViewModifier.swift */; };
+		347E2E5B262CB73300A0FB08 /* FilledButtonLightViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E2E5A262CB73300A0FB08 /* FilledButtonLightViewModifier.swift */; };
+		347E2E63262CBA0600A0FB08 /* TextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E2E62262CBA0600A0FB08 /* TextFieldViewModifier.swift */; };
 		34810C7C2612D0C300D7BC9C /* JobDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34810C7B2612D0C300D7BC9C /* JobDetailsView.swift */; };
 		3496987B260BDB1700D90A14 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3496987A260BDB1700D90A14 /* FavoriteView.swift */; };
 		34969881260BE87D00D90A14 /* PastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34969880260BE87D00D90A14 /* PastView.swift */; };
@@ -153,6 +160,13 @@
 		346B71C326275A7400740FA4 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		3477C54B25E2FA7700B0F2E2 /* FirebaseSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInViewController.swift; sourceTree = "<group>"; };
 		3477C55325E2FD6C00B0F2E2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		347E2E3B262CA08300A0FB08 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		347E2E40262CA4CE00A0FB08 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
+		347E2E45262CA4DE00A0FB08 /* Reviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviewer.swift; sourceTree = "<group>"; };
+		347E2E4A262CA55100A0FB08 /* serviceNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serviceNavigator.swift; sourceTree = "<group>"; };
+		347E2E52262CA9A500A0FB08 /* FilledButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButtonViewModifier.swift; sourceTree = "<group>"; };
+		347E2E5A262CB73300A0FB08 /* FilledButtonLightViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButtonLightViewModifier.swift; sourceTree = "<group>"; };
+		347E2E62262CBA0600A0FB08 /* TextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModifier.swift; sourceTree = "<group>"; };
 		34810C7B2612D0C300D7BC9C /* JobDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsView.swift; sourceTree = "<group>"; };
 		3496987A260BDB1700D90A14 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		34969880260BE87D00D90A14 /* PastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastView.swift; sourceTree = "<group>"; };
@@ -275,6 +289,7 @@
 				34660FB1262A15CD009DE831 /* SearchView.swift */,
 				34660FB6262A160F009DE831 /* SelectCleanerView.swift */,
 				34660FDB262A495C009DE831 /* HowToContactView.swift */,
+				347E2E4A262CA55100A0FB08 /* serviceNavigator.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -306,6 +321,7 @@
 		346AF80525A4F539004117C0 /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
+				347E2E37262CA05500A0FB08 /* theme */,
 				34E550F1260C2FEF00BFB49C /* Sparkle.entitlements */,
 				34FAF38326094ECB00F125F9 /* helper */,
 				34988FB025F88B3800125E01 /* model */,
@@ -357,6 +373,17 @@
 			path = SparkleUITests;
 			sourceTree = "<group>";
 		};
+		347E2E37262CA05500A0FB08 /* theme */ = {
+			isa = PBXGroup;
+			children = (
+				347E2E3B262CA08300A0FB08 /* Theme.swift */,
+				347E2E52262CA9A500A0FB08 /* FilledButtonViewModifier.swift */,
+				347E2E5A262CB73300A0FB08 /* FilledButtonLightViewModifier.swift */,
+				347E2E62262CBA0600A0FB08 /* TextFieldViewModifier.swift */,
+			);
+			path = theme;
+			sourceTree = "<group>";
+		};
 		34988F8D25F8820400125E01 /* profileViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +405,8 @@
 				34EFABBF25F9EE4500DAD70D /* User.swift */,
 				34FAF3892609530A00F125F9 /* Service.swift */,
 				34E550F5260C4A5900BFB49C /* ServiceRepository.swift */,
+				347E2E40262CA4CE00A0FB08 /* Worker.swift */,
+				347E2E45262CA4DE00A0FB08 /* Reviewer.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -689,6 +718,7 @@
 				345DC3BB260E5C8600757A94 /* RegisterView.swift in Sources */,
 				3444A35026153E05009A4BCD /* CustomTopbarBackButtonModifier.swift in Sources */,
 				34988FAB25F882D600125E01 /* PromoView.swift in Sources */,
+				347E2E63262CBA0600A0FB08 /* TextFieldViewModifier.swift in Sources */,
 				346AF85225A50F48004117C0 /* WorkerListUIView.swift in Sources */,
 				34988F9C25F8827A00125E01 /* PaymentView.swift in Sources */,
 				34E550F6260C4A5900BFB49C /* ServiceRepository.swift in Sources */,
@@ -704,6 +734,7 @@
 				3444A34626152265009A4BCD /* Network.swift in Sources */,
 				346AF80925A4F53A004117C0 /* SceneDelegate.swift in Sources */,
 				34DA3184261A4D55004BD4CD /* CoreDataStack.swift in Sources */,
+				347E2E41262CA4CE00A0FB08 /* Worker.swift in Sources */,
 				346AF84425A50252004117C0 /* CalenderUIView.swift in Sources */,
 				34FAF38526094ED700F125F9 /* FavoriteButton.swift in Sources */,
 				34FAF38A2609530A00F125F9 /* Service.swift in Sources */,
@@ -717,6 +748,8 @@
 				346B71BA2627538900740FA4 /* EventView.swift in Sources */,
 				346AF83D25A4FD94004117C0 /* HomeView.swift in Sources */,
 				34988FB225F88B6C00125E01 /* SettingsObject.swift in Sources */,
+				347E2E46262CA4DE00A0FB08 /* Reviewer.swift in Sources */,
+				347E2E5B262CB73300A0FB08 /* FilledButtonLightViewModifier.swift in Sources */,
 				34660FD7262A3940009DE831 /* ConfirmPayView.swift in Sources */,
 				34660FB7262A160F009DE831 /* SelectCleanerView.swift in Sources */,
 				34660FD2262A3047009DE831 /* PayView.swift in Sources */,
@@ -730,10 +763,13 @@
 				34660FBC262A1634009DE831 /* AcceptCleanerView.swift in Sources */,
 				34119A3A25F0AE2700A98D62 /* ServiceSelctionsUIView.swift in Sources */,
 				34EFABC025F9EE4500DAD70D /* User.swift in Sources */,
+				347E2E3C262CA08300A0FB08 /* Theme.swift in Sources */,
 				346AF80B25A4F53A004117C0 /* ContentView.swift in Sources */,
+				347E2E53262CA9A500A0FB08 /* FilledButtonViewModifier.swift in Sources */,
 				34988FB825F891B200125E01 /* NotificationOptionView.swift in Sources */,
 				34969881260BE87D00D90A14 /* PastView.swift in Sources */,
 				3496987B260BDB1700D90A14 /* FavoriteView.swift in Sources */,
+				347E2E4B262CA55100A0FB08 /* serviceNavigator.swift in Sources */,
 				349E56222613AE0A0089245E /* GridView.swift in Sources */,
 				346AF84B25A50E45004117C0 /* ProfileUIView.swift in Sources */,
 				34660FC1262A1659009DE831 /* MemberConfirmView.swift in Sources */,

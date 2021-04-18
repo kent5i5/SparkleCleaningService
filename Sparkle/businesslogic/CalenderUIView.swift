@@ -67,8 +67,8 @@ struct CalenderUIView: View {
     var body: some View {
        
         VStack {
-            VStack {
-                HStack {
+            VStack(spacing:0) {
+                HStack{
                         Text("Cleaing Schedule ").frame( alignment: .leading).font(.title)
                         Spacer()
                     }.padding(EdgeInsets(top:8, leading: 16,
@@ -86,40 +86,39 @@ struct CalenderUIView: View {
                 
                // Text("\(serviceDate.startDate)").frame( height: 20, alignment: .bottomLeading).font(.caption)
                 
-                Spacer()
-            }
+                
+            }.offset(y: 8)
+            Spacer()
             GeometryReader { geo in
                 ZStack(alignment: .bottomTrailing) {
-                    ScrollView1(
-                                axes: [.horizontal, .vertical],
-                                showsIndicators: false,
-                                offsetChanged: { print($0)
-                                   // print(geo.size.height)
-                                }
-                            ){
-                        ScrollViewReader { proxy in
-                           
-                                LazyVStack{
-                                    
-                                                ForEach(0..<6) { index in
-                                                    
-                                                    EventView().id(index)
-                                                        .shadow(radius: 8)
-                                                    Spacer()
-                        
-                                                }
-                                }
-                                //Spacer().frame(height:100)
-                         
+                    VStack {
+                        ScrollView1(
+                                    axes: [.horizontal, .vertical],
+                                    showsIndicators: false,
+                                    offsetChanged: { print($0)
+                                        //print("geo.size.height)
+                                    }
+                                ){
+                            ScrollViewReader { proxy in
+                               
+                                    LazyVStack{
+                                        
+                                                    ForEach(0..<6) { index in
+                                                        
+                                                        EventView().id(index)
+                                                            .shadow(radius: 8)
+                                                        Spacer()
                             
-                        }.onTapGesture {
-                            print(geo)
+                                                    }
+                                    }
+                             
+                                
+                            }.onTapGesture {
+                                print(geo)
+                            }
+                            
                         }
-                        
-                        //EventView().opacity(0.6)
-                      
-                        //Spacer().frame(height:100)
-                    }//.navigationBarHidden(true)
+                    }.mask(LinearGradient(gradient: Gradient(colors: [Color.white, Color.white.opacity(0.9),Color.white.opacity(0.7), Color.white.opacity(0.2)]), startPoint: .top, endPoint: .bottom))
                    
                    
                     Rectangle().foregroundColor(.clear).frame(maxWidth: .infinity, maxHeight: .infinity)

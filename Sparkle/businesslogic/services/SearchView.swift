@@ -75,7 +75,7 @@ struct SearchView: View {
                              .frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .overlay(
                                     RoundedRectangle(cornerRadius: 16)
-                                        .stroke(Theme.init().darkGreen, lineWidth: 1)
+                                        .stroke(Theme.init().darkGreen, lineWidth: 2)
                                         )
                         
                         HStack {

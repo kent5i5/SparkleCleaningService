@@ -9,23 +9,6 @@ import SwiftUI
 import Firebase
 
 
-struct Worker: Identifiable {
-  let id = UUID()
-  let name: String
-    let picture: String
-  var isSelected: Bool
-
-}
-
-struct Reviewer: Identifiable {
-  let id = UUID()
-    let userPicture: String
-  let userName: String
-  var content: String
-
-}
-
-
 struct HomeView: View {
     @EnvironmentObject var modelData: User
     @ObservedObject var appData: User
@@ -81,11 +64,11 @@ struct HomeView: View {
                                    
                             Image( "Mask Group 1")
                                 .resizable()
-                                .frame(width: geometry.size.width, geometry.size.height, alignment: .center)
+                                .frame(width: geometry.size.width, height:geometry.size.height, alignment: .center)
                                 .id(0)
                             Image( "Mask Group 2")
                                 .resizable()
-                                .frame(width: geometry.size.width, geometry.size.height, alignment: .center)
+                                .frame(width: geometry.size.width, height:geometry.size.height, alignment: .center)
                                 .id(1)
 //                            Image("andrea-piacquadio-3")
 //                                .resizable()
@@ -116,7 +99,7 @@ struct HomeView: View {
 //                            Button(action: { position = 2 }){
 //                                Circle().frame(width: 10, height: 10, alignment: .center)
 //                            }
-                        }.padding()
+                        }.padding().offset(x:-10)
                     }
                 }
                 
@@ -162,12 +145,6 @@ struct HomeView: View {
                             Spacer()
                             
                         }
-            
-//                        NavigationLink(destination: StartingView(appData:appData)
-//                                        .environment(\.managedObjectContext, context)
-//                                        .environmentObject(modelData)
-//                                        .environmentObject(serviceData),
-//                                       tag: 1, selection: $tag) {}
                         
                     }
                     
@@ -175,21 +152,12 @@ struct HomeView: View {
                 
                     
                         TextField("Search", text: .constant(""))
-                            .frame(width: 300, height: 28, alignment: .center)
-                            .cornerRadius(25)
-                            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                            .overlay(RoundedRectangle(cornerRadius: 30)
-                                        .stroke(lineWidth: 2))
+                            .sparkletextfield()
+                        
                         Text("").frame(height:30)
                         NavigationLink(destination: SelectServiceUIView(navigate: navigate)) {
-                            Text("Book A Cleaner")
-                                .font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                .shadow(color:  theme.darkGreen, radius: 3, x: 1, y: 2)
-                                .frame(width: 300, height: 28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                                .background( theme.darkGreen)
-                                .cornerRadius(25)
-                                .foregroundColor(.white)
+                            Text("Book A Cleaner").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .sparklefilledbutton()
                         }
                         Text("").frame(height:30)
                         
@@ -217,11 +185,7 @@ struct HomeView: View {
                             
                             
                             TextField("Search", text: .constant(""))
-                                .frame(width: 300, height: 28, alignment: .center)
-                                .cornerRadius(25)
-                                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 1))
-                                .overlay(RoundedRectangle(cornerRadius: 30)
-                                            .stroke(lineWidth: 2))
+                                .sparkletextfield()
                             
                             VStack{
                                 ReviewView(userPicture: clientList[0].userPicture, userName: clientList[0].userName, content: clientList[0].content)
