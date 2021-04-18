@@ -21,11 +21,11 @@ This mobile app provides user a smooth way of booking elder service.
 
 <img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/home.png" width="200" > <img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/home2.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/home3.png" width="200" >
 
-<img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/login.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/start.png" width="200" >
+<img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/login.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/starting.png" width="200" >
 
 <img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/calender.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/profile.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/settings.png" width="200" >
 
-<img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service2.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service3.png" width="200" >
+<img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service1.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service2.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service3.png" width="200" >
 
 <img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service4.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service5.png" width="200" ><img src="https://github.com/kent5i5/SparkleCleaningService/blob/main/doc/select_service6.png" width="200" >
 
