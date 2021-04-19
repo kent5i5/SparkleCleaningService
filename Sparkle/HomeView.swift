@@ -22,7 +22,8 @@ struct HomeView: View {
                                           Reviewer(userPicture: "client-b", userName: "Jimmy Morgan" , content: ""),
                                           Reviewer(userPicture: "client-c", userName:  "Karen Thomas" , content: "") ]
     
-    @ObservedObject var navigate = serviceNavigator(currentView: "SelectServiceSubView", preView: "", firstView: "SelectServiceSubView")
+    @ObservedObject var navigate = serviceNavigator(currentView: "SelectServiceSubView", firstView: "SelectServiceSubView")
+       
     let theme = Theme()
     func getUserInfo(){
 
@@ -215,6 +216,8 @@ struct HomeView: View {
         //.navigationViewStyle(StackNavigationViewStyle())
 //        .navigationBarHidden(true)
     }
+    
+
 }
 
 struct HomeView_Previews: PreviewProvider {
@@ -224,3 +227,5 @@ struct HomeView_Previews: PreviewProvider {
             .previewDevice("iPhone 11")
     }
 }
+
+

@@ -35,41 +35,67 @@ struct ArrivalTimeFormUIView: View {
 //    }
     var body: some View {
        
+        ZStack {
             VStack {
-                VStack {
-                    Text("Requested Arrival Time of the Cleaner")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .bold()
+                    VStack {
+                        Text("Requested Arrival Time of the Cleaner")
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .bold()
+                        
+                        Button(action: {resetView()}){
+                            Text("clear all")
+                                .font(.body)
+                                .fontWeight(.light)
+                                .frame(width: 300, alignment: .trailing)
+                        }.padding()
+                    }
+                   
+                    DatePicker(selection: $start ,in: Date()..., displayedComponents:  [.date, .hourAndMinute], label: {
+                        Text("Select a date")
+                            .font(.title3)
+                    })
                     
-                    Button(action: {resetView()}){
-                        Text("clear all")
-                            .font(.body)
-                            .fontWeight(.light)
-                            .frame(width: 300, alignment: .trailing)
-                    }.padding()
-                }
-               
-                DatePicker(selection: $start ,in: Date()..., displayedComponents:  [.date, .hourAndMinute], label: {
-                    Text("Select a date")
-                        .font(.title3)
-                })
+                    Text("\(start)").frame( height: 20, alignment: .bottomLeading).font(.caption)
+    //                DatePicker("Start Time:", selection: $serviceData.startDate, in: Date()...,
+    //                           displayedComponents:  [.date, .hourAndMinute] )
+    //                    .datePickerStyle(GraphicalDatePickerStyle())
+    //                    .accentColor(colorScheme == .light ? Theme.init().lightGreen : Theme.init().yellow)
+    //                    .foregroundColor(Theme.init().darkGreen)
                 
-//                DatePicker("Start Time:", selection: $serviceData.startDate, in: Date()...,
-//                           displayedComponents:  [.date, .hourAndMinute] )
-//                    .datePickerStyle(GraphicalDatePickerStyle())
-//                    .accentColor(colorScheme == .light ? Theme.init().lightGreen : Theme.init().yellow)
-//                    .foregroundColor(Theme.init().darkGreen)
-            
-                
-                
-//                    .background(Theme.init().darkGreen)
-//                    .foregroundColor(.white)
-//                    .accentColor(colorScheme == .light ? Theme.init().lightGreen : Theme.init().yellow)
-                
-               // DatePicker("End:", selection: $serviceData.endDate,in: Date()...)
-                    //.datePickerStyle( WheelDatePickerStyle())
-                Spacer()
-                
+                    
+                    
+    //                    .background(Theme.init().darkGreen)
+    //                    .foregroundColor(.white)
+    //                    .accentColor(colorScheme == .light ? Theme.init().lightGreen : Theme.init().yellow)
+                    
+                   // DatePicker("End:", selection: $serviceData.endDate,in: Date()...)
+                        //.datePickerStyle( WheelDatePickerStyle())
+                    Spacer()
+                   
+                  
+                Image("white_background").resizable().frame(height: 400)
+            }.foregroundColor(Theme.init().darkGreen)
+//            Image("Mask Group 23")
+//            .resizable().frame(height: 300)
+//                .padding(EdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32))
+//                .border(Theme.init().darkGreen, width: 2)
+//                .scaleEffect(2)
+//                .opacity(0)
+//                .offset(y: 100)
+        } .simultaneousGesture(DragGesture()
+                                .onChanged { value in
+                                    if value.startLocation.x > value.location.x {
+                                        //self.swipeX = .left
+                                        
+                                        navigate.nextView(nextView: "LocationFormUIView")
+                                    } else if value.startLocation.x == value.location.x {
+                                        //self.swipeX = .zero
+                                    } else {
+                                        navigate.previousView()
+                                    }
+                                }) // simultaneousGesture
+           
+           
                 GeometryReader { geometry in
                     Text("").toolbar {
                         ToolbarItem(placement: .bottomBar) {
@@ -95,9 +121,7 @@ struct ArrivalTimeFormUIView: View {
                     }
                 }
                 
-            }.foregroundColor(Theme.init().darkGreen)
-
-        
+            
         
     }
 }

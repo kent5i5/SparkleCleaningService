@@ -63,58 +63,70 @@ struct LocationFormUIView: View {
                 }
             }
         }
-        VStack {
-            
-            Text("Where do you want cleaner go")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .bold()
-                .padding(EdgeInsets(top:8, leading: 16,
-                                     bottom:60, trailing:0 ))
-            
-            Button(action: {resetView()}){
-                Text("clear all")
-                    .font(.body)
-                    .fontWeight(.light)
-                    .frame(width: 300, alignment: .trailing)
-            }.padding()
-            
-            Group {
-                HStack{
-                    Text("Street").bold().offset(x:60)
-                    Spacer()
-                }
+        ZStack {
+            VStack {
                 
-                TextField("Street: ", text: $street).shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-                    .sparkletextfield()
-                   
-  
+                Text("Where do you want cleaner go")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .bold()
+                    .padding(EdgeInsets(top:8, leading: 16,
+                                         bottom:60, trailing:0 ))
                 
-                HStack{
-                    Text("Apt / Unit").bold().offset(x:60)
-                    Spacer()
-                }
-                TextField("Apt/Unit: ", text: $aptunit).shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
-                    .sparkletextfield()
-                   
+                Button(action: {resetView()}){
+                    Text("clear all")
+                        .font(.body)
+                        .fontWeight(.light)
+                        .frame(width: 300, alignment: .trailing)
+                }.padding()
+                
+                Group {
+                    HStack{
+                        Text("Street").bold().offset(x:60)
+                        Spacer()
+                    }
+                    
+                    TextField("Street: ", text: $street).shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                        .sparkletextfield()
+                       
+      
+                    
+                    HStack{
+                        Text("Apt / Unit").bold().offset(x:60)
+                        Spacer()
+                    }
+                    TextField("Apt/Unit: ", text: $aptunit).shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
+                        .sparkletextfield()
+                       
 
-                
-                
-                HStack{
-                    Text("Zip Code").bold().offset(x:60)
-                    Spacer()
+                    
+                    
+                    HStack{
+                        Text("Zip Code").bold().offset(x:60)
+                        Spacer()
+                    }
+                    
+                    TextField("Zip Code: ", text: $zipcode)
+                        .sparkletextfield()
                 }
+               
+                Spacer()
                 
-                TextField("Zip Code: ", text: $zipcode)
-                    .sparkletextfield()
-            }
+                
+     
+            }.foregroundColor(Theme.init().darkGreen)
            
-            Spacer()
-            
-            
- 
-        }.foregroundColor(Theme.init().darkGreen)
-
-        
+        } // simultaneousGesture
+        .simultaneousGesture(DragGesture()
+                    .onChanged {
+                        if $0.startLocation.x > $0.location.x  {
+                            //self.swipeX = .left
+                            navigate.nextView(nextView: "SearchView")
+                        } else if $0.startLocation.x == $0.location.x {
+                            //self.swipeX = .zero
+                        } else {
+                            navigate.previousView()
+                        }
+                })
     }
 }
 

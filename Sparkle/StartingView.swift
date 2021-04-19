@@ -16,7 +16,7 @@ struct StartingView: View {
     @EnvironmentObject var serviceData: ServiceRepository
     @State var selection:String? = nil
     @State var showAnimation = false
-    @ObservedObject var navigate = serviceNavigator(currentView: "HowToContactView", preView: "", firstView: "HowToContactView")
+    @ObservedObject var navigate = serviceNavigator(currentView: "HowToContactView",  firstView: "HowToContactView")
     let theme = Theme()
 
     

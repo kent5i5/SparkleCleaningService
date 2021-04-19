@@ -52,7 +52,7 @@ struct CalenderUIView: View {
     @State var showMenuItem1 = false
     @State var showMenuItem2 = false
     @State var showMenuItem3 = false
-    @ObservedObject var navigate = serviceNavigator(currentView: "SelectServiceSubView", preView: "",firstView: "SelectServiceSubView")
+    @ObservedObject var navigate = serviceNavigator(currentView: "SelectServiceSubView",firstView: "SelectServiceSubView")
     
     func showMenu(){
         showMenuItem3.toggle()

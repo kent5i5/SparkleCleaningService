@@ -98,11 +98,12 @@ struct SelectServiceUIView: View {
                     
               
                 }
+               
 
                     Text("")
                     .navigationBarItems(leading:
                         Button(action: {
-                            navigate.currentView = navigate.firstView
+                            navigate.currentView = navigate.viewlist[0]
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             HStack {
@@ -119,6 +120,7 @@ struct SelectServiceUIView: View {
             }
 
         }.navigationBarHidden(true)
+        
     }
 }
 
@@ -135,6 +137,7 @@ struct SelectServiceSubView: View {
     @Binding var currentStep: Int
     @Binding var iconItem: [Icon]
     @Binding var totalhours: Int
+
     
     func previousView(){
         currentStep = currentStep - 1
@@ -164,71 +167,84 @@ struct SelectServiceSubView: View {
     var body: some View {
         
         ScrollView {
-            VStack {
-                    
-                    Text("Which room do you want to be cleaned")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .frame( height: 60, alignment: .leading)
-                        .padding(EdgeInsets(top:0, leading: 16,
-                                            bottom:16, trailing:0 ))
-                   
-                    Button(action: {resetView()}){
-                        Text("clear all")
-                            .font(.body)
-                            .fontWeight(.light)
-                            .frame(width: 300, alignment: .trailing)
-                    }.padding()
-                    
-                    
-                    HStack {
-                        ForEach(0..<3) { index in
+            ZStack {
+                VStack {
+                        
+                        Text("Which room do you want to be cleaned")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .frame( height: 60, alignment: .leading)
+                            .padding(EdgeInsets(top:0, leading: 16,
+                                                bottom:16, trailing:0 ))
+                       
+                        Button(action: {resetView()}){
+                            Text("clear all")
+                                .font(.body)
+                                .fontWeight(.light)
+                                .frame(width: 300, alignment: .trailing)
+                        }.padding()
+                        
+                        
+                        HStack {
+                            ForEach(0..<3) { index in
+                                    
+                                CheckView(iconItem: $iconItem,totalhours: $totalhours,  numItem: index)
+
+                            }
+                        }
+                        HStack {
+                            ForEach(3..<6) { index in
                                 
-                            CheckView(iconItem: $iconItem,totalhours: $totalhours,  numItem: index)
+                                CheckView(iconItem: $iconItem, totalhours: $totalhours, numItem: index)
 
+                            }
                         }
-                    }
-                    HStack {
-                        ForEach(3..<6) { index in
-                            
-                            CheckView(iconItem: $iconItem, totalhours: $totalhours, numItem: index)
+                        HStack {
+                            ForEach(6..<9) {  index in
 
+                                CheckView(iconItem: $iconItem, totalhours: $totalhours, numItem: index )
+
+                            }
                         }
-                    }
-                    HStack {
-                        ForEach(6..<9) {  index in
-
-                            CheckView(iconItem: $iconItem, totalhours: $totalhours, numItem: index )
-
+                    Text("Total time: \(totalhours)").padding()
+                        Spacer()
+                    GeometryReader { geometry in
+                        Text("").toolbar {
+                            ToolbarItem(placement: .bottomBar) {
+                                HStack{
+                    
+                                    Spacer()
+                                    Button(action: {navigate.nextView(nextView: "SelectServiceSubView2")}){
+                                                            //Image("chevron-top")
+                                                            Text("NEXT")
+                                                                .foregroundColor(.white)
+                                                                    .padding()
+                                                                    .cornerRadius(8)
+                                                         }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    Button(action: {navigate.nextView(nextView: "SelectServiceSubView2")}){
+                                        Image(systemName: "chevron.right").frame(width: 10).foregroundColor(.white)
+                                    }.offset(x: -20, y: 0)
+                                } .background(Theme.init().darkGreen)
+                                .frame(width: geometry.size.width, alignment: .top)
+                            }
                         }
-                    }
-                Text("Total time: \(totalhours)").padding()
-                    Spacer()
-                GeometryReader { geometry in
-                    Text("").toolbar {
-                        ToolbarItem(placement: .bottomBar) {
-                            HStack{
-                
-                                Spacer()
-                                Button(action: {navigate.nextView(nextView: "SelectServiceSubView2")}){
-                                                        //Image("chevron-top")
-                                                        Text("NEXT")
-                                                            .foregroundColor(.white)
-                                                                .padding()
-                                                                .cornerRadius(8)
-                                                     }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                                Button(action: {navigate.nextView(nextView: "SelectServiceSubView2")}){
-                                    Image(systemName: "chevron.right").frame(width: 10).foregroundColor(.white)
-                                }.offset(x: -20, y: 0)
-                            } .background(Theme.init().darkGreen)
-                            .frame(width: geometry.size.width, alignment: .top)
-                        }
-                    }
 
-                }
-            }.frame(alignment: .leading)//.ignoresSafeArea()
-            .foregroundColor(Theme.init().darkGreen)
-        }
+                    }
+                }.frame(alignment: .leading)//.ignoresSafeArea()
+                .foregroundColor(Theme.init().darkGreen)
+                .simultaneousGesture(DragGesture()
+                            .onChanged {
+                                if ($0.startLocation.x - $0.location.x) > 100 {
+                                    //self.swipeX = .left
+                                    navigate.nextView(nextView: "SelectServiceSubView2")
+                                } else if $0.startLocation.x == $0.location.x {
+                                    //self.swipeX = .zero
+                                } else {
+                                    //navigate.previousView()
+                                }
+                            }) // simultaneousGesture
+            }
+        }//scrollView
       
     }
 }
@@ -340,9 +356,19 @@ struct SelectServiceSubView2: View {
                     
                     Spacer()
                 }
-            }//.frame(alignment: .leading).ignoresSafeArea()
-                .foregroundColor(Theme.init().darkGreen)
+            }.foregroundColor(Theme.init().darkGreen)
             .padding(.bottom)
+            .simultaneousGesture(DragGesture()
+                        .onChanged {
+                            if $0.startLocation.x > $0.location.x {
+                                //self.swipeX = .left
+                                navigate.nextView(nextView: "ArrivalTimeFormUIView")
+                            } else if $0.startLocation.x == $0.location.x {
+                                //self.swipeX = .zero
+                            } else {
+                                navigate.previousView()
+                            }
+                        }) // simultaneousGesture
         }
       
     }

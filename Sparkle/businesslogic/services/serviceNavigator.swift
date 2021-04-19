@@ -10,31 +10,31 @@ import Foundation
 
 class serviceNavigator {
     @Published var currentView: String
-    @Published var preView: String
-    @Published var firstView: String
+    @Published var viewlist: [String]
     
-    init(currentView: String, preView: String,  firstView: String){
+    init(currentView: String,   firstView: String){
         self.currentView = currentView
-        self.firstView = firstView
-        self.preView = preView
+        
+        self.viewlist = []
+        self.viewlist.append(firstView)
     }
     func previousView(){
-        self.currentView = self.preView
+        
+        if !self.viewlist.isEmpty  {
+            return self.currentView = self.viewlist.popLast()!
+        }
 
     }
-//    func previousView(previousView: String){
-//        self.currentView =  previousView
-//
-//    }
+
     
     func nextView(nextView: String){
-        self.preView = currentView
+        self.viewlist.append(currentView) 
         self.currentView = nextView
  
     }
     
     func resetView(){
-        self.currentView = self.firstView
+        self.currentView = self.viewlist[0]
 
     }
     
