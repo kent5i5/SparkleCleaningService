@@ -1,0 +1,6 @@
+framework module Pods_SparkleTests {
+  umbrella header "Pods-SparkleTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
