@@ -50,6 +50,9 @@ class FirebaseSignInViewController: UIViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
         
+        /*
+         Facebook login button
+         */
         
         let loginButton = FBLoginButton()
 //        let v = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
@@ -69,7 +72,7 @@ class FirebaseSignInViewController: UIViewController {
         loginButton.center = fbview.center
         
         loginButton.permissions = ["public_profile", "email"]
-        view.addSubview(loginButton)
+       // view.addSubview(loginButton)
         
         //if login diplay the close button for the user to go back
 
@@ -78,6 +81,7 @@ class FirebaseSignInViewController: UIViewController {
                // User is logged in, do work such as go to next view controller.
         }
         
+        self.myView.frame(forAlignmentRect: CGRect(x: 0 , y: 0, width: self.view.frame.width, height: self.view.frame.height*0.3))
         self.myView.backgroundColor = UIColor.white
         
     }
