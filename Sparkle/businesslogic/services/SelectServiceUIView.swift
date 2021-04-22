@@ -27,13 +27,14 @@ struct SelectServiceUIView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: ServiceRepository
+    @EnvironmentObject var workerData: WorkerRepository
     @State var showSelectService = 1
     @State private var wakeUp = Date()
     
     @State private var additionalNote: String = ""
     
     //@State var services = ServiceRepository()
-    @State var iconItem: [Icon] = [ Icon(name: "backyard",type: "backyard", isSelected: true),
+    @State var iconItem: [Icon] = [ Icon(name: "backyard",type: "backyard", isSelected: false),
                                     Icon(name: "dinningroom", type: "dinningroom", isSelected:false),
                                     Icon(name: "guestroom",type: "guestroom",  isSelected:false),
                                    Icon(name: "kidroom",type: "kidroom", isSelected:false),
@@ -62,7 +63,10 @@ struct SelectServiceUIView: View {
     @State var totalhours: Int = 1
     @State var start = Date()
     
+    @State var selectedUser = Worker(name: "", price: 0, picture: "", limit: 0, type: "", intro: "", isSelected: false)
     @ObservedObject var navigate: serviceNavigator
+    @ObservedObject var workerlist: WorkerRepository = WorkerRepository()
+    
     func changeView(){
         showSelectService = showSelectService + 1
 
@@ -85,14 +89,14 @@ struct SelectServiceUIView: View {
                 case "ArrivalTimeFormUIView" : ArrivalTimeFormUIView(navigate: navigate, start: $start, currentStep: $showSelectService).environmentObject(serviceData)
                     .transition(.scale)
                 case "LocationFormUIView" : LocationFormUIView(navigate: navigate, currentStep: $showSelectService, street: $street, aptunit: $aptunit, zipcode: $zipcode).environmentObject(modelData)
-                case "SearchView" : SearchView(navigate: navigate, currentStep: $showSelectService, additioalInformation: $additionalNote)
-                    .environmentObject(modelData)
-                case "SelectCleanerView" :  SelectCleanerView(navigate: navigate, currentStep: $showSelectService).environmentObject(modelData)
+                case "SearchView" : SearchView(navigate: navigate, selectedUser: $selectedUser, additioalInformation: $additionalNote)
+                    .environmentObject(modelData).environmentObject(workerData)
+                case "SelectCleanerView" :  SelectCleanerView(navigate: navigate, selectedUser: $selectedUser).environmentObject(modelData).environmentObject(workerData)
                 case "AcceptCleanerView" : AcceptCleanerView(navigate: navigate,currentStep: $showSelectService).environmentObject(modelData)
                 case "MemberConfirmView" : MemberConfirmView(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem,  street: $street, aptunit: $aptunit, zipcode: $zipcode)
-                case "newCustomerConfirmView": newCustomerConfirmView(navigate: navigate)
+                case "newCustomerConfirmView": newCustomerConfirmView(navigate: navigate,workerlist: workerlist ,fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2, selectedUser: $selectedUser).environmentObject(workerData)
                 case "showPaymentView": PayView(navigate: navigate)
-                case "ConfirmPayView": ConfirmPayView(navigate: navigate)
+                case "ConfirmPayView": ConfirmPayView(navigate: navigate,fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2)
                     default:
                         Text("done")
                     

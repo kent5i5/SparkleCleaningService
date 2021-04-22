@@ -117,9 +117,9 @@ struct FavoriteView: View {
        
     }
 }
-
+ 
 struct FavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteView(favorite: Worker(name: "", picture: "", isSelected: false))
+        FavoriteView(favorite: Worker(name: "Ms. Maria W.", price: 240, picture: "cleaner-a" , limit: 4, type: "House Cleaning Services", intro: "", isSelected: false))
     }
 }

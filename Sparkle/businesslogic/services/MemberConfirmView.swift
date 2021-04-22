@@ -25,12 +25,12 @@ struct MemberConfirmView: View {
             //let serviceHandler = ServiceRepository()
            // var typeArray: [String] = []
         
-            var path = serviceData.newService(name: "service",  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray )
+            var path = serviceData.newService(name: "user name",  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray )
             let fbhandler = Fbhandler(modelData: modelData)
             fbhandler.storeService(sid: path )
         
         } else {
-            serviceData.createService(name: "service", address: "", country: "", city: "", street: street, apt: "apt", zipcode: zipcode, type: typeArray)
+           //serviceData.createService(name: "user name", address: "", country: "", city: "", street: street, apt: "apt", zipcode: zipcode, type: typeArray)
             resetView()
         }
       
@@ -118,10 +118,7 @@ struct MemberConfirmView: View {
                     }
                     Text(" Date | Time ")
                     Text(" - Start Date \(serviceData.startDate) " ).font(.caption)
-//                        HStack {
-//
-//                            Spacer()
-//                        }
+
                     Group {
                         Text( "Address").font(.caption).scaleEffect(0.5)
                         Text(aptunit).font(.caption)
@@ -147,7 +144,8 @@ struct MemberConfirmView: View {
                     .cornerRadius(25)
                     .foregroundColor(.white)
                     .onTapGesture {
-                        addService()
+                        //addService()
+                        navigate.nextView(nextView: "showPaymentView")
                     }
 //                Button(action: {addService()}){
 //                    Image(systemName: "plus")

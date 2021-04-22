@@ -10,7 +10,7 @@ import SwiftUI
 struct ArrivalTimeFormUIView: View {
     @ObservedObject var navigate: serviceNavigator
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    @EnvironmentObject var serviceData: ServiceRepository
+    //@EnvironmentObject var serviceData: ServiceRepository
     
     @Binding var start: Date
     @Binding var currentStep: Int

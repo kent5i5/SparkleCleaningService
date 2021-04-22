@@ -23,7 +23,7 @@ class ServiceRepository: ObservableObject{
     }
 
     /// Create   a  `Service` document in firestore for non-member user
-    func createService(name: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>){
+    func createService(name: String, phone: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>, start: Date, totalhours: Int){
         let citiesRef = db.collection("openservice")
         let caseid = UUID()
         citiesRef.document("\(caseid)").setData([
@@ -35,8 +35,8 @@ class ServiceRepository: ObservableObject{
             "apt": apt,
             "zipcode": zipcode ,
             "type": type,
-            "startime": self.startDate,
-            "endtime": self.endDate
+            "startime": start,
+            "totalhours": totalhours
             ])
     }
     

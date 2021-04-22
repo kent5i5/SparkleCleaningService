@@ -8,8 +8,8 @@
 import SwiftUI
 import AVKit
 
-let favorites: [Worker] = [ Worker(name: "Ms. Maria W.",picture: "cleaner-a" ,isSelected: false),
-                            Worker(name: "Ms. Cheung" , picture: "cleaner-b" , isSelected: false),
+let favorites: [Worker] = [ Worker(name: "Ms. Maria W.",price: 240,picture: "cleaner-a" , limit: 4, type: "House Cleaning Services", intro: "", isSelected: false),
+                            Worker(name: "Ms. Cheung" ,price: 240, picture: "cleaner-b" ,limit: 3, type: "House Cleaning Services", intro: "", isSelected: false),
                            // Worker(name: "Cyn", duration: 5.0)
 ]
 

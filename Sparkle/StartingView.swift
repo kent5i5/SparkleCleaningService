@@ -14,6 +14,8 @@ struct StartingView: View {
     @EnvironmentObject var modelData: User
     @ObservedObject var appData: User
     @EnvironmentObject var serviceData: ServiceRepository
+    @EnvironmentObject var workerData: WorkerRepository
+    
     @State var selection:String? = nil
     @State var showAnimation = false
     @ObservedObject var navigate = serviceNavigator(currentView: "HowToContactView",  firstView: "HowToContactView")
@@ -83,7 +85,8 @@ struct StartingView: View {
                         NavigationLink(
                             destination: SelectServiceUIView(navigate: navigate)
                                 .environmentObject(modelData)
-                                .environmentObject(serviceData), label: {
+                                .environmentObject(serviceData)
+                                .environmentObject(workerData), label: {
                                 
                                 Text("Clean Now").font(.custom("Times New Roman", size: 25)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                     .sparklefilledlightbutton()

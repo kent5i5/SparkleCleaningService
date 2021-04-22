@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     var appData: User!
     var modelData: User!
     var serviceData: ServiceRepository!
+    var workerData: WorkerRepository!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         
         modelData = User()
         serviceData = ServiceRepository()
+        workerData = WorkerRepository()
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self

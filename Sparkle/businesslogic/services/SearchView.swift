@@ -11,18 +11,56 @@ struct SearchView: View {
     @ObservedObject var navigate: serviceNavigator
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: ServiceRepository
-    
-    @Binding var currentStep: Int
+    @EnvironmentObject var workerData: WorkerRepository
+    @Binding var selectedUser: Worker
 
     @Binding var additioalInformation: String
     
     
     @State private var selectedNone = false
     @State var isSearching = false
+    
     func startSearch(){
         self.isSearching = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.navigate.nextView(nextView: "SelectCleanerView")
+        if modelData.uid.isEmpty {
+                /*
+                 Black Box  - Algorithm that find the best cleaner for the customer
+                 */
+            
+            let group = DispatchGroup()
+            group.enter()
+           // DispatchQueue.main.async() {
+                workerData.findTheWorker() { isSucceeded in
+                    
+                    // Only leave when dispatchGroup returns the escaping bool
+                    
+                    if isSucceeded {
+                        group.leave()
+                    } else {
+                        // returned false
+                        group.leave()
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() ) {
+                   
+                        selectedUser = workerData.selectedWorker
+                        self.navigate.nextView(nextView: "SelectCleanerView")
+                    }
+                }
+           // }
+           
+           
+        } else {
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                
+                
+              
+                    workerData.loadWorkers()
+                
+                
+                self.navigate.nextView(nextView: "SelectCleanerView")
+            }
         }
         
     }

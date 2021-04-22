@@ -12,11 +12,6 @@ struct IconView: View {
     let isSelected: Bool
     
     
-//    init(){
-//        self.isSelected = false
-//        self.iconName = ""
-//    }
-    
     var body: some View {
     
                 VStack {

@@ -14,7 +14,7 @@ struct AcceptCleanerView: View {
     @ObservedObject var navigate: serviceNavigator
     @Binding var currentStep: Int
     @State private var isPresented = false
-    @State var cleanerList: [Worker] = [ Worker(name: "yoyo",picture: "cleaner-a", isSelected: false)]
+    @State var cleanerList: [Worker] = [ Worker(name: "Ms. Maria W.", price: 240 ,picture: "cleaner-a" , limit: 4, type: "House Cleaning Services", intro: "", isSelected: false)]
     
     func previousView(){
         currentStep = currentStep - 1

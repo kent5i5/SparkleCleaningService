@@ -403,6 +403,7 @@
 			children = (
 				34988FB125F88B6C00125E01 /* SettingsObject.swift */,
 				34EFABBF25F9EE4500DAD70D /* User.swift */,
+				3463BE4B260180530071675F /* Fbhandler.swift */,
 				34FAF3892609530A00F125F9 /* Service.swift */,
 				34E550F5260C4A5900BFB49C /* ServiceRepository.swift */,
 				347E2E40262CA4CE00A0FB08 /* Worker.swift */,
@@ -418,7 +419,6 @@
 				34D93A582608666300201EC3 /* IconView.swift */,
 				349E56212613AE0A0089245E /* GridView.swift */,
 				34FAF38426094ED700F125F9 /* FavoriteButton.swift */,
-				3463BE4B260180530071675F /* Fbhandler.swift */,
 				345DC3BF260E6E1700757A94 /* CheckView.swift */,
 				3444A34F26153E05009A4BCD /* CustomTopbarBackButtonModifier.swift */,
 				346B71C326275A7400740FA4 /* CircleImageView.swift */,

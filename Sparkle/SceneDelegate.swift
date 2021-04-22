@@ -52,6 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environment(\.managedObjectContext, context)
             .environmentObject(delegate.modelData)
             .environmentObject(delegate.serviceData)
+            .environmentObject(delegate.workerData)
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

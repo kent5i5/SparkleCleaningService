@@ -131,6 +131,8 @@ class Fbhandler {
         
     }
     
+
+    
     func storeUserData(uid: String, name: String, country: String, address: String, city: String){
         let citiesRef = db.collection("users")
         citiesRef.document(uid).setData([

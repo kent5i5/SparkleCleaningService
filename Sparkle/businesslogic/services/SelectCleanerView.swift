@@ -11,26 +11,16 @@ struct SelectCleanerView: View {
     @ObservedObject var navigate: serviceNavigator
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: ServiceRepository
+    @EnvironmentObject var workerData: WorkerRepository
     
-    @Binding var currentStep: Int
+    @Binding var selectedUser: Worker
     
-    
-    @State var cleanerList: [Worker] = [ Worker(name: "Kugna",picture: "cleaner-a" ,isSelected: false),
-                                          Worker(name: "Yoyo" , picture: "cleaner-b" , isSelected: false),
-                                          Worker(name: "" , picture: "cleaner-b",  isSelected: false) ]
-    
-    func previousView(){
-        currentStep = currentStep - 1
-
-    }
-    
-    func nextView(){
-        currentStep = currentStep + 1
-
-    }
+    @State var cleanerList: [Worker] = [ Worker(name: "Ms. Maria W.",price: 240,picture: "cleaner-a" , limit: 4, type: "House Cleaning Services", intro: "", isSelected: false),
+                                         Worker(name: "Ms. Cheung" ,price: 240, picture: "cleaner-b" ,limit: 3, type: "House Cleaning Services", intro: "", isSelected: false),
+                                         ]
     
     func resetView(){
-        currentStep = 1
+        //currentStep = 1
 
     }
     
@@ -100,7 +90,7 @@ struct SelectCleanerView: View {
                 
                 VStack {
                     CircleImageView(iconName: "cleaner-a").frame(width: 160, height: 160, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    Text("$240 / 4 hrs").bold()
+                    Text("\(selectedUser.price)" + "/ \(selectedUser.limit) hrs").bold()
                     Text("Rating ******").bold()
                     
                     HStack {

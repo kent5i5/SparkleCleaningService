@@ -14,11 +14,6 @@ struct ServiceSelctionsUIView: View {
             VStack {
                 HStack {
                    
-//                    NavigationLink(
-//                        destination:
-//                            SelectServiceUIView(),
-//                        label: {
-//                            VStack {}})
                     Image("clothing")
                         .resizable()
                         .padding(10)
