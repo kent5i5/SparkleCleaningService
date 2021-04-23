@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct SelectCleanerView: View {
-    @ObservedObject var navigate: serviceNavigator
+    
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: ServiceRepository
     @EnvironmentObject var workerData: WorkerRepository
     
+    @ObservedObject var navigate: serviceNavigator
     @Binding var selectedUser: Worker
     
-    @State var cleanerList: [Worker] = [ Worker(name: "Ms. Maria W.",price: 240,picture: "cleaner-a" , limit: 4, type: "House Cleaning Services", intro: "", isSelected: false),
-                                         Worker(name: "Ms. Cheung" ,price: 240, picture: "cleaner-b" ,limit: 3, type: "House Cleaning Services", intro: "", isSelected: false),
-                                         ]
+//    @State var cleanerList: [Worker] = [ Worker(name: "Ms. Maria W.",price: 240,picture: "cleaner-a" , limit: 4, type: "House Cleaning Services", intro: "", isSelected: false),
+//                                         Worker(name: "Ms. Cheung" ,price: 240, picture: "cleaner-b" ,limit: 3, type: "House Cleaning Services", intro: "", isSelected: false),
+//                                         ]
+    @ObservedObject var workerlist: WorkerRepository
     
+//    @Binding var fullname: String
+//    @Binding var phone: String
+//    @Binding var currentStep: Int
+//    @Binding var street: String
+//    @Binding var aptunit: String
+//    @Binding var zipcode: String
+//    @Binding var totalhours: Int
+//    @Binding var start: Date
+//    @Binding var iconItem: [Icon]
+//    @Binding var iconItem2: [Icon]
+    
+    //var workers : [Worker]
+    
+
     func resetView(){
         //currentStep = 1
 
@@ -51,32 +67,45 @@ struct SelectCleanerView: View {
 //        }
         VStack {
             if (!modelData.uid.isEmpty){
+               
                 Text("Select a cleaner")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .bold()
                     .padding(EdgeInsets(top:8, leading: 16,
                                          bottom:60, trailing:0 ))
-                
+                //Text("number of worker found \(self.workerData.workers.description)" )
         
-                Group {
+                LazyVStack{
                     HStack{
-                        Text("").bold()
+                        Text("").bold().navigationBarHidden(true)
                         Spacer()
+                    }
+                    ScrollView {
+                        ForEach(self.workerData.workers){ worker in
+//                            NavigationLink(
+//                                destination:  MemberConfirmView(navigate: navigate)
+//
+//                            ){ }
+                            
+                            
+                            WorkerView(userName: worker.name, userPicture: worker.picture, intro: worker.intro).onTapGesture {
+                                workerData.selectedWorker = worker
+                                navigate.nextView(nextView: "MemberConfirmView")
+                            }
+                            
+                        }
                     }
                 
                     
-                    WorkerView(userName: cleanerList[0].name, userPicture: cleanerList[0].picture, isSelected: $cleanerList[0].isSelected)
-                        .overlay(cleanerList[0].isSelected ? Rectangle() : nil).onTapGesture {
-                            cleanerList[0].isSelected .toggle()
-                        }
+                    
 //                    if cleanerList[0].isSelected {
 //                        WorkerView(userName: cleanerList[0].name, userPicture: cleanerList[0].picture, isSelected: $cleanerList[0].isSelected)
 //                    }
                     
-                    WorkerView(userName: cleanerList[1].name , userPicture: cleanerList[1].picture, isSelected: $cleanerList[1].isSelected)
-                        .overlay(cleanerList[1].isSelected ? Rectangle() : nil).onTapGesture {
-                            navigate.nextView(nextView: "AcceptCleanerView")
-                        }
+//                    WorkerView(userName: cleanerList[1].name , userPicture: cleanerList[1].picture, isSelected: $cleanerList[1].isSelected)
+//                        .overlay(cleanerList[1].isSelected ? Rectangle() : nil).onTapGesture {
+//                            navigate.nextView(nextView: "AcceptCleanerView")
+//                        }
                     
                 }
                
@@ -89,7 +118,7 @@ struct SelectCleanerView: View {
                 //WorkerView()
                 
                 VStack {
-                    CircleImageView(iconName: "cleaner-a").frame(width: 160, height: 160, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    CircleImageView(iconName: selectedUser.picture).frame(width: 160, height: 160, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Text("\(selectedUser.price)" + "/ \(selectedUser.limit) hrs").bold()
                     Text("Rating ******").bold()
                     

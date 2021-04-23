@@ -83,7 +83,7 @@ struct StartingView: View {
                         }.padding(.bottom, 100)
                         
                         NavigationLink(
-                            destination: SelectServiceUIView(navigate: navigate)
+                            destination: SelectServiceUIView(navigate: navigate, workerlist: WorkerRepository() )
                                 .environmentObject(modelData)
                                 .environmentObject(serviceData)
                                 .environmentObject(workerData), label: {

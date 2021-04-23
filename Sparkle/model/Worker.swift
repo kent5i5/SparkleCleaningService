@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import Firebase
+import Combine
 
 
 struct Worker: Identifiable {
@@ -32,7 +33,7 @@ class WorkerRepository: ObservableObject {
         
         self.workers = []
         self.selectedWorker = Worker(name: "", price: 0, picture: "", limit: 0, type: "", intro: "", isSelected: false)
-       // loadWorkers()
+        //loadWorkers() { isSuccess in}
     }
 
     //var workersOfTheEmployer: [Worker] = []
@@ -77,14 +78,19 @@ class WorkerRepository: ObservableObject {
     /// retrieves all the services from `workers` collection
     //func loadWorkers(completion: @escaping ([Worker]) -> Void){
         
-   func loadWorkers() {
+   func loadWorkers(completing: @escaping (Bool) -> Void)  {
         let workersRef = db.collection("workers")
-        
+        let group = DispatchGroup()
+
+        // Enter the group outside of the getDocuments call
+        group.enter()
+    var workerlist: [Worker] = []
        workersRef.getDocuments{ (snapshot, err) in
             
             if let err = err {
                 print("Error getting documents: \(err)")
                // completion(self.workers)
+                completing(false)
                        
             } else {
                 for document in snapshot!.documents {
@@ -95,14 +101,24 @@ class WorkerRepository: ObservableObject {
                                          limit:  document["limit"] as! Double , type: document["type"] as! String, intro: document["intro"] as! String , isSelected: false)
                    
                    
-                    self.workers.append(worker)
-                    print(self.workers.description)
+                    workerlist.append(worker)
+                   // print(self.workers.description)
                   
                 }
                // completion(self.workers)
+                self.workers = workerlist
             }
+            
+           // for worker in workerlist {
+                
+            //}
            
+            group.leave()
+        
         }
-   
+        group.notify(queue: DispatchQueue.global(qos: .background)) {
+            print("all worker data recieved")
+            completing(true)
+        }
     }
 }

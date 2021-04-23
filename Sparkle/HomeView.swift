@@ -156,7 +156,7 @@ struct HomeView: View {
                             .sparkletextfield()
                         
                         Text("").frame(height:30)
-                        NavigationLink(destination: SelectServiceUIView(navigate: navigate)) {
+                        NavigationLink(destination: SelectServiceUIView(navigate: navigate,  workerlist: WorkerRepository()).equatable()) {
                             Text("Book A Cleaner").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                 .sparklefilledbutton()
                         }

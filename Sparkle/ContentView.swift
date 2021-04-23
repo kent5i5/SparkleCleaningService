@@ -36,8 +36,8 @@ struct ContentView: View {
                     selection == 0 ? Image("Home-selected").resizable() : Image("home").resizable()
                     //Text("home").font(.caption2)
                 }.tag(0)//.ignoresSafeArea()
-                .navigationBarHidden(true)
-                .environmentObject(modelData)
+                //.navigationBarHidden(true)
+               // .environmentObject(modelData)
                 
                 CalenderUIView().tabItem {
                    
@@ -51,15 +51,15 @@ struct ContentView: View {
                     selection == 2 ? Image("my-cleaner-selected").resizable() : Image("my-cleaner").resizable()
                     //Text("Profile").font(.caption2)
                 }.tag(2).navigationBarHidden(true)
-                .environmentObject(modelData)
-                .environmentObject(serviceData)
+                //.environmentObject(modelData)
+                //.environmentObject(serviceData)
                 
                 ProfileUIView().tabItem {
                    
                     selection == 3 ? Image("my-profile-selected").resizable() : Image("my-profile").resizable()
                     //Text("Settings").font(.caption2)
                 }.tag(3).navigationBarHidden(true)
-                .environmentObject(modelData)
+                //.environmentObject(modelData)
                 
                
                 

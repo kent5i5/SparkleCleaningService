@@ -135,7 +135,7 @@ struct AcceptCleanerView: View {
                         if (modelData.uid.isEmpty) {
                             GeometryReader { geometry in
                                 Text("Your cleaner has been selected")
-                                WorkerView(userName: cleanerList[0].name, userPicture: cleanerList[0].picture, isSelected: $cleanerList[0].isSelected)
+                                WorkerView(userName: cleanerList[0].name, userPicture: cleanerList[0].picture, intro:  "")
                                 Text("").toolbar {
                                     ToolbarItem(placement: .bottomBar) {
                                         HStack{

@@ -11,23 +11,29 @@ struct MemberConfirmView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: ServiceRepository
-    
+    @EnvironmentObject var workerData: WorkerRepository
     @ObservedObject var navigate: serviceNavigator
-    @Binding var currentStep: Int
-    @Binding var iconItem: [Icon]
-    @Binding var street: String
-    @Binding var aptunit: String
-    @Binding var zipcode: String
+    
+//    @Binding var fullname: String
+//    @Binding var phone: String
+//    @Binding var street: String
+//    @Binding var aptunit: String
+//    @Binding var zipcode: String
+//    @Binding var totalhours: Int
+//    @Binding var start: Date
+//    @Binding var iconItem: [Icon]
+//    @Binding var iconItem2: [Icon]
+//    @Binding var selectedUser: Worker
+    
 
-    @State var typeArray: [String] = []
     func addService(){
         if !modelData.uid.isEmpty {
             //let serviceHandler = ServiceRepository()
            // var typeArray: [String] = []
         
-            var path = serviceData.newService(name: "user name",  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray )
-            let fbhandler = Fbhandler(modelData: modelData)
-            fbhandler.storeService(sid: path )
+//            var path = serviceData.newService(name: "user name", phone: phone address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray )
+//            let fbhandler = Fbhandler(modelData: modelData)
+//            fbhandler.storeService(sid: path )
         
         } else {
            //serviceData.createService(name: "user name", address: "", country: "", city: "", street: street, apt: "apt", zipcode: zipcode, type: typeArray)
@@ -36,62 +42,25 @@ struct MemberConfirmView: View {
       
     }
     
-    func previousView(){
-        currentStep = currentStep - 1
-
-    }
-    
-    func nextView(){
-        currentStep = currentStep + 1
-
-    }
     func resetView(){
         
-        currentStep = 1
-        iconItem.forEach{ icon in
-            if icon.isSelected == true {}
-        }
-        street = ""
-        aptunit = ""
-        zipcode = ""
-        serviceData.startDate = Date()
-        print(street + aptunit + zipcode)
+//        iconItem.forEach{ icon in
+//            if icon.isSelected == true {}
+//        }
+//        street = ""
+//        aptunit = ""
+//        zipcode = ""
+//        serviceData.startDate = Date()
+//        print(street + aptunit + zipcode)
         serviceData.endDate = Date()
     }
     var body: some View {
-        
-        GeometryReader { geometry in
-            Text("").toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    HStack{
-                        Button(action: {previousView()}){
-                            Image(systemName: "chevron.left").frame(width: 10).foregroundColor(.white)
-                        }.offset(x: 20, y: 0)
-                        Spacer()
-                        Button(action: {navigate.nextView(nextView: "showPaymentView")}){
-                                                //Image("chevron-top")
-                                                Text("CONFIRM")
-                                                    .foregroundColor(.white)
-                                                        .padding()
-                                                        .cornerRadius(8)
-                                             }.frame(maxWidth: .infinity, maxHeight: .infinity)
-
-
-                    }.background(Theme.init().darkGreen)
-                    .frame(width: geometry.size.width, alignment: .top)
-                }
-            }
-        }
+  
 
             VStack {
-                Text("").onAppear(){// Fill the type array with the selected
-                    iconItem.forEach{ icon in
-                        if icon.isSelected == true{
-                            self.typeArray.append(icon.type)
-                        }
-                } }
+  
                 
-                CircleImageView(iconName: "cleaner-a")
+                CircleImageView(iconName: workerData.selectedWorker.picture)
                     .frame(width: 140, height: 140)
                     .clipShape(Circle())
                     .shadow(radius: 12)
@@ -112,25 +81,29 @@ struct MemberConfirmView: View {
                
                 Group {
                     HStack {
-                        Text(" - Street ").font(.caption)
-                        Text(street).font(.caption)
+                        Text("").font(.caption)
+                        Text(serviceData.thisService.street).font(.caption)
                         Spacer()
                     }
                     Text(" Date | Time ")
-                    Text(" - Start Date \(serviceData.startDate) " ).font(.caption)
+                    Text(" - Start Date \(serviceData.thisService.startdate) " ).font(.caption)
 
                     Group {
                         Text( "Address").font(.caption).scaleEffect(0.5)
-                        Text(aptunit).font(.caption)
-                        Text( "San Francisco").font(.caption)
-                        Text( zipcode).font(.caption)
+                        Text(serviceData.thisService.apt ).font(.caption)
+                        Text( serviceData.thisService.city
+                        ).font(.caption)
+                        Text( serviceData.thisService.zipcode).font(.caption)
                     }
                     
                     Divider()
                     Group {
-                        Text( "Address").font(.caption).scaleEffect(1.5)
-                        Text( "1.5 Bedrooms x2 " + " 1 Living Room" )
-                        Text( "1 Kitchen " + " 1 Bath Room" + "1 Laundary")
+                        Text( "Services").font(.caption).scaleEffect(1.5)
+                       // Text( "1.5 Bedrooms x2 " + " 1 Living Room" )
+                        //Text( "1 Kitchen " + " 1 Bath Room" + "1 Laundary")
+                       
+                        Text(serviceData.thisService.type.description)
+
                     }
                     
                 }
@@ -165,9 +138,33 @@ struct MemberConfirmView: View {
 //                            .foregroundColor(.green))
 //                .foregroundColor(.green)
                 
-              
+                Spacer()
                 
             }.foregroundColor(Theme.init().darkGreen)
+            
+        
+            GeometryReader { geometry in
+                Text("").toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        HStack{
+//                            Button(action: {navigate.previousView()}){
+//                                Image(systemName: "chevron.left").frame(width: 10).foregroundColor(.white)
+//                            }.offset(x: 20, y: 0)
+                            Spacer()
+                            Button(action: {navigate.nextView(nextView: "showPaymentView")}){
+                                                    //Image("chevron-top")
+                                                    Text("CONFIRM")
+                                                        .foregroundColor(.white)
+                                                            .padding()
+                                                            .cornerRadius(8)
+                                                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
+
+
+                        }.background(Theme.init().darkGreen)
+                        .frame(width: geometry.size.width, alignment: .top)
+                    }
+                }
+            }
         }
 
 

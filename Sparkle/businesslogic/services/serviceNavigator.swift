@@ -39,3 +39,7 @@ class serviceNavigator {
     }
     
 }
+
+extension serviceNavigator: ObservableObject {
+    
+}

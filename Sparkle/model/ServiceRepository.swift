@@ -11,6 +11,7 @@ class ServiceRepository: ObservableObject{
     @Published var serivces: [Service]
     @Published var startDate: Date
     @Published var endDate: Date
+    @Published var thisService: Service
     private let db = Firestore.firestore()
     
     /// Initializes a new `ServiceRepository` with list of Service , startDate , and endDate Observable Objects
@@ -20,14 +21,23 @@ class ServiceRepository: ObservableObject{
         self.serivces = []
         self.startDate = Date()
         self.endDate = Date()
+        self.thisService = Service(id: "", name: "", phone: "", address: "", country: "", city: "", street: "", apt: "", zipcode: "", type: [""], startdate: Date(), enddate: Date(), workerName: "")
+    }
+    
+    func prepareServiceData(name: String, phone: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>, start: Date, totalhours: Int, workerName: String){
+        let id = UUID()
+        let endDate: Date = Date()
+        let service  = Service(id: id.description , name: name, phone: phone, address: "", country: "", city: "", street: street , apt: apt, zipcode: zipcode, type:  type, startdate: start, enddate: endDate, workerName: workerName)
+        self.thisService =  service
     }
 
     /// Create   a  `Service` document in firestore for non-member user
-    func createService(name: String, phone: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>, start: Date, totalhours: Int){
+    func createService(name: String, phone: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>, start: Date, totalhours: Int, workerName: String){
         let citiesRef = db.collection("openservice")
         let caseid = UUID()
         citiesRef.document("\(caseid)").setData([
-            "name": "San Francisco",
+            "name":  name,
+            "phone":  phone,
             "address": address,
             "country": country,
             "city": city,
@@ -36,7 +46,8 @@ class ServiceRepository: ObservableObject{
             "zipcode": zipcode ,
             "type": type,
             "startime": start,
-            "totalhours": totalhours
+            "totalhours": totalhours,
+            "workerName": workerName
             ])
     }
     
@@ -62,9 +73,9 @@ class ServiceRepository: ObservableObject{
     /// creates a new `service` collectiont in firestore
     ///  - Parameters:
     ///     - name Name of the service, address Adress of the service, country: country of the service ... etc
-    func newService(name: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>) -> String{
+    func newService(name: String, phone: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>, workerName: String) -> String{
         var path = db.collection("services").addDocument(
-            data: ["name" : name, "address": address, "country": country, "city": city, "street": street, "apt": apt, "zipcode": zipcode , "type": type, "startdate": self.startDate, "enddate": self.endDate])
+            data: ["name" : name,  "phone": phone, "address": address, "country": country, "city": city, "street": street, "apt": apt, "zipcode": zipcode , "type": type, "startdate": self.startDate, "enddate": self.endDate, workerName: workerName])
         print("finsih addding service in :")
         return path.documentID.description
     }
@@ -78,6 +89,7 @@ class ServiceRepository: ObservableObject{
                 
                 if let document = document, document.exists {
                     let name = document["name"] as! String
+                    let phone = document["phone"] as! String
                     let street = document["street"] as! String
                     let apt = document["apt"] as! String
                     let zipcode = document["zipcode"] as! String
@@ -86,8 +98,9 @@ class ServiceRepository: ObservableObject{
                     let stop = document["enddate"] as! Timestamp
                     let convertedStop = stop.dateValue()
                     let type = document["type"] as! [String]
+                    let workerName = document["workerName"] as! String
                    // print(type)
-                    servicelist.append(Service(id: id, name: name, address: "", country: "", city: "", street: street , apt: apt, zipcode: zipcode, type:  type, startdate: convertedStart, enddate: convertedStop))
+                    servicelist.append(Service(id: id, name: name,phone: phone, address: "", country: "", city: "", street: street , apt: apt, zipcode: zipcode, type:  type, startdate: convertedStart, enddate: convertedStop, workerName: workerName))
                     //print(servicelist)
                 }
                 self.serivces = servicelist

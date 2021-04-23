@@ -11,7 +11,8 @@ struct WorkerView: View {
     //  worker data is needed
     var userName: String
     var userPicture: String
-    @Binding var isSelected: Bool
+    var intro: String
+    @State var isSelected: Bool = false
     
     var body: some View {
         HStack(spacing:0) {
@@ -58,7 +59,7 @@ struct WorkerView: View {
                         }
                         
                         //Text( favorite.name).font(.body)
-                                                Text("As user completed their service request, user  can share their   experience in order to receive discount. " )
+                                                Text(intro )
                                                     .frame( alignment: .leading)
                         //Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
                         

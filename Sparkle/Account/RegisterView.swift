@@ -48,8 +48,7 @@ struct RegisterView: View {
                                     bottom:8, trailing:0 ))
                 .background(Color.white)
                 .overlay(RoundedRectangle(cornerRadius: 30)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.green))
+                            .stroke(lineWidth: 2))
                 .custombackbtn()
                 //.foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))
                 
@@ -62,8 +61,7 @@ struct RegisterView: View {
                                     bottom:8, trailing:0 ))
                 .background(Color.white)
                 .overlay(RoundedRectangle(cornerRadius: 30)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.green))
+                            .stroke(lineWidth: 2))
                
               
             
@@ -73,8 +71,7 @@ struct RegisterView: View {
                                     bottom:8, trailing:0 ))
                 .background(Color.white)
                 .overlay(RoundedRectangle(cornerRadius: 30)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.green))
+                            .stroke(lineWidth: 2))
         
             
             TextField("Street", text: $street)
@@ -83,8 +80,7 @@ struct RegisterView: View {
                                     bottom:8, trailing:0 ))
                 .background(Color.white)
                 .overlay(RoundedRectangle(cornerRadius: 30)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.green))
+                            .stroke(lineWidth: 2))
   
             
             TextField("Apt/Unit", text: $Apt)
@@ -93,8 +89,7 @@ struct RegisterView: View {
                                     bottom:8, trailing:0 ))
                 .background(Color.white)
                 .overlay(RoundedRectangle(cornerRadius: 30)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.green))
+                            .stroke(lineWidth: 2))
     
             
             TextField("Zip code", text: $zipcode)
@@ -103,8 +98,7 @@ struct RegisterView: View {
                                     bottom:8, trailing:0 ))
                 .background(Color.white)
                 .overlay(RoundedRectangle(cornerRadius: 30)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.green))
+                            .stroke(lineWidth: 2))
  
             Text("").padding(.bottom, 30)
             

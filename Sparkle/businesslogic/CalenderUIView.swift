@@ -122,7 +122,7 @@ struct CalenderUIView: View {
                    
                    
                     Rectangle().foregroundColor(.clear).frame(maxWidth: .infinity, maxHeight: .infinity)
-                    NavigationLink(destination: SelectServiceUIView(navigate: navigate)) {
+                    NavigationLink(destination: SelectServiceUIView(navigate: navigate, workerlist: WorkerRepository())) {
                         FloatingMenuUIView(showMenuItem1: false, showMenuItem2: false, showMenuItem3: false)
                             .padding()
                     }

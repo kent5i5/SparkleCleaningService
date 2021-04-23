@@ -9,12 +9,6 @@ import SwiftUI
 import Firebase
 
 
-
-
-extension serviceNavigator: ObservableObject {
-    
-}
-
 struct Icon: Identifiable {
   let id = UUID()
   let name: String
@@ -23,7 +17,14 @@ struct Icon: Identifiable {
 
 }
 
-struct SelectServiceUIView: View {
+struct SelectServiceUIView: View , Equatable {
+    
+    static func == (lhs: SelectServiceUIView, rhs: SelectServiceUIView) -> Bool {
+        // << return yes on view properties which identifies that the
+        // view is equal and should not be refreshed (ie. `body` is not rebuilt)
+        return true
+    }
+    
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: ServiceRepository
@@ -44,15 +45,15 @@ struct SelectServiceUIView: View {
                                        Icon(name: "guestroom",type: "guestroom", isSelected:false),
                                        Icon(name: "additional-work",type: "addition",  isSelected:false)]
     
-    @State var iconItem2: [Icon] = [ Icon(name: "clothing",type: "services", isSelected: false),
-                                    Icon(name: "cooking", type: "service", isSelected:false),
-                                    Icon(name: "flooring",type: "service",  isSelected:false),
-                                   Icon(name: "refrigerator",type: "service", isSelected:false),
-                                       Icon(name: "storage",type: "service",  isSelected:false),
-                                       Icon(name: "washingmachine",type: "service",  isSelected:false),
-                                   Icon(name: "water plant",type: "service", isSelected:false),
-                                       Icon(name: "waxing",type: "service", isSelected:false),
-                                       Icon(name: "additional-work-lightgreen",type: "sevice",  isSelected:false)]
+    @State var iconItem2: [Icon] = [ Icon(name: "clothing",type: "clothing", isSelected: false),
+                                    Icon(name: "cooking", type: "cooking", isSelected:false),
+                                    Icon(name: "flooring",type: "flooring",  isSelected:false),
+                                   Icon(name: "refrigerator",type: "refrigerator", isSelected:false),
+                                       Icon(name: "storage",type: "storage",  isSelected:false),
+                                       Icon(name: "washingmachine",type: "washingmachine",  isSelected:false),
+                                   Icon(name: "water plant",type: "water plant", isSelected:false),
+                                       Icon(name: "waxing",type: "waxing", isSelected:false),
+                                       Icon(name: "additional-work-lightgreen",type: "additional-work-lightgreen",  isSelected:false)]
     @State var fullname: String = ""
     @State var phone: String = ""
 
@@ -64,8 +65,9 @@ struct SelectServiceUIView: View {
     @State var start = Date()
     
     @State var selectedUser = Worker(name: "", price: 0, picture: "", limit: 0, type: "", intro: "", isSelected: false)
+    @State var workers:[Worker] = []
     @ObservedObject var navigate: serviceNavigator
-    @ObservedObject var workerlist: WorkerRepository = WorkerRepository()
+    @ObservedObject var workerlist: WorkerRepository 
     
     func changeView(){
         showSelectService = showSelectService + 1
@@ -81,27 +83,49 @@ struct SelectServiceUIView: View {
             ScrollView {
                 
                 switch navigate.currentView {
-                case "HowToContactView" : HowToContactView(navigate: navigate,  fullname: $fullname , phone: $phone).environmentObject(serviceData)
+                case "HowToContactView" : HowToContactView(navigate: navigate,  fullname: $fullname , phone: $phone)
                 case "SelectServiceSubView" :  SelectServiceSubView(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem, totalhours: $totalhours)
-                    
+
                 case "SelectServiceSubView2" : SelectServiceSubView2(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem2, totalhours: $totalhours)
                     //.animation(.easeIn(duration: 2.0)).transition(.scale(scale: 0.9))
-                case "ArrivalTimeFormUIView" : ArrivalTimeFormUIView(navigate: navigate, start: $start, currentStep: $showSelectService).environmentObject(serviceData)
+                case "ArrivalTimeFormUIView" : ArrivalTimeFormUIView(navigate: navigate, start: $start, currentStep: $showSelectService)
                     .transition(.scale)
-                case "LocationFormUIView" : LocationFormUIView(navigate: navigate, currentStep: $showSelectService, street: $street, aptunit: $aptunit, zipcode: $zipcode).environmentObject(modelData)
-                case "SearchView" : SearchView(navigate: navigate, selectedUser: $selectedUser, additioalInformation: $additionalNote)
-                    .environmentObject(modelData).environmentObject(workerData)
-                case "SelectCleanerView" :  SelectCleanerView(navigate: navigate, selectedUser: $selectedUser).environmentObject(modelData).environmentObject(workerData)
-                case "AcceptCleanerView" : AcceptCleanerView(navigate: navigate,currentStep: $showSelectService).environmentObject(modelData)
-                case "MemberConfirmView" : MemberConfirmView(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem,  street: $street, aptunit: $aptunit, zipcode: $zipcode)
-                case "newCustomerConfirmView": newCustomerConfirmView(navigate: navigate,workerlist: workerlist ,fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2, selectedUser: $selectedUser).environmentObject(workerData)
+                case "LocationFormUIView" : LocationFormUIView(navigate: navigate, currentStep: $showSelectService, street: $street, aptunit: $aptunit, zipcode: $zipcode)
+                    
+                case "SearchView" : SearchView(navigate: navigate,workerlist: workerlist , selectedUser: $selectedUser,additioalInformation: $additionalNote, fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2)
+                    
+                    
+                //case "SelectCleanerView" :  SelectCleanerView(navigate: navigate, selectedUser: $selectedUser, workerlist: workerlist)
+                    
+                case "AcceptCleanerView" : AcceptCleanerView(navigate: navigate,currentStep: $showSelectService)
+                case "MemberConfirmView" : MemberConfirmView(navigate: navigate)
+                case "newCustomerConfirmView": newCustomerConfirmView(navigate: navigate, fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2, selectedUser: $selectedUser)
                 case "showPaymentView": PayView(navigate: navigate)
                 case "ConfirmPayView": ConfirmPayView(navigate: navigate,fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2)
                     default:
                         Text("done")
-                    
-              
+
+
                 }
+                
+//                if navigate.currentView.contains("HowToContactView") { HowToContactView(navigate: navigate,  fullname: $fullname , phone: $phone).environmentObject(serviceData) }
+//                if navigate.currentView.contains("SelectServiceSubView"){ SelectServiceSubView(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem, totalhours: $totalhours) }
+//
+//                if navigate.currentView.contains("SelectServiceSubView2") { SelectServiceSubView2(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem2, totalhours: $totalhours) }
+//                    //.animation(.easeIn(duration: 2.0)).transition(.scale(scale: 0.9))
+//                if navigate.currentView.contains("ArrivalTimeFormUIView") { ArrivalTimeFormUIView(navigate: navigate, start: $start, currentStep: $showSelectService).environmentObject(serviceData)
+//                    .transition(.scale) }
+//                if navigate.currentView.contains("LocationFormUIView") { LocationFormUIView(navigate: navigate, currentStep: $showSelectService, street: $street, aptunit: $aptunit, zipcode: $zipcode).environmentObject(modelData) }
+//                if navigate.currentView.contains("SearchView") { SearchView(navigate: navigate, selectedUser: $selectedUser, additioalInformation: $additionalNote)
+//                                                                    .environmentObject(modelData).environmentObject(workerData) }
+//            if navigate.currentView.contains("SelectCleanerView") { SelectCleanerView(navigate: navigate, selectedUser: $selectedUser).environmentObject(modelData).environmentObject(workerData) }
+//            if navigate.currentView.contains("AcceptCleanerView") {
+//                AcceptCleanerView(navigate: navigate,currentStep: $showSelectService).environmentObject(modelData)}
+//
+//                if navigate.currentView.contains("MemberConfirmView") { MemberConfirmView(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem,  street: $street, aptunit: $aptunit, zipcode: $zipcode) }
+//                if navigate.currentView.contains("newCustomerConfirmView") { newCustomerConfirmView(navigate: navigate,workerlist: workerlist ,fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2, selectedUser: $selectedUser).environmentObject(workerData) }
+//            if navigate.currentView.contains("showPaymentView") {  PayView(navigate: navigate) }
+//            if navigate.currentView.contains( "ConfirmPayView") { ConfirmPayView(navigate: navigate,fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2)}
                
 
                     Text("")

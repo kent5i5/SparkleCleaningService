@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var navigate: serviceNavigator
+   
     @EnvironmentObject var modelData: User
     @EnvironmentObject var serviceData: ServiceRepository
     @EnvironmentObject var workerData: WorkerRepository
+    
+    @ObservedObject var navigate: serviceNavigator
+    @ObservedObject var workerlist: WorkerRepository
     @Binding var selectedUser: Worker
 
     @Binding var additioalInformation: String
     
+    @Binding var fullname: String
+    @Binding var phone: String
+    @Binding var street: String
+    @Binding var aptunit: String
+    @Binding var zipcode: String
+    @Binding var totalhours: Int
+    @Binding var start: Date
+    @Binding var iconItem: [Icon]
+    @Binding var iconItem2: [Icon]
     
     @State private var selectedNone = false
+    @State var goToNextView: Int? = 0
     @State var isSearching = false
+    @State var typeArray: [String] = []
     
     func startSearch(){
         self.isSearching = true
@@ -29,7 +43,7 @@ struct SearchView: View {
             
             let group = DispatchGroup()
             group.enter()
-           // DispatchQueue.main.async() {
+            //DispatchQueue.main.async() {
                 workerData.findTheWorker() { isSucceeded in
                     
                     // Only leave when dispatchGroup returns the escaping bool
@@ -42,7 +56,7 @@ struct SearchView: View {
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() ) {
-                   
+                        
                         selectedUser = workerData.selectedWorker
                         self.navigate.nextView(nextView: "SelectCleanerView")
                     }
@@ -51,15 +65,32 @@ struct SearchView: View {
            
            
         } else {
+          
+                iconItem.forEach{ icon in
+                    if icon.isSelected == true{
+                        self.typeArray.append(icon.type)
+                    }}
+                
+                iconItem2.forEach{ icon2 in
+                    if icon2.isSelected == true{
+                        self.typeArray.append(icon2.type)
+                    }}
+
+            
+//            let country  = "USA"
+//            let city  = "SF"
+//            let address =  street + "SF" + aptunit + zipcode
+            //serviceData.prepareServiceData(name: fullname, phone: phone, address: address, country: country, city: city, street: street, apt: aptunit, zipcode: zipcode, type: typeArray , start: start, totalhours: totalhours, workerName: workerData.selectedWorker.name)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            
+                
+                print(workerData.workers)
+                //workerlist = workerData.workers
+
+                //self.navigate.nextView(nextView: "SelectCleanerView")
         
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                
-                
-              
-                    workerData.loadWorkers()
-                
-                
-                self.navigate.nextView(nextView: "SelectCleanerView")
+               goToNextView = 1
             }
         }
         
@@ -87,10 +118,39 @@ struct SearchView: View {
         }
         if isSearching {
             
-            Image("sparkle")
+            Image("sparkle").onAppear(){
+               
+                                let group = DispatchGroup()
+                                group.enter()
+                let country  = "USA"
+                let city  = "SF"
+                let address =  street + "SF" + aptunit + zipcode
+                let id = UUID()
+                let endDate: Date = Date()
+                let service  = Service(id: id.description , name: fullname, phone: phone, address: address, country: country, city: city, street: street , apt: aptunit, zipcode: zipcode, type: typeArray, startdate: start, enddate: endDate, workerName: workerData.selectedWorker.name)
+                //serviceData.prepareServiceData(name: fullname, phone: phone, address: address, country: country, city: city, street: street, apt: aptunit, zipcode: zipcode, type: typeArray , start: start, totalhours: totalhours, workerName: workerData.selectedWorker.name)
+                serviceData.thisService = service
+                                workerData.loadWorkers(){ isSucceeded in
+                                    if isSucceeded {
+                                        group.leave()
+                                    } else {
+                                        // returned false
+                                        group.leave()
+                                    }
+                                }
+            }
 
             Text("Please Wait... ")
             Text("We are searching house keeper for you ")
+            
+            NavigationLink(
+                destination:
+                    
+                    //SelectCleanerView( navigate: navigate, selectedUser: $selectedUser,workerlist: workerlist, fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours,  iconItem: iconItem, iconItem2: iconItem2),
+                    SelectCleanerView(navigate: navigate, selectedUser: $selectedUser, workerlist: workerlist),
+                tag: 1,
+                selection: $goToNextView){
+                Text("")}
         }
         
         if !isSearching {

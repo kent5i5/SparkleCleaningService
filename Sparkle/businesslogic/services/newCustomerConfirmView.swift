@@ -9,9 +9,8 @@ import SwiftUI
 
 struct newCustomerConfirmView: View {
     @EnvironmentObject var modelData: User
-    @EnvironmentObject var workerData: WorkerRepository
+    
     @ObservedObject var navigate: serviceNavigator
-    @ObservedObject var workerlist: WorkerRepository
     
     @Binding var fullname: String
     @Binding var phone: String
@@ -33,7 +32,7 @@ struct newCustomerConfirmView: View {
     
     @State var workers: [Worker] = []
     
-    init(navigate: serviceNavigator, workerlist: WorkerRepository, fullname: Binding<String>, phone: Binding<String>, street: Binding<String>, aptunit: Binding<String>,
+    init(navigate: serviceNavigator,  fullname: Binding<String>, phone: Binding<String>, street: Binding<String>, aptunit: Binding<String>,
          zipcode: Binding<String>, totalhours: Binding<Int>, start: Binding<Date>, iconItem: Binding<[Icon]>, iconItem2: Binding<[Icon]> , selectedUser: Binding<Worker>){
         self.navigate = navigate
         self._fullname = fullname
@@ -46,7 +45,6 @@ struct newCustomerConfirmView: View {
         self._iconItem = iconItem
         self._iconItem2 = iconItem2
         self._selectedUser = selectedUser
-        self.workerlist = workerlist
         
     }
     
@@ -59,14 +57,14 @@ struct newCustomerConfirmView: View {
             return formatter
         }()
     
-    func loadWorker(){
-        DispatchQueue.main.async() {
-            self.workerlist.loadWorkers()
-            print(self.workerlist.workers)
-            
-            workers = self.workerlist.getWorkerList()
-        }
-    }
+//    func loadWorker(){
+//        DispatchQueue.main.async() {
+//            self.workerlist.loadWorkers()
+//            print(self.workerlist.workers)
+//
+//            workers = self.workerlist.getWorkerList()
+//        }
+//    }
     
     func resetView(){
         
@@ -105,14 +103,14 @@ struct newCustomerConfirmView: View {
                 .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
     
             
-            CircleImageView(iconName: "cleaner-a")
+            CircleImageView(iconName: selectedUser.picture)
                 .frame(width: 140, height: 140)
                 .clipShape(Circle())
                 .shadow(radius: 12)
                 .overlay(Circle().stroke(Theme.init().darkGreen, lineWidth: 10))
                 .padding()
             
-            Text("Ms. Maria W.").font(.title2).padding(3)
+            Text(selectedUser.name).font(.title2).padding(3)
             
             Text("Thank for using our service," + fullname )
             
@@ -139,23 +137,19 @@ struct newCustomerConfirmView: View {
              
                 LazyVStack{
                     
-                    List(workerlist.workers) { worker in // (2)
-                            VStack(alignment: .leading) {
-                                Text("\(worker.price)").font(.headline)
-                              Text("\(worker.limit)").font(.subheadline)
-                              Text("\(worker.type)").font(.subheadline)
-                                
-                            
-                            }
-                    }
+//                    List(workerlist.workers) { worker in // (2)
+//                            VStack(alignment: .leading) {
+//                                Text("\(worker.price)").font(.headline)
+//                              Text("\(worker.limit)").font(.subheadline)
+//                              Text("\(worker.type)").font(.subheadline)
+//
+//
+//                            }
+//                    }
                     
-                    ForEach(workerData.workers){ worker in
-                        
-                        Text("price:" + "\(worker.price)")
-                    }
                     Text( "\(selectedUser.price)").font(.caption).scaleEffect(1.5)
-                    Text( "LIMIT: 4 hours " + " One Time" )
-                    Text( "House Cleaning Services")
+                    Text( "LIMIT: " + "\(selectedUser.limit)" + " hours " + " One Time" )
+                    Text( "\(selectedUser.type)")
                     Divider().frame(width: 300, height: 2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Theme.init().lightGreen)
                 }
                 

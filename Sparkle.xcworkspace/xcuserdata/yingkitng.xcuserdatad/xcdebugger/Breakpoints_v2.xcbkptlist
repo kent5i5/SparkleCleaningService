@@ -14,8 +14,8 @@
             filePath = "Sparkle/model/ServiceRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "listentToServiceData()"
             landmarkType = "7">
          </BreakpointContent>

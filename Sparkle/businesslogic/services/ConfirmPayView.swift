@@ -31,12 +31,12 @@ struct ConfirmPayView: View {
             //let serviceHandler = ServiceRepository()
            // var typeArray: [String] = []
         
-            var path = serviceData.newService(name: "user name",  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray )
+            var path = serviceData.newService(name: "user name", phone: phone ,  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray , workerName: "")
             let fbhandler = Fbhandler(modelData: modelData)
             fbhandler.storeService(sid: path )
         
         } else {
-            serviceData.createService(name: "user name",  phone: "", address: "", country: "", city: "", street: street, apt: "apt", zipcode: zipcode, type: typeArray, start: start, totalhours: totalhours)
+            serviceData.createService(name: fullname,  phone: phone, address: "", country: "", city: "", street: street, apt: "apt", zipcode: zipcode, type: typeArray, start: start, totalhours: totalhours, workerName:  "")
             //resetView()
         }
     }
