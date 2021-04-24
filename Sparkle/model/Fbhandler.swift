@@ -18,6 +18,10 @@ class Fbhandler {
         self.modelData = modelData
     }
     
+    /// Initializes a new login with a specified name and password
+    ///  - Parameters:
+    ///     - name Name of the user account
+    ///     - password Passwor of the user account
     func loginExistingUserWithEmail(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
@@ -29,6 +33,10 @@ class Fbhandler {
         self.modelData.isRegistered = true
     }
     
+    /// Initializes a new registerwith a specified name and password
+    ///  - Parameters:
+    ///     - name Name of the user account
+    ///     - password Passwor of the user account
     func registerWithEmail(email: String, password: String ) -> String{
         var result = ""
         // [START create_user]
@@ -47,7 +55,7 @@ class Fbhandler {
 
     }
     
-    
+    /// Clean the states and sign the firebase account off
     func signOut(){
         self.modelData.uid = ""
         self.modelData.name = ""
@@ -63,6 +71,8 @@ class Fbhandler {
         }
     }
     
+    
+    /// Retrieve the user informations and remember data  in modelData
     func getUserInfo() {
        
         let user = Auth.auth().currentUser
@@ -81,19 +91,12 @@ class Fbhandler {
             modelData.uid = uid
             loadUser(uid:uid)
             modelData.setName(name: email!)
-          // ...
         }
         
-        
-        
-        //return modelData
     }
     
     
-    /*
-     FireStore Functions
-     */
-    
+    /// Retrieve the user informations and remember data  in modelData
     private func loadUser(uid: String){
         
         let document  = db.document("users/" + uid)
@@ -117,6 +120,8 @@ class Fbhandler {
         
     }
     
+     
+    /// Store user  data into firestore database users document from modeldata
     func storeUserData(){
         let citiesRef = db.collection("users")
         citiesRef.document(modelData.uid).setData([
@@ -132,31 +137,11 @@ class Fbhandler {
     }
     
 
-    
-    func storeUserData(uid: String, name: String, country: String, address: String, city: String){
-        let citiesRef = db.collection("users")
-        citiesRef.document(uid).setData([
-            "name": name,
-            "address": address,
-            "country": country,
-            "city": city
-            //"state": "CA",
-            //jobs
-            //etc
-            ])
-        
-    }
-    
-    func storeService( sid: String){
-        //let serviceRef = db.collection("service/" + sid);
-        //let serviceRef = db.collection("users/" + modelData.uid + "/serviceRef")
-        let serviceRef = db.collection("servicelist")
-        let index = "s" + Int.random(in: 0..<1000000).description
-        serviceRef.document(modelData.uid).setData([index :sid], merge: true)
-    }
-    
 
-    
+    /// A function that remove docuement from  a list of document in firestore database
+    ///  - Parameters:
+    ///     - layer1  first layer of document
+    ///     - layer2 second layer of document
     func removeDocument(layer1: String, layer2: String){
         db.collection(layer1).document(layer2).delete() { err in
             if let err = err {

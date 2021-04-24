@@ -1,6 +1,9 @@
 //
 //  ServiceNavigator.swift
 //  Sparkle
+//  Navigation Object,  takes two value , control the flow the service views
+//      currentView - the current subview
+//      firstView - the first subview
 //
 //  Created by ying kit ng on 4/18/21.
 //
@@ -18,6 +21,9 @@ class serviceNavigator {
         self.viewlist = []
         self.viewlist.append(firstView)
     }
+    
+    
+    /// Navigate back to preview subview based on naem in the viewlist and remove it from viewlist never remove firstview
     func previousView(){
         
         if !self.viewlist.isEmpty  {
@@ -27,12 +33,16 @@ class serviceNavigator {
     }
 
     
+    /// Navigate to next view with the give name
+    /// parameter
+    ///     - nextView a string that represent the next view
     func nextView(nextView: String){
         self.viewlist.append(currentView) 
         self.currentView = nextView
  
     }
     
+    /// Navigate to first view
     func resetView(){
         self.currentView = self.viewlist[0]
 

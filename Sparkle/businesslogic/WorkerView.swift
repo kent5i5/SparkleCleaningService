@@ -21,11 +21,7 @@ struct WorkerView: View {
                
                 HStack {
                     VStack {
-                       // Text("Cleaner: ").frame( alignment: .leading).font(.title3)
-//                        Image( "user").resizable()
-//                            .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                            .overlay( Circle().stroke(lineWidth: 2).foregroundColor(.black))
-//                            .foregroundColor(.green)
+
                         CircleImageView( iconName: userPicture)
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
@@ -42,8 +38,7 @@ struct WorkerView: View {
                         
                         //Text(favorite.id.uuidString).frame( alignment: .leading).font(.caption)
                     }.padding()
-                    
-                    //Divider()
+
                     VStack {
                         HStack {
                             Text("Rating: " ).frame( alignment: .leading).font(.body)
@@ -61,12 +56,7 @@ struct WorkerView: View {
                         //Text( favorite.name).font(.body)
                                                 Text(intro )
                                                     .frame( alignment: .leading)
-                        //Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
-                        
-//                        Text(" " ).frame( alignment: .leading)
-//                            .padding()
-//                            .font(.body).foregroundColor(.green)
-                        //Text("\(Date(), formatter: Self.taskDateFormat)") .font(.subheadline)
+
                         
                         Text(userPicture).frame( alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).foregroundColor(Theme.init().darkGreen)
                         

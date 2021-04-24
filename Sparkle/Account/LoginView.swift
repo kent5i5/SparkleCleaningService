@@ -42,15 +42,9 @@ struct LoginView: View {
     }
     
     func signOut(){
-//        let auth = Auth.auth()
-//        do {
-//            try auth.signOut()
-//        } catch let signOutError as NSError {
-//          print ("Error signing out: %@", signOutError)
-//        }
         
         appData.name = ""
-        //modelData.name = ""
+  
         let fbhandler = Fbhandler(modelData: modelData)
         fbhandler.signOut()
     }
@@ -59,7 +53,7 @@ struct LoginView: View {
         Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
           //guard let strongSelf = self else { return }
           // ...
-            if let error = error {
+            if error != nil {
                 print("login fail")
                    
                 self.showingAlert = true
@@ -78,7 +72,7 @@ struct LoginView: View {
       if email.isEmpty == false {
         //user.profile = Profile(nameArg: $email, passwordArg: $password)
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
+            if error != nil {
                 print("login fail")
                    
                 self.showingAlert = true
@@ -219,19 +213,6 @@ struct LoginView: View {
                     }.alert(isPresented: $showingAlert) {
                         Alert(title: Text("Authenticate Error"), message: Text("Incorrect username and password"), dismissButton: .default(Text("Got it!")))
                     }
-                    
-                    
-                    
-                    
-//                    NavigationLink(destination: RegisterView().environmentObject(modelData),
-//                                   label: {
-//                                    Text("Register")
-//                                        .padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
-//                                        .font(.footnote)
-//                                        .overlay(RoundedRectangle(cornerRadius: 15)
-//                                                .stroke(lineWidth: 0.5)
-//                                                .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1)))
-//                                        .foregroundColor(Color(red: 0, green: 0.5, blue: 0.1))})
 
                     
                 }.padding()
@@ -250,7 +231,7 @@ struct LoginView: View {
                 }) {
             
                     HStack {
-                        Text("Google / Facebook").foregroundColor(Color(red: 0, green: 0, blue: 0))
+                        Text("Google").foregroundColor(Color(red: 0, green: 0, blue: 0))
                     }.sheet(isPresented: $isPresented){
                         FirebaseSignInViewControllerRepresentation()
                             .frame(width: 400, height: 600, alignment: .center)
@@ -260,7 +241,6 @@ struct LoginView: View {
                     }
                 }
 
-                //Spacer()
             }.onAppear(){getUserInfo()}
            
         }
@@ -268,14 +248,13 @@ struct LoginView: View {
     }
 }
 
-//let serviceSession = serviceStore()
 
 let user = User()
 #if DEBUG
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView(appData: user)
-            //.environmentObject()
+            
     }
 }
 #endif

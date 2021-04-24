@@ -1,6 +1,9 @@
 //
 //  ProfileUIView.swift
 //  Sparkle
+//  Account settings and preferences
+//  Each settings will store as core data
+//  in the device
 //
 //  Created by ying kit ng on 1/5/21.
 //
@@ -9,7 +12,6 @@ import SwiftUI
 import Firebase
 
 struct ProfileUIView: View {
-    //@EnvironmentObject var settings: SettingsObject
     @Environment(\.managedObjectContext) var context
     @EnvironmentObject var modelData: User
     @State var username = ""
@@ -30,7 +32,6 @@ struct ProfileUIView: View {
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
-        //appData.name = ""
         modelData.signout()
     }
     var body: some View {
@@ -41,13 +42,8 @@ struct ProfileUIView: View {
                 CircleImageView(iconName: "client-a").frame(width: 140, height: 140)
                     .overlay(Circle().stroke(Theme.init().darkGreen, lineWidth: 5))
                     .padding(.bottom, 60)
-                    
-//                Image(systemName: "pencil.tip")
-//                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+
                 Form {
-//                    Section(header: Text("PROFILE")) {
-//                        TextField("Username", text: $username)
-//                    }
                     
                     
                     NavigationLink(destination: AccountView().environmentObject(modelData),
@@ -117,9 +113,6 @@ struct ProfileUIView: View {
                                 }
                             }
                     )
-
-                
-            
             
 //                Section(header: Text("ABOUT")) {
 //                    HStack {

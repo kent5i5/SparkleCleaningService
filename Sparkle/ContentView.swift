@@ -1,6 +1,7 @@
 //
 //  ContentView.swift
 //  Sparkle
+//  Content View contains all tabs items and display 4 main Views 
 //
 //  Created by ying kit ng on 1/5/21.
 //
@@ -25,7 +26,6 @@ struct ContentView: View {
         
     }
     var body: some View {
-       // NavigationView {
             VStack {
 
             TabView(selection: $selection) {
@@ -36,14 +36,12 @@ struct ContentView: View {
                     selection == 0 ? Image("Home-selected").resizable() : Image("home").resizable()
                     //Text("home").font(.caption2)
                 }.tag(0)//.ignoresSafeArea()
-                //.navigationBarHidden(true)
-               // .environmentObject(modelData)
+               
                 
                 CalenderUIView().tabItem {
                    
                     selection == 1 ? Image( "calendar-1").resizable() : Image("calendar").resizable()
                                         
-                   // Text("Services").font(.caption2)
                 }.tag(1)//.edgesIgnoringSafeArea(.top)
                 .navigationBarHidden(true)
                 
@@ -51,15 +49,14 @@ struct ContentView: View {
                     selection == 2 ? Image("my-cleaner-selected").resizable() : Image("my-cleaner").resizable()
                     //Text("Profile").font(.caption2)
                 }.tag(2).navigationBarHidden(true)
-                //.environmentObject(modelData)
-                //.environmentObject(serviceData)
+           
                 
                 ProfileUIView().tabItem {
                    
                     selection == 3 ? Image("my-profile-selected").resizable() : Image("my-profile").resizable()
                     //Text("Settings").font(.caption2)
                 }.tag(3).navigationBarHidden(true)
-                //.environmentObject(modelData)
+        
                 
                
                 
@@ -73,9 +70,6 @@ struct ContentView: View {
             
         }//.navigationViewStyle(StackNavigationViewStyle())
         
-
-         
-    //}
 }
 
 struct ContentView_Previews: PreviewProvider {

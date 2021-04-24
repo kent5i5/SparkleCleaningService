@@ -132,9 +132,7 @@ struct CalenderUIView: View {
         .foregroundColor(Theme.init().darkGreen)
        
     }
-        
-        //            DatePicker(selection: /*@START_MENU_TOKEN@*/.constant(Date())/*@END_MENU_TOKEN@*/, label: { Text("Cleaning Schedule")})
-        //                .datePickerStyle(GraphicalDatePickerStyle())
+
 
 }
 

@@ -45,7 +45,6 @@ class WorkerRepository: ObservableObject {
         // Enter the group outside of the getDocuments call
         group.enter()
         
-       // var worker = Worker(name: "", price: 0, picture: "", limit: 0, type: "", intro: "", isSelected: false)
        db.collection("workers").whereField("price", isEqualTo: 150)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
@@ -54,7 +53,7 @@ class WorkerRepository: ObservableObject {
                 } else {
                     for document in querySnapshot!.documents {
                         print("\(document.documentID) => \(document.data())")
-                        var data = document.data()
+                        let data = document.data()
                         self.selectedWorker = Worker(name: data["name"] as! String , price: data["price"] as! Double, picture: data["picture"] as! String , limit: data["limit"] as! Double, type: data["type"] as! String, intro: data["intro"] as! String, isSelected: false)
                     }
                     
@@ -63,7 +62,7 @@ class WorkerRepository: ObservableObject {
                 group.leave()
             
         }
-        // Continue in here when done above
+                // Continue in here when done above
                 group.notify(queue: DispatchQueue.global(qos: .background)) {
                     print("all names returned, we can continue")
                     completing(true)
@@ -76,8 +75,6 @@ class WorkerRepository: ObservableObject {
     }
 
     /// retrieves all the services from `workers` collection
-    //func loadWorkers(completion: @escaping ([Worker]) -> Void){
-        
    func loadWorkers(completing: @escaping (Bool) -> Void)  {
         let workersRef = db.collection("workers")
         let group = DispatchGroup()
@@ -108,10 +105,6 @@ class WorkerRepository: ObservableObject {
                // completion(self.workers)
                 self.workers = workerlist
             }
-            
-           // for worker in workerlist {
-                
-            //}
            
             group.leave()
         

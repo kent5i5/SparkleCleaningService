@@ -52,6 +52,7 @@ class ServiceRepository: ObservableObject{
     }
     
     /// listen to the  a  `Service` document in firestore
+    /// note: incomplete
     func listentToServiceData(){
         db.collection("services").addSnapshotListener { (snap, err) in
                    if err != nil {
@@ -65,7 +66,7 @@ class ServiceRepository: ObservableObject{
 
                           // self.data.append(Service(id: "", name: "", date: Date(), address: "", country: "", city: ""))
                        }
-                      // print(self.data)
+                   
                    }
                }
     }
@@ -74,7 +75,7 @@ class ServiceRepository: ObservableObject{
     ///  - Parameters:
     ///     - name Name of the service, address Adress of the service, country: country of the service ... etc
     func newService(name: String, phone: String, address: String, country: String, city: String, street: String, apt: String, zipcode: String, type: Array<String>, workerName: String) -> String{
-        var path = db.collection("services").addDocument(
+        let path = db.collection("services").addDocument(
             data: ["name" : name,  "phone": phone, "address": address, "country": country, "city": city, "street": street, "apt": apt, "zipcode": zipcode , "type": type, "startdate": self.startDate, "enddate": self.endDate, workerName: workerName])
         print("finsih addding service in :")
         return path.documentID.description
@@ -114,7 +115,6 @@ class ServiceRepository: ObservableObject{
     /// retrieves all the services from `services` collection with the id of `Servicelist` collection in firestore
     func getServicelists(uid: String){
         var servicesid: [String] = []
-        var serviceslist: [Service] = []
         
         let serviceRef = db.collection("servicelist").document(uid)
         
@@ -134,8 +134,6 @@ class ServiceRepository: ObservableObject{
                     servicesid.append(document[key] as! String)
                     
                 }
-                 
-                //servicesid.remove(at: 0)  //remove "" key
                     
                 let serviceRepo = ServiceRepository()
                 if !servicesid.isEmpty{
@@ -149,6 +147,20 @@ class ServiceRepository: ObservableObject{
         }
 
     }
+    
+    
+    /// Store provided user  data into firestore database users document from modeldata
+    ///  - Parameters:
+    ///     - uid   id of theuser account
+    ///     - sid  id of the service
+    func storeService( uid: String, sid: String){
+        //let serviceRef = db.collection("service/" + sid);
+        //let serviceRef = db.collection("users/" + modelData.uid + "/serviceRef")
+        let serviceRef = db.collection("servicelist")
+        let index = "s" + Int.random(in: 0..<1000000).description
+        serviceRef.document(uid).setData([index :sid], merge: true)
+    }
+
     
 //    private func loadAllService(){
 //        db.collection("Services").getDocuments{ (snapshot,error) in
@@ -176,9 +188,9 @@ class ServiceRepository: ObservableObject{
 //
 //    }
 //
-//    func remove(at index: Int){
-//        let serviceToDelete = serivces[index]
-//
-//        db.collection("notes").document(serviceToDelete.id).delete()
-//    }
+    func remove(at index: Int){
+        let serviceToDelete = serivces[index]
+
+        db.collection("notes").document(serviceToDelete.id).delete()
+    }
 }

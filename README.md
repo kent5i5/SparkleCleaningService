@@ -4,7 +4,7 @@
 
 Use Case:
 
-This mobile app provides user a smooth way of booking elder service. 
+This mobile app provides a smooth way of booking cleaning service. 
 
 ### Technology 
 
@@ -14,6 +14,17 @@ This mobile app provides user a smooth way of booking elder service.
 
 3. Firestore NoSql Database is used to store data and keep data in  sync 
 
+
+## Business Logic 
+
+1. User can open new order without any account ( limited choice of services)
+2. User can sign up for an account 
+3. User with an account can customize the order 
+    * select  services 
+    * review cleaner
+    * make appointments
+4. User will require to enter payment before checkout an order
+5. User should be able to choose to open an account after opening an order
 
 
 ## UX Design  by Ka Mei (Kammy) Kwan

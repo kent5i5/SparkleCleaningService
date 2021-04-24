@@ -1,6 +1,8 @@
 //
 //  StartingView.swift
 //  Sparkle
+//  Starting page allows user to open cleaning service order
+//  or sign up for an account.
 //
 //  Created by ying kit ng on 3/31/21.
 //
@@ -63,8 +65,7 @@ struct StartingView: View {
                         Spacer()
                         NavigationLink(
                             destination: RegisterView().environmentObject(modelData),
-                                //LoginView(appData: appData).environment(\.managedObjectContext, context)
-                                //.environmentObject(modelData).environmentObject(serviceData),
+                    
                             label: {
                                 
                                 Text("Sign Up").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -96,10 +97,7 @@ struct StartingView: View {
                        
                       
                     }
-                   
-                    
-               
-                    
+
                 }.opacity((Auth.auth().currentUser == nil) ? 1 : 0)
                 .foregroundColor(theme.darkGreen)
    

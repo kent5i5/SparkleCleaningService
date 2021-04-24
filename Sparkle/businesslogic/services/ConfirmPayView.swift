@@ -31,9 +31,8 @@ struct ConfirmPayView: View {
             //let serviceHandler = ServiceRepository()
            // var typeArray: [String] = []
         
-            var path = serviceData.newService(name: "user name", phone: phone ,  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray , workerName: "")
-            let fbhandler = Fbhandler(modelData: modelData)
-            fbhandler.storeService(sid: path )
+            let path = self.serviceData.newService(name: "user name", phone: phone ,  address: "", country: "", city: "", street: street, apt: aptunit, zipcode: zipcode, type: typeArray , workerName: "")
+            self.serviceData.storeService( uid: modelData.uid, sid: path )
         
         } else {
             serviceData.createService(name: fullname,  phone: phone, address: "", country: "", city: "", street: street, apt: "apt", zipcode: zipcode, type: typeArray, start: start, totalhours: totalhours, workerName:  "")
@@ -45,10 +44,10 @@ struct ConfirmPayView: View {
     var body: some View {
         Text("Confirm").onTapGesture {
             
-            
+            Text("create order")
             navigate.nextView(nextView: "SelectServiceSubView")
             
-            Text("create order")
+         
         }
     }
 }

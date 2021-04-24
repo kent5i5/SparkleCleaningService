@@ -1,6 +1,7 @@
 //
 //  FirebaseSignInViewController.swift
 //  Sparkle
+//  The contorller display Qauth sign in buttons
 //
 //  Created by ying kit ng on 2/21/21.
 //
@@ -107,27 +108,14 @@ class FirebaseSignInViewController: UIViewController {
             // self.authenticateGameCenterLocalPlayer()
       }
 
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
+/*
+ Representation of the controller allows other swiftui Views to treat UIView and Controler like swiftui view
+ */
 struct FirebaseSignInViewControllerRepresentation: UIViewControllerRepresentable{
     
-//    func makeCoordinator() -> () {
-//        Coordinator(self)
-//    }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<FirebaseSignInViewControllerRepresentation>) -> FirebaseSignInViewController{
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirebaseSignInViewController") as! FirebaseSignInViewController

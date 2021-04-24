@@ -1,7 +1,7 @@
 //
 //  ServiceSelctionsUIView.swift
 //  Sparkle
-//
+//  Display 6 service icons
 //  Created by ying kit ng on 3/3/21.
 //
 

@@ -22,7 +22,7 @@ struct HomeView: View {
                                           Reviewer(userPicture: "client-b", userName: "Jimmy Morgan" , content: ""),
                                           Reviewer(userPicture: "client-c", userName:  "Karen Thomas" , content: "") ]
     
-    @ObservedObject var navigate = serviceNavigator(currentView: "SelectServiceSubView", firstView: "SelectServiceSubView")
+    @ObservedObject var navigate = serviceNavigator(currentView: "Sele ctServiceSubView", firstView: "SelectServiceSubView")
        
     let theme = Theme()
     func getUserInfo(){
@@ -56,11 +56,6 @@ struct HomeView: View {
                         ScrollView(.horizontal, showsIndicators: true){
                             ScrollViewReader { proxy in
                                 LazyHStack{
-     
-//                                    ForEach(0..<3) { index in
-//                                            Text(String(index))
-//                                                .id(index)
-//                                    }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                                 
                                    
                             Image( "Mask Group 1")
@@ -71,10 +66,6 @@ struct HomeView: View {
                                 .resizable()
                                 .frame(width: geometry.size.width, height:geometry.size.height, alignment: .center)
                                 .id(1)
-//                            Image("andrea-piacquadio-3")
-//                                .resizable()
-//                                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-//                                .id(2)
                                     
                                 }.onChange(of: position) { value in
                                     withAnimation {
@@ -97,9 +88,6 @@ struct HomeView: View {
                             Button(action: { position =  1 }){
                                 Circle().frame(width: 10, height: 10, alignment: .center)
                             }
-//                            Button(action: { position = 2 }){
-//                                Circle().frame(width: 10, height: 10, alignment: .center)
-//                            }
                         }.padding().offset(x:-10)
                     }
                 }

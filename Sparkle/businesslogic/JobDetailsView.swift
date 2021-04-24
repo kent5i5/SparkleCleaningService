@@ -101,10 +101,4 @@ struct JobDetailsView: View {
         }
     }
 }
-//
-//struct JobDetailsView_Previews: PreviewProvider {
-//   
-//    static var previews: some View {
-//        JobDetailsView(service: Service(id: "", name: "", address: "", country: "", city: "", street: "", apt: "", zipcode: "", type: [], startdate: Date(), enddate: Date()))
-//    }
-//}
+

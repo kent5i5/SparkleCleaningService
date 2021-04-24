@@ -75,7 +75,7 @@ struct MemberConfirmView: View {
                 Button(action: { resetView()}){
                     Text("reset" )
                 }
-                    Text("Ms. Maria W.").font(.title2).padding(3)
+                Text(workerData.selectedWorker.name).font(.title2).padding(3)
                 
 
                

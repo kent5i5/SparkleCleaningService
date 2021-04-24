@@ -107,26 +107,7 @@ struct SelectServiceUIView: View , Equatable {
 
 
                 }
-                
-//                if navigate.currentView.contains("HowToContactView") { HowToContactView(navigate: navigate,  fullname: $fullname , phone: $phone).environmentObject(serviceData) }
-//                if navigate.currentView.contains("SelectServiceSubView"){ SelectServiceSubView(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem, totalhours: $totalhours) }
-//
-//                if navigate.currentView.contains("SelectServiceSubView2") { SelectServiceSubView2(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem2, totalhours: $totalhours) }
-//                    //.animation(.easeIn(duration: 2.0)).transition(.scale(scale: 0.9))
-//                if navigate.currentView.contains("ArrivalTimeFormUIView") { ArrivalTimeFormUIView(navigate: navigate, start: $start, currentStep: $showSelectService).environmentObject(serviceData)
-//                    .transition(.scale) }
-//                if navigate.currentView.contains("LocationFormUIView") { LocationFormUIView(navigate: navigate, currentStep: $showSelectService, street: $street, aptunit: $aptunit, zipcode: $zipcode).environmentObject(modelData) }
-//                if navigate.currentView.contains("SearchView") { SearchView(navigate: navigate, selectedUser: $selectedUser, additioalInformation: $additionalNote)
-//                                                                    .environmentObject(modelData).environmentObject(workerData) }
-//            if navigate.currentView.contains("SelectCleanerView") { SelectCleanerView(navigate: navigate, selectedUser: $selectedUser).environmentObject(modelData).environmentObject(workerData) }
-//            if navigate.currentView.contains("AcceptCleanerView") {
-//                AcceptCleanerView(navigate: navigate,currentStep: $showSelectService).environmentObject(modelData)}
-//
-//                if navigate.currentView.contains("MemberConfirmView") { MemberConfirmView(navigate: navigate, currentStep: $showSelectService, iconItem: $iconItem,  street: $street, aptunit: $aptunit, zipcode: $zipcode) }
-//                if navigate.currentView.contains("newCustomerConfirmView") { newCustomerConfirmView(navigate: navigate,workerlist: workerlist ,fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2, selectedUser: $selectedUser).environmentObject(workerData) }
-//            if navigate.currentView.contains("showPaymentView") {  PayView(navigate: navigate) }
-//            if navigate.currentView.contains( "ConfirmPayView") { ConfirmPayView(navigate: navigate,fullname: $fullname, phone: $phone, street: $street, aptunit: $aptunit, zipcode: $zipcode, totalhours: $totalhours, start: $start, iconItem: $iconItem, iconItem2: $iconItem2)}
-               
+
 
                     Text("")
                     .navigationBarItems(leading:
