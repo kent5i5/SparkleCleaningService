@@ -50,10 +50,10 @@ struct SelectServiceUIView: View , Equatable {
                                     Icon(name: "flooring",type: "flooring",  isSelected:false),
                                    Icon(name: "refrigerator",type: "refrigerator", isSelected:false),
                                        Icon(name: "storage",type: "storage",  isSelected:false),
-                                       Icon(name: "washingmachine",type: "washingmachine",  isSelected:false),
+                                       Icon(name: "washingmachine",type: "wash-machine",  isSelected:false),
                                    Icon(name: "water plant",type: "water plant", isSelected:false),
                                        Icon(name: "waxing",type: "waxing", isSelected:false),
-                                       Icon(name: "additional-work-lightgreen",type: "additional-work-lightgreen",  isSelected:false)]
+                                       Icon(name: "additional-work-lightgreen",type: "additional",  isSelected:false)]
     @State var fullname: String = ""
     @State var phone: String = ""
 
@@ -113,6 +113,7 @@ struct SelectServiceUIView: View , Equatable {
                     .navigationBarItems(leading:
                         Button(action: {
                             navigate.currentView = navigate.viewlist[0]
+                            //navigate.viewlist  = []
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             HStack {

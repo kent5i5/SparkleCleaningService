@@ -22,7 +22,7 @@ struct HomeView: View {
                                           Reviewer(userPicture: "client-b", userName: "Jimmy Morgan" , content: ""),
                                           Reviewer(userPicture: "client-c", userName:  "Karen Thomas" , content: "") ]
     
-    @ObservedObject var navigate = serviceNavigator(currentView: "Sele ctServiceSubView", firstView: "SelectServiceSubView")
+    @ObservedObject var navigate = serviceNavigator(currentView: "SelectServiceSubView", firstView: "SelectServiceSubView")
        
     let theme = Theme()
     func getUserInfo(){
@@ -144,7 +144,7 @@ struct HomeView: View {
                             .sparkletextfield()
                         
                         Text("").frame(height:30)
-                        NavigationLink(destination: SelectServiceUIView(navigate: navigate,  workerlist: WorkerRepository()).equatable()) {
+                        NavigationLink(destination: SelectServiceUIView(navigate: navigate,  workerlist: WorkerRepository())) {
                             Text("Book A Cleaner").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                 .sparklefilledbutton()
                         }
