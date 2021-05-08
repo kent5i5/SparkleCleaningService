@@ -59,7 +59,17 @@ struct HowToContactView: View {
                 .overlay(RoundedRectangle(cornerRadius: 30)
                             .stroke(lineWidth: 2)
                             .foregroundColor(Theme.init().darkGreen))
-        }
+        }.simultaneousGesture(DragGesture()
+                                .onChanged {
+                                    if ($0.startLocation.x - $0.location.x) > 100 {
+                                        //self.swipeX = .left
+                                        navigate.nextView(nextView: "SelectServiceSubView2")
+                                    } else if $0.startLocation.x == $0.location.x {
+                                        //self.swipeX = .zero
+                                    } else {
+                                        //navigate.previousView()
+                                    }
+                                }) // simultaneousGesture
         
         
         

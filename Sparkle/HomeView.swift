@@ -139,9 +139,16 @@ struct HomeView: View {
                     
 
                 
-                    
-                        TextField("Search", text: .constant(""))
-                            .sparkletextfield()
+                        ZStack {
+                            Rectangle().foregroundColor(Color("LightGray"))
+                            HStack {
+                                Image(systemName: "magnifyingglass")
+                                TextField("Search", text: .constant(""))
+                                    .padding()
+                                
+                            }.padding(.leading, 13)
+                        }.sparkletextfield()
+                       
                         
                         Text("").frame(height:30)
                         NavigationLink(destination: SelectServiceUIView(navigate: navigate,  workerlist: WorkerRepository())) {
